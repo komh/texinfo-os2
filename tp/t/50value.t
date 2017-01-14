@@ -10,6 +10,11 @@ my @test_cases = (
 
 @value{a-_5b} After value.
 '],
+['not_only_characters',
+'@set -e_\'::; hh
+
+Say @value{-e_\'::;}.
+'],
 ['bad_syntax','
 @set
 @set 
@@ -286,7 +291,9 @@ After page on it\'s own line.
 
 @set bye_macro @bye
 
-@value{bye_macro}'],
+@value{bye_macro}',
+{'expanded_formats' => []}
+],
 ['value_in_invalid_documentencoding',
 '@set badvalue bad
 @documentencoding @value{badvalue}
@@ -327,6 +334,23 @@ line
 @item xx @set n@c
 @item jj
 @end table
+'],
+['set_form_feed',
+'@set gg  a\\a\\f\\\\
+@set hh
+@set ll 
+
+@code{@value{gg}. @value{hh}. @value{ll}}.
+', {'test_formats' => ['xml']}
+],
+['ignored_value_definition',
+'@set aa outside
+
+@inlinefmt{tex,
+@set aa in inlinefmt tex
+}
+
+@value{aa}.
 ']
 );
 

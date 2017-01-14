@@ -1,3 +1,4 @@
+# $Id: plaintext_tests.t 7235 2016-06-25 20:20:46Z gavin $
 use strict;
 
 use File::Spec;
@@ -89,14 +90,14 @@ Before samp. @samp{a}. after samp, w @w{in   w. after dot}  afterw
 html
 @end html
 after.
-',{'expanded_formats' => ['html']}
+',{'expanded_formats' => ['html']}, {'expanded_formats' => ['html']}
 ],
 ['isolated_html_expanded',
 '
 @html
 html
 @end html
-',{'expanded_formats' => ['html']}
+',{'expanded_formats' => ['html']}, {'expanded_formats' => ['html']}
 ],
 ['star_at_command_formatting',
 '@macro mymacro
@@ -386,6 +387,10 @@ follows}.
 '@documentencoding utf-8
 @sc{in sc}.
 '],
+['U_with_utf8_enable_encoding',
+'@documentencoding utf-8
+@U{00FF} (should be a real y-dieresis in UTF-8).
+'],
 ['flushright_not_closed_and_format',
 '@flushright
 flushright
@@ -394,7 +399,6 @@ flushright
 A quot---ation
 @end quotation
 '],
-# FIXME the result is not right, space should be doubled after @abbr{AAA}. too.
 ['punctuation_abbr_acronym',
 '@abbr{AAA}. @acronym{BBB}. @abbr{aaa}. @acronym{bbb}. Next.
 @abbr{AAA, expL}. @acronym{BBB, explA}. @abbr{aaa, expl}. 
@@ -473,7 +477,7 @@ GGG
 HHH
 @end tex
 bbbbbbbbb1 bbbbbbbbbbb2 bbbbbbbbbb3 bbbbbbbbbbbbbb4.
-', {'expanded_formats' => ['tex']}
+', {'expanded_formats' => ['tex']}, {'expanded_formats' => ['tex']}
 ],
 ['paragraphindent',
 'First
@@ -595,6 +599,9 @@ T
 @tab in tab
 @item in item
 @end example
+'],
+['lone_braces_in_inlineraw',
+'@inlineraw{plaintext, {truc}}.
 '],
 # if this test is modified, the corresponding test in t/info_tests.t should
 # be changed too
@@ -962,6 +969,22 @@ undef, {'test_file' => 'japanese_utf8.texi'}
 ['chinese_mixed_with_en',
 undef, {'test_file' => 'chinese_mixed_with_en.texi'}
 ],
+['non_break_spaces',
+undef, {'test_file' => 'non_break_spaces.texi'}
+],
+['all_spaces',
+undef, {'test_file' => 'all_spaces.texi', 
+        'todo' => {'file_plaintext' => 
+                          'NEL handled differently between perl versions'}}
+],
+['east_asian_in_w',
+undef, {'test_file' => 'east_asian_in_w.texi'}
+],
+['quote_node_names',
+undef, {'test_file' => 'nodequote.texi',},
+{'INFO_SPECIAL_CHARS_QUOTE' => 1,
+ 'INFO_SPECIAL_CHARS_WARNING' => 0,}
+],
 );
 
 foreach my $test (@test_cases) {
@@ -978,4 +1001,3 @@ run_all ('plaintext_tests', [@test_cases, @file_tests], $arg_test_case,
    $arg_generate, $arg_debug);
 
 1;
-

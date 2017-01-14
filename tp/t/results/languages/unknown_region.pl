@@ -132,7 +132,6 @@ $result_trees{'unknown_region'} = {
                           'text' => 'Variable d\'instance'
                         }
                       ],
-                      'parent' => undef,
                       'type' => 'bracketed_def_content'
                     }
                   ],
@@ -186,7 +185,6 @@ $result_trees{'unknown_region'} = {
                   'command' => {},
                   'content' => [
                     {},
-                    {},
                     {
                       'parent' => {
                         'contents' => [],
@@ -194,7 +192,6 @@ $result_trees{'unknown_region'} = {
                       },
                       'text' => ' de '
                     },
-                    {},
                     {}
                   ],
                   'content_normalized' => [
@@ -207,7 +204,6 @@ $result_trees{'unknown_region'} = {
                   'in_code' => 1,
                   'index_at_command' => 'defivar',
                   'index_name' => 'vr',
-                  'index_prefix' => 'v',
                   'index_type_command' => 'defivar',
                   'key' => 'BBB de AAA',
                   'node' => {},
@@ -321,8 +317,8 @@ $result_trees{'unknown_region'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'ex
 $result_trees{'unknown_region'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'extra'}{'def_parsed_hash'}{'name'} = $result_trees{'unknown_region'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'extra'}{'def_args'}[4][1];
 $result_trees{'unknown_region'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'extra'}{'index_entry'}{'command'} = $result_trees{'unknown_region'}{'contents'}[1]{'contents'}[1]{'contents'}[0];
 $result_trees{'unknown_region'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'extra'}{'index_entry'}{'content'}[0] = $result_trees{'unknown_region'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'extra'}{'def_args'}[4][1];
-$result_trees{'unknown_region'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'extra'}{'index_entry'}{'content'}[2]{'parent'}{'contents'} = $result_trees{'unknown_region'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'extra'}{'index_entry'}{'content'};
-$result_trees{'unknown_region'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'extra'}{'index_entry'}{'content'}[3] = $result_trees{'unknown_region'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'extra'}{'def_args'}[2][1];
+$result_trees{'unknown_region'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'extra'}{'index_entry'}{'content'}[1]{'parent'}{'contents'} = $result_trees{'unknown_region'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'extra'}{'index_entry'}{'content'};
+$result_trees{'unknown_region'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'extra'}{'index_entry'}{'content'}[2] = $result_trees{'unknown_region'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'extra'}{'def_args'}[2][1];
 $result_trees{'unknown_region'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'extra'}{'index_entry'}{'content_normalized'}[0] = $result_trees{'unknown_region'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'extra'}{'def_args'}[4][1];
 $result_trees{'unknown_region'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'extra'}{'index_entry'}{'content_normalized'}[2] = $result_trees{'unknown_region'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'extra'}{'def_args'}[2][1];
 $result_trees{'unknown_region'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'extra'}{'index_entry'}{'node'} = $result_trees{'unknown_region'}{'contents'}[1];
@@ -434,16 +430,16 @@ $result_converted{'html'}->{'unknown_region'} = '<!DOCTYPE html PUBLIC "-//W3C//
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
 blockquote.smallquotation {font-size: smaller}
 div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
-div.indentedblock {margin-left: 3.2em}
 div.lisp {margin-left: 3.2em}
 div.smalldisplay {margin-left: 3.2em}
 div.smallexample {margin-left: 3.2em}
-div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
 div.smalllisp {margin-left: 3.2em}
-kbd {font-style:oblique}
+kbd {font-style: oblique}
 pre.display {font-family: inherit}
 pre.format {font-family: inherit}
 pre.menu-comment {font-family: serif}
@@ -452,10 +448,9 @@ pre.smalldisplay {font-family: inherit; font-size: smaller}
 pre.smallexample {font-size: smaller}
 pre.smallformat {font-family: inherit; font-size: smaller}
 pre.smalllisp {font-size: smaller}
-span.nocodebreak {white-space:nowrap}
-span.nolinebreak {white-space:nowrap}
-span.roman {font-family:serif; font-weight:normal}
-span.sansserif {font-family:sans-serif; font-weight:normal}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
@@ -463,7 +458,7 @@ ul.no-bullet {list-style: none}
 
 </head>
 
-<body lang="fr_NOWHERE" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<body lang="fr_NOWHERE">
 
 <a name="Top"></a>
 <h1 class="node-heading">Top</h1>

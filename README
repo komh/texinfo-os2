@@ -1,9 +1,9 @@
-$Id: README 5191 2013-02-23 00:11:18Z karl $
+$Id: README 6951 2016-01-20 19:57:18Z gavin $
 This is the README file for the GNU Texinfo distribution.  Texinfo is
 the preferred documentation format for GNU software.
 
   Copyright 1992, 1993, 1994, 1995, 1996, 1997, 1998, 1999, 2000, 2001,
-  2002, 2003, 2004, 2009, 2010, 2011, 2012, 2013
+  2002, 2003, 2004, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016
   Free Software Foundation, Inc.
 
   Copying and distribution of this file, with or without modification,
@@ -11,7 +11,7 @@ the preferred documentation format for GNU software.
   notice and this notice are preserved.
 
 Home page: http://www.gnu.org/software/texinfo/
-  This page includes links to other Texinfo-related programs.
+  Including links to Texinfo-related programs not part of this package.
 
 Primary distribution point: http://ftp.gnu.org/gnu/texinfo/
   automatic mirror redirection: http://ftpmirror.gnu.org/texinfo/
@@ -36,9 +36,9 @@ If you don't have Internet access, you can read the manual locally:
 - then, for HTML, run: make -C doc html
   and you can start reading at doc/texinfo.html/index.html.
 - for PDF, if you have a working TeX, run: make -C doc pdf
-- for Info, you can read about the Info reader itself with:
+- for Info, you can read a tutorial on reading Info files:
  ./info/ginfo doc/info
-  and then read the Texinfo manual:
+  and/or read the Texinfo manual:
  ./info/ginfo doc/texinfo
 
 Texinfo mailing lists and archives:
@@ -51,11 +51,11 @@ There are no corresponding newsgroups.
 Bug reports:
 Please include enough information for the maintainers to reproduce the
 problem.  Generally speaking, that means:
-- the contents of all input files necessary to reproduce the bug (crucial!).
+- the contents of all input files needed to reproduce the bug (crucial!).
 - a statement of the problem and any samples of the erroneous output.
 - the version number of Texinfo and the program(s) involved (use --version).
 - hardware and operating system information (uname -a).
-- unusual options you gave to configure, if any (see config.status).
+- unusual options you gave to configure, if any (try ./config.status --help).
 - anything else that you think could be helpful.
 
 Patches are most welcome; if possible, please make them with diff -c and
@@ -76,7 +76,7 @@ This distribution includes the following files, among others:
     NEWS                   Summary of new features by release.
 
 Texinfo documentation files (in ./doc):
-    texinfo.txi            Describes the Texinfo language and many
+    texinfo.texi           Describes the Texinfo language and many
                            of the associated tools.  It tells how to use
                            Texinfo to write documentation, how to use
                            Texinfo mode in GNU Emacs, TeX,
@@ -92,11 +92,6 @@ Printing-related files:
     doc/texinfo.tex        This implements Texinfo in TeX, to typeset a
                            Texinfo file into a DVI or PDF file.
 
-    util/texindex.c        This file contains the source for
-                           the `texindex' program that generates
-                           sorted indices used by TeX when
-                           typesetting a file for printing.
-
     util/texi2dvi          This is a shell script for producing an
                            indexed DVI file using TeX and texindex.
     
@@ -108,6 +103,9 @@ Source directories:
   info/                    Standalone Info reader.
   install-info/            Maintain the Info dir file.
   tp/                      Texinfo Parser in Perl, includes texi2any/makeinfo.
+  texindex/                The `texindex' program that generates
+                           sorted indices used by TeX when
+                           typesetting a file for printing.
 
 Translation support:
   po/                      Strings of the programs.
@@ -121,6 +119,9 @@ Installation support:
   configure                Configuration script for local conditions,
                              created by Autoconf.
   build-aux/               Common files.
+
+The util/ directory contains a few other scripts, e.g., examples of
+using makeinfo in various ways.  See util/README.
 
 Finally, the contrib/ directory contains additional files from users
 provided for your reading and/or hacking pleasure.  They aren't part of

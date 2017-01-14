@@ -41,6 +41,8 @@ kbd: ``simple-double-three-four-''
 @,c@"u c,u" 
 
 
+@U{0075} 0075
+
 @* 
 
 @ followed by a space
@@ -520,6 +522,12 @@ Invalid use of @':
 @dotless{-a} -a
 @dotless{a} a
 
+@U, without braces @U{}, with empty arg 
+@U{z}, with non-hex arg z
+@U{abc}, with <4 hex digits abc
+@U{FFFFFFFFFFFFFF}, value much too large FFFFFFFFFFFFFF
+@U{110000}, value just beyond Unicode 110000
+
 @TeX, but without brace TeX@# #
 
 @w{-a} -a
@@ -594,16 +602,16 @@ truc: after a deff item
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
 blockquote.smallquotation {font-size: smaller}
 div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
-div.indentedblock {margin-left: 3.2em}
 div.lisp {margin-left: 3.2em}
 div.smalldisplay {margin-left: 3.2em}
 div.smallexample {margin-left: 3.2em}
-div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
 div.smalllisp {margin-left: 3.2em}
-kbd {font-style:oblique}
+kbd {font-style: oblique}
 pre.display {font-family: inherit}
 pre.format {font-family: inherit}
 pre.menu-comment {font-family: serif}
@@ -612,10 +620,9 @@ pre.smalldisplay {font-family: inherit; font-size: smaller}
 pre.smallexample {font-size: smaller}
 pre.smallformat {font-family: inherit; font-size: smaller}
 pre.smalllisp {font-size: smaller}
-span.nocodebreak {white-space:nowrap}
-span.nolinebreak {white-space:nowrap}
-span.roman {font-family:serif; font-weight:normal}
-span.sansserif {font-family:sans-serif; font-weight:normal}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
@@ -623,7 +630,7 @@ ul.no-bullet {list-style: none}
 
 </head>
 
-<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<body lang="en">
 <h1>title &ndash;a</h1>
 <h3 align="right">formatting subtitle &ndash;a</h3>
 <h3 align="right">subtitle 2 &ndash;a</h3>
@@ -668,6 +675,8 @@ kbd: <kbd>``simple-double--three---four----''</kbd> <br>
 @,{@&rsquo;C} &#262;,
 @,c &ccedil;
 @,c@&quot;u &ccedil;&uuml; <br>
+</p>
+<p>@U{0075} &#x0075;
 </p>
 <p>@* <br>
 @ followed by a space
@@ -1230,6 +1239,7 @@ ref</a>
 html ''
 
 
+
 <a name="majorheading"></a>
 <h1 class="majorheading">majorheading</h1>
 
@@ -1273,6 +1283,12 @@ html ''
 @dotless{ij} ij
 <code>@dotless{--a}</code> &ndash;a
 <code>@dotless{a}</code> a
+</p>
+<p>@U, without braces @U{}, with empty arg 
+@U{z}, with non-hex arg &#xz;
+@U{abc}, with &lt;4 hex digits &#xabc;
+@U{FFFFFFFFFFFFFF}, value much too large &#xFFFFFFFFFFFFFF;
+@U{110000}, value just beyond Unicode &#x110000;
 </p>
 <p>@TeX, but without brace TeX<code>@#</code> #
 </p>
@@ -1380,6 +1396,8 @@ kbd: <kbd>``simple-double--three---four----''</kbd> <br>
 @,{@&rsquo;C} &#262;,
 @,c &ccedil;
 @,c@&quot;u &ccedil;&uuml; <br>
+</p>
+<p>@U{0075} &#x0075;
 </p>
 <p>@* <br>
 @ followed by a space
@@ -1942,6 +1960,7 @@ ref</a>
 html ''
 
 
+
 <a name="majorheading-1"></a>
 <h1 class="majorheading">majorheading</h1>
 
@@ -1985,6 +2004,12 @@ html ''
 @dotless{ij} ij
 <code>@dotless{--a}</code> &ndash;a
 <code>@dotless{a}</code> a
+</p>
+<p>@U, without braces @U{}, with empty arg 
+@U{z}, with non-hex arg &#xz;
+@U{abc}, with &lt;4 hex digits &#xabc;
+@U{FFFFFFFFFFFFFF}, value much too large &#xFFFFFFFFFFFFFF;
+@U{110000}, value just beyond Unicode &#x110000;
 </p>
 <p>@TeX, but without brace TeX<code>@#</code> #
 </p>
@@ -2069,6 +2094,15 @@ html ''
 </tr></table>
 <a name="Top-section"></a>
 <h1 class="top">Top section</h1>
+<table class="menu" border="0" cellspacing="0">
+<tr><td align="left" valign="top"><a href="#constructs">1 constructs</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="#chapter">2 chapter</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="#chapter2">chapter 2</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+</table>
+
 <hr size="6">
 <a name="constructs"></a>
 <table class="header" cellpadding="1" cellspacing="1" border="0">
@@ -2129,6 +2163,8 @@ kbd: <kbd>``simple-double--three---four----''</kbd> <br>
 @,{@&rsquo;C} &#262;,
 @,c &ccedil;
 @,c@&quot;u &ccedil;&uuml; <br>
+</p>
+<p>@U{0075} &#x0075;
 </p>
 <p>@* <br>
 @ followed by a space
@@ -2691,6 +2727,7 @@ ref</a>
 html ''
 
 
+
 <a name="majorheading-2"></a>
 <h1 class="majorheading">majorheading</h1>
 
@@ -2734,6 +2771,12 @@ html ''
 @dotless{ij} ij
 <code>@dotless{--a}</code> &ndash;a
 <code>@dotless{a}</code> a
+</p>
+<p>@U, without braces @U{}, with empty arg 
+@U{z}, with non-hex arg &#xz;
+@U{abc}, with &lt;4 hex digits &#xabc;
+@U{FFFFFFFFFFFFFF}, value much too large &#xFFFFFFFFFFFFFF;
+@U{110000}, value just beyond Unicode &#x110000;
 </p>
 <p>@TeX, but without brace TeX<code>@#</code> #
 </p>
@@ -2805,6 +2848,7 @@ html ''
 
 <div class="example">
 <pre class="example">
+
 &lt;
 &gt;
 &quot;
@@ -2844,6 +2888,8 @@ kbd: <kbd>``simple-double--three---four----''</kbd>
 @,c &ccedil;
 @,c@&quot;u &ccedil;&uuml; 
 
+
+@U{0075} &#x0075;
 
 @* 
 
@@ -2955,6 +3001,7 @@ but , ,
 <code>@sansserif{--a}</code> <span class="sansserif">&ndash;a</span>
 <code>@slanted{--a}</code> <i>&ndash;a</i>
 <code>@titlefont{--a}</code> </pre><h1 class="titlefont">--a</h1><pre class="example">
+
 <code>@indicateurl{--a}</code> &lsquo;<code>--a</code>&rsquo;
 <code>@uref{--a,--b}</code> <a href="--a">--b</a>
 <code>@uref{--a}</code> <a href="--a">--a</a>
@@ -3013,103 +3060,129 @@ After clickstyle &rArr;
 <pre class="example">A quot---ation
 </pre></blockquote>
 <pre class="example">
+
 </pre><blockquote>
 <pre class="example"><b>Note:</b> A Note
 </pre></blockquote>
 <pre class="example">
+
 </pre><blockquote>
 <pre class="example"><b>note:</b> A note
 </pre></blockquote>
 <pre class="example">
+
 </pre><blockquote>
 <pre class="example"><b>Caution:</b> Caution
 </pre></blockquote>
 <pre class="example">
+
 </pre><blockquote>
 <pre class="example"><b>Important:</b> Important
 </pre></blockquote>
 <pre class="example">
+
 </pre><blockquote>
 <pre class="example"><b>Tip:</b> a Tip
 </pre></blockquote>
 <pre class="example">
+
 </pre><blockquote>
 <pre class="example"><b>Warning:</b> a Warning.
 </pre></blockquote>
 <pre class="example">
+
 </pre><blockquote>
 <pre class="example"><b>something &eacute; TeX:</b> The something &eacute; TeX is here.
 </pre></blockquote>
 <pre class="example">
+
 </pre><blockquote>
 <pre class="example"><b>@ at the end of line &nbsp;:</b> A @ at the end of the @quotation line.
 </pre></blockquote>
 <pre class="example">
+
 </pre><blockquote>
 <pre class="example"><b>something, other thing:</b> something, other thing
 </pre></blockquote>
 <pre class="example">
+
 </pre><blockquote>
 <pre class="example"><b>Note, the note:</b> Note, the note
 </pre></blockquote>
 <pre class="example">
+
 </pre><blockquote>
 </blockquote>
 <pre class="example">
+
 </pre><blockquote>
 </blockquote>
 <pre class="example">
+
 </pre><blockquote>
 </blockquote>
 <pre class="example">
+
 </pre><blockquote>
 </blockquote>
 <pre class="example">
+
 </pre><blockquote class="smallquotation">
 <pre class="example">A small quot---ation
 </pre></blockquote>
 <pre class="example">
+
 </pre><blockquote class="smallquotation">
 <pre class="example"><b>Note:</b> A small Note
 </pre></blockquote>
 <pre class="example">
+
 </pre><blockquote class="smallquotation">
 <pre class="example"><b>something, other thing:</b> something, other thing
 </pre></blockquote>
 <pre class="example">
+
 </pre><ul>
 <li> <pre class="example">i--temize
 </pre></li></ul>
 <pre class="example">
+
 </pre><ul class="no-bullet">
 <li>+ <pre class="example">i--tem +
 </pre></li></ul>
 <pre class="example">
+
 </pre><ul>
 <li> <pre class="example">b--ullet
 </pre></li></ul>
 <pre class="example">
+
 </pre><ul class="no-bullet">
 <li>- <pre class="example">minu--s
 </pre></li></ul>
 <pre class="example">
+
 </pre><ul class="no-bullet">
 <li> <pre class="example">e--mph item
 </pre></li></ul>
 <pre class="example">
+
 </pre><ul class="no-bullet">
 <li><em>after emph</em> <pre class="example">e--mph item
 </pre></li></ul>
 <pre class="example">
+
 </pre><ul class="no-bullet">
 <li>&bull; a&ndash;n itemize line <pre class="example"><a name="index-index-entry-within-itemize-1"></a>i--tem 1
 </pre></li><li>&bull; a&ndash;n itemize line <pre class="example">i--tem 2
 </pre></li></ul>
 <pre class="example">
+
 </pre><ol>
 <li> <pre class="example">e--numerate
 </pre></li></ol>
 <pre class="example">
+
 </pre><table>
 <thead><tr><th width="40%"><pre class="example">mu--ltitable headitem</pre></th><th width="60%"><pre class="example">another tab</pre></th></tr></thead>
 <tr><td width="40%"><pre class="example">mu--ltitable item</pre></td><td width="60%"><pre class="example">multitable tab</pre></td></tr>
@@ -3118,48 +3191,59 @@ After clickstyle &rArr;
 <tr><td width="40%"><pre class="example">lone mu--ltitable item</pre></td></tr>
 </table>
 <pre class="example">
+
 </pre><table>
 <tr><td><pre class="example">truc</pre></td><td><pre class="example">bidule</pre></td></tr>
 </table>
 <pre class="example">
+
 </pre><div class="example">
 <pre class="example">e--xample  some
    text
 </pre></div>
 <pre class="example">
+
 </pre><div class="smallexample">
 <pre class="smallexample">s--mallexample
 </pre></div>
 <pre class="example">
+
 </pre><div class="display">
 <pre class="example">d--isplay
 </pre></div>
 <pre class="example">
+
 </pre><div class="smalldisplay">
 <pre class="example">s--malldisplay
 </pre></div>
 <pre class="example">
+
 </pre><div class="lisp">
 <pre class="lisp">l--isp
 </pre></div>
 <pre class="example">
+
 </pre><div class="smalllisp">
 <pre class="smalllisp">s--malllisp
 </pre></div>
 <pre class="example">
+
 </pre><div class="format">
 <pre class="example">f--ormat
 </pre></div>
 <pre class="example">
+
 </pre><div class="smallformat">
 <pre class="example">s--mallformat
 </pre></div>
 <pre class="example">
+
 </pre><dl>
 <dt><a name="index-d_002d_002deffn_005fname-1"></a>c--ategory: <strong>d--effn_name</strong> <em>a--rguments...</em></dt>
 <dd><pre class="example">d--effn
 </pre></dd></dl>
 <pre class="example">
+
 </pre><dl>
 <dt><a name="index-de_002d_002dffn_005fname-1"></a>cate--gory: <strong>de--ffn_name</strong> <em>ar--guments    more args 
  even more so</em></dt>
@@ -3190,111 +3274,133 @@ After clickstyle &rArr;
 <dt><a name="index-deffnx-2"></a>truc: <strong>deffnx</strong> <em>before end deffn</em></dt>
 </dl>
 <pre class="example">
+
 </pre><dl>
 <dt><a name="index-deffn-2"></a>empty: <strong>deffn</strong></dt>
 </dl>
 <pre class="example">
+
 </pre><dl>
 <dt><a name="index-deffn-3"></a>empty: <strong>deffn</strong> <em>with deffnx</em></dt>
 <dt><a name="index-deffnx-3"></a>empty: <strong>deffnx</strong></dt>
 </dl>
 <pre class="example">
+
 </pre><dl>
 <dt><a name="index-i-3"></a>fset: <strong><var>i</var></strong> <em>a g</em></dt>
 <dt><a name="index-truc-3"></a>cmde: <strong>truc</strong> <em></em></dt>
 <dd><pre class="example">text in def item for second def item
 </pre></dd></dl>
 <pre class="example">
+
 </pre><dl>
 <dt><a name="index-d_002d_002defvr_005fname-1"></a>c--ategory: <strong>d--efvr_name</strong></dt>
 <dd><pre class="example">d--efvr
 </pre></dd></dl>
 <pre class="example">
+
 </pre><dl>
 <dt><a name="index-d_002d_002deftypefn_005fname-1"></a>c--ategory: <em>t--ype</em> <strong>d--eftypefn_name</strong> <em>a--rguments...</em></dt>
 <dd><pre class="example">d--eftypefn
 </pre></dd></dl>
 <pre class="example">
+
 </pre><dl>
 <dt><a name="index-d_002d_002deftypeop_005fname-on-c_002d_002dlass-1"></a>c--ategory on c--lass: <em>t--ype</em> <strong>d--eftypeop_name</strong> <em>a--rguments...</em></dt>
 <dd><pre class="example">d--eftypeop
 </pre></dd></dl>
 <pre class="example">
+
 </pre><dl>
 <dt><a name="index-d_002d_002deftypevr_005fname-1"></a>c--ategory: <em>t--ype</em> <strong>d--eftypevr_name</strong></dt>
 <dd><pre class="example">d--eftypevr
 </pre></dd></dl>
 <pre class="example">
+
 </pre><dl>
 <dt><a name="index-d_002d_002defcv_005fname-1"></a>c--ategory of c--lass: <strong>d--efcv_name</strong></dt>
 <dd><pre class="example">d--efcv
 </pre></dd></dl>
 <pre class="example">
+
 </pre><dl>
 <dt><a name="index-d_002d_002defop_005fname-on-c_002d_002dlass-1"></a>c--ategory on c--lass: <strong>d--efop_name</strong> <em>a--rguments...</em></dt>
 <dd><pre class="example">d--efop
 </pre></dd></dl>
 <pre class="example">
+
 </pre><dl>
 <dt><a name="index-d_002d_002deftp_005fname-1"></a>c--ategory: <strong>d--eftp_name</strong> <em>a--ttributes...</em></dt>
 <dd><pre class="example">d--eftp
 </pre></dd></dl>
 <pre class="example">
+
 </pre><dl>
 <dt><a name="index-d_002d_002defun_005fname-1"></a>Function: <strong>d--efun_name</strong> <em>a--rguments...</em></dt>
 <dd><pre class="example">d--efun
 </pre></dd></dl>
 <pre class="example">
+
 </pre><dl>
 <dt><a name="index-d_002d_002defmac_005fname-1"></a>Macro: <strong>d--efmac_name</strong> <em>a--rguments...</em></dt>
 <dd><pre class="example">d--efmac
 </pre></dd></dl>
 <pre class="example">
+
 </pre><dl>
 <dt><a name="index-d_002d_002defspec_005fname-1"></a>Special Form: <strong>d--efspec_name</strong> <em>a--rguments...</em></dt>
 <dd><pre class="example">d--efspec
 </pre></dd></dl>
 <pre class="example">
+
 </pre><dl>
 <dt><a name="index-d_002d_002defvar_005fname-1"></a>Variable: <strong>d--efvar_name</strong> <em>argvar argvar1</em></dt>
 <dd><pre class="example">d--efvar
 </pre></dd></dl>
 <pre class="example">
+
 </pre><dl>
 <dt><a name="index-d_002d_002defopt_005fname-1"></a>User Option: <strong>d--efopt_name</strong></dt>
 <dd><pre class="example">d--efopt
 </pre></dd></dl>
 <pre class="example">
+
 </pre><dl>
 <dt><a name="index-d_002d_002deftypefun_005fname-1"></a>Function: <em>t--ype</em> <strong>d--eftypefun_name</strong> <em>a--rguments...</em></dt>
 <dd><pre class="example">d--eftypefun
 </pre></dd></dl>
 <pre class="example">
+
 </pre><dl>
 <dt><a name="index-d_002d_002deftypevar_005fname-1"></a>Variable: <em>t--ype</em> <strong>d--eftypevar_name</strong></dt>
 <dd><pre class="example">d--eftypevar
 </pre></dd></dl>
 <pre class="example">
+
 </pre><dl>
 <dt><a name="index-d_002d_002defivar_005fname-of-c_002d_002dlass-1"></a>Instance Variable of c--lass: <strong>d--efivar_name</strong></dt>
 <dd><pre class="example">d--efivar
 </pre></dd></dl>
 <pre class="example">
+
 </pre><dl>
 <dt><a name="index-d_002d_002deftypeivar_005fname-of-c_002d_002dlass-1"></a>Instance Variable of c--lass: <em>t--ype</em> <strong>d--eftypeivar_name</strong></dt>
 <dd><pre class="example">d--eftypeivar
 </pre></dd></dl>
 <pre class="example">
+
 </pre><dl>
 <dt><a name="index-d_002d_002defmethod_005fname-on-c_002d_002dlass-1"></a>Method on c--lass: <strong>d--efmethod_name</strong> <em>a--rguments...</em></dt>
 <dd><pre class="example">d--efmethod
 </pre></dd></dl>
 <pre class="example">
+
 </pre><dl>
 <dt><a name="index-d_002d_002deftypemethod_005fname-on-c_002d_002dlass-1"></a>Method on c--lass: <em>t--ype</em> <strong>d--eftypemethod_name</strong> <em>a--rguments...</em></dt>
 <dd><pre class="example">d--eftypemethod
 </pre></dd></dl>
 <pre class="example">
+
 <code>@xref{c---hapter@@, cross r---ef name@@, t---itle@@, file n---ame@@, ma---nual@@}</code> See <a href="file n---ame@.html#c_002d_002d_002dhapter_0040">t---itle@</a> in <cite>ma---nual@</cite>.
 <code>@ref{chapter, cross ref name, title, file name, manual}</code> <a href="file name.html#chapter">title</a> in <cite>manual</cite>
 <code>@pxref{chapter, cross ref name, title, file name, manual}</code> see <a href="file name.html#chapter">title</a> in <cite>manual</cite>
@@ -3363,6 +3469,7 @@ ref</a>
 </pre></dd>
 </dl>
 <pre class="example">
+
 </pre><dl compact="compact">
 <dt><tt>a</tt>
 <a name="index-a-7"></a>
@@ -3374,6 +3481,7 @@ ref</a>
 </pre></dd>
 </dl>
 <pre class="example">
+
 </pre><dl compact="compact">
 <dt><tt>a</tt>
 <a name="index-a-4"></a>
@@ -3386,40 +3494,54 @@ ref</a>
 </pre></dd>
 </dl>
 <pre class="example">
+
 </pre><table class="cartouche" border="1"><tr><td>
 <pre class="example">c--artouche
 </pre></td></tr></table>
 <pre class="example">
+
 </pre><pre class="example">g--roupe
 </pre><pre class="example">
+
 </pre><pre class="example">f--lushleft
 </pre><pre class="example">
+
 </pre><pre class="example">f--lushright
 </pre><pre class="example">
+
 </pre><div align="center">ce--ntered line
 </div><pre class="example">
+
 </pre><pre class="example">
+
 </pre><pre class="verbatim">in verbatim ''
 </pre><pre class="example">
 
+
 html ''
+
 
 
 </pre><a name="majorheading-3"></a>
 <strong>majorheading</strong>
 <pre class="example">
+
 </pre><a name="chapheading-3"></a>
 <strong>chapheading</strong>
 <pre class="example">
+
 </pre><a name="heading-3"></a>
 <strong>heading</strong>
 <pre class="example">
+
 </pre><a name="subheading-3"></a>
 <strong>subheading</strong>
 <pre class="example">
+
 </pre><a name="subsubheading-3"></a>
 <strong>subsubheading</strong>
 <pre class="example">
+
 
 <code>@acronym{--a,an accronym @comma{} @enddots{}}</code> <acronym title="an accronym , ...">--a</acronym> (an accronym , ...)
 <code>@abbr{@'E--. @comma{}A., @'Etude--@comma{} @b{Autonome} }</code> <abbr title="&Eacute;tude&ndash;, Autonome">&Eacute;--. ,A.</abbr> (&Eacute;tude--, <b>Autonome</b>)
@@ -3453,6 +3575,12 @@ Invalid use of @':
 <code>@dotless{--a}</code> --a
 <code>@dotless{a}</code> a
 
+@U, without braces @U{}, with empty arg 
+@U{z}, with non-hex arg &#xz;
+@U{abc}, with &lt;4 hex digits &#xabc;
+@U{FFFFFFFFFFFFFF}, value much too large &#xFFFFFFFFFFFFFF;
+@U{110000}, value just beyond Unicode &#x110000;
+
 @TeX, but without brace TeX<code>@#</code> #
 
 <code>@w{--a}</code> --a<!-- /@w -->
@@ -3466,11 +3594,13 @@ Invalid use of @':
 <li> after emph <pre class="example">e--mph item
 </pre></li></ul>
 <pre class="example">
+
 </pre><ul class="no-bullet">
 <li>&bull; a&ndash;n itemize line <pre class="example">i--tem 1
 </pre></li><li>&bull; a&ndash;n itemize line <pre class="example">i--tem 2
 </pre></li></ul>
 <pre class="example">
+
 </pre><dl>
 <dt>fun: <strong></strong></dt>
 <dt><a name="index-machin-8"></a>truc: <strong>machin</strong> <em>bidule chose and </em></dt>
@@ -3482,6 +3612,7 @@ Invalid use of @':
 </pre></dd><dt><a name="index-after-1"></a>truc: <strong>after</strong> <em>a deff item</em></dt>
 </dl>
 <pre class="example">
+
 <code>@ref{node}</code> `node'
 
 <code>@ref{,cross ref name}</code> `cross ref name'
@@ -3560,6 +3691,8 @@ kbd: <kbd>``simple-double--three---four----''</kbd> <br>
 @,{@&rsquo;C} &#262;,
 @,c &ccedil;
 @,c@&quot;u &ccedil;&uuml; <br>
+</p>
+<p>@U{0075} &#x0075;
 </p>
 <p>@* <br>
 @ followed by a space
@@ -4122,6 +4255,7 @@ ref</a>
 html ''
 
 
+
 <a name="majorheading-1"></a>
 <h1 class="majorheading">majorheading</h1>
 
@@ -4165,6 +4299,12 @@ html ''
 @dotless{ij} ij
 <code>@dotless{--a}</code> &ndash;a
 <code>@dotless{a}</code> a
+</p>
+<p>@U, without braces @U{}, with empty arg 
+@U{z}, with non-hex arg &#xz;
+@U{abc}, with &lt;4 hex digits &#xabc;
+@U{FFFFFFFFFFFFFF}, value much too large &#xFFFFFFFFFFFFFF;
+@U{110000}, value just beyond Unicode &#x110000;
 </p>
 <p>@TeX, but without brace TeX<code>@#</code> #
 </p>
@@ -4687,6 +4827,7 @@ html ''
 <table class="menu" border="0" cellspacing="0"><tr><td>
 <pre class="menu-preformatted">&bull; <a href="#s_002d_002dect_002cion">s--ect,ion</a>:: s&ndash;ect,ion
 </pre><pre class="menu-comment">
+
 Menu comment
 &ldquo;simple-double&ndash;three&mdash;four&mdash;-&rdquo;
 

@@ -3,7 +3,8 @@
 #
 # html32.pm: output HTML 3.2
 #
-#    Copyright (C) 2003, 2004, 2007, 2009, 2011 Free Software Foundation, Inc.
+#    Copyright (C) 2003, 2004, 2007, 2009, 2011, 2013 Free Software
+#    Foundation, Inc.
 #
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -89,6 +90,7 @@ sub html32_protect_text($$)
   $text =~ s/</&lt;/g;
   $text =~ s/>/&gt;/g;
   $text =~ s/\"/&#34;/g;
+  $text =~ s/\f/&#12;/g;
   return $text;
 }
 

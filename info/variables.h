@@ -1,10 +1,8 @@
 /* variables.h -- Description of user visible variables in Info.
-   $Id: variables.h 5191 2013-02-23 00:11:18Z karl $
+   $Id: variables.h 7013 2016-02-13 21:19:19Z gavin $
 
-   This file is part of GNU Info, a program for reading online documentation
-   stored in Info format.
-
-   Copyright (C) 1993, 1997, 2004, 2007, 2011 Free Software Foundation, Inc.
+   Copyright 1993, 1997, 2004, 2007, 2011, 2013, 2014, 2015,
+   2016 Free Software Foundation, Inc.
 
    This program is free software: you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
@@ -19,10 +17,13 @@
    You should have received a copy of the GNU General Public License
    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-   Written by Brian Fox (bfox@ai.mit.edu). */
+   Originally written by Brian Fox. */
 
 #ifndef INFO_VARIABLES_H
 #define INFO_VARIABLES_H
+
+#include "window.h"
+#include "info-utils.h"
 
 /* A variable (in the Info sense) is an integer value with a user-visible
    name.  You may supply an array of strings to complete over when the
@@ -34,22 +35,33 @@
 typedef struct {
   char *name;                   /* Polite name. */
   char *doc;                    /* Documentation string. */
-  int *value;                   /* Address of value. */
+  void *value;                  /* Address of value. */
   char **choices;               /* Array of strings or NULL if numeric only. */
+  int where_set;                /* Where this variable was set. */
 } VARIABLE_ALIST;
+
+/* Values for VARIABLE_ALIST.where_set, in order of increasing priority. */
+#define SET_BY_DEFAULT 0
+#define SET_IN_CONFIG_FILE 1
+#define SET_ON_COMMAND_LINE 2
+#define SET_IN_SESSION 4
 
 /* Read the name of an Info variable in the echo area and return the
    address of a VARIABLE_ALIST member.  A return value of NULL indicates
    that no variable could be read. */
-extern VARIABLE_ALIST *read_variable_name (const char *prompt, WINDOW *window);
+VARIABLE_ALIST *read_variable_name (char *prompt, WINDOW *window);
+
+VARIABLE_ALIST *variable_by_name (char *name);
 
 /* Make an array of REFERENCE which actually contains the names of the
    variables available in Info. */
-extern REFERENCE **make_variable_completions_array (void);
+REFERENCE **make_variable_completions_array (void);
 
 /* Set the value of an info variable. */
-extern void set_variable (WINDOW *window, int count, unsigned char key);
-extern void describe_variable (WINDOW *window, int count, unsigned char key);
+void set_variable (WINDOW *window, int count);
+int set_variable_to_value (VARIABLE_ALIST *var, char *value, int where);
+
+void describe_variable (WINDOW *window, int count);
 
 /* The list of user-visible variables. */
 extern int auto_footnotes_p;
@@ -64,5 +76,22 @@ extern int cursor_movement_scrolls_p;
 extern int ISO_Latin_p;
 extern int scroll_last_node;
 extern int min_search_length;
+extern int search_skip_screen_p;
+extern int infopath_no_defaults_p;
+extern int preprocess_nodes_p;
+extern int key_time;
+extern int mouse_protocol;
+extern int follow_strategy;
+extern int nodeline_print;
+
+typedef struct {
+    unsigned long mask;
+    unsigned long value;
+} RENDITION;
+
+extern RENDITION ref_rendition;
+extern RENDITION hl_ref_rendition;
+extern RENDITION match_rendition;
+
 
 #endif /* not INFO_VARIABLES_H */

@@ -1028,16 +1028,16 @@ $result_converted{'html'}->{'section_below_unnumbered'} = '<!DOCTYPE html PUBLIC
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
 blockquote.smallquotation {font-size: smaller}
 div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
-div.indentedblock {margin-left: 3.2em}
 div.lisp {margin-left: 3.2em}
 div.smalldisplay {margin-left: 3.2em}
 div.smallexample {margin-left: 3.2em}
-div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
 div.smalllisp {margin-left: 3.2em}
-kbd {font-style:oblique}
+kbd {font-style: oblique}
 pre.display {font-family: inherit}
 pre.format {font-family: inherit}
 pre.menu-comment {font-family: serif}
@@ -1046,10 +1046,9 @@ pre.smalldisplay {font-family: inherit; font-size: smaller}
 pre.smallexample {font-size: smaller}
 pre.smallformat {font-family: inherit; font-size: smaller}
 pre.smalllisp {font-size: smaller}
-span.nocodebreak {white-space:nowrap}
-span.nolinebreak {white-space:nowrap}
-span.roman {font-family:serif; font-weight:normal}
-span.sansserif {font-family:sans-serif; font-weight:normal}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
@@ -1057,7 +1056,7 @@ ul.no-bullet {list-style: none}
 
 </head>
 
-<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<body lang="en">
 
 <a name="SEC_Contents"></a>
 <h2 class="contents-heading">Table of Contents</h2>
@@ -1093,7 +1092,7 @@ Next: <a href="#Unn" accesskey="n" rel="next">Unn</a>, Up: <a href="dir.html#Top
 <a name="Unn"></a>
 <div class="header">
 <p>
-Previous: <a href="#Top" accesskey="p" rel="previous">Top</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
+Previous: <a href="#Top" accesskey="p" rel="prev">Top</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
 <a name="Unn-1"></a>
 <h2 class="unnumbered">Unn</h2>

@@ -1,5 +1,4 @@
-EXTRA_DIST = htmlxref.cnf-ref \
- tests-parser.txt res_parser
+EXTRA_DIST = htmlxref.cnf-ref res_parser tests-parser.txt
 
 DISTCLEANFILES = tests.log tests.out htmlxref.cnf
 

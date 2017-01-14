@@ -1,8 +1,8 @@
 /* filesys.c -- filesystem specific functions.
-   $Id: filesys.c 5191 2013-02-23 00:11:18Z karl $
+   $Id: filesys.c 6906 2016-01-01 18:33:45Z karl $
 
    Copyright 1993, 1997, 1998, 2000, 2002, 2003, 2004, 2007, 2008, 2009, 2011,
-   2012 Free Software Foundation, Inc.
+   2012, 2013, 2014, 2015, 2016 Free Software Foundation, Inc.
 
    This program is free software: you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
@@ -20,19 +20,21 @@
    Originally written by Brian Fox. */
 
 #include "info.h"
-
 #include "tilde.h"
 #include "filesys.h"
 #include "tag.h"
+#include "session.h"
 
 /* Local to this file. */
-static char *info_file_in_path (char *filename, char *path);
-static char *lookup_info_filename (char *filename);
-static char *info_absolute_file (char *fname);
-static char *build_infopath_from_path (void);
+static char *info_file_in_path (char *filename, struct stat *finfo);
+char *info_add_extension (char *dirname, char *fname,
+                                 struct stat *finfo);
 
-static void remember_info_filename (char *filename, char *expansion);
-static void maybe_initialize_infopath (void);
+static char *filesys_read_compressed (char *pathname, size_t *filesize);
+
+/* Return the command string that would be used to decompress FILENAME. */
+static char *filesys_decompressor_for_file (char *filename);
+static int compressed_filename_p (char *filename);
 
 typedef struct
 {
@@ -75,529 +77,215 @@ static COMPRESSION_ALIST compress_suffixes[] = {
   { NULL, NULL }
 };
 
-/* The path on which we look for info files.  You can initialize this
-   from the environment variable INFOPATH if there is one, or you can
-   call info_add_path () to add paths to the beginning or end of it.
-   You can call zap_infopath () to make the path go away. */
-char *infopath = NULL;
-static int infopath_size = 0;
-
-/* Expand the filename in PARTIAL to make a real name for this operating
-   system.  This looks in INFO_PATHS in order to find the correct file.
-   If it can't find the file, it returns NULL. */
-static char *local_temp_filename = NULL;
-static int local_temp_filename_size = 0;
-
+/* Look for the filename PARTIAL in INFOPATH in order to find the correct file.
+   Return file name and set *FINFO with information about file.  If it
+   can't find the file, it returns NULL, and sets filesys_error_number.
+   Return value should be freed by caller. */
 char *
-info_find_fullpath (char *partial)
+info_find_fullpath (char *partial, struct stat *finfo)
 {
-  int initial_character;
-  char *temp;
+  char *fullpath = 0;
+  struct stat dummy;
+
+  debug(1, (_("looking for file \"%s\""), partial));
+
+  if (!finfo)
+    finfo = &dummy;
 
   filesys_error_number = 0;
 
-  maybe_initialize_infopath ();
+  if (!partial || !*partial)
+    return 0;
+  
+  /* IS_SLASH and IS_ABSOLUTE defined in ../system.h. */
 
-  if (partial && (initial_character = *partial))
+  /* If path is absolute already, see if it needs an extension. */
+  if (IS_ABSOLUTE (partial)
+      || partial[0] == '.' && IS_SLASH(partial[1]))
     {
-      char *expansion;
-
-      expansion = lookup_info_filename (partial);
-
-      if (expansion)
-        return expansion;
-
-      /* If we have the full path to this file, we still may have to add
-         various extensions to it.  I guess we have to stat this file
-         after all. */
-      if (IS_ABSOLUTE (partial))
-	temp = info_absolute_file (partial);
-      else if (initial_character == '~')
-        {
-          expansion = tilde_expand_word (partial);
-          if (IS_ABSOLUTE (expansion))
-            {
-              temp = info_absolute_file (expansion);
-              free (expansion);
-            }
-          else
-            temp = expansion;
-        }
-      else if (initial_character == '.' &&
-               (IS_SLASH (partial[1]) ||
-		(partial[1] == '.' && IS_SLASH (partial[2]))))
-        {
-          if (local_temp_filename_size < 1024)
-            local_temp_filename = xrealloc
-              (local_temp_filename, (local_temp_filename_size = 1024));
-#if defined (HAVE_GETCWD)
-          if (!getcwd (local_temp_filename, local_temp_filename_size))
-#else /*  !HAVE_GETCWD */
-          if (!getwd (local_temp_filename))
-#endif /* !HAVE_GETCWD */
-            {
-              filesys_error_number = errno;
-              return partial;
-            }
-
-          strcat (local_temp_filename, "/");
-          strcat (local_temp_filename, partial);
-	  temp = info_absolute_file (local_temp_filename); /* try extensions */
-	  if (!temp)
-	    partial = local_temp_filename;
-        }
-      else
-        temp = info_file_in_path (partial, infopath);
-
-      if (temp)
-        {
-          remember_info_filename (partial, temp);
-          if (strlen (temp) > (unsigned int) local_temp_filename_size)
-            local_temp_filename = xrealloc
-              (local_temp_filename,
-               (local_temp_filename_size = (50 + strlen (temp))));
-          strcpy (local_temp_filename, temp);
-          free (temp);
-          return local_temp_filename;
-        }
+      fullpath = info_add_extension (0, partial, finfo);
     }
-  return partial;
+
+  /* Tilde expansion.  FIXME: Not needed, because done by shell. */
+  else if (partial[0] == '~')
+    {
+      partial = tilde_expand_word (partial);
+      fullpath = info_add_extension (0, partial, finfo);
+    }
+
+  /* If just a simple name element, look for it in the path. */
+  else
+    fullpath = info_file_in_path (partial, finfo);
+
+  if (!fullpath)
+    filesys_error_number = ENOENT;
+
+  return fullpath;
 }
 
-/* Scan the list of directories in PATH looking for FILENAME.  If we find
+/* Scan the directories in search path looking for FILENAME.  If we find
    one that is a regular file, return it as a new string.  Otherwise, return
-   a NULL pointer. */
-static char *
-info_file_in_path (char *filename, char *path)
+   a NULL pointer.  Set *FINFO with information about file. */
+char *
+info_file_find_next_in_path (char *filename, int *path_index, struct stat *finfo)
 {
-  struct stat finfo;
-  char *temp_dirname;
-  int statable, dirname_index;
+  struct stat dummy;
+
+  /* Used for output of stat in case the caller doesn't care about
+     its value. */
+  if (!finfo)
+    finfo = &dummy;
 
   /* Reject ridiculous cases up front, to prevent infinite recursion
      later on.  E.g., someone might say "info '(.)foo'"...  */
   if (!*filename || STREQ (filename, ".") || STREQ (filename, ".."))
     return NULL;
 
-  dirname_index = 0;
-
-  while ((temp_dirname = extract_colon_unit (path, &dirname_index)))
+  while (1)
     {
-      register int i, pre_suffix_length;
-      char *temp;
+      char *dirname, *with_extension = 0;
+
+      dirname = infopath_next (path_index);
+      if (!dirname)
+        break;
+
+      debug(1, (_("looking for file %s in %s"), filename, dirname));
 
       /* Expand a leading tilde if one is present. */
-      if (*temp_dirname == '~')
+      if (*dirname == '~')
         {
-          char *expanded_dirname;
-
-          expanded_dirname = tilde_expand_word (temp_dirname);
-          free (temp_dirname);
-          temp_dirname = expanded_dirname;
+          char *expanded_dirname = tilde_expand_word (dirname);
+          free (dirname);
+          dirname = expanded_dirname;
         }
 
-      temp = xmalloc (30 + strlen (temp_dirname) + strlen (filename));
-      strcpy (temp, temp_dirname);
-      if (!IS_SLASH (temp[(strlen (temp)) - 1]))
-        strcat (temp, "/");
-      strcat (temp, filename);
+      with_extension = info_add_extension (dirname, filename, finfo);
 
-      pre_suffix_length = strlen (temp);
-
-      free (temp_dirname);
-
-      for (i = 0; info_suffixes[i]; i++)
+      if (with_extension)
         {
-          strcpy (temp + pre_suffix_length, info_suffixes[i]);
-
-          statable = (stat (temp, &finfo) == 0);
-
-          /* If we have found a regular file, then use that.  Else, if we
-             have found a directory, look in that directory for this file. */
-          if (statable)
+          if (!IS_ABSOLUTE (with_extension))
             {
-              if (S_ISREG (finfo.st_mode))
-                {
-                  return temp;
-                }
-              else if (S_ISDIR (finfo.st_mode))
-                {
-                  char *newpath, *filename_only, *newtemp;
-
-                  newpath = xstrdup (temp);
-                  filename_only = filename_non_directory (filename);
-                  newtemp = info_file_in_path (filename_only, newpath);
-
-                  free (newpath);
-                  if (newtemp)
-                    {
-                      free (temp);
-                      return newtemp;
-                    }
-                }
+              /* Prefix "./" to it. */
+              char *s;
+              asprintf (&s, "%s%s", "./", with_extension);
+              free (with_extension);
+              return s;
             }
           else
+            return with_extension;
+        }
+    }
+  return NULL;
+}
+
+/* Return full path of first Info file known as FILENAME in
+   search path.  If relative to current directory, precede it with './'. */
+static char *
+info_file_in_path (char *filename, struct stat *finfo)
+{
+  int i = 0;
+  return info_file_find_next_in_path (filename, &i, finfo);
+}
+
+/* Look for a file called FILENAME in a directory called DIRNAME, adding file
+   extensions if necessary.  FILENAME can be an absolute path or a path
+   relative to the current directory, in which case DIRNAME should be
+   null.  Return it as a new string; otherwise return a NULL pointer. */
+char *
+info_add_extension (char *dirname, char *filename, struct stat *finfo)
+{
+  char *try_filename;
+  register int i, pre_suffix_length = 0;
+  struct stat dummy;
+
+  if (!finfo)
+    finfo = &dummy;
+
+  if (dirname)
+    pre_suffix_length += strlen (dirname);
+
+  pre_suffix_length += strlen (filename);
+
+  /* Add enough space for any file extensions at end. */
+  try_filename = xmalloc (pre_suffix_length + 30);
+  try_filename[0] = '\0';
+
+  if (dirname)
+    {
+      strcpy (try_filename, dirname);
+      if (!IS_SLASH (try_filename[(strlen (try_filename)) - 1]))
+        {
+          strcat (try_filename, "/");
+          pre_suffix_length++;
+        }
+    }
+
+  strcat (try_filename, filename);
+
+  for (i = 0; info_suffixes[i]; i++)
+    {
+      int statable;
+
+      strcpy (try_filename + pre_suffix_length, info_suffixes[i]);
+      statable = (stat (try_filename, finfo) == 0);
+
+      /* If we have found a regular file, then use that.  Else, if we
+         have found a directory, look in that directory for this file. */
+      if (statable)
+        {
+          if (S_ISREG (finfo->st_mode))
             {
-              /* Add various compression suffixes to the name to see if
-                 the file is present in compressed format. */
-              register int j, pre_compress_suffix_length;
+              debug(1, (_("found file %s"), try_filename));
+              return try_filename;
+            }
+          else if (S_ISDIR (finfo->st_mode))
+            {
+              char *newpath, *new_filename;
 
-              pre_compress_suffix_length = strlen (temp);
+              newpath = xstrdup (try_filename);
+              new_filename = info_add_extension (newpath, filename, finfo);
 
-              for (j = 0; compress_suffixes[j].suffix; j++)
+              free (newpath);
+              if (new_filename)
                 {
-                  strcpy (temp + pre_compress_suffix_length,
-                          compress_suffixes[j].suffix);
-
-                  statable = (stat (temp, &finfo) == 0);
-                  if (statable && (S_ISREG (finfo.st_mode)))
-                    return temp;
+                  free (try_filename);
+                  debug(1, (_("found file %s"), new_filename));
+                  return new_filename;
                 }
             }
         }
-      free (temp);
-    }
-  return NULL;
-}
-
-/* Assume FNAME is an absolute file name, and check whether it is
-   a regular file.  If it is, return it as a new string; otherwise
-   return a NULL pointer.  We do it by taking the file name apart
-   into its directory and basename parts, and calling info_file_in_path.*/
-static char *
-info_absolute_file (char *fname)
-{
-  char *containing_dir = xstrdup (fname);
-  char *base = filename_non_directory (containing_dir);
-
-  if (base > containing_dir)
-    base[-1] = '\0';
-
-  return info_file_in_path (filename_non_directory (fname), containing_dir);
-}
-
-
-/* Given a string containing units of information separated by the
-   PATH_SEP character, return the next one after IDX, or NULL if there
-   are no more.  Advance IDX to the character after the colon. */
-
-char *
-extract_colon_unit (char *string, int *idx)
-{
-  unsigned int i = (unsigned int) *idx;
-  unsigned int start = i;
-
-  if (!string || i >= strlen (string))
-    return NULL;
-
-  if (!string[i]) /* end of string */
-    return NULL;
-
-  /* Advance to next PATH_SEP.  */
-  while (string[i] && string[i] != PATH_SEP[0])
-    i++;
-
-  {
-    char *value = xmalloc ((i - start) + 1);
-    strncpy (value, &string[start], (i - start));
-    value[i - start] = 0;
-
-    i++; /* move past PATH_SEP */
-    *idx = i;
-    return value;
-  }
-}
-
-/* A structure which associates a filename with its expansion. */
-typedef struct
-{
-  char *filename;
-  char *expansion;
-} FILENAME_LIST;
-
-/* An array of remembered arguments and results. */
-static FILENAME_LIST **names_and_files = NULL;
-static int names_and_files_index = 0;
-static int names_and_files_slots = 0;
-
-/* Find the result for having already called info_find_fullpath () with
-   FILENAME. */
-static char *
-lookup_info_filename (char *filename)
-{
-  if (filename && names_and_files)
-    {
-      register int i;
-      for (i = 0; names_and_files[i]; i++)
+      else
         {
-          if (FILENAME_CMP (names_and_files[i]->filename, filename) == 0)
-            return names_and_files[i]->expansion;
-        }
-    }
-  return NULL;
-}
+          /* Add various compression suffixes to the name to see if
+             the file is present in compressed format. */
+          register int j, pre_compress_suffix_length;
 
-/* Add a filename and its expansion to our list. */
-static void
-remember_info_filename (char *filename, char *expansion)
-{
-  FILENAME_LIST *new;
+          pre_compress_suffix_length = strlen (try_filename);
 
-  if (names_and_files_index + 2 > names_and_files_slots)
-    {
-      int alloc_size;
-      names_and_files_slots += 10;
-
-      alloc_size = names_and_files_slots * sizeof (FILENAME_LIST *);
-
-      names_and_files = xrealloc (names_and_files, alloc_size);
-    }
-
-  new = xmalloc (sizeof (FILENAME_LIST));
-  new->filename = xstrdup (filename);
-  new->expansion = expansion ? xstrdup (expansion) : NULL;
-
-  names_and_files[names_and_files_index++] = new;
-  names_and_files[names_and_files_index] = NULL;
-}
-
-static void
-maybe_initialize_infopath (void)
-{
-  if (!infopath_size)
-    {
-      infopath = (char *)
-        xmalloc (infopath_size = (1 + strlen (DEFAULT_INFOPATH)));
-
-      strcpy (infopath, DEFAULT_INFOPATH);
-    }
-}
-
-/* For each path element PREFIX/DIR in PATH substitute either
-   PREFIX/share/info or PREFIX/info if that directory exists.
-   Avoid duplicates from, e.g., PREFIX/bin and PREFIX/sbin. */
-static char *
-build_infopath_from_path (void)
-{
-  typedef struct path_el
-    {
-      struct path_el *next;
-      char *path;
-      unsigned int len;
-    } PATH_EL, *PATH_PTR;
-
-  PATH_EL path_head = { NULL, NULL, 1 };
-  PATH_PTR path_prev, path_next;
-  char *res, *path_from_env, *temp_dirname;
-  int dirname_index = 0;
-  struct stat finfo;
-
-  path_from_env = getenv ("PATH");
-
-  while ((temp_dirname = extract_colon_unit (path_from_env, &dirname_index)))
-    {
-      unsigned int i, dir = 0;
-
-      /* Find end of DIRNAME/ (but ignore "/") */
-      for (i = 0; temp_dirname[i]; i++)
-        if (i && IS_SLASH (temp_dirname[i]))
-          dir = i + 1;
-
-      /* Discard path elements ending with "/", "/.", or "/.." */
-      if (!temp_dirname[dir] || STREQ (temp_dirname + dir, ".") || STREQ (temp_dirname + dir, "."))
-        dir = 0;
-      
-      path_prev = &path_head;
-      while (dir && (path_next = path_prev->next))
-        {
-          /* Ignore duplicate DIRNAME */
-          if (dir == path_next->len && strncmp (temp_dirname, path_next->path, dir) == 0)
-            dir = 0;
-
-          path_prev = path_next;
-        }
-
-      if (dir)
-        {
-          temp_dirname = xrealloc (temp_dirname, dir + strlen ("share/info") +1);
-
-          /* first try DIRNAME/share/info */
-          strcpy (temp_dirname + dir, "share/info");
-          if (stat (temp_dirname, &finfo) != 0 || !S_ISDIR (finfo.st_mode))
+          for (j = 0; compress_suffixes[j].suffix; j++)
             {
-              /* then try DIRNAME/info */
-              strcpy (temp_dirname + dir, "info");
-              if (stat (temp_dirname, &finfo) != 0 || !S_ISDIR (finfo.st_mode))
-                dir = 0;
+              strcpy (try_filename + pre_compress_suffix_length,
+                      compress_suffixes[j].suffix);
+
+              statable = (stat (try_filename, finfo) == 0);
+              if (statable && (S_ISREG (finfo->st_mode)))
+                {
+                  debug(1, (_("found file %s"), try_filename));
+                  return try_filename;
+                }
             }
         }
-
-      if (dir)
-        {
-          path_next = xmalloc (sizeof (PATH_EL));
-          path_next->next = NULL;
-          path_next->path = temp_dirname;
-          path_next->len = dir;
-          path_prev->next = path_next;
-          path_head.len += strlen (temp_dirname) + 1;
-        }
-      else
-        free (temp_dirname);
     }
-
-  /* Build the resulting sequence of paths */
-  res = xmalloc (path_head.len);
-  res[0] = '\0';
-
-  for (path_prev = path_head.next; path_prev; path_prev = path_next)
-    {
-      strcat (res, path_prev->path);
-      if ((path_next = path_prev->next))
-        strcat (res, PATH_SEP);
-
-      free (path_prev->path);
-      free (path_prev);
-    }
-
-  return res;
-}
-
-/* Add PATH to the list of paths found in INFOPATH.  2nd argument says
-   whether to put PATH at the front or end of INFOPATH.
-   Replace one path element "PATH" in PATH by a sequence of
-   path elements derived from the environment variable PATH. */
-void
-info_add_path (char *path, int where)
-{
-  int len;
-  int found = 0;
-  unsigned int i, j;
-
-  /* Search for "PATH" in PATH */
-  for (i = 0; path[i]; i++)
-    {
-      j = i + strlen ("PATH");
-      if (strncmp (path + i, "PATH", strlen ("PATH")) == 0 &&
-          (!path[j] || path[j] == PATH_SEP[0]))
-        {
-          found = 1;
-          break;
-        }
-      else
-        {
-          /* Advance to next PATH_SEP.  */
-          while (path[i] && path[i] != PATH_SEP[0])
-            i++;
-
-          if (!path[i])
-            break;
-        }
-    }
-
-  if (found)
-    {
-      /* Build infopath from the environment variable PATH */
-      char *temp = build_infopath_from_path ();
-
-      if (i || path[j])
-        {
-          char *old_path = path;
-
-          /* Splice it into OLD_PATH */
-          path = xmalloc (1 + strlen (temp) + strlen (old_path) - strlen ("PATH"));
-          if (i)
-            strncpy (path, old_path, i);
-          strcpy (path + i, temp);
-          if (old_path[j])
-            strcat (path, old_path + j);
-
-          free (temp);
-        }
-      else
-        path = temp;
-    }
-
-  if (!infopath)
-    {
-      infopath = xmalloc (infopath_size = 200 + strlen (path));
-      infopath[0] = '\0';
-    }
-
-  len = strlen (path) + strlen (infopath);
-
-  if (len + 2 >= infopath_size)
-    infopath = xrealloc (infopath, (infopath_size += (2 * len) + 2));
-
-  if (!*infopath)
-    strcpy (infopath, path);
-  else if (where == INFOPATH_APPEND)
-    {
-      strcat (infopath, PATH_SEP);
-      strcat (infopath, path);
-    }
-  else if (where == INFOPATH_PREPEND)
-    {
-      char *temp = xstrdup (infopath);
-      strcpy (infopath, path);
-      strcat (infopath, PATH_SEP);
-      strcat (infopath, temp);
-      free (temp);
-    }
-
-  if (found)
-    free (path);
-}
-
-/* Make INFOPATH have absolutely nothing in it. */
-void
-zap_infopath (void)
-{
-  if (infopath)
-    free (infopath);
-
-  infopath = NULL;
-  infopath_size = 0;
-}
-
-/* Given a chunk of text and its length, convert all CRLF pairs at every
-   end-of-line into a single Newline character.  Return the length of
-   produced text.
-
-   This is required because the rest of code is too entrenched in having
-   a single newline at each EOL; in particular, searching for various
-   Info headers and cookies can become extremely tricky if that assumption
-   breaks.
-
-   FIXME: this could also support Mac-style text files with a single CR
-   at the EOL, but what about random CR characters in non-Mac files?  Can
-   we afford converting them into newlines as well?  Maybe implement some
-   heuristics here, like in Emacs 20.
-
-   FIXME: is it a good idea to show the EOL type on the modeline?  */
-long
-convert_eols (char *text, long int textlen)
-{
-  register char *s = text;
-  register char *d = text;
-
-  while (textlen--)
-    {
-      if (*s == '\r' && textlen && s[1] == '\n')
-	{
-	  s++;
-	  textlen--;
-	}
-      *d++ = *s++;
-    }
-
-  return d - text;
+  /* Nothing was found. */
+  free (try_filename);
+  return 0;
 }
 
 /* Read the contents of PATHNAME, returning a buffer with the contents of
    that file in it, and returning the size of that buffer in FILESIZE.
-   FINFO is a stat struct which has already been filled in by the caller.
    If the file turns out to be compressed, set IS_COMPRESSED to non-zero.
-   If the file cannot be read, return a NULL pointer. */
+   If the file cannot be read, set filesys_error_number and return a NULL
+   pointer.  Set *FINFO with information about file. */
 char *
 filesys_read_info_file (char *pathname, size_t *filesize,
 			struct stat *finfo, int *is_compressed)
@@ -606,6 +294,9 @@ filesys_read_info_file (char *pathname, size_t *filesize,
   char *contents;
 
   fsize = filesys_error_number = 0;
+
+  stat (pathname, finfo);
+  fsize = (long) finfo->st_size;
 
   if (compressed_filename_p (pathname))
     {
@@ -627,7 +318,6 @@ filesys_read_info_file (char *pathname, size_t *filesize,
         }
 
       /* Try to read the contents of this file. */
-      fsize = (long) finfo->st_size;
       contents = xmalloc (1 + fsize);
       if ((read (descriptor, contents, fsize)) != fsize)
         {
@@ -640,18 +330,8 @@ filesys_read_info_file (char *pathname, size_t *filesize,
       close (descriptor);
     }
 
-  /* Convert any DOS-style CRLF EOLs into Unix-style NL.
-     Seems like a good idea to have even on Unix, in case the Info
-     files are coming from some Windows system across a network.  */
-  fsize = convert_eols (contents, fsize);
-
-  tags_expand (&contents, &fsize);
-
-  /* EOL conversion can shrink the text quite a bit.  We don't
-     want to waste storage.  */
-  contents = xrealloc (contents, 1 + fsize);
-  contents[fsize] = '\0';
   *filesize = fsize;
+
   return contents;
 }
 
@@ -661,7 +341,7 @@ filesys_read_info_file (char *pathname, size_t *filesize,
 /* We use some large multiple of that. */
 #define FILESYS_PIPE_BUFFER_SIZE (16 * BASIC_PIPE_BUFFER)
 
-char *
+static char *
 filesys_read_compressed (char *pathname, size_t *filesize)
 {
   FILE *stream;
@@ -681,7 +361,6 @@ filesys_read_compressed (char *pathname, size_t *filesize)
   sprintf (command, "%s%s < %s",
 	   decompressor, STRIP_DOT_EXE ? ".exe" : "", pathname);
 
-#if !defined (BUILDING_LIBRARY)
   if (info_windows_initialized_p)
     {
       char *temp;
@@ -691,7 +370,6 @@ filesys_read_compressed (char *pathname, size_t *filesize)
       message_in_echo_area ("%s", temp);
       free (temp);
     }
-#endif /* !BUILDING_LIBRARY */
 
   stream = popen (command, FOPEN_RBIN);
   free (command);
@@ -741,15 +419,13 @@ filesys_read_compressed (char *pathname, size_t *filesize)
       filesys_error_number = errno;
     }
 
-#if !defined (BUILDING_LIBARARY)
   if (info_windows_initialized_p)
     unmessage_in_echo_area ();
-#endif /* !BUILDING_LIBRARY */
   return contents;
 }
 
 /* Return non-zero if FILENAME belongs to a compressed file. */
-int
+static int
 compressed_filename_p (char *filename)
 {
   char *decompressor;
@@ -765,7 +441,7 @@ compressed_filename_p (char *filename)
 }
 
 /* Return the command string that would be used to decompress FILENAME. */
-char *
+static char *
 filesys_decompressor_for_file (char *filename)
 {
   register int i;
@@ -808,6 +484,8 @@ int filesys_error_number = 0;
 static char *errmsg_buf = NULL;
 static int errmsg_buf_size = 0;
 
+/* Return string for ERROR_NUM when opening file.  Return value should not
+   be freed by caller. */
 char *
 filesys_error_string (char *filename, int error_num)
 {

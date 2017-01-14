@@ -1,7 +1,7 @@
 /* signals.h -- header to include system dependent signal definitions.
-   $Id: signals.h 5191 2013-02-23 00:11:18Z karl $
+   $Id: signals.h 5824 2014-09-12 17:26:27Z gavin $
 
-   Copyright (C) 1993, 1994, 1995, 1997, 2002, 2004, 2007
+   Copyright 1993, 1994, 1995, 1997, 2002, 2004, 2007, 2013, 2014
    Free Software Foundation, Inc.
 
    This program is free software: you can redistribute it and/or modify
@@ -17,13 +17,16 @@
    You should have received a copy of the GNU General Public License
    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-   Originally written by Brian Fox (bfox@ai.mit.edu). */
+   Originally written by Brian Fox. */
 
 #ifndef INFO_SIGNALS_H
 #define INFO_SIGNALS_H
 
 #include <sys/types.h>
 #include <signal.h>
+
+void signal_block_winch (void);
+void signal_unblock_winch (void);
 
 /* For sysV68 --phdm@info.ucl.ac.be.  */
 #if !defined (SIGCHLD) && defined (SIGCLD)

@@ -120,11 +120,7 @@ $result_trees{'image_file_search'} = {
                   [
                     {}
                   ]
-                ],
-                'spaces_before_argument' => {
-                  'text' => '',
-                  'type' => 'empty_spaces_before_argument'
-                }
+                ]
               },
               'line_nr' => {
                 'file_name' => '',
@@ -179,11 +175,7 @@ $result_trees{'image_file_search'} = {
                   [
                     {}
                   ]
-                ],
-                'spaces_before_argument' => {
-                  'text' => '',
-                  'type' => 'empty_spaces_before_argument'
-                }
+                ]
               },
               'line_nr' => {
                 'file_name' => '',
@@ -331,22 +323,22 @@ End Tag Table
 
 $result_converted_errors{'info'}->{'image_file_search'} = [
   {
-    'file_name' => '',
     'error_line' => ':7: warning: could not find @image file `./tp/t/include_dir/f--ile.txt\' nor alternate text
 ',
-    'text' => 'could not find @image file `./tp/t/include_dir/f--ile.txt\' nor alternate text',
-    'type' => 'warning',
+    'file_name' => '',
+    'line_nr' => 7,
     'macro' => '',
-    'line_nr' => 7
+    'text' => 'could not find @image file `./tp/t/include_dir/f--ile.txt\' nor alternate text',
+    'type' => 'warning'
   },
   {
-    'file_name' => '',
     'error_line' => ':10: warning: could not find @image file `../include_dir/f--ile.txt\' nor alternate text
 ',
-    'text' => 'could not find @image file `../include_dir/f--ile.txt\' nor alternate text',
-    'type' => 'warning',
+    'file_name' => '',
+    'line_nr' => 10,
     'macro' => '',
-    'line_nr' => 10
+    'text' => 'could not find @image file `../include_dir/f--ile.txt\' nor alternate text',
+    'type' => 'warning'
   }
 ];
 

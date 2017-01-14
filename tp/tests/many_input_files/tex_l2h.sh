@@ -1,7 +1,21 @@
 #! /bin/sh
+#
+# Copyright 2012, 2013 Free Software Foundation, Inc.
+#
+# This file is free software; as a special exception the author gives
+# unlimited permission to copy and/or distribute it, with or without
+# modifications, as long as this notice is preserved.
+#
+# This program is distributed in the hope that it will be useful, but
+# WITHOUT ANY WARRANTY, to the extent permitted by law; without even the
+# implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+#
+# Originally written by Patrice Dumas.
+
+LC_ALL=C; export LC_ALL
 
 if test "z$TEX_HTML_TESTS" != z'yes'; then
-  echo "Skipping HTML TeX tests that are not easily reproducible"
+  echo "Skipping HTML TeX tests that are not easily reproducible ($0)"
   exit 77
 fi
 
@@ -31,7 +45,7 @@ echo "$basename" > $logfile
 
 tmp_dir=`mktemp -d l2h_t2h_XXXXXXXX`
 if test z"$tmp_dir" = 'z' ; then
-  echo "mktemp failed" 1>&2
+  echo "$0: mktemp failed" 1>&2
   exit 1
 fi
 
@@ -51,11 +65,12 @@ else
   outdir=$basename
   cp -pr $outdir $raw_output_dir
   rm -f $outdir/*_l2h_images.log $outdir/*.aux $outdir/*_l2h.css \
-        $outdir/*_l2h_images.out $outdir/*.png
+        $outdir/*_l2h_images.out $outdir/*_l2h_images.pl $outdir/*.png
   sed -e 's/^texexpand.*/texexpand /' \
       -e '/is no longer supported at.*line/d' "$raw_outdir/$basename.2" > "$outdir/$basename.2"
 
-  for file in "$raw_outdir/"*.html "$raw_outdir/"*_l2h_images.pl "$raw_outdir/"*-l2h_cache.pm; do
+  #for file in "$raw_outdir/"*.html "$raw_outdir/"*_l2h_images.pl "$raw_outdir/"*-l2h_cache.pm; do
+  for file in "$raw_outdir/"*.html "$raw_outdir/"*-l2h_cache.pm; do
     filename=`basename "$file"`
     sed -e 's/WIDTH="\([0-9]*\)\([0-9]\)"/WIDTH="100"/' \
         -e 's/CONTENT="LaTeX2HTML.*/CONTENT="LaTeX2HTML">/' \

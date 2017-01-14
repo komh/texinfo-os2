@@ -1,8 +1,8 @@
 /* m-x.c -- Meta-x minibuffer reader.
-   $Id: m-x.c 5191 2013-02-23 00:11:18Z karl $
+   $Id: m-x.c 5912 2014-11-07 10:49:13Z gavin $
 
-   Copyright (C) 1993, 1997, 1998, 2001, 2002, 2004, 2007, 2008, 2011
-   Free Software Foundation, Inc.
+   Copyright 1993, 1997, 1998, 2001, 2002, 2004, 2007, 2008, 2011, 2013,
+   2014 Free Software Foundation, Inc.
 
    This program is free software: you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
@@ -17,9 +17,12 @@
    You should have received a copy of the GNU General Public License
    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-   Originally written by Brian Fox (bfox@ai.mit.edu). */
+   Originally written by Brian Fox. */
 
 #include "info.h"
+#include "display.h"
+#include "session.h"
+#include "echo-area.h"
 #include "funs.h"
 
 /* **************************************************************** */
@@ -32,12 +35,12 @@
    name.  A return value of NULL indicates that no function name could
    be read. */
 char *
-read_function_name (const char *prompt, WINDOW *window)
+read_function_name (char *prompt, WINDOW *window)
 {
   register int i;
   char *line;
   REFERENCE **array = NULL;
-  int array_index = 0, array_slots = 0;
+  size_t array_index = 0, array_slots = 0;
 
   /* Make an array of REFERENCE which actually contains the names of
      the functions available in Info. */
@@ -50,16 +53,11 @@ read_function_name (const char *prompt, WINDOW *window)
       entry->nodename = NULL;
       entry->filename = NULL;
 
-      add_pointer_to_array
-        (entry, array_index, array, array_slots, 200, REFERENCE *);
+      add_pointer_to_array (entry, array_index, array, array_slots, 200);
     }
 
-  line = info_read_completing_in_echo_area (window, prompt, array);
-
+  line = info_read_completing_in_echo_area (prompt, array);
   info_free_references (array);
-
-  if (!echo_area_is_active)
-    window_clear_echo_area ();
 
   return line;
 }
@@ -73,7 +71,7 @@ DECLARE_INFO_COMMAND (describe_command,
 
   if (!line)
     {
-      info_abort_key (active_window, count, key);
+      info_abort_key (active_window, count);
       return;
     }
 
@@ -98,8 +96,6 @@ DECLARE_INFO_COMMAND (info_execute_command,
   char *keys;
   char *prompt;
 
-  prompt = xmalloc (20);
-
   keys = where_is (info_keymap, InfoCmd(info_execute_command));
   /* If the where_is () function thinks that this command doesn't exist,
      there's something very wrong!  */
@@ -107,17 +103,18 @@ DECLARE_INFO_COMMAND (info_execute_command,
     abort();
 
   if (info_explicit_arg || count != 1)
-    sprintf (prompt, "%d %s ", count, keys);
+    asprintf (&prompt, "%d %s ", count, keys);
   else
-    sprintf (prompt, "%s ", keys);
+    asprintf (&prompt, "%s ", keys);
 
   /* Ask the completer to read a reference for us. */
   line = read_function_name (prompt, window);
+  free (prompt);
 
   /* User aborted? */
   if (!line)
     {
-      info_abort_key (active_window, count, key);
+      info_abort_key (active_window, count);
       return;
     }
 
@@ -136,7 +133,7 @@ DECLARE_INFO_COMMAND (info_execute_command,
         (strncmp (line, "echo-area-", 10) == 0))
       {
         free (line);
-        info_error (_("Cannot execute an `echo-area' command here."));
+        info_error (_("Cannot execute an 'echo-area' command here."));
         return;
       }
 
@@ -146,8 +143,8 @@ DECLARE_INFO_COMMAND (info_execute_command,
     if (!command)
       return;
 
-    if (InfoFunction(command))
-      (*InfoFunction(command)) (active_window, count, 0);
+    if (command->func)
+      (*command->func) (active_window, count, 0);
     else
       info_error (_("Undefined command: %s"), line);
   }
@@ -170,22 +167,18 @@ DECLARE_INFO_COMMAND (set_screen_height,
 
       sprintf (prompt, _("Set screen height to (%d): "), new_height);
 
-      line = info_read_in_echo_area (window, prompt);
+      line = info_read_in_echo_area (prompt);
 
       /* If the user aborted, do that now. */
       if (!line)
         {
-          info_abort_key (active_window, count, 0);
+          info_abort_key (active_window, count);
           return;
         }
 
       /* Find out what the new height is supposed to be. */
       if (*line)
         new_height = atoi (line);
-
-      /* Clear the echo area if it isn't active. */
-      if (!echo_area_is_active)
-        window_clear_echo_area ();
 
       free (line);
     }
@@ -202,7 +195,7 @@ DECLARE_INFO_COMMAND (set_screen_height,
 	 window_new_screen_size won't do anything, but we've
 	 already cleared the display above.  Undo the damage.  */
       window_mark_chain (windows, W_UpdateWindow);
-      display_update_display (windows);
+      display_update_display ();
     }
   else
     {

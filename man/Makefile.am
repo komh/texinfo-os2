@@ -1,8 +1,8 @@
-# $Id: Makefile.am 5191 2013-02-23 00:11:18Z karl $
+# $Id: Makefile.am 6772 2015-11-09 22:46:37Z gavin $
 # Makefile.am for texinfo/man.
 #
 # Copyright 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011,
-# 2012, 2013 Free Software Foundation, Inc.
+# 2012, 2013, 2014, 2015 Free Software Foundation, Inc.
 #
 # This file is free software; as a special exception the author gives
 # unlimited permission to copy and/or distribute it, with or without
@@ -18,7 +18,7 @@ man_MANS = install-info.1 makeinfo.1 texindex.1 texi2dvi.1
 # These require the build in info/, thus can't do if we failed to find a
 # terminal library.
 if HAVE_TERMLIBS
-man_MANS += info.1 infokey.1
+man_MANS += info.1
 endif
 
 # These are hand-written.
@@ -39,18 +39,24 @@ MAINTAINERCLEANFILES = $(man_MANS)
 # Use the programs built in our distribution, taking account of possible
 # cross-compiling.  makeinfo needs a bunch of our included modules.
 tpdir = $(top_srcdir)/tp
-MAKEINFO = $(PERL) -I "$(tpdir)" "$(tpdir)"/texi2any.pl
-#
-tplibdir = $(tpdir)/maintain/lib
-mi_perl5lib = "$(tpdir):$(tplibdir)/libintl-perl/lib:$(tplibdir)/Unicode-EastAsianWidth/lib:$(tplibdir)/Text-Unidecode/lib"
+MAKEINFO_ENVIRONMENT = TEXINFO_DEV_SOURCE=1 ; export TEXINFO_DEV_SOURCE ; \
+                       top_srcdir="$(top_srcdir)" ; export top_srcdir ; \
+                       top_builddir="$(top_builddir)" ; export top_builddir ;
 
-# Set up the variables:
+MAKEINFO = $(MAKEINFO_ENVIRIONMENT) $(PERL) "$(tpdir)"/texi2any.pl
+#
+mi_env = \
+  TEXINFO_DEV_SOURCE=1; export TEXINFO_DEV_SOURCE; ${MAKEINFO_ENVIRONMENT}
+
+# Set up the variables.  makeinfo, texindex are no longer a .exe(cutable).
 man_rule_0 = \
-  program=`expr '/$@' : '.*/\(.*\)\.1'` \
+  exe_ext="$(EXEEXT)" \
+  && program=`expr '/$@' : '.*/\(.*\)\.1'` \
   && case $$program in \
-         makeinfo) dir=tp; PERL5LIB=$(mi_perl5lib); export PERL5LIB;; \
+         makeinfo) dir=tp; $(mi_env) exe_ext="";; \
             info*) dir=info; test $$program != info || program=g$$program;; \
     *install-info) dir=install-info; program=g$$program;; \
+        *texindex) dir=texindex; exe_ext="";; \
                 *) dir=util;; esac \
   && dir="$(top_builddir)/$(native_tools)/$$dir" \
   && h2m="$(srcdir)/$$program.h2m"
@@ -59,8 +65,8 @@ man_rule_0 = \
 # make sure the binary is up-to-date and then generate the man page.
 man_rule_bin = echo "Updating man page $@" \
   && $(man_rule_0) \
-  && echo cd "$$dir" '&&' $(MAKE) $(AM_MAKEFLAGS) $$program$(EXEEXT) \
-  &&     (cd "$$dir"  &&  $(MAKE) $(AM_MAKEFLAGS) $$program$(EXEEXT)) \
+  && echo cd "$$dir" '&&' $(MAKE) $(AM_MAKEFLAGS) $$program$$exe_ext \
+  &&     (cd "$$dir"  &&  $(MAKE) $(AM_MAKEFLAGS) $$program$$exe_ext) \
   && echo $(HELP2MAN) --name=\""$$name"\" -I "$$h2m" "$$dir/$$program" -o '$@'\
   &&      $(HELP2MAN) --name="$$name"     -I "$$h2m" "$$dir/$$program" -o '$@'
 
@@ -74,9 +80,6 @@ info.1: $(top_srcdir)/info/info.c $(srcdir)/ginfo.h2m \
                   $(common_mandeps)
 	@name="read Info documents" && $(man_rule_bin)
 
-infokey.1: $(top_srcdir)/info/infokey.c $(common_mandeps)
-	@name="compile customizations for Info" && $(man_rule_bin)
-
 install-info.1: $(top_srcdir)/install-info/install-info.c \
                           $(common_mandeps)
 	@name="update info/dir entries" && $(man_rule_bin)
@@ -88,7 +91,7 @@ makeinfo.1: $(tpdir)/texi2any.pl $(common_mandeps)
 	sed '/^\.IP$$/N;/\nAlso/s/I//;/\nThe/s/I//' $@.tmp >$@
 	rm $@.tmp
 
-texindex.1: $(top_srcdir)/util/texindex.c $(common_mandeps)
+texindex.1: $(top_srcdir)/texindex/ti.twjr $(common_mandeps)
 	@name="sort Texinfo index files" && $(man_rule_bin)
 
 # 

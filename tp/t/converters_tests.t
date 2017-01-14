@@ -206,6 +206,7 @@ my $at_commands_in_refs_text = '@node Top
 * 8.27@dmn{in}::
 * @sansserif{sansserif} @slanted{slanted}::
 * @indicateurl{indicateurl}::
+* @sub{g}H 3@sup{rd}::
 * @url{http://somewhere_aaa} @url{url, text} @uref{/man.cgi/1/ls,,ls}::
 @end menu
 
@@ -290,6 +291,9 @@ my $at_commands_in_refs_text = '@node Top
 @node @indicateurl{indicateurl}
 @chapter @indicateurl{indicateurl}
 
+@node @sub{g}H 3@sup{rd}
+@chapter @sub{g}H 3@sup{rd}
+
 @node @url{http://somewhere_aaa} @url{url, text} @uref{/man.cgi/1/ls,,ls}
 @chapter @url{http://somewhere_aaa} @url{url, text} @uref{/man.cgi/1/ls,,ls}
 
@@ -325,6 +329,7 @@ my $at_commands_in_refs_text = '@node Top
 @ref{8.27@dmn{in}}
 @ref{@sansserif{sansserif} @slanted{slanted}}
 @ref{@indicateurl{indicateurl}}
+@ref{@sub{g}H 3@sup{rd}}
 @ref{@url{http://somewhere_aaa} @url{url, text} @uref{/man.cgi/1/ls,,ls}}
 
 @bye
@@ -594,17 +599,51 @@ fff2
 @end deffn
 '],
 ['raw_block_commands',
-$raw_commands_text
+$raw_commands_text,
+{'expanded_formats' => ['tex', 'docbook', 'html', 'xml']}
 ],
 ['raw_block_commands_expand_tex',
-$raw_commands_text, {'expanded_formats' => ['tex']},
+$raw_commands_text,
+{'expanded_formats' => ['tex', 'docbook', 'html', 'xml']},
+{'expanded_formats' => ['tex']},
 ],
 ['inline',
-$inline_text
+$inline_text,
 ],
 ['inline_expand_tex',
 $inline_text, {'expanded_formats' => ['tex']},
+{'expanded_formats' => ['tex']},
 ],
+['inlinefmtifelse',
+'@inlinefmtifelse{html,,else html no if}.
+@inlinefmtifelse{html,if html,else html}.
+
+@inlinefmtifelse{plaintext,if plaintext no second arg}.
+@inlinefmtifelse{plaintext,if plaintext,else plaintext}.
+
+@inlinefmtifelse{xml,if xml empty second arg,}.
+
+@inlinefmtifelse{ docbook , if docbook spaces , else docbook spaces }.
+
+@inlinefmtifelse{ tex , if tex spaces , else tex spaces }.
+
+@inlinefmtifelse{docbook,if docbook,else docbook}.
+
+@inlinefmtifelse{tex,if tex,else tex}.
+',
+{'expanded_formats' => []}
+],
+['inlineifsetifclear',
+'@inlineifclear{aaa, iclear first }.
+
+@inlineifset{aaa, ifset first }.
+
+@set aaa
+
+@inlineifclear{aaa, ifclear second }.
+
+@inlineifset{aaa, ifset second }.
+'],
 ['table_in_display_in_example',
 '@example
 @display
@@ -706,6 +745,11 @@ explanation
 
 in para
 @image{f--ile,,,a very long alt argument that could span more than one line who knows}.
+'],
+['enumerate_above_ten',
+'@enumerate 14
+@item a
+@end enumerate
 '],
 ['footnote_no_number',
 '@node Top
@@ -908,7 +952,8 @@ Macro not unmacroed @othermacro{}.
 
 Macros that should not be defined: @mymacro{}. @macroarg{with arg}.
 
-', {'expanded_formats' => ['html']}], 
+', {'expanded_formats' => ['html']}, {'expanded_formats' => ['html']}
+], 
 );
 
 my @html_text_cases = (
@@ -946,7 +991,9 @@ undef, {'test_file' => 'sample_utf8.texi'}
 
 '.
 $at_commands_in_refs_text, 
-{}, {'TEST' => 1}], # TEST => 1 triggers @today constant expansion for diffs
+{'todo' =>
+   {'file_info' => 'different results from XS and pure Perl modules',
+  }}, {'TEST' => 1}], # TEST => 1 triggers @today constant expansion for diffs
 ['at_commands_in_refs_latin1',
 '@setfilename at_commands_in_refs_latin1.info
 @documentencoding ISO-8859-15

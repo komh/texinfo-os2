@@ -1,5 +1,5 @@
 \input texinfo.tex    @c -*-texinfo-*-
-@comment $Id: info-stnd.texi 5191 2013-02-23 00:11:18Z karl $
+@c $Id: info-stnd.texi 6989 2016-02-06 10:38:22Z gavin $
 @c We must \input texinfo.tex instead of texinfo, otherwise make
 @c distcheck in the Texinfo distribution fails, because the texinfo Info
 @c file is made first, and texi2dvi must include . first in the path.
@@ -17,15 +17,15 @@ This manual is for Stand-alone GNU Info (version @value{VERSION},
 @value{UPDATED}), a program for viewing documents in Info format
 (usually created from Texinfo source files).
 
-Copyright @copyright{} 1992, 1993, 1996, 1997, 1998, 1999, 2001, 2002,
-2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013 Free Software
-Foundation, Inc.
+Copyright @copyright{} 1992, 1993, 1996, 1997, 1998, 1999, 2001,
+2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012,
+2013, 2014, 2015, 2016 Free Software Foundation, Inc.
 
 @quotation
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
 any later version published by the Free Software Foundation; with no
-Invariant Sections, with the Front-Cover texts being ``A GNU Manual'',
+Invariant Sections, with the Front-Cover Texts being ``A GNU Manual'',
 and with the Back-Cover Texts as in (a) below.  A copy of the
 license is included in the section entitled ``GNU Free Documentation
 License'' in the Texinfo manual.
@@ -44,7 +44,6 @@ license to the document, as described in section 6 of the license.
 @dircategory Texinfo documentation system
 @direntry
 * info stand-alone: (info-stnd).           Read Info documents without Emacs.
-* infokey: (info-stnd)Invoking infokey.    Compile Info customizations.
 @end direntry
 
 @titlepage
@@ -63,14 +62,14 @@ license to the document, as described in section 6 of the license.
 @node Top
 @top Stand-alone GNU Info
 
-If you do not know how to use Info, but have a working Info reader,
-you should read the Info manual before this one (@pxref{Top,,, info,
-Info}), as it includes more background information and a thorough
-tutorial.
+This documentation describes the stand-alone Info reader which you can
+use to read Info documentation.
 
-This documentation describes the stand-alone Info reader that is part
-of the Texinfo distribution, not the Info reader that is part of GNU
-Emacs.
+If you are new to the Info reader, then you can get started by typing
+@samp{H} for a list of basic key bindings.  You can read through the
+rest of this manual by typing @key{SPC} and @key{DEL} (or @key{Space}
+and @key{Backspace}) to move forwards and backwards in it.
+
 @end ifnottex
 
 @menu
@@ -80,11 +79,13 @@ Emacs.
 * Scrolling Commands::          Commands for reading the text within a node.
 * Node Commands::               Commands for selecting a new node.
 * Searching Commands::          Commands for searching an Info file.
-* Xref Commands::               Commands for selecting cross references.
+* Index Commands::              Commands for looking up in indices.
+* Xref Commands::               Commands for selecting cross-references.
 * Window Commands::             Commands which manipulate multiple windows.
 * Printing Nodes::              How to print out the contents of a node.
 * Miscellaneous Commands::      A few commands that defy categorization.
 * Variables::                   How to change the default behavior of Info.
+* Colors and Styles::           Customize the colors used by Info.
 * Custom Key Bindings::         How to define your own key-to-command bindings.
 * Index::                       Global index.
 @end menu
@@ -94,8 +95,8 @@ Emacs.
 @chapter Stand-alone Info
 
 The @dfn{Info} program described here is a stand-alone program, part
-of the Texinfo distribution, which is used to view Info files on an
-ASCII terminal.  @dfn{Info files} are typically the result of
+of the Texinfo distribution, which is used to view Info files on a
+text terminal.  @dfn{Info files} are typically the result of
 processing Texinfo files with the program @code{makeinfo} (also in the
 Texinfo distribution).
 
@@ -114,7 +115,9 @@ reader supports the X Window System and other such bitmapped
 interfaces, not just plain ASCII, so if you want a prettier display
 for Info files, you should try it.  You can use Emacs Info without
 using Emacs for anything else.  (Type @kbd{C-x C-c} to exit; this also
-works in the stand-alone Info reader.)
+works in the stand-alone Info reader.)  @xref{Top,,, info, Info} for a
+tutorial and more background information about the Info system, as well
+as information about the Info reader that is part of GNU Emacs,
 
 @cindex bugs, reporting
 Please report bugs in this stand-alone Info program to
@@ -131,20 +134,159 @@ sent to @email{bug-gnu-emacs@@gnu.org}.
 @cindex options, command line
 @cindex arguments, command line
 
-GNU Info accepts several options to control the initial node being
-viewed, and to specify which directories to search for Info files.
+GNU Info accepts several options to control the initial node or nodes
+being viewed, and to specify which directories to search for Info files.
 Here is a template showing an invocation of GNU Info from the shell:
 
 @example
-info [@var{option}]@dots{} [@var{menu-item}@dots{}]
+info [@var{option}@dots{}] [@var{manual}] [@var{menu-or-index-item}@dots{}]
 @end example
 
-The program accepts the following options:
+Info will look for an entry called @var{manual} in the directory
+files, which are named @file{dir}, that it finds in its search path.
+The search is case-insensitive and considers substrings.
+(If @var{manual} is not given, by default Info displays a composite
+directory listing, constructed by combining the @file{dir} files.)
+A basic example:
+
+@example
+info coreutils
+@end example
+
+This looks for an entry labelled @code{coreutils}, or
+@code{Coreutils}, etc., and if found, displays the referenced file
+(e.g., @file{coreutils.info}) at the location given.
+@code{info coreu} will find it too, if there is no better match.
+
+Another example:
+
+@example
+info ls
+@end example
+
+Assuming the normal @code{dir} entry for @code{ls}, this will show the
+@code{ls} documentation, which happens to be within the
+@code{coreutils} manual rather than a separate manual.  The @code{dir}
+entries can point to an any node within a manual, so that users don't
+have to be concerned with the exact structure used by different
+authors.
+
+@cindex compressed Info files
+@cindex files, compressed
+@cindex Info files, compressed
+If no entry is found in the directories, Info looks for files in its
+search path with names based on @var{manual}.  If @var{manual} is
+not found, Info looks for it with a number of known extensions of Info
+files, namely @file{.info}, @file{-info}, @file{/index}, and @file{.inf}.
+For every known extension, if a regular file is not found, Info looks
+for a compressed file.  Info supports files compressed with @code{gzip},
+@code{xz}, @code{bzip2}, @code{lzip}, @code{lzma}, @code{compress} and
+@code{yabba} programs, assumed to have extensions @file{.z}, @file{.gz},
+@file{.xz}, @file{.bz2}, @file{.lz}, @file{.lzma}, @file{.Z}, and
+@file{.Y} respectively.@footnote{On MS-DOS, Info allows for the Info
+extension, such as @code{.inf}, and the short compressed file extensions,
+such as @file{.z} and @file{.gz}, to be merged into a single extension,
+since DOS doesn't allow more than a single dot in the basename of
+a file.  Thus, on MS-DOS, if Info looks for @file{bison}, file names
+like @file{bison.igz} and @file{bison.inz} will be found and decompressed
+by @code{gunzip}.}
+
+You can specify the name of a node to visit with the @code{--node} or 
+@code{-n} option.  Alternatively, you can specify the file and node 
+together using the same format that occurs in Info cross-references.  
+These two examples both load the @samp{Files} node within the 
+@samp{emacs} manual:
+
+@example
+info emacs -n Files
+info '(emacs)Files'
+@end example
+
+@cindex absolute Info file names
+@cindex relative Info file names
+@cindex file names, relative
+@cindex Info files, relative
+If you want to load a file without looking in the search path, specify
+@var{manual} either as an absolute path, or as a path relative to the
+current directory which contains at least one slash character.  (You
+can also use the @code{--file} option for similar behavior, described
+below.)
+Examples:
+
+@example
+info /usr/local/share/info/bash.info
+info ./document.info
+@end example
+
+@noindent
+Info looks for @var{manual} only in the explicitly specified
+directory, and adds that directory to its search path.
+
+@anchor{command-line menu items}
+@cindex menu, following
+Info treats any remaining arguments as the names of menu items, or
+(see below) index entries.  The first argument is a menu item in the
+@samp{Top} node of the file loaded, the second argument is a menu item
+in the first argument's node, etc.  You can move to the node of your
+choice by specifying the menu names which describe the path to that
+node.  For example,
+
+@example
+info emacs buffers
+info texinfo Overview 'Using Texinfo'
+@end example
+
+@noindent
+The first example selects the menu item @samp{Buffers} in the node
+@samp{(emacs)Top}.  The second example loads the @file{texinfo} file and
+looks in its top-level menu for a @samp{Overview} item, looks in the menu
+of the node referenced, and finally displays the node referenced by the
+@samp{Using Texinfo} item.
+
+If there was only one @var{menu-or-index-item} argument and it wasn't
+found as a menu item, Info looks for it as an index entry. For example:
+
+@example
+info libc printf
+@end example
+
+@noindent
+This loads the libc Info manual and first looks for @code{printf} in
+the top-level menu as usual; since it isn't there (at this writing),
+it then looks in the indices.  If it's found there (which it is),
+the relevant node at the given location is displayed.
+
+A complete list of options follows.
 
 @table @code
+@anchor{--all}
+@item --all
+@itemx -a
+@cindex @code{--all} (@code{-a}) command line option
+Find all files matching @var{manual}.  Three usage patterns are
+supported, as follows.
+
+First, if @code{--all} is used together with @option{--where},
+@command{info} prints the names of all matching files found on
+standard output (including @samp{*manpages*} if relevant) and exits.
+
+Second, if @code{--all} is used together with @option{--output}, the
+contents of all matched files are dumped to the specified output
+file.
+
+Otherwise, an interactive session is initiated.  If more than one file
+matches, a menu node is displayed listing the matches and allowing you
+to select one.  This menu node can be brought back at any time by
+pressing @kbd{C-x f}.  If there is only one match, @command{info}
+starts as usual.
+
+The @option{--index-search} and @option{--node} options cannot be used
+together with this option.
+
 @anchor{--apropos}
 @item --apropos=@var{string}
 @itemx -k @var{string}
+@cindex @code{--apropos} (@code{-k}) command line option
 @cindex Searching all indices
 @cindex Info files@r{, searching all indices}
 @cindex Apropos@r{, in Info files}
@@ -158,106 +300,134 @@ installed, searching all of them might take some time!)
 You can invoke the apropos command from inside Info; see
 @ref{Searching Commands}.
 
-@cindex directory path
+@item --debug=@var{number}
+@itemx -x @var{number} 
+@cindex @code{--debug} (@code{-x}) command line option
+@cindex debugging
+Print additional debugging information.  The argument specifies the
+verbosity level, so a higher level includes all the information from
+lower levels.  For all available debugging output, use
+@option{-x@tie{}-1}.  Info version @value{VERSION} has these levels:
+
+@table @code
+@item 1
+Print information about file handling, such as looking for @file{dir}
+files and nodes written with @samp{--output}.
+
+@item 2
+Print operations relating to @env{INFOPATH}.
+
+@item 3
+Print information about node searching.
+@end table
+
+@cindex @file{infodebug} output file
+Before Info's full-screen output is initialized, debugging output goes
+to standard error.  After it is initialized, the debugging output is
+written to the file @file{infodebug} in the current working directory.
+
 @item --directory @var{directory-path}
 @itemx -d @var{directory-path}
-Prepend @var{directory-path} to the list of directory paths searched
+@cindex @code{--directory} (@code{-d}) command line option
+@cindex directory path
+@cindex @env{INFOPATH}
+@anchor{INFOPATH}
+Add @var{directory-path} to the list of directory paths searched
 when Info needs to find a file.  You may issue @code{--directory}
 multiple times; once for each directory which contains Info files,
 or with a list of such directories separated by a colon (or semicolon
-on MS-DOS/MS-Windows).  In the absence of @code{--directory} options
-the list of directories searched by Info is constructed from the
-value of the environment variable @code{INFOPATH}.  The value of
+on MS-DOS/MS-Windows).
+
+Directories specified in the environment variable @env{INFOPATH} are added
+to the directories specified with @code{--directory}, if any.  The value of
 @code{INFOPATH} is a list of directories usually separated by a colon;
-on MS-DOS/MS-Windows systems, the semicolon is used.  If you do not
-define @code{INFOPATH}, Info uses a default path defined when Info was
-built as the initial list of directories.  If the value of
+on MS-DOS/MS-Windows systems, the semicolon is used.  If the value of
 @code{INFOPATH} ends with a colon (or semicolon on MS-DOS/MS-Windows),
 the initial list of directories is constructed by appending the
 build-time default to the value of @code{INFOPATH}.
 
+If you do not define @code{INFOPATH}, Info uses a default path defined
+when Info was built as the initial list of directories.  
+
+Regardless of whether @code{INFOPATH} is defined, the default
+documentation directory defined when Info was built is added to the
+search path.  If you do not want this directory to be included, set
+the @code{infopath-no-defaults} variable to @code{On}
+(@pxref{infopath-no-defaults}).
+ 
 If the list of directories contains the element @code{PATH}, that
 element is replaced by a list of directories derived from the value of
 the environment variable @code{PATH}.  Each path element of the form
 @var{dir/base} is replaced by @var{dir}@code{/share/info} or
 @var{dir}@code{/info}, provided that directory exists.
 
+@item --dribble=@var{file}
+@cindex @code{--dribble} command line option
 @cindex keystrokes, recording
 @cindex remembering user keystrokes
-@item --dribble=@var{dribble-file}
 Specify a file where all user keystrokes will be recorded.  This file
 can be used later to replay the same sequence of commands, see the
 @samp{--restore} option below.
 
-@item --file @var{filename}
-@itemx -f @var{filename}
-@cindex Info file, selecting
-Specify a particular Info file to visit.  By default, Info visits
-the file @code{dir}; if you use this option, Info will start with
-@code{(@var{filename})Top} as the first file and node.
+@item --file @var{manual}
+@itemx -f @var{manual}
+@cindex @code{--file} (@code{-f}) command line option
+@cindex Info manual, specifying initial
+@cindex initial node, specifying
+@cindex startup node, specifying
+Specify a particular manual to visit without looking its name up in any
+@file{dir} files.
 
-@cindex relative Info file names
-@cindex file names, relative
-@cindex Info files, relative
-If @var{filename} is an absolute file name, or begins with @file{./} or
-@file{../}, Info looks for @var{filename} only in the directory of the
-specified @var{filename}, and adds the directory of @var{filename} to
-the value of @code{INFOPATH}.  In contrast, if @var{filename} is in the
-form of a relative file name, but without the @file{./} or @file{../}
-prefix, Info will only look for it in the directories specified in
-@code{INFOPATH}.  In other words, Info does @emph{not} treat file names
-which lack @file{./} and @file{../} prefix as relative to the current
-directory.
+With this option, it starts by trying to visit
+@code{(@var{manual})Top}, i.e., the @code{Top} node in (typically)
+@file{@var{manual}.info}.  As above, it tries various file extensions
+to find the file. If no such file (or node) can be found, Info exits
+without doing anything.  As with the @file{dir} lookup described above,
+any extra @var{menu-item} arguments are used to locate a node within the
+loaded file.
 
-@cindex compressed Info files
-@cindex files, compressed
-@cindex Info files, compressed
-In every directory Info tries, if @var{filename} is not found, Info
-looks for it with a number of known extensions of Info files, namely
-@file{.info}, @file{-info}, @file{/index}, and @file{.inf}.  For every
-known extension, Info looks for a compressed file, if a regular file
-isn't found.  Info supports files compressed with @code{gzip},
-@code{xz}, @code{bzip2}, @code{lzip}, @code{lzma}, @code{compress} and
-@code{yabba} programs, assumed to have @file{.z}, @file{.gz},
-@file{.xz}, @file{.bz2}, @file{.lz}, @file{.lzma}, @file{.Z}, or
-@file{.Y} extensions, possibly after one of the known Info files
-extensions.
-
-On MS-DOS, Info allows for the Info extension, such as @code{.inf},
-and the short compressed file extensions, such as @file{.z} and
-@file{.gz}, to be merged into a single extension, since DOS doesn't
-allow more than a single dot in the basename of a file.  Thus, on
-MS-DOS, if Info looks for @file{bison}, file names like
-@file{bison.igz} and @file{bison.inz} will be found and decompressed
-by @code{gunzip}.
+If @var{manual} is an absolute file name, or begins with @file{./} or
+@file{../}, or contains an intermediate directory, Info will only look
+for the file in the directory specified, and add this directory to
+@code{INFOPATH}.  (This is the same as what happens when @code{--file}
+is not given.)
 
 @item --help
 @itemx -h
-Produces a relatively brief description of the available Info options.
+@cindex @code{--help} (@code{-h}) command line option
+Output a brief description of the available Info command-line options.
 
 @item --index-search @var{string}
+@cindex @code{--index-search} command line option
 @cindex index search, selecting from the command line
 @cindex online help, using Info as
-After processing all command-line arguments, go to the index in the Info
-file and search for index entries which match @var{string}.  If such an
-entry is found, the Info session begins with displaying the node pointed
-to by the first matching index entry; press @kbd{,} to step through the
-rest of the matching entries.  If no such entry exists, print @samp{no
-entries found} and exit with nonzero status.  This can be used from
-another program as a way to provide online help, or as a quick way of
-starting to read an Info file at a certain node when you don't know the
-exact name of that node.
+After processing all command-line arguments, go to the index in the
+selected Info file and search for index entries which match
+@var{string}.  If such an entry is found, the Info session begins with
+displaying the node pointed to by the first matching index entry;
+press @kbd{,} to step through the rest of the matching entries.  If no
+such entry exists, print @samp{no entries found} and exit with nonzero
+status.  This can be used from another program as a way to provide
+online help, or as a quick way of starting to read an Info file at a
+certain node when you don't know the exact name of that node.
 
-This command can also be invoked from inside Info; see @ref{Searching
+This command can also be invoked from inside Info; @pxref{Searching
 Commands}.
+
+@item --init-file @var{INIT-FILE}
+@anchor{--init-file}
+@cindex @code{--init-file} command line option
+Read key bindings and variable settings from @var{INIT-FILE} instead
+of the @file{.infokey} file in your home directory.  @xref{Custom Key
+Bindings}.
 
 @item --node @var{nodename}
 @itemx -n @var{nodename}
+@cindex @code{--node} (@code{-n}) command line option
 @cindex node, selecting from the command line
 Specify a particular node to visit in the initial file that Info
-loads.  This is especially useful in conjunction with @code{--file}.
-You may specify @code{--node} multiple times; for an interactive Info,
-each @var{nodename} is visited in its own window, for a
+loads.  You may specify @code{--node} multiple times: for an interactive
+Info, each @var{nodename} is visited in its own window; for a
 non-interactive Info (such as when @code{--output} is given) each
 @var{nodename} is processed sequentially.
 
@@ -266,29 +436,42 @@ using the usual Info syntax, but don't forget to escape the open and
 close parentheses and whitespace from the shell; for example:@*
 @t{info --node "(emacs)Buffers"}
 
-@item --output @var{filename}
-@itemx -o @var{filename}
+@item --output @var{file}
+@itemx -o @var{file}
+@cindex @code{--output} (@code{-o}) command line option
 @cindex file, outputting to
 @cindex outputting to a file
-Specify @var{filename} as the name of a file to which to direct output.
-Each node that Info visits will be output to @var{filename} instead of
-interactively viewed.  A value of @code{-} for @var{filename} specifies
-the standard output.
+Direct output to @var{file}.  Each node that Info visits will be
+output to @var{file} instead of interactively viewed.  A value of
+@code{-} for @var{file} means standard output.
 
+@item --no-raw-escapes
+@itemx --raw-escapes, -R
+@anchor {--raw-escapes}
+@cindex @code{--raw-escapes} (@code{-R}) command line option
 @cindex colors in documents
 @cindex ANSI escape sequences in documents
-@item --raw-escapes
-@itemx --no-raw-escapes
-@itemx -R
-Do not remove ANSI escape sequences from documents.  Some versions of
-Groff, the GNU document formatter, produce man pages with ANSI escape
-sequences for bold, italics, and underlined characters, and for
-colorized text.  By default, Info lets those escape sequences pass
-through directly to the terminal.  If your terminal does not support
-these escapes, use @code{--no-raw-escapes} to make Info remove them.
+By default, Info passes SGR terminal control sequences (also known as
+ANSI escape sequences) found in documents directly through to the
+terminal.  If you use the @code{--no-raw-escapes} options, these
+sequences are displayed as other control characters are; for example, an
+@kbd{ESC} byte is displayed as @samp{^[}.  The @code{--raw-escapes} and
+@code{-R} options do not do anything, but are included for completeness.
 
-@cindex replaying recorded keystrokes
+@cindex man pages, bold and underline
+@vindex GROFF_SGR
+Some versions of Groff (@pxref{Top,,,groff,Groff}) produce man pages
+with ANSI escape sequences for bold, italics, and underlined
+characters, and for colorized text.  If your @command{man} command
+uses a version of Groff that does this (original GNU Groff does), and
+your terminal supports these sequences, Info will display any bold or
+underlined text in man pages.  Some distributions have modified Groff
+to require setting the @code{GROFF_SGR} environment variable to get
+these sequences.  @xref{Invoking grotty,,, groff, Groff}.
+
 @item --restore=@var{dribble-file}
+@cindex @code{--restore} command line option
+@cindex replaying recorded keystrokes
 Read keystrokes from @var{dribble-file}, presumably recorded during
 previous Info session (see the description of the @samp{--dribble}
 option above).  When the keystrokes in the files are all read, Info
@@ -296,40 +479,44 @@ reverts its input to the usual interactive operation.
 
 @item --show-malformed-multibytes
 @itemx --no-show-malformed-multibytes
+@cindex @code{--show-malformed-multibytes} command line option
+@cindex malformed multibyte sequences, showing
 Show malformed multibyte sequences in the output.  By default, such
 sequences are dropped.
 
 @anchor{--show-options}
-@cindex command-line options, how to find
-@cindex invocation description, how to find
 @item --show-options
 @itemx --usage
 @itemx -O
-This option causes Info to look for the node that describes how to
-invoke the program and its command-line options, and begin the session
-by displaying that node.  It is provided to make it easier to find the
-most important usage information in a manual without the need to wade
-through complex menu hierarchies.  The effect is similar to the
-@code{M-x goto-invocation} command (@pxref{goto-invocation}) from inside
-Info.
+@cindex @code{--show-options} (@code{--usage}, @code{-O}) command line option
+@cindex command-line options, how to find
+@cindex invocation description, how to find
+Tell Info to look for the node that describes how to invoke the
+program and its command-line options, and begin the session by
+displaying that node.  It is provided to make it easier to find the
+most important usage information in a manual without navigating
+through menu hierarchies.  The effect is similar to the @code{M-x
+goto-invocation} command (@pxref{goto-invocation}) from inside Info.
 
-@cindex speech synthesizers
 @item --speech-friendly
 @itemx -b
-On MS-DOS/MS-Windows only, this option causes Info to use standard file
-I/O functions for screen writes.  (By default, Info uses direct writes
-to the video memory on these systems, for faster operation and colored
-display support.)  This allows the speech synthesizers used by blind
-persons to catch the output and convert it to audible speech.
+@cindex @code{--speech-friendly} (@code{-b}) command line option
+@cindex speech synthesizers
+On MS-DOS/MS-Windows only, this option causes Info to use standard
+file I/O functions for screen writes.  (By default, Info uses direct
+writes to the video memory on these systems, for faster operation and
+colored display support.)  This allows the speech synthesizers used by
+blind persons to catch the output and convert it to audible speech.
 
 @item --strict-node-location 
-This option causes Info not to search ``nearby'' to locate nodes, and 
-instead strictly use the information provided in the Info 
-file.  The practical use for this option is in debugging programs
-that write Info files, to check that they are outputting the correct
-locations.  Due to various bugs and malfeasances in various Info
-writing programs over the years and versions, it is not advisable to
-ever use this option when just trying to read documentation.
+@cindex @code{--strict-node-location} command line option
+This option causes Info not to search ``nearby'' to locate nodes, and
+instead strictly use the information provided in the Info file.  The
+practical use for this option is for debugging programs that write
+Info files, to check that they are outputting the correct locations.
+Due to bugs and malfeasances in the various Info writing programs over
+the years and versions, it is not advisable to ever use this option
+when just trying to read documentation.
 
 @item --subnodes
 @cindex @code{--subnodes}, command line option
@@ -339,59 +526,41 @@ the menus of each node being output.  Menu items which resolve to
 external Info files are not output, and neither are menu items which are
 members of an index.  Each node is only output once.
 
+@anchor{variable-assignment}
+@item -v @var{name}=@var{value}
+@itemx --variable=@var{name}=@var{value}
+@cindex @code{--variable} (@code{-v}) command line option
+@cindex variable assignment
+Set the @command{info} variable @var{name} to @var{value}.
+@xref{Variables}.
+
 @item --version
+@cindex @code{--version} command line option
 @cindex version information
 Prints the version information of Info and exits.
 
 @anchor{--vi-keys}
+@item --vi-keys
+@cindex @code{--vi-keys} command line option
 @cindex vi-like key bindings
 @cindex Less-like key bindings
-@item --vi-keys
 This option binds functions to keys differently, to emulate the key
 bindings of @code{vi} and Less.  The default key bindings are generally
-modeled after Emacs.
-(@xref{Custom Key Bindings},
-for a more general way of altering GNU Info's key bindings.)
+modeled after Emacs.  (@xref{Custom Key Bindings} for a more general way 
+of altering GNU Info's key bindings.)
 
-@cindex Info manual location
-@cindex Where is an Info manual?
 @item --where
 @itemx --location
 @itemx -w
+@cindex @code{--where} (@code{--location}, @code{-w}) command line option
+@cindex Info manual location
+@cindex Where is an Info manual?
 Show the filename that would be read and exit, instead of actually
 reading it and starting Info.
-
-@item @var{menu-item}
-@cindex menu, following
-@anchor{command-line menu items}
-Info treats its remaining arguments as the names of menu items.  The
-first argument is a menu item in the initial node visited (generally
-@code{dir}), the second argument is a menu item in the first argument's
-node, etc.  You can easily move to the node of your choice by specifying
-the menu names which describe the path to that node.  For example,
-
-@example
-info emacs buffers
-@end example
-
-@noindent
-first selects the menu item @samp{Emacs} in the node @samp{(dir)Top},
-and then selects the menu item @samp{Buffers} in the node
-@samp{(emacs)Top}.
 @end table
 
-To avoid searching the @file{dir} files and just show some arbitrary
-file, use @samp{-f} and the filename, as in @samp{info -f ./foo.info}.
-
-The index search and the search for the node which describes program
-invocation and command-line options begins @emph{after} processing all
-the command-line menu items.  Therefore, the Info file searched for the
-index or the invocation node is the file where Info finds itself after
-following all the menu items given on the command line.  This is so
-@samp{info emacs --show-options} does what you'd expect.
-
 Finally, Info defines many default key bindings and variables.
-@xref{Custom Key Bindings}, for information on how to customize these
+@xref{Custom Key Bindings} for information on how to customize these
 settings.
 
 @c FIXME: the feature with lowercasing the file name isn't documented
@@ -402,20 +571,16 @@ settings.
 @cindex cursor, moving
 @cindex moving the cursor
 
-Many people find that reading screens of text page by page is made
-easier when one is able to indicate particular pieces of text with
-some kind of pointing device.  Since this is the case, GNU Info (both
-the Emacs and stand-alone versions) have several commands which allow
-you to move the cursor about the screen.  The notation used in this
-manual to describe keystrokes is identical to the notation used within
-the Emacs manual, and the GNU Readline manual.  @xref{User Input,,,
-emacs, The GNU Emacs Manual}, if you are unfamiliar with the
-notation.@footnote{Here's a short summary.  @kbd{C-@var{x}} means
-press the @kbd{CTRL} key and the key @var{x}.  @kbd{M-@var{x}} means
-press the @kbd{META} key and the key @var{x}.  On many terminals th
-@kbd{META} key is known as the @kbd{ALT} key.  @kbd{SPC} is the space
-bar.  The other keys are usually called by the names imprinted on
-them.}
+GNU Info has several commands which allow you to move the cursor about
+the screen.  The notation used in this manual to describe keystrokes
+is the same as the notation used within the Emacs manual, and the GNU
+Readline manual.  @xref{User Input,,, emacs, The GNU Emacs Manual}
+if you are unfamiliar with the notation.  @footnote{Here's a short
+summary.  @kbd{C-@var{x}} means press the @kbd{CTRL} key and the
+key @var{x}.  @kbd{M-@var{x}} means press the @kbd{META} key and
+the key @var{x}.  On many terminals the @kbd{META} key is known as
+the @kbd{ALT} key.  @kbd{SPC} is the space bar.  The other keys are
+usually called by the names imprinted on them.}
 
 The following table lists the basic cursor movement commands in Info.
 Each entry consists of the key sequence you should type to execute the
@@ -425,8 +590,8 @@ by name.  @xref{M-x, , Executing an extended command, emacs, The GNU
 Emacs Manual}, for more detailed information.} command name (displayed
 in parentheses), and a short description of what the command does.
 All of the cursor motion commands can take a @dfn{numeric} argument
-(see @ref{Miscellaneous Commands, @code{universal-argument}, to find
-out how to supply them}.  With a numeric argument, the motion commands
+(see @ref{Miscellaneous Commands, @code{universal-argument}} to find
+out how to supply them).  With a numeric argument, the motion commands
 are simply executed that many times; for example, a numeric argument
 of 4 given to @code{next-line} causes the cursor to move down 4 lines.
 With a negative numeric argument, the motion is reversed; an argument
@@ -531,13 +696,15 @@ current node is visible on the screen.
 
 Scrolling commands are bound differently when @samp{--vi-keys}
 operation is in effect (@pxref{--vi-keys}).  These key bindings are
-designated with ``vi-like operation''.  @xref{Custom Key Bindings},
+designated with ``vi-like operation''.  @xref{Custom Key Bindings}
 for information on arbitrarily customizing key bindings and variable
 settings.
 
 @table @asis
 @item @key{SPC} (@code{scroll-forward})
 @kindex SPC, in Info windows
+@itemx @key{NEXT}
+@kindex NEXT
 @findex scroll-forward
 Shift the text in this window up.  That is, show more of the node which
 is currently below the bottom of the window.  With a numeric argument,
@@ -550,16 +717,18 @@ redisplaying almost a completely new screenful of lines.  If you are at
 the end of a node, @key{SPC} takes you to the ``next'' node, so that you can
 read an entire manual from start to finish by repeating @key{SPC}.
 
-The default scroll size is one screen-full, but it can be changed by
+The default scroll size is one screenful, but it can be changed by
 invoking the (@code{scroll-forward-page-only-set-window}) command,
 @samp{z} under @samp{--vi-keys}, with a numeric argument.
 
-@item @key{NEXT} (an arrow key) (@code{scroll-forward-page-only})
-@itemx @kbd{C-v}
+@kindex PageDown
+The @key{NEXT} key is known as the @key{PageDown} key on some
+keyboards.
+
+@item @kbd{C-v} (@code{scroll-forward-page-only})
 @itemx @kbd{C-f}, vi-like operation
 @itemx @kbd{f}, vi-like operation
 @itemx @kbd{M-SPC}, vi-like operation
-@kindex NEXT
 @kindex C-v
 @kindex C-f, vi-like operation
 @kindex f, vi-like operation
@@ -569,20 +738,18 @@ Shift the text in this window up.  This is identical to the @key{SPC}
 operation above, except that it never scrolls beyond the end of the
 current node.
 
-@kindex PageDown
-The @key{NEXT} key is known as the @key{PageDown} key on some
-keyboards.
-
 @item @kbd{z} (@code{scroll-forward-page-only-set-window}, vi-like operation)
 @kindex z, vi-like operation
 @findex scroll-forward-page-only-set-window
-Scroll forward, like with @key{NEXT}, but if a numeric argument is
+Scroll forward, like with @kbd{C-v}, but if a numeric argument is
 specified, it becomes the default scroll size for subsequent
 @code{scroll-forward} and @code{scroll-backward} commands and their
 ilk.
 
 @item @key{DEL} (@code{scroll-backward})
 @kindex DEL, in Info windows
+@item @key{PREVIOUS}
+@kindex PREVIOUS
 @findex scroll-backward
 Shift the text in this window down.  The inverse of
 @code{scroll-forward}.
@@ -592,12 +759,18 @@ start by repeating @key{DEL}.  The default scroll size can be changed by
 invoking the (@code{scroll-backward-page-only-set-window}) command,
 @samp{w} under @samp{--vi-keys}, with a numeric argument.
 
-@item @key{PREVIOUS} (arrow key) (@code{scroll-backward-page-only})
-@itemx @key{PRIOR} (arrow key)
-@itemx @kbd{M-v}
+@kindex BS (backspace)
+If your keyboard lacks the @key{DEL} key, look for a key called
+@key{BS}, or @samp{Backspace}, sometimes designated with an arrow which
+points to the left, which should perform the same function.
+
+@kindex PageUp
+The @key{PREVIOUS} key is the @key{PageUp} key on many keyboards.  Emacs
+refers to it by the name @key{PRIOR}.
+
+@item @kbd{M-v} (@code{scroll-backward-page-only})
 @itemx @kbd{b}, vi-like operation
 @itemx @kbd{C-b}, vi-like operation
-@kindex PREVIOUS
 @kindex M-v
 @kindex b, vi-like operation
 @kindex C-b, vi-like operation
@@ -605,13 +778,13 @@ invoking the (@code{scroll-backward-page-only-set-window}) command,
 Shift the text in this window down.  The inverse of
 @code{scroll-forward-page-only}.  Does not scroll beyond the start of
 the current node.  The default scroll size can be changed by invoking
-the(@code{scroll-backward-page-only-set-window}) command, @samp{w} under
+the @code{scroll-backward-page-only-set-window} command, @samp{w} under
 @samp{--vi-keys}, with a numeric argument.
 
 @item @kbd{w} (@code{scroll-backward-page-only-set-window}, vi-like operation)
 @kindex w, vi-like operation
 @findex scroll-backward-page-only-set-window
-Scroll backward, like with @key{PREVIOUS}, but if a numeric argument is
+Scroll backward, like with @kbd{M-v}, but if a numeric argument is
 specified, it becomes the default scroll size for subsequent
 @code{scroll-forward} and @code{scroll-backward} commands.
 
@@ -676,17 +849,6 @@ variable @code{scroll-behavior} (@pxref{scroll-behavior}).
 The @code{scroll-forward-page-only} and @code{scroll-backward-page-only}
 commands never scroll beyond the current node.
 
-@kindex PageUp
-The @key{PREVIOUS} key is the @key{PageUp} key on many keyboards.  Emacs
-refers to it by the name @key{PRIOR}.  When you use @key{PRIOR} or
-@key{PageUp} to scroll, Info never scrolls beyond the beginning of the
-current node.
-
-@kindex BS (backspace)
-If your keyboard lacks the @key{DEL} key, look for a key called
-@key{BS}, or @samp{Backspace}, sometimes designated with an arrow which
-points to the left, which should perform the same function.
-
 @table @asis
 @item @kbd{C-l} (@code{redraw-display})
 @kindex C-l
@@ -708,7 +870,7 @@ terminated at the rightmost column by changing the state of line
 wrapping in the window with @code{C-x w}.  When a line which needs more
 space than one screen width to display is displayed, a @samp{$} appears
 in the rightmost column of the screen, and the remainder of the line is
-invisible.  When long lines are truncated, the modeline displays the
+invisible.  When long lines are truncated, the mode line displays the
 @samp{$} character near its left edge.
 @end table
 
@@ -875,10 +1037,10 @@ must include the Info file of the other file.  For example,
 finds the node @samp{Buffers} in the Info file @file{emacs}.
 
 @anchor{goto-invocation}
-@item @kbd{O} (@code{goto-invocation}
-@itemx @kbd{I}
+@item @kbd{O} (@code{goto-invocation})
+@itemx @kbd{I}, vi-like operation
 @kindex O
-@kindex I
+@kindex I, vi-like operation
 @findex goto-invocation
 @cindex finding the Invocation node
 Read the name of a program and look for a node in the current Info file
@@ -928,15 +1090,6 @@ exactly, Info will find it faster.)
 If any of the menu items you type are not found, Info stops at the last
 entry it did find and reports an error.
 
-@item @kbd{C-x @kbd{k}} (@code{kill-node})
-@kindex C-x k
-@findex kill-node
-Kill a node.  The node name is prompted for in the echo area, with a
-default of the current node.  @dfn{Killing} a node means that Info tries
-hard to forget about it, removing it from the list of history nodes kept
-for the window where that node is found.  Another node is selected in
-the window which contained the killed node.
-
 @item @kbd{C-x C-f} (@code{view-file})
 @kindex C-x C-f
 @findex view-file
@@ -962,6 +1115,14 @@ Info commands within it.
 Select a node which has been previously visited in a visible window.
 This is similar to @samp{C-x C-b} followed by @samp{m}, but no window is
 created.
+
+@item @code{M-x man}
+@findex man
+@cindex man pages, displaying
+Read the name of a man page to load and display.  This uses the @command{man}
+command on your system to retrieve the contents of the requested man page.
+See also @pxref{--raw-escapes}.
+
 @end table
 
 
@@ -970,8 +1131,7 @@ created.
 @cindex searching
 
 GNU Info allows you to search for a sequence of characters throughout an
-entire Info file, search through the indices of an Info file, or find
-areas within an Info file which discuss a particular topic.
+entire Info file.  Here are the commands to do this:
 
 @table @asis
 @item @kbd{s} (@code{search})
@@ -987,12 +1147,8 @@ otherwise Info ignores the letter case.  With a numeric argument of
 @var{N}, search for @var{N}th occurrence of the string.  Negative
 arguments search backwards.
 
-Normally, the search pattern should not be shorter than some
-predefined limit.  By default, this limit is set to 1 character.
-@xref{min-search-length}, for more information on this.
-
-@item @kbd{?} (@code{search-backward}, vi-like operation)
-@kindex ?, vi-like operation
+@item @kbd{?} (@code{search-backward})
+@kindex ?
 @findex search-backward
 Read a string in the echo area and search backward through the Info file
 for that string.  If the string includes upper-case characters, the Info
@@ -1000,13 +1156,47 @@ file is searched case-sensitively; otherwise Info ignores the letter
 case.  With a numeric argument of @var{N}, search for @var{N}th
 occurrence of the string.  Negative arguments search forward.
 
+@anchor{repeated-search}
+@item @kbd{C-x @kbd{n}} (@code{search-next})
+@itemx @kbd{@}}
+@itemx @kbd{n}, vi-like operation
+@kindex C-x n
+@kindex @}
+@kindex n, vi-like operation
+@findex search-next
+@cindex repeated search
+Search forwards for the string used for the last search command.
+Case sensitivity and use of regular expressions are kept the same.  With
+a numeric argument of @var{n}, search for @var{n}th next occurrence.
+
+By default, the search starts at the position immediately following
+the cursor.  However, if the variable @code{search-skip-screen}
+(@pxref{Variables,, @code{search-skip-screen}}) is set, it starts at
+the beginning of the next page, thereby skipping all visibly displayed
+lines.
+
+@item @kbd{C-x @kbd{N}} (@code{search-previous})
+@itemx @kbd{@{}
+@itemx @kbd{N}, vi-like operation
+@kindex C-x N
+@kindex @{
+@kindex n, vi-like operation
+@findex search-previous
+Just like @code{search-next}, but in reverse.  You can use
+@code{search-next} and @code{search-previous} together to move forward
+and backward through matches.  @code{search-previous} usually goes to
+the place in the file that was displayed before an immediately preceding
+@code{search-next}, and vice versa.@footnote{This sometimes doesn't
+happen when @code{search-skip-screen} is @code{On}, and the search goes
+across nodes.}
+
+
 @item @kbd{R} (@code{toggle-regexp})
 @kindex R
 @findex toggle-regexp
 Toggle between using regular expressions and literal strings for
-searching.  Info uses so-called `extended' regular expression syntax,
-similar to Emacs (@pxref{Regexps, , Using Regular Expressions, emacs,
-The GNU Emacs Manual}).
+searching.  Info uses so-called `extended' regular expression syntax
+(@pxref{Regular Expressions,,, grep, GNU Grep}).
 
 @item @kbd{S} (@code{search-case-sensitively}
 @kindex S
@@ -1017,25 +1207,6 @@ Read a string in the echo area and search for it case-sensitively, even
 if the string includes only lower-case letters.  With a numeric argument
 of @var{N}, search for @var{N}th occurrence of the string.  Negative
 arguments search backwards.
-
-@item @kbd{C-x @kbd{n}} (@code{search-next})
-@itemx @kbd{n}, vi-like operation
-@kindex C-x n
-@kindex n, vi-like operation
-@findex search-next
-@cindex repeated search
-Search for the same string used in the last search command, in the same
-direction, and with the same case-sensitivity option.  With a numeric
-argument of @var{N}, search for @var{N}th next occurrence.
-
-@item @kbd{C-x @kbd{N}} (@code{search-previous})
-@itemx @kbd{N}, vi-like operation
-@kindex C-x N
-@kindex n, vi-like operation
-@findex search-previous
-Search for the same string used in the last search command, and with the
-same case-sensitivity option, but in the reverse direction.  With a
-numeric argument of @var{N}, search for @var{N}th previous occurrence.
 
 @item @kbd{C-s} (@code{isearch-forward})
 @kindex C-s
@@ -1052,6 +1223,69 @@ Interactively search backward through the Info file for a string as
 you type it.  If the string includes upper-case characters, the search
 is case-sensitive; otherwise Info ignores the letter case.
 
+@item @kbd{M-/} (@code{tree-search})
+@findex tree-search
+Recursively search this node and any subnodes listed in menus for a 
+string.
+
+@item @kbd{M-@}} (@code{tree-search-next})
+@itemx @kbd{M-@{} (@code{tree-search-previous})
+@findex tree-search-next
+@findex tree-search-previous
+Go forwards and backwards through the matches for an active tree search.
+@end table
+
+The most basic searching command is @samp{s} or @samp{/}
+(@code{search}).  The @samp{s} command prompts you for a string in the
+echo area, and then searches the remainder of the Info file for an
+occurrence of that string.  If the string is found, the node containing
+it is selected, and the cursor is left positioned at the start of the
+found string.  Subsequent @samp{s} commands show you the default search
+string; pressing @key{RET} instead of typing a new string will use the
+default search string.
+
+@dfn{Incremental searching} is similar to basic searching, but the
+string is looked up while you are typing it, instead of waiting until
+the entire search string has been specified.
+
+The tree search can be used from the @code{dir} node to search through
+all Info files installed on the system.  It can also be used to search 
+through a particular chapter of a manual when you are not interested in
+matches in other chapters.
+
+@vindex highlight-searches
+@findex clear-search
+If the @code{highlight-searches} variable is set, matches from search
+commands will be highlighted.  @xref{Variables,, @code{highlight-searches}}.
+Use the @kbd{M-x clear-search} command to clear any search highlights.
+
+@cindex search, and case-sensitivity
+@cindex case-sensitivity, and search
+Both incremental and non-incremental search by default ignore the case
+of letters when comparing the Info file text with the search string.
+However, an uppercase letter in the search string makes the search
+case-sensitive.  You can force a case-sensitive non-incremental search,
+even for a string that includes only lower-case letters, by using the
+@samp{S} command (@code{search-case-sensitively}).  The @samp{n} and
+@samp{N} commands operate case-sensitively if the last search command
+was @samp{S}.
+
+Normally, the search pattern should not be shorter than some
+predefined limit.  By default, this limit is set to 1 character.
+@xref{min-search-length} for more information on this.
+
+
+@node Index Commands
+@chapter Index Commands
+@cindex index
+@cindex indices
+@cindex indexes
+
+GNU Info has commands to search through the indices of an Info file, 
+which helps you find areas within an Info file which discuss a 
+particular topic.
+
+@table @asis
 @item @kbd{i} (@code{index-search})
 @kindex i
 @findex index-search
@@ -1059,9 +1293,6 @@ is case-sensitive; otherwise Info ignores the letter case.
 @cindex searching, in the indices
 Look up a string in the indices for this Info file, and select a node
 to which the found index entry points.
-
-The search string should not be shorter than a predefined limit, set
-to 1 character by default (@pxref{min-search-length}).
 
 @item @kbd{I} (@code{virtual-index})
 @kindex I
@@ -1081,32 +1312,6 @@ Move to the node containing the next matching index item from the last
 Grovel the indices of all the known Info files on your system for a
 string, and build a menu of the possible matches.
 @end table
-
-The most basic searching command is @samp{s} or @samp{/}
-(@code{search}).  The @samp{s} command prompts you for a string in the
-echo area, and then searches the remainder of the Info file for an
-occurrence of that string.  If the string is found, the node containing
-it is selected, and the cursor is left positioned at the start of the
-found string.  Subsequent @samp{s} commands show you the default search
-string within @samp{[} and @samp{]}; pressing @key{RET} instead of
-typing a new string will use the default search string.  Under
-@samp{--vi-keys} (@pxref{--vi-keys}), using the @samp{n} or @samp{N}
-commands is a faster way of searching for the same string.
-
-@dfn{Incremental searching} is similar to basic searching, but the
-string is looked up while you are typing it, instead of waiting until
-the entire search string has been specified.
-
-@cindex search, and case-sensitivity
-@cindex case-sensitivity, and search
-Both incremental and non-incremental search by default ignore the case
-of letters when comparing the Info file text with the search string.
-However, an uppercase letter in the search string makes the search
-case-sensitive.  You can force a case-sensitive non-incremental search,
-even for a string that includes only lower-case letters, by using the
-@samp{S} command (@code{search-case-sensitively}).  The @samp{n} and
-@samp{N} commands operate case-sensitively if the last search command
-was @samp{S}.
 
 The most efficient means of finding something quickly in a manual is
 the @samp{i} command (@code{index-search}).  This command prompts for
@@ -1257,6 +1462,7 @@ reference in this node.  You can then use @key{RET}
 (@code{select-reference-this-line}) to select the menu or note reference.
 
 @item @kbd{M-TAB} (@code{move-to-prev-xref})
+@itemx @kbd{BackTab}
 @itemx @kbd{Shift-@key{TAB}} (on DOS/Windows only)
 @kindex M-TAB, in Info windows
 @findex move-to-prev-xref
@@ -1265,8 +1471,8 @@ reference in this node.
 
 @kindex Shift-TAB, in Info windows
 @kindex BackTab, in Info windows
-On DOS/Windows only, the @kbd{Shift-@key{TAB}} key is an alias for
-@kbd{M-@key{TAB}}.  This key is sometimes called @samp{BackTab}.
+The @kbd{BackTab} key can be produced on some terminals with
+@kbd{Shift-@key{TAB}}. 
 
 @item @key{RET} (@code{select-reference-this-line})
 @itemx @kbd{M-g}, vi-like operation
@@ -1286,7 +1492,7 @@ view area where the text of the node is displayed, and an associated
 @dfn{mode line}, which briefly describes the node being viewed.
 
 GNU Info supports multiple windows appearing in a single screen; each
-window is separated from the next by its modeline.  At any time, there
+window is separated from the next by its mode line.  At any time, there
 is only one @dfn{active} window, that is, the window in which the cursor
 appears.  There are commands available for creating windows, changing
 the size of windows, selecting which window is active, and for deleting
@@ -1305,12 +1511,9 @@ A @dfn{mode line} is a line of inverse video which appears at the bottom
 of an Info window.  It describes the contents of the window just above
 it; this information includes the name of the file and node appearing in
 that window, the number of screen lines it takes to display the node,
-and the percentage of text that is above the top of the window.  It can
-also tell you if the indirect tags table for this Info file needs to be
-updated, and whether or not the Info file was compressed when stored on
-disk.
+and the percentage of text that is above the top of the window.
 
-Here is a sample mode line for a window containing an uncompressed file
+Here is a sample mode line for a window containing a file
 named @file{dir}, showing the node @samp{Top}.
 
 @example
@@ -1321,21 +1524,12 @@ named @file{dir}, showing the node @samp{Top}.
 @end group
 @end example
 
-When a node comes from a file which is compressed on disk, this is
-indicated in the mode line with two small @samp{z}'s.  In addition, if
-the Info file containing the node has been split into subfiles, the name
-of the subfile containing the node appears in the modeline as well:
-
-@example
---zz-Info: (emacs)Top, 291 lines --Top-- Subfile: emacs-1.Z-------------
-@end example
-
 Truncation of long lines (as opposed to wrapping them to the next
 display line, @pxref{Scrolling Commands, toggle-wrap}) is indicated by a
 @samp{$} at the left edge of the mode line:
 
 @example
---$--Info: (texinfo)Top, 480 lines --Top-- Subfile: texinfo-1-----------
+--$--Info: (texinfo)Top, 480 lines --Top--------------------------------
 @end example
 
 When Info makes a node internally, such that there is no corresponding
@@ -1379,10 +1573,11 @@ Select the previous window on the screen.  This is identical to
 @kindex C-x 2
 @findex split-window
 Split the current window into two windows, both showing the same node.
-Each window is one half the size of the original window, and the cursor
-remains in the original window.  The variable @code{automatic-tiling}
-can cause all of the windows on the screen to be resized for you
-automatically (@pxref{Variables, , automatic-tiling}).
+Each window is one half the size of the original window, and the
+cursor remains in the original window.  The variable
+@code{automatic-tiling} can cause all of the windows on the screen to
+be resized for you automatically (@pxref{Variables,,
+@code{automatic-tiling}}).
 
 @item @kbd{C-x @kbd{0}} (@code{delete-window})
 @cindex windows, deleting
@@ -1416,10 +1611,10 @@ shrink the window instead.
 @kindex C-x t
 @findex tile-windows
 Divide the available screen space among all of the visible windows.
-Each window is given an equal portion of the screen in which to display
-its contents.  The variable @code{automatic-tiling} can cause
+Each window is given an equal portion of the screen in which to
+display its contents.  The variable @code{automatic-tiling} can cause
 @code{tile-windows} to be called when a window is created or deleted.
-@xref{Variables, , @code{automatic-tiling}}.
+@xref{Variables,, @code{automatic-tiling}}.
 @end table
 
 @node The Echo Area
@@ -1674,15 +1869,15 @@ Info provides you with a command for doing this.
 @table @asis
 @item @kbd{M-x print-node}
 @findex print-node
-@cindex INFO_PRINT_COMMAND, environment variable
+@cindex @env{INFO_PRINT_COMMAND}, environment variable
 Pipe the contents of the current node through the command in the
-environment variable @code{INFO_PRINT_COMMAND}.  If the variable does not
+environment variable @env{INFO_PRINT_COMMAND}.  If the variable does not
 exist, the node is simply piped to @code{lpr} (on DOS/Windows, the
 default is to print the node to the local printer device, @file{PRN}).
 
 @cindex printing nodes to the local printer
 @cindex local printer device
-The value of @code{INFO_PRINT_COMMAND} may begin with the @samp{>}
+The value of @env{INFO_PRINT_COMMAND} may begin with the @samp{>}
 character, as in @samp{>/dev/printer}, in which case Info treats the
 rest as the name of a file or a device.  Instead of piping to a command,
 Info opens the file, writes the node contents, and closes the file,
@@ -1719,10 +1914,9 @@ description of what the variable affects.
 Read the name of an Info command in the echo area, and then display
 a key sequence which can be typed in order to invoke that command.
 
-@item @kbd{C-h} (@code{get-help-window})
-@itemx @kbd{?}
+@item @kbd{H} (@code{get-help-window})
 @itemx @key{F1} (on DOS/Windows only)
-@itemx h, vi-like operation
+@itemx @kbd{h} and @kbd{H}, vi-like operation
 @kindex C-h
 @kindex ?, in Info windows
 @kindex F1
@@ -1738,9 +1932,23 @@ the most concise information about GNU Info available.
 @kindex M-h, vi-like operation
 @findex get-info-help-node
 Try hard to visit the node @code{(info)Help}.  The Info file
-@file{info.texi} distributed with GNU Info contains this node.  Of
-course, the file must first be processed with @code{makeinfo}, and then
-placed into the location of your Info directory.
+@file{info.texi} distributed with GNU Info (and GNU Emacs) contains
+this node.  Of course, the file must first be processed with
+@code{makeinfo}, and then placed into the location of your Info directory.
+
+@item @kbd{=} (@code{display-file-info})
+@cindex current file, information about
+@findex display-file-info
+@kindex =, in Info windows
+@kindex C-g, vi-like operation
+Show information about what's currently being viewed in the echo area:
+the Info file name, and current line number and percentage within the
+current node.
+
+@item @kbd{M-x info-version}
+@findex info-version
+Display the name and version of the currently running Info program.
+
 @end table
 
 Here are the commands for creating a numeric argument:
@@ -1782,7 +1990,7 @@ or
 @kbd{M-3 2 C-l}
 @end example
 
-@item @kbd{M--} (@code{add-digit-to-numeric-arg}
+@item @kbd{M--} (@code{add-digit-to-numeric-arg})
 @itemx @kbd{-}
 @kindex M--
 @kindex -
@@ -1799,17 +2007,17 @@ be able to insert the @samp{-} character itself; use @kbd{M--} instead,
 if you need to specify negative arguments in the echo area.
 @end table
 
-@samp{C-g} is used to abort the reading of a multi-character key
-sequence, to cancel lengthy operations (such as multi-file searches) and
-to cancel reading input in the echo area.
+@key{C-g} (@kbd{C-c} in vi-like mode) is used to abort the reading of
+a multi-character key sequence, to cancel lengthy operations (such as
+multi-file searches) and to cancel reading input in the echo area.
 
 @table @asis
 @item @kbd{C-g} (@code{abort-key})
-@itemx @kbd{C-u}, vi-like operation
+@itemx @kbd{C-c}, vi-like operation
 @cindex cancelling typeahead
 @cindex cancelling the current operation
 @kindex C-g, in Info windows
-@kindex C-u cancels typeahead, vi-like operation
+@kindex C-c, vi-like operation
 @findex abort-key
 Cancel current operation.
 @end table
@@ -1855,132 +2063,231 @@ be associated with the current node that you are viewing:
 @kindex ESC C-f
 @findex show-footnotes
 @cindex footnotes, displaying
-Show the footnotes (if any) associated with the current node in another
-window.  You can have Info automatically display the footnotes
-associated with a node when the node is selected by setting the variable
-@code{automatic-footnotes}.  @xref{Variables, , @code{automatic-footnotes}}.
+Show the footnotes (if any) associated with the current node in
+another window.  You can have Info automatically display the footnotes
+associated with a node when the node is selected by setting the
+variable @code{automatic-footnotes}.  @xref{Variables,,
+@code{automatic-footnotes}}.
 @end table
 
 
 @node Variables
 @chapter Manipulating Variables
 
-GNU Info contains several @dfn{variables} whose values are looked at by
-various Info commands.  You can change the values of these variables,
-and thus change the behavior of Info to more closely match your
-environment and Info file reading manner.
+GNU Info uses several internal @dfn{variables} whose values are looked
+at by various Info commands.  You can change the values of these
+variables, and thus change the behavior of Info, if desired.
 
-There are two ways to set the value of a variable: interactively, using
-the @code{set-variable} command described below, or in the @code{#var}
-section of the @code{.infokey} file.  @xref{Custom Key Bindings}.
+There are three ways to set the value of a variable, listed here in
+order of precedence:
+
+@enumerate
+@item
+interactively, using the @code{set-variable} command described below;
+@item
+on the command line, using the @option{-v} (@option{--variable})
+command line option (@pxref{variable-assignment});
+@item
+in the @code{#var} section of the @code{.infokey} file (@pxref{Custom
+Key Bindings}).
+@end enumerate
 
 @table @asis
 @item @kbd{M-x set-variable}
 @cindex variables, setting
 @findex set-variable
-Read the name of a variable, and the value for it, in the echo area and
-then set the variable to that value.  Completion is available when
-reading the variable name (@pxref{The Echo Area, completion}); often,
-completion is available when reading the value to give to the variable,
-but that depends on the variable itself.  If a variable does @emph{not}
-supply multiple choices to complete over, it expects a numeric value.
+Read the name of a variable, and the value for it, in the echo area
+and then set the variable to that value.  Completion is available when
+reading the variable name (@pxref{The Echo Area}); completion is also
+available when reading the value when that makes sense. 
 
 @item @kbd{M-x describe-variable}
 @cindex variables, describing
 @findex describe-variable
-Read the name of a variable in the echo area and then display a brief
-description of what the variable affects.
+Read the name of a variable in the echo area and display its value and
+a brief description.
 @end table
 
 Here is a list of the variables that you can set in Info.
 
-@table @code
+@vtable @code
 @item automatic-footnotes
-@vindex automatic-footnotes
+@cindex @code{*Footnotes*} window
+@cindex footnotes window
 When set to @code{On}, footnotes appear and disappear automatically;
 else, they appear at the bottom of the node text.  This variable is
 @code{Off} by default.  When a node is selected, a window containing
 the footnotes which appear in that node is created, and the footnotes
 are displayed within the new window.  The window that Info creates to
-contain the footnotes is called @samp{*Footnotes*}.  If a node is
-selected which contains no footnotes, and a @samp{*Footnotes*} window
-is on the screen, the @samp{*Footnotes*} window is deleted.  Footnote
+contain the footnotes is called @code{*Footnotes*}.  If a node is
+selected which contains no footnotes, and a @code{*Footnotes*} window
+is on the screen, the @code{*Footnotes*} window is deleted.  Footnote
 windows created in this fashion are not automatically tiled so that
 they can use as little of the display as is possible.
 
 @item automatic-tiling
-@vindex automatic-tiling
 When set to @code{On}, creating or deleting a window resizes other
 windows.  This variable is @code{Off} by default.  Normally, typing
 @samp{C-x 2} divides the current window into two equal parts.  When
 @code{automatic-tiling} is set to @code{On}, all of the windows are
-resized automatically, keeping an equal number of lines visible in each
-window.  There are exceptions to the automatic tiling; specifically, the
-windows @samp{*Completions*} and @samp{*Footnotes*} are @emph{not}
-resized through automatic tiling; they remain their original size.
+resized automatically, keeping an equal number of lines visible in
+each window.  Any @code{*Completions*} and @code{*Footnotes*} windows
+are exceptions to the automatic tiling; they retain their original
+size.
 
 @anchor{cursor-movement-scrolls}
 @item cursor-movement-scrolls
-Normally, cursor movement commands (@pxref{Cursor Commands}) stop when
-top or bottom of a node is reached.  When this variable is set to
-@code{On}, cursor movement commands act as scrolling ones and their
-behavior is controlled by the @code{scroll-behavior} variable (see below).
+When set to @code{On}, when cursor movement commands reach the
+top or bottom of a node, another node is loaded depending on the
+value of @code{scroll-behaviour} (see below).  This is the default.
+When this variable is set to @code{Off}, cursor movements stop at the
+top or bottom of a node.
 
 @item errors-ring-bell
-@vindex errors-ring-bell
-When set to @code{On}, errors cause the bell to ring.  The default
-setting of this variable is @code{On}.
+When set to @code{On} (the default), errors cause the bell to ring.
+
+@item follow-strategy
+When set to @code{remain} (the default), Info tries to remain within the
+directory containing the currently displayed Info file when following a
+cross-reference to an external manual, before looking for the referenced
+manual in the search path.  The alternative value is @code{path}, which
+means to look through the search path right away.
+
+@code{remain} is intended to be useful for several Texinfo manuals that
+all reference each other and whose versions should match each other.
+(For example, various manuals relating to a particular version of
+Emacs.)
+
+The alternative behaviour, with @code{path}, may be useful when your
+Info file search path parallels your command shell's search path, and
+you always want to find documentation of the version of the program that
+the shell would execute.
 
 @item gc-compressed-files
-@vindex gc-compressed-files
 When set to @code{On}, Info garbage collects files which had to be
 uncompressed.  The default value of this variable is @code{Off}.
 Whenever a node is visited in Info, the Info file containing that node
-is read into core, and Info reads information about the tags and nodes
-contained in that file.  Once the tags information is read by Info, it
-is never forgotten.  However, the actual text of the nodes does not need
-to remain in core unless a particular Info window needs it.  For
-non-compressed files, the text of the nodes does not remain in core when
-it is no longer in use.  But de-compressing a file can be a time
-consuming operation, and so Info tries hard not to do it twice.
-@code{gc-compressed-files} tells Info it is okay to garbage collect the
-text of the nodes of a file which was compressed on disk.
+is read into memory, and Info reads information about the tags and
+nodes contained in that file.  Once the tags information is read by
+Info, it is never forgotten.  However, the actual text of the nodes
+does not need to be retained unless a particular Info window needs it.
+For non-compressed files, node text is not remembered when it is no
+longer in use.  But de-compressing a file can be a time-consuming
+operation, and so Info tries hard not to do it twice.  This variable
+tells Info it is okay to garbage collect the text of the nodes of a
+file which was compressed on disk.
+
+@item hide-note-references
+By default, Info displays the contents of Info files mostly verbatim,
+including text that is used by Info readers for navigation (for example,
+marking the location of menus or cross-references).  If you set this
+variable to @code{On}, some of this text is hidden, in a similar way to
+the @code{Info-hide-note-references} variable in Emacs
+(@pxref{Emacs Info Variables, , , info, Info}).
+
+@item highlight-searches
+When set to @code{On}, highlight matches from searching commands
+(@pxref{Searching Commands}).
+
+@item infopath-no-defaults
+@anchor{infopath-no-defaults}
+Used in conjunction with the @env{INFOPATH} environment variable
+(@pxref{INFOPATH}).  When set to @code{On}, the default documentation
+directory defined when Info was built (e.g., @file{/usr/share/info})
+is not added to the search path for Info files.
 
 @item ISO-Latin
 @cindex ISO Latin characters
-@vindex ISO-Latin
-When set to @code{On}, Info accepts and displays ISO Latin characters.
-By default, Info assumes an ASCII character set.  @code{ISO-Latin} tells
-Info that it is running in an environment where the European standard
-character set is in use, and allows you to input such characters to
-Info, as well as display them.
+@cindex Meta key sets eighth bit
+The default is @code{On}, which means that Info accepts and displays
+characters represented by bytes with values 128 and above, such as
+characters in the UTF-8 encoding or in various 8-bit ISO Latin
+characters, as well as allowing you to input such characters.
+
+The only reason to set this variable to @code{Off} would be if your
+terminal set the eighth bit of a byte to represent the Meta key being
+pressed.
+
+@item key-time
+@cindex slow network connections
+Length of time in milliseconds to wait for the next byte of a byte
+sequence generated by a key (or key chord) on the keyboard.  For
+example, if the @kbd{down} key generates the byte sequence
+@kbd{@key{ESC} O B}, and the two bytes @kbd{@key{ESC} O} have been
+received, then a @kbd{B} byte would have to be received within this
+length of time for a key press of @kbd{down} to be registered.  You
+may wish to set this variable to a larger value for slow terminals or
+network connections.
+
+If you set this variable to 0, it's unspecified whether a recognized
+byte sequence representing a key takes precedence over another
+recognized sequence representing a key that is an initial subsequence of
+the first sequence.  In some cases, you may be able to make pressing a
+special key on the keyboard that Info doesn't know about (for example, a
+function key) cause a command to be executed by setting this variable to
+0, and giving the byte sequence the key sends in @file{.infokey}.
+(@xref{Custom Key Bindings}.)
 
 @anchor{min-search-length}
 @item min-search-length
-Minimal length of a search string.  Attempts to initiate a
+Minimum length of a search string (default 1).  Attempts to initiate a
 search for a string (or regular expression) shorter than this value,
-result in error.  The default is 1 character.
+result in an error.
+
+@item mouse
+What method to use to get input from a mouse device.  The default value is
+@samp{Off}.  Set this variable to @code{normal-tracking} to make Info use
+``normal tracking mode'' if it detects that the terminal supports it.  This 
+enables you to scroll the contents of the active window with a mouse 
+scrollwheel.
+
+@cindex Selecting text with the mouse
+@cindex xterm mouse selections
+On terminal emulators running under the X Window System, such as
+@command{xterm}, you can usually select text with the mouse.  However,
+mouse tracking mode may interfere with this.  When this happens, you may
+be able to select text by holding down the @kbd{Shift} key while
+clicking and dragging.
+
+@item nodeline
+@cindex node header line
+How to print the node header line that appears at the top of each node.
+By default only the pointers to neighbouring nodes are displayed
+(the ``Next'', ``Prev'', and ``Up'' pointers): this corresponds to
+the @code{pointers} value for this variable.  To print the entire line,
+set @code{nodeline} to the value @code{print}, which will include the
+filename and name of the node.  To not display the header line at all,
+use the value @code{no}.
 
 @anchor{scroll-behavior}
 @item scroll-behavior
 @itemx scroll-behaviour
-@vindex scroll-behavior
-@vindex scroll-behaviour
-Control what happens when forward scrolling is requested at the end of
-a node, or when backward scrolling is requested at the beginning of a
-node.  The default value for this variable is @code{Continuous}.
-There are three possible values for this variable:
+The two variable names are synonymous.  Control what happens when
+scrolling commands are used at the end or beginning of a node
+(@pxref{Scrolling Commands}).  The default value for this variable is
+@code{Continuous}.  Possible values:
 
 @table @code
 @item Continuous
 Try to get the first item in this node's menu, or failing that, the
-@samp{Next} node, or failing that, the @samp{Next} of the @samp{Up}.
-This behavior is identical to using the @samp{]}
+@samp{Next} node, or failing that, the @samp{Next} of the @samp{Up}
+node.  This behavior is identical to using the @samp{]}
 (@code{global-next-node}) and @samp{[} (@code{global-prev-node})
 commands.
 
+@item Next Only
+Only try to get the @samp{Next} node.
+
+@item Page Only
+Just stop, changing nothing.  With this value, no scrolling command
+can change the node that is being viewed.
+@end table
+
+This variable also affects cursor movement commands (@pxref{Cursor
+Commands}) unless the @code{cursor-movement-scrolls} variable is set to
+@code{Off}.  @xref{cursor-movement-scrolls}.
+
 @item scroll-last-node
-@vindex scroll-last-node
 Control what happens when a scrolling command is issued at the end of
 the last node. Possible values are:
 
@@ -1989,72 +2296,144 @@ the last node. Possible values are:
 Do not scroll. Display the @samp{No more nodes within this document.}
 message. This is the default.
 
-@item Scroll
-Scroll as usual. Since the last node is usually an index, this means
-that the very first node from the menu will be selected.
-
 @item Top
-Go to the top node of this document.
+Go to the top node of the document.
 @end table
 
 This variable is in effect only if @code{scroll-behaviour} is set to
 @code{Continuous}.
 
-Notice that the default behavior has changed in version 4.12. Previous
-versions behaved as if @code{scroll-last-node=Scroll} was set. This
-behavior was counter-intuitive, therefore since version 4.12 the
-default is to stop at the last node.
-
-@item Next Only
-Only try to get the @samp{Next} node.
-
-@item Page Only
-Simply give up, changing nothing.  If @code{scroll-behavior} is
-@code{Page Only}, no scrolling command can change the node that is being
-viewed.
-@end table
-
-This variable normally affects only scrolling commands.
-@xref{cursor-movement-scrolls}, for information on how to widen its
-scope.
-
-The two names, @code{scroll-behavior} and @code{scroll-behaviour}, are
-a historical accident.  They are merely synonyms.
-
 @item scroll-step
-@vindex scroll-step
-The number of lines to scroll when the cursor moves out of the window.
-Scrolling happens automatically if the cursor has moved out of the
-visible portion of the node text when it is time to display.  Usually
-the scrolling is done so as to put the cursor on the center line of the
-current window.  However, if the variable @code{scroll-step} has a
-nonzero value, Info attempts to scroll the node text by that many lines;
-if that is enough to bring the cursor back into the window, that is what
-is done.  The default value of this variable is 0, thus placing the
-cursor (and the text it is attached to) in the center of the window.
-Setting this variable to 1 causes a kind of ``smooth scrolling'' which
-some people prefer.
+The number of lines to scroll to bring the cursor back into the window.
+The default value of this variable is 1, which causes a kind of ``smooth
+scrolling'' which some people prefer.  Scrolling happens automatically
+if the cursor has moved out of the visible portion of the node text.
+
+If the variable @code{scroll-step} is 0, the cursor (and the
+text it is attached to) is placed in the centre of the window.
+
+@item search-skip-screen
+Set the starting point of repeated searches (@pxref{repeated-search}).
+When set to @code{Off} (the default), repeated searches start at the
+position immediately following (when searching in forward direction),
+or immediately preceding (when searching backwards) the cursor.  When
+set to @code{On}, repeated searches omit lines visibly displayed on
+the screen.  In other words, forward searches (@kbd{@}}) start at the
+beginning of the next page, and backward searches (@kbd{@{}) start at
+the end of the previous page.
 
 @item show-index-match
-@vindex show-index-match
-When set to @code{On}, the portion of the matched search string is
-highlighted in the message which explains where the matched search
-string was found.  The default value of this variable is @code{On}.
-When Info displays the location where an index match was found,
-(@pxref{Searching Commands, , @code{next-index-match}}), the portion of the
-string that you had typed is highlighted by displaying it in the inverse
-case from its surrounding characters.
+When set to @code{On} (the default), the portion of the matched search
+string that you typed is indicated (by displaying it in the
+``opposite'' case) in the result message (@pxref{Searching Commands,,
+@code{next-index-match}}).
 
 @item visible-bell
-@vindex visible-bell
-When set to @code{On}, GNU Info attempts to flash the screen instead of
-ringing the bell.  This variable is @code{Off} by default.  Of course,
-Info can only flash the screen if the terminal allows it; in the case
-that the terminal does not allow it, the setting of this variable has no
-effect.  However, you can make Info perform quietly by setting the
-@code{errors-ring-bell} variable to @code{Off}.
+When set to @code{On}, Info attempts to flash the screen instead of
+ringing the bell.  This variable is @code{Off} by default.  If the
+terminal does not allow flashing, this variable has no effect.  (But
+you can still make Info perform quietly by setting the
+@code{errors-ring-bell} variable to @code{Off}; or using an external
+command to mute the bell, e.g., @code{xset b 0 0 0}.)
+
+@end vtable
+
+
+@node Colors and Styles
+@chapter Colors and Styles
+
+You can choose to highlight parts of Info's display, such as 
+cross-references and search matches, using a variety of styles, 
+including colors, boldface and underline.  Here are the variables that 
+are available to do this:
+
+@vtable @code
+@item link-style
+Used for cross-references and menu entries.
+
+@item active-link-style
+Used for a cross-references or menu entry when typing @key{RET} would 
+have the effect of following said cross-reference or menu entry.
+
+@item match-style
+Used for matches from a search command.  (@xref{Searching Commands}.)
+@end vtable
+
+Each of these is given in the @file{.infokey} file just as the variables 
+in the previous chapter.  Their values are a comma-separated list of 
+values in the following table:
+
+@table @code
+@item  black
+@itemx red
+@itemx green
+@itemx yellow
+@itemx blue
+@itemx magenta
+@itemx cyan
+@itemx white
+@cindex Coloured foreground
+Use the color specified for text.
+
+@item nocolour
+@itemx nocolor
+Turn off any color that was in effect, using the terminal's default color.
+
+@item  bgblack
+@itemx bgred
+@itemx bggreen
+@itemx bgyellow
+@itemx bgblue
+@itemx bgmagenta
+@itemx bgcyan
+@itemx bgwhite
+@cindex Coloured background
+Use the color specified for the background.
+
+@item nocolour
+@itemx nocolor
+Use the terminal's default background color.
+
+@item underline
+@itemx nounderline
+@cindex Underlined text
+Turn text underline on or off.
+
+@item standout
+@itemx nostandout
+Turn `standout mode' on or off.  Standout mode entails the use of appearance
+modes that make text stand out, and varies between terminals.
+
+@item bold
+@itemx regular
+@itemx nobold
+@cindex Bold text
+Turn boldface on or off.
+
+@item blink
+@itemx noblink
+@cindex Blinking text
+Make the text blink, or not.
 
 @end table
+
+Here is an sample excerpt from an @file{.infokey} file:
+
+@example
+#var
+link-style=yellow
+active-link-style=yellow,bold
+match-style=underline,bold,nocolour
+@end example
+
+@noindent With this, cross-references are all yellow, and active 
+cross-references are additionally displayed in bold.  Any search
+matches will be shown in bold, and underlined.  Moreover, if there is a 
+search match inside a cross-reference, the @samp{nocolour} rendition 
+style will cancel the yellow colour, leaving the text in the match the 
+terminal's default colour.  (Note, however, that the rendition styles 
+for active cross-references take priority over those for search matches,
+so search matches there will still be displayed in yellow.)
 
 
 @node Custom Key Bindings
@@ -2067,65 +2446,39 @@ effect.  However, you can make Info perform quietly by setting the
 @cindex @command{infokey}, program for customizing key bindings
 @cindex @file{_info} file (MS-DOS)
 
-GNU Info provides a way to define arbitrary key-to-command bindings
-and variable settings, overriding the defaults described in this
-document.  (The @option{--vi-keys} option rebinds many keys at once;
-@pxref{--vi-keys}.)
+Info allows you to override the default key-to-command bindings and
+variable settings described in this document.  (The @option{--vi-keys}
+option rebinds many keys at once; @pxref{--vi-keys}.)
 
 On startup, GNU Info looks for a configuration file in the invoker's
-HOME directory called @file{.info}.  (Due to the limitations of DOS
-filesystems, the MS-DOS version of Info looks for a file @file{_info}
-instead.  If the @env{HOME} variable is not defined, Info additionally
-looks in the current directory.)  If it is present, and appears to
-contain Info configuration data, and was created with the current
-version of the @code{infokey} command, then Info adopts the key
-bindings and variable settings contained therein.
+@env{HOME} directory called @file{.infokey}, i.e.,
+@file{~/.infokey}.@footnote{Due to the limitations of DOS filesystems,
+the MS-DOS version of Info looks for a file @file{_infokey} instead.  If
+the @env{HOME} variable is not defined, Info additionally looks in the
+current directory.}  If it is present, then Info adopts the key bindings
+and variable settings contained therein.  To use an alternative
+configuration file, use the @option{--init-file} option
+(@pxref{--init-file}).
 
-The @file{.info} file contains compact, non-textual data for reasons of
-efficiency and because its design was lifted wholesale from the GNU Less
-program, which also does it that way.  It must be created by compiling a
-textual source file using the @code{infokey} command.
+Variables may also be set on the command line with the
+@option{--variable} option (@pxref{variable-assignment}).  Variable
+settings on the command line override settings from the @file{.infokey}
+file.
 
 @menu
-* Invoking @t{infokey}::
-* @t{infokey} source format::
+* @t{infokey} format::
 @end menu
 
+@node @t{infokey} format
+@section @command{infokey} format
 
-@node Invoking @t{infokey}
-@section Invoking @command{infokey}
+@cindex @command{infokey} format
+@cindex @file{.infokey} format
+@cindex format of @file{.infokey}
 
-@cindex invoking @command{infokey}
-@cindex @command{infokey}, invoking
-@cindex @file{_infokey} file (MS-DOS)
-
-By default, @command{infokey} reads a source file
-(@file{$HOME/.infokey} containing Info customizations.  (This file is
-named @file{_infokey} in the MS-DOS version, and is looked for in the
-current directory if @env{HOME} is undefined.)  It compiles this into
-a binary format, @file{$HOME/.info} by default.  GNU Info reads the
-binary file at startup to override the default key bindings and
-variable definitions.  Synopsis:
-
-@example
-infokey [@var{option}@dots{}] [@var{input-file}]
-@end example
-
-Besides the standard @option{--help} and @option{--version}, the only
-option is @option{--output @var{file}}.  This tells @command{infokey} to
-write the binary data to @var{file} instead of @file{$HOME/.info}.
-
-
-@node @t{infokey} source format
-@section @command{infokey} source format
-
-@cindex @command{infokey} source format
-@cindex @file{.infokey} source format
-@cindex format of @file{.infokey} source
-
-The format of the source file read by @command{infokey} is most easily
-illustrated by example.  For instance, here is a sample @file{.infokey}
-source file suitable for aficionados of @command{vi} or @command{less}:
+The format of the @file{.infokey} file is most easily illustrated by
+example.  For instance, here is a sample init file suitable for aficionados
+of @command{vi} or @command{less}:
 
 @example
 #info
@@ -2133,10 +2486,8 @@ j       next-line
 k       prev-line
 l       forward-char
 h       backward-char
-\kd     next-line
-\ku     prev-line
-\kr     forward-char
-\kl     backward-char
+\kd     down-line
+\ku     up-line
 \       scroll-forward
 \kD     scroll-forward-page-only
 b       scroll-backward
@@ -2152,13 +2503,13 @@ p       prev-node
 u       up-node
 t       top-node
 d       dir-node
+\mu     clear-search
 #var
-scroll-step=1
+highlight-searches=On
 @end example
 
-The source file consists of one or more @dfn{sections}.
-Each section starts with a line that identifies the type of section.
-Possible sections are:
+The file consists of one or more @dfn{sections}.  Each section starts with
+a line that identifies the type of section.  The possible sections are:
 
 @table @code
 @item #info
@@ -2225,22 +2576,21 @@ identical to that for the key definitions for the Info area, described
 above.
 
 @item #var
-Variable initializations.
-The start of this section is indicated by a line containing just
-@code{#var} by itself.  Following this line is a list of variable
-assignments, one per line.  Each line consists of a variable name
-(@xref{Variables},) followed by @code{=} followed by a value.
-There may be no white space between the variable name and the @code{=},
-and all characters following the @code{=}, including white space,
-are included in the value.
+Variable initializations.  The start of this section is indicated by a
+line containing just @code{#var} by itself.  Following this line is a
+list of variable assignments, one per line.  Each line consists of a
+variable name (@pxref{Variables}) followed by @code{=} followed by a
+value.  There may be no white space between the variable name and the
+@code{=}, and all characters following the @code{=}, including white
+space, are included in the value.
 @end table
 
 Blank lines and lines starting with @code{#} are ignored, except for
 the special section header lines.
 
-Key bindings defined in the @file{.info} file take precedence over GNU
+Key bindings defined in the @file{.infokey} file take precedence over GNU
 Info's default key bindings, whether or not @samp{--vi-keys} is used.  A
-default key binding may be disabled by overriding it in the @file{.info}
+default key binding may be disabled by overriding it in the @file{.infokey}
 file with the action @code{invalid}.  In addition, @emph{all} default
 key bindings can be disabled by adding this line @emph{anywhere} in the
 relevant section:
@@ -2257,7 +2607,7 @@ key bindings, you must supply enough new key bindings to enable all
 necessary actions.  Failure to bind any key to the @code{quit} command,
 for example, can lead to frustration.
 
-The order in which key bindings are defined in the @file{.info} file is
+The order in which key bindings are defined in the @file{.infokey} file is
 not important, except that the command summary produced by the
 @code{get-help-window} command only displays the @emph{first} key that
 is bound to each command.

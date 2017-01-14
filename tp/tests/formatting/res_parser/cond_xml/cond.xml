@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<!DOCTYPE texinfo PUBLIC "-//GNU//DTD TexinfoML V5.0//EN" "http://www.gnu.org/software/texinfo/dtd/5.0/texinfo.dtd">
+<!DOCTYPE texinfo PUBLIC "-//GNU//DTD TexinfoML V6.0//EN" "http://www.gnu.org/software/texinfo/dtd/6.0/texinfo.dtd">
 <texinfo xml:lang="en">
 <filename file="cond.xml"></filename>
 <preamble>\input texinfo
@@ -8,7 +8,6 @@
 <node name="Top" spaces=" "><nodename>Top</nodename><nodeup automatic="on">(dir)</nodeup></node>
 
 <html endspaces=" ">
-This is html text.
 </html>
 
 
@@ -20,7 +19,6 @@ This is html text.
 </para>
 
 <tex endspaces=" ">
-This is tex text.
 </tex>
 
 

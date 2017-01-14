@@ -2198,16 +2198,16 @@ $result_converted{'html'}->{'detailmenu_on_subnodes'} = '<!DOCTYPE html PUBLIC "
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
 blockquote.smallquotation {font-size: smaller}
 div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
-div.indentedblock {margin-left: 3.2em}
 div.lisp {margin-left: 3.2em}
 div.smalldisplay {margin-left: 3.2em}
 div.smallexample {margin-left: 3.2em}
-div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
 div.smalllisp {margin-left: 3.2em}
-kbd {font-style:oblique}
+kbd {font-style: oblique}
 pre.display {font-family: inherit}
 pre.format {font-family: inherit}
 pre.menu-comment {font-family: serif}
@@ -2216,10 +2216,9 @@ pre.smalldisplay {font-family: inherit; font-size: smaller}
 pre.smallexample {font-size: smaller}
 pre.smallformat {font-family: inherit; font-size: smaller}
 pre.smalllisp {font-size: smaller}
-span.nocodebreak {white-space:nowrap}
-span.nolinebreak {white-space:nowrap}
-span.roman {font-family:serif; font-weight:normal}
-span.sansserif {font-family:sans-serif; font-weight:normal}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
@@ -2227,7 +2226,7 @@ ul.no-bullet {list-style: none}
 
 </head>
 
-<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<body lang="en">
 <a name="Top"></a>
 <div class="header">
 <p>
@@ -2242,9 +2241,11 @@ Next: <a href="#chapter" accesskey="n" rel="next">chapter</a>, Up: <a href="dir.
 <tr><td align="left" valign="top">&bull; <a href="#chapter-2" accesskey="2">chapter 2</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
 <tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+
 </pre></th></tr><tr><td align="left" valign="top">&bull; <a href="#section" accesskey="3">section</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
 <tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+
 </pre></th></tr><tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">Chap 2
 
 </pre></th></tr><tr><td align="left" valign="top">&bull; <a href="#section-chap-2" accesskey="4">section chap 2</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
@@ -2257,7 +2258,7 @@ Next: <a href="#chapter" accesskey="n" rel="next">chapter</a>, Up: <a href="dir.
 <a name="chapter"></a>
 <div class="header">
 <p>
-Next: <a href="#chapter-2" accesskey="n" rel="next">chapter 2</a>, Previous: <a href="#Top" accesskey="p" rel="previous">Top</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; </p>
+Next: <a href="#chapter-2" accesskey="n" rel="next">chapter 2</a>, Previous: <a href="#Top" accesskey="p" rel="prev">Top</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; </p>
 </div>
 <a name="chapter-1"></a>
 <h2 class="chapter">1 chapter</h2>
@@ -2280,7 +2281,7 @@ Up: <a href="#chapter" accesskey="u" rel="up">chapter</a> &nbsp; </p>
 <a name="chapter-2"></a>
 <div class="header">
 <p>
-Previous: <a href="#chapter" accesskey="p" rel="previous">chapter</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; </p>
+Previous: <a href="#chapter" accesskey="p" rel="prev">chapter</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; </p>
 </div>
 <a name="chapter-2-1"></a>
 <h2 class="chapter">2 chapter 2</h2>
@@ -2305,7 +2306,7 @@ Next: <a href="#unnumberedsec" accesskey="n" rel="next">unnumberedsec</a>, Up: <
 <a name="unnumberedsec"></a>
 <div class="header">
 <p>
-Previous: <a href="#section-chap-2" accesskey="p" rel="previous">section chap 2</a>, Up: <a href="#chapter-2" accesskey="u" rel="up">chapter 2</a> &nbsp; </p>
+Previous: <a href="#section-chap-2" accesskey="p" rel="prev">section chap 2</a>, Up: <a href="#chapter-2" accesskey="u" rel="up">chapter 2</a> &nbsp; </p>
 </div>
 <a name="unnumberedsec-1"></a>
 <h3 class="unnumberedsec">unnumberedsec</h3>

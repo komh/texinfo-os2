@@ -1,8 +1,8 @@
-# $Id: Makefile.am 5191 2013-02-23 00:11:18Z karl $
+# $Id: Makefile.am 6399 2015-07-07 12:16:26Z gavin $
 # Makefile.am for texinfo/util.
 # Run automake in .. to produce Makefile.in from this.
 #
-# Copyright 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013
+# Copyright 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015
 # Free Software Foundation, Inc.
 #
 # This file is free software; as a special exception the author gives
@@ -13,11 +13,10 @@
 # WITHOUT ANY WARRANTY, to the extent permitted by law; without even the
 # implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 
-bin_PROGRAMS = texindex
 bin_SCRIPTS = texi2dvi texi2pdf pdftexi2dvi
 nodist_noinst_SCRIPTS = txixml2texi
 
-w32_bat = makeinfo.bat pod2texi.bat texi2any.bat
+w32_bat = makeinfo.bat pod2texi.bat texi2any.bat texindex.bat
 if HOST_IS_WINDOWS
  bin_SCRIPTS += $(w32_bat)
 endif
@@ -58,11 +57,11 @@ dist_pkgdata_DATA = htmlxref.cnf texinfo.dtd #texinfo.cat
 # *texi2* scripts.
 #
 EXTRA_DIST = README detexinfo dir-example \
-  gendocs.sh gendocs_template \
   pdftexi2dvi \
   texi2dvi texi2pdf \
   $(dist_pkgdata_DATA) texinfo-cat.in texi-elements-by-size \
-  texi2html txixml2texi.pl $(w32_bat) \
-  tests  
+  texi2html txixml2texi.pl $(w32_bat) $(TESTS)
 
 DISTCLEANFILES = txixml2texi
+
+TESTS=tests/texi2dvi_helpversion.sh

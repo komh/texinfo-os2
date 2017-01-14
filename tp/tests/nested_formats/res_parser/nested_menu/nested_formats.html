@@ -13,16 +13,16 @@
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
 blockquote.smallquotation {font-size: smaller}
 div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
-div.indentedblock {margin-left: 3.2em}
 div.lisp {margin-left: 3.2em}
 div.smalldisplay {margin-left: 3.2em}
 div.smallexample {margin-left: 3.2em}
-div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
 div.smalllisp {margin-left: 3.2em}
-kbd {font-style:oblique}
+kbd {font-style: oblique}
 pre.display {font-family: inherit}
 pre.format {font-family: inherit}
 pre.menu-comment {font-family: serif}
@@ -31,10 +31,9 @@ pre.smalldisplay {font-family: inherit; font-size: smaller}
 pre.smallexample {font-size: smaller}
 pre.smallformat {font-family: inherit; font-size: smaller}
 pre.smalllisp {font-size: smaller}
-span.nocodebreak {white-space:nowrap}
-span.nolinebreak {white-space:nowrap}
-span.roman {font-family:serif; font-weight:normal}
-span.sansserif {font-family:sans-serif; font-weight:normal}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
@@ -42,7 +41,7 @@ ul.no-bullet {list-style: none}
 
 </head>
 
-<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<body lang="en">
 
 
 
@@ -107,6 +106,7 @@ in macro
 
 html
 
+
 <ul>
 <li> i&ndash;tem 1
 </li><li> i&ndash;tem 2
@@ -160,10 +160,12 @@ html
 </pre></li><li> <pre class="menu-comment">i&ndash;tem 2
 </pre></li></ul>
 <pre class="menu-comment">
+
 </pre><ol>
 <li> <pre class="menu-comment">e&ndash;numerate
 </pre></li></ol>
 <pre class="menu-comment">
+
 </pre><table>
 <thead><tr><th width="60%"><pre class="menu-comment">mu&ndash;ltitable headitem</pre></th><th width="70%"><pre class="menu-comment">another tab</pre></th></tr></thead>
 <tr><td width="60%"><pre class="menu-comment">mu&ndash;ltitable item</pre></td><td width="70%"><pre class="menu-comment">multitable tab</pre></td></tr>
@@ -171,34 +173,42 @@ html
 <tr><td width="60%"><pre class="menu-comment">lone mu&ndash;ltitable item</pre></td></tr>
 </table>
 <pre class="menu-comment">
+
 </pre><div class="example">
 <pre class="example">e--xample  some
    text
 </pre></div>
 <pre class="menu-comment">
+
 </pre><div class="smallexample">
 <pre class="smallexample">s--mallexample
 </pre></div>
 <pre class="menu-comment">
+
 </pre><dl>
 <dt><a name="index-d_002d_002deffn_005fname-1"></a>c--ategory: <strong>d--effn_name</strong> <em>a--rguments...</em></dt>
 <dd><pre class="menu-comment">d&ndash;effn
 </pre></dd></dl>
 <pre class="menu-comment">
+
 </pre><dl compact="compact">
 <dt>a</dt>
 <dd><pre class="menu-comment">l&ndash;ine
 </pre></dd>
 </dl>
 <pre class="menu-comment">
+
 </pre><table class="cartouche" border="1"><tr><td>
 <pre class="menu-comment">c&ndash;artouche
 </pre></td></tr></table>
 <pre class="menu-comment">
+
 </pre><pre class="menu-comment">f&ndash;lushleft
 </pre><pre class="menu-comment">
+
 </pre><pre class="menu-comment">f&ndash;lushright
 </pre><pre class="menu-comment">
+
 </pre><div align="center">ce&ndash;ntered line
 </div></th></tr></table>
 
@@ -208,17 +218,21 @@ html
 <tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">in macro
 
 </pre></th></tr><tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+
 </pre></th></tr><table class="menu" border="0" cellspacing="0">
 <tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">in format_command
 </pre></th></tr></table>
 <tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+
 Something
 </pre></th></tr><tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+
 Something
 </pre></th></tr><table class="menu" border="0" cellspacing="0">
 <tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">in group
 </pre></th></tr></table>
 <tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+
 Something2
 </pre></th></tr><tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">After
 
@@ -235,29 +249,36 @@ Something2
 <tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">in group
 </pre></th></tr></table>
 <tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+
 </pre></th></tr><table class="menu" border="0" cellspacing="0">
 <tr><th colspan="3" align="left" valign="top"><blockquote>
 <pre class="menu-comment">A quot&mdash;ation
 </pre></blockquote>
 </th></tr></table>
 <tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+
 </pre><a name="subheading-1"></a>
 <strong>subheading</strong>
 <pre class="menu-comment">
+
 </pre><pre class="verbatim">in verbatim
 </pre><pre class="menu-comment">
 
+
 html
+
 
 </pre><ul>
 <li> <pre class="menu-comment">i&ndash;tem 1
 </pre></li><li> <pre class="menu-comment">i&ndash;tem 2
 </pre></li></ul>
 <pre class="menu-comment">
+
 </pre><ol>
 <li> <pre class="menu-comment">e&ndash;numerate
 </pre></li></ol>
 <pre class="menu-comment">
+
 </pre><table>
 <thead><tr><th width="60%"><pre class="menu-comment">mu&ndash;ltitable headitem</pre></th><th width="70%"><pre class="menu-comment">another tab</pre></th></tr></thead>
 <tr><td width="60%"><pre class="menu-comment">mu&ndash;ltitable item</pre></td><td width="70%"><pre class="menu-comment">multitable tab</pre></td></tr>
@@ -265,36 +286,45 @@ html
 <tr><td width="60%"><pre class="menu-comment">lone mu&ndash;ltitable item</pre></td></tr>
 </table>
 <pre class="menu-comment">
+
 </pre><div class="example">
 <pre class="example">e--xample  some
    text
 </pre></div>
 <pre class="menu-comment">
+
 </pre><div class="smallexample">
 <pre class="smallexample">s--mallexample
 </pre></div>
 <pre class="menu-comment">
+
 </pre><dl>
 <dt><a name="index-d_002d_002deffn_005fname-2"></a>c--ategory: <strong>d--effn_name</strong> <em>a--rguments...</em></dt>
 <dd><pre class="menu-comment">d&ndash;effn
 </pre></dd></dl>
 <pre class="menu-comment">
+
 </pre><dl compact="compact">
 <dt>a</dt>
 <dd><pre class="menu-comment">l&ndash;ine
 </pre></dd>
 </dl>
 <pre class="menu-comment">
+
 </pre><table class="cartouche" border="1"><tr><td>
 <pre class="menu-comment">c&ndash;artouche
 </pre></td></tr></table>
 <pre class="menu-comment">
+
 </pre><pre class="menu-comment">f&ndash;lushleft
 </pre><pre class="menu-comment">
+
 </pre><pre class="menu-comment">f&ndash;lushright
 </pre><pre class="menu-comment">
+
 </pre><div align="center">ce&ndash;ntered line
 </div><pre class="menu-comment">
+
 </pre></th></tr><table class="menu" border="0" cellspacing="0">
 <tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">in macro, a format_command containing some other commands.
 </pre><ul>
@@ -302,10 +332,12 @@ html
 </pre></li><li> <pre class="menu-comment">i&ndash;tem 2
 </pre></li></ul>
 <pre class="menu-comment">
+
 </pre><ol>
 <li> <pre class="menu-comment">e&ndash;numerate
 </pre></li></ol>
 <pre class="menu-comment">
+
 </pre><table>
 <thead><tr><th width="60%"><pre class="menu-comment">mu&ndash;ltitable headitem</pre></th><th width="70%"><pre class="menu-comment">another tab</pre></th></tr></thead>
 <tr><td width="60%"><pre class="menu-comment">mu&ndash;ltitable item</pre></td><td width="70%"><pre class="menu-comment">multitable tab</pre></td></tr>
@@ -313,37 +345,46 @@ html
 <tr><td width="60%"><pre class="menu-comment">lone mu&ndash;ltitable item</pre></td></tr>
 </table>
 <pre class="menu-comment">
+
 </pre><div class="example">
 <pre class="example">e--xample  some
    text
 </pre></div>
 <pre class="menu-comment">
+
 </pre><div class="smallexample">
 <pre class="smallexample">s--mallexample
 </pre></div>
 <pre class="menu-comment">
+
 </pre><dl>
 <dt><a name="index-d_002d_002deffn_005fname-3"></a>c--ategory: <strong>d--effn_name</strong> <em>a--rguments...</em></dt>
 <dd><pre class="menu-comment">d&ndash;effn
 </pre></dd></dl>
 <pre class="menu-comment">
+
 </pre><dl compact="compact">
 <dt>a</dt>
 <dd><pre class="menu-comment">l&ndash;ine
 </pre></dd>
 </dl>
 <pre class="menu-comment">
+
 </pre><table class="cartouche" border="1"><tr><td>
 <pre class="menu-comment">c&ndash;artouche
 </pre></td></tr></table>
 <pre class="menu-comment">
+
 </pre><pre class="menu-comment">f&ndash;lushleft
 </pre><pre class="menu-comment">
+
 </pre><pre class="menu-comment">f&ndash;lushright
 </pre><pre class="menu-comment">
+
 </pre><div align="center">ce&ndash;ntered line
 </div></th></tr></table>
 <tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+
 </pre></th></tr></table>
 
 <p>Call macro in itemize at the beginning of an item
@@ -391,6 +432,7 @@ html
 </pre>
 
 html
+
 
 <ul>
 <li> i&ndash;tem 1
@@ -445,10 +487,12 @@ html
 </pre></li><li> <pre class="menu-comment">i&ndash;tem 2
 </pre></li></ul>
 <pre class="menu-comment">
+
 </pre><ol>
 <li> <pre class="menu-comment">e&ndash;numerate
 </pre></li></ol>
 <pre class="menu-comment">
+
 </pre><table>
 <thead><tr><th width="60%"><pre class="menu-comment">mu&ndash;ltitable headitem</pre></th><th width="70%"><pre class="menu-comment">another tab</pre></th></tr></thead>
 <tr><td width="60%"><pre class="menu-comment">mu&ndash;ltitable item</pre></td><td width="70%"><pre class="menu-comment">multitable tab</pre></td></tr>
@@ -456,34 +500,42 @@ html
 <tr><td width="60%"><pre class="menu-comment">lone mu&ndash;ltitable item</pre></td></tr>
 </table>
 <pre class="menu-comment">
+
 </pre><div class="example">
 <pre class="example">e--xample  some
    text
 </pre></div>
 <pre class="menu-comment">
+
 </pre><div class="smallexample">
 <pre class="smallexample">s--mallexample
 </pre></div>
 <pre class="menu-comment">
+
 </pre><dl>
 <dt><a name="index-d_002d_002deffn_005fname-5"></a>c--ategory: <strong>d--effn_name</strong> <em>a--rguments...</em></dt>
 <dd><pre class="menu-comment">d&ndash;effn
 </pre></dd></dl>
 <pre class="menu-comment">
+
 </pre><dl compact="compact">
 <dt>a</dt>
 <dd><pre class="menu-comment">l&ndash;ine
 </pre></dd>
 </dl>
 <pre class="menu-comment">
+
 </pre><table class="cartouche" border="1"><tr><td>
 <pre class="menu-comment">c&ndash;artouche
 </pre></td></tr></table>
 <pre class="menu-comment">
+
 </pre><pre class="menu-comment">f&ndash;lushleft
 </pre><pre class="menu-comment">
+
 </pre><pre class="menu-comment">f&ndash;lushright
 </pre><pre class="menu-comment">
+
 </pre><div align="center">ce&ndash;ntered line
 </div></th></tr></table>
 
@@ -532,6 +584,7 @@ in macro
 </pre>
 
 html
+
 
 <ul>
 <li> i&ndash;tem 1
@@ -586,10 +639,12 @@ html
 </pre></li><li> <pre class="menu-comment">i&ndash;tem 2
 </pre></li></ul>
 <pre class="menu-comment">
+
 </pre><ol>
 <li> <pre class="menu-comment">e&ndash;numerate
 </pre></li></ol>
 <pre class="menu-comment">
+
 </pre><table>
 <thead><tr><th width="60%"><pre class="menu-comment">mu&ndash;ltitable headitem</pre></th><th width="70%"><pre class="menu-comment">another tab</pre></th></tr></thead>
 <tr><td width="60%"><pre class="menu-comment">mu&ndash;ltitable item</pre></td><td width="70%"><pre class="menu-comment">multitable tab</pre></td></tr>
@@ -597,34 +652,42 @@ html
 <tr><td width="60%"><pre class="menu-comment">lone mu&ndash;ltitable item</pre></td></tr>
 </table>
 <pre class="menu-comment">
+
 </pre><div class="example">
 <pre class="example">e--xample  some
    text
 </pre></div>
 <pre class="menu-comment">
+
 </pre><div class="smallexample">
 <pre class="smallexample">s--mallexample
 </pre></div>
 <pre class="menu-comment">
+
 </pre><dl>
 <dt><a name="index-d_002d_002deffn_005fname-7"></a>c--ategory: <strong>d--effn_name</strong> <em>a--rguments...</em></dt>
 <dd><pre class="menu-comment">d&ndash;effn
 </pre></dd></dl>
 <pre class="menu-comment">
+
 </pre><dl compact="compact">
 <dt>a</dt>
 <dd><pre class="menu-comment">l&ndash;ine
 </pre></dd>
 </dl>
 <pre class="menu-comment">
+
 </pre><table class="cartouche" border="1"><tr><td>
 <pre class="menu-comment">c&ndash;artouche
 </pre></td></tr></table>
 <pre class="menu-comment">
+
 </pre><pre class="menu-comment">f&ndash;lushleft
 </pre><pre class="menu-comment">
+
 </pre><pre class="menu-comment">f&ndash;lushright
 </pre><pre class="menu-comment">
+
 </pre><div align="center">ce&ndash;ntered line
 </div></th></tr></table>
 
@@ -634,17 +697,21 @@ Call macro in itemize in format_command
 <tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">in macro
 
 </pre></th></tr><tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+
 </pre></th></tr><table class="menu" border="0" cellspacing="0">
 <tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">in format_command
 </pre></th></tr></table>
 <tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+
 Something
 </pre></th></tr><tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+
 Something
 </pre></th></tr><table class="menu" border="0" cellspacing="0">
 <tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">in group
 </pre></th></tr></table>
 <tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+
 Something2
 </pre></th></tr><tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">After
 
@@ -661,29 +728,36 @@ Something2
 <tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">in group
 </pre></th></tr></table>
 <tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+
 </pre></th></tr><table class="menu" border="0" cellspacing="0">
 <tr><th colspan="3" align="left" valign="top"><blockquote>
 <pre class="menu-comment">A quot&mdash;ation
 </pre></blockquote>
 </th></tr></table>
 <tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+
 </pre><a name="subheading-4"></a>
 <strong>subheading</strong>
 <pre class="menu-comment">
+
 </pre><pre class="verbatim">in verbatim
 </pre><pre class="menu-comment">
 
+
 html
+
 
 </pre><ul>
 <li> <pre class="menu-comment">i&ndash;tem 1
 </pre></li><li> <pre class="menu-comment">i&ndash;tem 2
 </pre></li></ul>
 <pre class="menu-comment">
+
 </pre><ol>
 <li> <pre class="menu-comment">e&ndash;numerate
 </pre></li></ol>
 <pre class="menu-comment">
+
 </pre><table>
 <thead><tr><th width="60%"><pre class="menu-comment">mu&ndash;ltitable headitem</pre></th><th width="70%"><pre class="menu-comment">another tab</pre></th></tr></thead>
 <tr><td width="60%"><pre class="menu-comment">mu&ndash;ltitable item</pre></td><td width="70%"><pre class="menu-comment">multitable tab</pre></td></tr>
@@ -691,36 +765,45 @@ html
 <tr><td width="60%"><pre class="menu-comment">lone mu&ndash;ltitable item</pre></td></tr>
 </table>
 <pre class="menu-comment">
+
 </pre><div class="example">
 <pre class="example">e--xample  some
    text
 </pre></div>
 <pre class="menu-comment">
+
 </pre><div class="smallexample">
 <pre class="smallexample">s--mallexample
 </pre></div>
 <pre class="menu-comment">
+
 </pre><dl>
 <dt><a name="index-d_002d_002deffn_005fname-8"></a>c--ategory: <strong>d--effn_name</strong> <em>a--rguments...</em></dt>
 <dd><pre class="menu-comment">d&ndash;effn
 </pre></dd></dl>
 <pre class="menu-comment">
+
 </pre><dl compact="compact">
 <dt>a</dt>
 <dd><pre class="menu-comment">l&ndash;ine
 </pre></dd>
 </dl>
 <pre class="menu-comment">
+
 </pre><table class="cartouche" border="1"><tr><td>
 <pre class="menu-comment">c&ndash;artouche
 </pre></td></tr></table>
 <pre class="menu-comment">
+
 </pre><pre class="menu-comment">f&ndash;lushleft
 </pre><pre class="menu-comment">
+
 </pre><pre class="menu-comment">f&ndash;lushright
 </pre><pre class="menu-comment">
+
 </pre><div align="center">ce&ndash;ntered line
 </div><pre class="menu-comment">
+
 </pre></th></tr><table class="menu" border="0" cellspacing="0">
 <tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">in macro, a format_command containing some other commands.
 </pre><ul>
@@ -728,10 +811,12 @@ html
 </pre></li><li> <pre class="menu-comment">i&ndash;tem 2
 </pre></li></ul>
 <pre class="menu-comment">
+
 </pre><ol>
 <li> <pre class="menu-comment">e&ndash;numerate
 </pre></li></ol>
 <pre class="menu-comment">
+
 </pre><table>
 <thead><tr><th width="60%"><pre class="menu-comment">mu&ndash;ltitable headitem</pre></th><th width="70%"><pre class="menu-comment">another tab</pre></th></tr></thead>
 <tr><td width="60%"><pre class="menu-comment">mu&ndash;ltitable item</pre></td><td width="70%"><pre class="menu-comment">multitable tab</pre></td></tr>
@@ -739,37 +824,46 @@ html
 <tr><td width="60%"><pre class="menu-comment">lone mu&ndash;ltitable item</pre></td></tr>
 </table>
 <pre class="menu-comment">
+
 </pre><div class="example">
 <pre class="example">e--xample  some
    text
 </pre></div>
 <pre class="menu-comment">
+
 </pre><div class="smallexample">
 <pre class="smallexample">s--mallexample
 </pre></div>
 <pre class="menu-comment">
+
 </pre><dl>
 <dt><a name="index-d_002d_002deffn_005fname-9"></a>c--ategory: <strong>d--effn_name</strong> <em>a--rguments...</em></dt>
 <dd><pre class="menu-comment">d&ndash;effn
 </pre></dd></dl>
 <pre class="menu-comment">
+
 </pre><dl compact="compact">
 <dt>a</dt>
 <dd><pre class="menu-comment">l&ndash;ine
 </pre></dd>
 </dl>
 <pre class="menu-comment">
+
 </pre><table class="cartouche" border="1"><tr><td>
 <pre class="menu-comment">c&ndash;artouche
 </pre></td></tr></table>
 <pre class="menu-comment">
+
 </pre><pre class="menu-comment">f&ndash;lushleft
 </pre><pre class="menu-comment">
+
 </pre><pre class="menu-comment">f&ndash;lushright
 </pre><pre class="menu-comment">
+
 </pre><div align="center">ce&ndash;ntered line
 </div></th></tr></table>
 <tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+
 </pre></th></tr></table>
 </li></ul>
 
@@ -818,6 +912,7 @@ html
 </pre>
 
 html
+
 
 <ul>
 <li> i&ndash;tem 1
@@ -872,10 +967,12 @@ html
 </pre></li><li> <pre class="menu-comment">i&ndash;tem 2
 </pre></li></ul>
 <pre class="menu-comment">
+
 </pre><ol>
 <li> <pre class="menu-comment">e&ndash;numerate
 </pre></li></ol>
 <pre class="menu-comment">
+
 </pre><table>
 <thead><tr><th width="60%"><pre class="menu-comment">mu&ndash;ltitable headitem</pre></th><th width="70%"><pre class="menu-comment">another tab</pre></th></tr></thead>
 <tr><td width="60%"><pre class="menu-comment">mu&ndash;ltitable item</pre></td><td width="70%"><pre class="menu-comment">multitable tab</pre></td></tr>
@@ -883,34 +980,42 @@ html
 <tr><td width="60%"><pre class="menu-comment">lone mu&ndash;ltitable item</pre></td></tr>
 </table>
 <pre class="menu-comment">
+
 </pre><div class="example">
 <pre class="example">e--xample  some
    text
 </pre></div>
 <pre class="menu-comment">
+
 </pre><div class="smallexample">
 <pre class="smallexample">s--mallexample
 </pre></div>
 <pre class="menu-comment">
+
 </pre><dl>
 <dt><a name="index-d_002d_002deffn_005fname-11"></a>c--ategory: <strong>d--effn_name</strong> <em>a--rguments...</em></dt>
 <dd><pre class="menu-comment">d&ndash;effn
 </pre></dd></dl>
 <pre class="menu-comment">
+
 </pre><dl compact="compact">
 <dt>a</dt>
 <dd><pre class="menu-comment">l&ndash;ine
 </pre></dd>
 </dl>
 <pre class="menu-comment">
+
 </pre><table class="cartouche" border="1"><tr><td>
 <pre class="menu-comment">c&ndash;artouche
 </pre></td></tr></table>
 <pre class="menu-comment">
+
 </pre><pre class="menu-comment">f&ndash;lushleft
 </pre><pre class="menu-comment">
+
 </pre><pre class="menu-comment">f&ndash;lushright
 </pre><pre class="menu-comment">
+
 </pre><div align="center">ce&ndash;ntered line
 </div></th></tr></table>
 
@@ -959,6 +1064,7 @@ in macro
 </pre>
 
 html
+
 
 <ul>
 <li> i&ndash;tem 1
@@ -1013,10 +1119,12 @@ html
 </pre></li><li> <pre class="menu-comment">i&ndash;tem 2
 </pre></li></ul>
 <pre class="menu-comment">
+
 </pre><ol>
 <li> <pre class="menu-comment">e&ndash;numerate
 </pre></li></ol>
 <pre class="menu-comment">
+
 </pre><table>
 <thead><tr><th width="60%"><pre class="menu-comment">mu&ndash;ltitable headitem</pre></th><th width="70%"><pre class="menu-comment">another tab</pre></th></tr></thead>
 <tr><td width="60%"><pre class="menu-comment">mu&ndash;ltitable item</pre></td><td width="70%"><pre class="menu-comment">multitable tab</pre></td></tr>
@@ -1024,34 +1132,42 @@ html
 <tr><td width="60%"><pre class="menu-comment">lone mu&ndash;ltitable item</pre></td></tr>
 </table>
 <pre class="menu-comment">
+
 </pre><div class="example">
 <pre class="example">e--xample  some
    text
 </pre></div>
 <pre class="menu-comment">
+
 </pre><div class="smallexample">
 <pre class="smallexample">s--mallexample
 </pre></div>
 <pre class="menu-comment">
+
 </pre><dl>
 <dt><a name="index-d_002d_002deffn_005fname-13"></a>c--ategory: <strong>d--effn_name</strong> <em>a--rguments...</em></dt>
 <dd><pre class="menu-comment">d&ndash;effn
 </pre></dd></dl>
 <pre class="menu-comment">
+
 </pre><dl compact="compact">
 <dt>a</dt>
 <dd><pre class="menu-comment">l&ndash;ine
 </pre></dd>
 </dl>
 <pre class="menu-comment">
+
 </pre><table class="cartouche" border="1"><tr><td>
 <pre class="menu-comment">c&ndash;artouche
 </pre></td></tr></table>
 <pre class="menu-comment">
+
 </pre><pre class="menu-comment">f&ndash;lushleft
 </pre><pre class="menu-comment">
+
 </pre><pre class="menu-comment">f&ndash;lushright
 </pre><pre class="menu-comment">
+
 </pre><div align="center">ce&ndash;ntered line
 </div></th></tr></table>
 
@@ -1061,17 +1177,21 @@ Call macro in enumerate in format_command
 <tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">in macro
 
 </pre></th></tr><tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+
 </pre></th></tr><table class="menu" border="0" cellspacing="0">
 <tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">in format_command
 </pre></th></tr></table>
 <tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+
 Something
 </pre></th></tr><tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+
 Something
 </pre></th></tr><table class="menu" border="0" cellspacing="0">
 <tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">in group
 </pre></th></tr></table>
 <tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+
 Something2
 </pre></th></tr><tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">After
 
@@ -1088,29 +1208,36 @@ Something2
 <tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">in group
 </pre></th></tr></table>
 <tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+
 </pre></th></tr><table class="menu" border="0" cellspacing="0">
 <tr><th colspan="3" align="left" valign="top"><blockquote>
 <pre class="menu-comment">A quot&mdash;ation
 </pre></blockquote>
 </th></tr></table>
 <tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+
 </pre><a name="subheading-7"></a>
 <strong>subheading</strong>
 <pre class="menu-comment">
+
 </pre><pre class="verbatim">in verbatim
 </pre><pre class="menu-comment">
 
+
 html
+
 
 </pre><ul>
 <li> <pre class="menu-comment">i&ndash;tem 1
 </pre></li><li> <pre class="menu-comment">i&ndash;tem 2
 </pre></li></ul>
 <pre class="menu-comment">
+
 </pre><ol>
 <li> <pre class="menu-comment">e&ndash;numerate
 </pre></li></ol>
 <pre class="menu-comment">
+
 </pre><table>
 <thead><tr><th width="60%"><pre class="menu-comment">mu&ndash;ltitable headitem</pre></th><th width="70%"><pre class="menu-comment">another tab</pre></th></tr></thead>
 <tr><td width="60%"><pre class="menu-comment">mu&ndash;ltitable item</pre></td><td width="70%"><pre class="menu-comment">multitable tab</pre></td></tr>
@@ -1118,36 +1245,45 @@ html
 <tr><td width="60%"><pre class="menu-comment">lone mu&ndash;ltitable item</pre></td></tr>
 </table>
 <pre class="menu-comment">
+
 </pre><div class="example">
 <pre class="example">e--xample  some
    text
 </pre></div>
 <pre class="menu-comment">
+
 </pre><div class="smallexample">
 <pre class="smallexample">s--mallexample
 </pre></div>
 <pre class="menu-comment">
+
 </pre><dl>
 <dt><a name="index-d_002d_002deffn_005fname-14"></a>c--ategory: <strong>d--effn_name</strong> <em>a--rguments...</em></dt>
 <dd><pre class="menu-comment">d&ndash;effn
 </pre></dd></dl>
 <pre class="menu-comment">
+
 </pre><dl compact="compact">
 <dt>a</dt>
 <dd><pre class="menu-comment">l&ndash;ine
 </pre></dd>
 </dl>
 <pre class="menu-comment">
+
 </pre><table class="cartouche" border="1"><tr><td>
 <pre class="menu-comment">c&ndash;artouche
 </pre></td></tr></table>
 <pre class="menu-comment">
+
 </pre><pre class="menu-comment">f&ndash;lushleft
 </pre><pre class="menu-comment">
+
 </pre><pre class="menu-comment">f&ndash;lushright
 </pre><pre class="menu-comment">
+
 </pre><div align="center">ce&ndash;ntered line
 </div><pre class="menu-comment">
+
 </pre></th></tr><table class="menu" border="0" cellspacing="0">
 <tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">in macro, a format_command containing some other commands.
 </pre><ul>
@@ -1155,10 +1291,12 @@ html
 </pre></li><li> <pre class="menu-comment">i&ndash;tem 2
 </pre></li></ul>
 <pre class="menu-comment">
+
 </pre><ol>
 <li> <pre class="menu-comment">e&ndash;numerate
 </pre></li></ol>
 <pre class="menu-comment">
+
 </pre><table>
 <thead><tr><th width="60%"><pre class="menu-comment">mu&ndash;ltitable headitem</pre></th><th width="70%"><pre class="menu-comment">another tab</pre></th></tr></thead>
 <tr><td width="60%"><pre class="menu-comment">mu&ndash;ltitable item</pre></td><td width="70%"><pre class="menu-comment">multitable tab</pre></td></tr>
@@ -1166,37 +1304,46 @@ html
 <tr><td width="60%"><pre class="menu-comment">lone mu&ndash;ltitable item</pre></td></tr>
 </table>
 <pre class="menu-comment">
+
 </pre><div class="example">
 <pre class="example">e--xample  some
    text
 </pre></div>
 <pre class="menu-comment">
+
 </pre><div class="smallexample">
 <pre class="smallexample">s--mallexample
 </pre></div>
 <pre class="menu-comment">
+
 </pre><dl>
 <dt><a name="index-d_002d_002deffn_005fname-15"></a>c--ategory: <strong>d--effn_name</strong> <em>a--rguments...</em></dt>
 <dd><pre class="menu-comment">d&ndash;effn
 </pre></dd></dl>
 <pre class="menu-comment">
+
 </pre><dl compact="compact">
 <dt>a</dt>
 <dd><pre class="menu-comment">l&ndash;ine
 </pre></dd>
 </dl>
 <pre class="menu-comment">
+
 </pre><table class="cartouche" border="1"><tr><td>
 <pre class="menu-comment">c&ndash;artouche
 </pre></td></tr></table>
 <pre class="menu-comment">
+
 </pre><pre class="menu-comment">f&ndash;lushleft
 </pre><pre class="menu-comment">
+
 </pre><pre class="menu-comment">f&ndash;lushright
 </pre><pre class="menu-comment">
+
 </pre><div align="center">ce&ndash;ntered line
 </div></th></tr></table>
 <tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+
 </pre></th></tr></table>
 </li></ol>
 
@@ -1247,6 +1394,7 @@ after item</td></tr>
 </pre>
 
 html
+
 
 <ul>
 <li> i&ndash;tem 1
@@ -1301,10 +1449,12 @@ html
 </pre></li><li> <pre class="menu-comment">i&ndash;tem 2
 </pre></li></ul>
 <pre class="menu-comment">
+
 </pre><ol>
 <li> <pre class="menu-comment">e&ndash;numerate
 </pre></li></ol>
 <pre class="menu-comment">
+
 </pre><table>
 <thead><tr><th width="60%"><pre class="menu-comment">mu&ndash;ltitable headitem</pre></th><th width="70%"><pre class="menu-comment">another tab</pre></th></tr></thead>
 <tr><td width="60%"><pre class="menu-comment">mu&ndash;ltitable item</pre></td><td width="70%"><pre class="menu-comment">multitable tab</pre></td></tr>
@@ -1312,34 +1462,42 @@ html
 <tr><td width="60%"><pre class="menu-comment">lone mu&ndash;ltitable item</pre></td></tr>
 </table>
 <pre class="menu-comment">
+
 </pre><div class="example">
 <pre class="example">e--xample  some
    text
 </pre></div>
 <pre class="menu-comment">
+
 </pre><div class="smallexample">
 <pre class="smallexample">s--mallexample
 </pre></div>
 <pre class="menu-comment">
+
 </pre><dl>
 <dt><a name="index-d_002d_002deffn_005fname-17"></a>c--ategory: <strong>d--effn_name</strong> <em>a--rguments...</em></dt>
 <dd><pre class="menu-comment">d&ndash;effn
 </pre></dd></dl>
 <pre class="menu-comment">
+
 </pre><dl compact="compact">
 <dt>a</dt>
 <dd><pre class="menu-comment">l&ndash;ine
 </pre></dd>
 </dl>
 <pre class="menu-comment">
+
 </pre><table class="cartouche" border="1"><tr><td>
 <pre class="menu-comment">c&ndash;artouche
 </pre></td></tr></table>
 <pre class="menu-comment">
+
 </pre><pre class="menu-comment">f&ndash;lushleft
 </pre><pre class="menu-comment">
+
 </pre><pre class="menu-comment">f&ndash;lushright
 </pre><pre class="menu-comment">
+
 </pre><div align="center">ce&ndash;ntered line
 </div></th></tr></table></td></tr>
 <tr><td width="60%">multitable item 2</td><td width="70%">multitable tab 2
@@ -1387,6 +1545,7 @@ in macro
 </pre>
 
 html
+
 
 <ul>
 <li> i&ndash;tem 1
@@ -1441,10 +1600,12 @@ html
 </pre></li><li> <pre class="menu-comment">i&ndash;tem 2
 </pre></li></ul>
 <pre class="menu-comment">
+
 </pre><ol>
 <li> <pre class="menu-comment">e&ndash;numerate
 </pre></li></ol>
 <pre class="menu-comment">
+
 </pre><table>
 <thead><tr><th width="60%"><pre class="menu-comment">mu&ndash;ltitable headitem</pre></th><th width="70%"><pre class="menu-comment">another tab</pre></th></tr></thead>
 <tr><td width="60%"><pre class="menu-comment">mu&ndash;ltitable item</pre></td><td width="70%"><pre class="menu-comment">multitable tab</pre></td></tr>
@@ -1452,34 +1613,42 @@ html
 <tr><td width="60%"><pre class="menu-comment">lone mu&ndash;ltitable item</pre></td></tr>
 </table>
 <pre class="menu-comment">
+
 </pre><div class="example">
 <pre class="example">e--xample  some
    text
 </pre></div>
 <pre class="menu-comment">
+
 </pre><div class="smallexample">
 <pre class="smallexample">s--mallexample
 </pre></div>
 <pre class="menu-comment">
+
 </pre><dl>
 <dt><a name="index-d_002d_002deffn_005fname-19"></a>c--ategory: <strong>d--effn_name</strong> <em>a--rguments...</em></dt>
 <dd><pre class="menu-comment">d&ndash;effn
 </pre></dd></dl>
 <pre class="menu-comment">
+
 </pre><dl compact="compact">
 <dt>a</dt>
 <dd><pre class="menu-comment">l&ndash;ine
 </pre></dd>
 </dl>
 <pre class="menu-comment">
+
 </pre><table class="cartouche" border="1"><tr><td>
 <pre class="menu-comment">c&ndash;artouche
 </pre></td></tr></table>
 <pre class="menu-comment">
+
 </pre><pre class="menu-comment">f&ndash;lushleft
 </pre><pre class="menu-comment">
+
 </pre><pre class="menu-comment">f&ndash;lushright
 </pre><pre class="menu-comment">
+
 </pre><div align="center">ce&ndash;ntered line
 </div></th></tr></table></td></tr>
 <tr><td width="60%">lone multitable item
@@ -1488,17 +1657,21 @@ Call macro in mutitable in format_command
 <tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">in macro
 
 </pre></th></tr><tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+
 </pre></th></tr><table class="menu" border="0" cellspacing="0">
 <tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">in format_command
 </pre></th></tr></table>
 <tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+
 Something
 </pre></th></tr><tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+
 Something
 </pre></th></tr><table class="menu" border="0" cellspacing="0">
 <tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">in group
 </pre></th></tr></table>
 <tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+
 Something2
 </pre></th></tr><tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">After
 
@@ -1515,29 +1688,36 @@ Something2
 <tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">in group
 </pre></th></tr></table>
 <tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+
 </pre></th></tr><table class="menu" border="0" cellspacing="0">
 <tr><th colspan="3" align="left" valign="top"><blockquote>
 <pre class="menu-comment">A quot&mdash;ation
 </pre></blockquote>
 </th></tr></table>
 <tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+
 </pre><a name="subheading-10"></a>
 <strong>subheading</strong>
 <pre class="menu-comment">
+
 </pre><pre class="verbatim">in verbatim
 </pre><pre class="menu-comment">
 
+
 html
+
 
 </pre><ul>
 <li> <pre class="menu-comment">i&ndash;tem 1
 </pre></li><li> <pre class="menu-comment">i&ndash;tem 2
 </pre></li></ul>
 <pre class="menu-comment">
+
 </pre><ol>
 <li> <pre class="menu-comment">e&ndash;numerate
 </pre></li></ol>
 <pre class="menu-comment">
+
 </pre><table>
 <thead><tr><th width="60%"><pre class="menu-comment">mu&ndash;ltitable headitem</pre></th><th width="70%"><pre class="menu-comment">another tab</pre></th></tr></thead>
 <tr><td width="60%"><pre class="menu-comment">mu&ndash;ltitable item</pre></td><td width="70%"><pre class="menu-comment">multitable tab</pre></td></tr>
@@ -1545,36 +1725,45 @@ html
 <tr><td width="60%"><pre class="menu-comment">lone mu&ndash;ltitable item</pre></td></tr>
 </table>
 <pre class="menu-comment">
+
 </pre><div class="example">
 <pre class="example">e--xample  some
    text
 </pre></div>
 <pre class="menu-comment">
+
 </pre><div class="smallexample">
 <pre class="smallexample">s--mallexample
 </pre></div>
 <pre class="menu-comment">
+
 </pre><dl>
 <dt><a name="index-d_002d_002deffn_005fname-20"></a>c--ategory: <strong>d--effn_name</strong> <em>a--rguments...</em></dt>
 <dd><pre class="menu-comment">d&ndash;effn
 </pre></dd></dl>
 <pre class="menu-comment">
+
 </pre><dl compact="compact">
 <dt>a</dt>
 <dd><pre class="menu-comment">l&ndash;ine
 </pre></dd>
 </dl>
 <pre class="menu-comment">
+
 </pre><table class="cartouche" border="1"><tr><td>
 <pre class="menu-comment">c&ndash;artouche
 </pre></td></tr></table>
 <pre class="menu-comment">
+
 </pre><pre class="menu-comment">f&ndash;lushleft
 </pre><pre class="menu-comment">
+
 </pre><pre class="menu-comment">f&ndash;lushright
 </pre><pre class="menu-comment">
+
 </pre><div align="center">ce&ndash;ntered line
 </div><pre class="menu-comment">
+
 </pre></th></tr><table class="menu" border="0" cellspacing="0">
 <tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">in macro, a format_command containing some other commands.
 </pre><ul>
@@ -1582,10 +1771,12 @@ html
 </pre></li><li> <pre class="menu-comment">i&ndash;tem 2
 </pre></li></ul>
 <pre class="menu-comment">
+
 </pre><ol>
 <li> <pre class="menu-comment">e&ndash;numerate
 </pre></li></ol>
 <pre class="menu-comment">
+
 </pre><table>
 <thead><tr><th width="60%"><pre class="menu-comment">mu&ndash;ltitable headitem</pre></th><th width="70%"><pre class="menu-comment">another tab</pre></th></tr></thead>
 <tr><td width="60%"><pre class="menu-comment">mu&ndash;ltitable item</pre></td><td width="70%"><pre class="menu-comment">multitable tab</pre></td></tr>
@@ -1593,37 +1784,46 @@ html
 <tr><td width="60%"><pre class="menu-comment">lone mu&ndash;ltitable item</pre></td></tr>
 </table>
 <pre class="menu-comment">
+
 </pre><div class="example">
 <pre class="example">e--xample  some
    text
 </pre></div>
 <pre class="menu-comment">
+
 </pre><div class="smallexample">
 <pre class="smallexample">s--mallexample
 </pre></div>
 <pre class="menu-comment">
+
 </pre><dl>
 <dt><a name="index-d_002d_002deffn_005fname-21"></a>c--ategory: <strong>d--effn_name</strong> <em>a--rguments...</em></dt>
 <dd><pre class="menu-comment">d&ndash;effn
 </pre></dd></dl>
 <pre class="menu-comment">
+
 </pre><dl compact="compact">
 <dt>a</dt>
 <dd><pre class="menu-comment">l&ndash;ine
 </pre></dd>
 </dl>
 <pre class="menu-comment">
+
 </pre><table class="cartouche" border="1"><tr><td>
 <pre class="menu-comment">c&ndash;artouche
 </pre></td></tr></table>
 <pre class="menu-comment">
+
 </pre><pre class="menu-comment">f&ndash;lushleft
 </pre><pre class="menu-comment">
+
 </pre><pre class="menu-comment">f&ndash;lushright
 </pre><pre class="menu-comment">
+
 </pre><div align="center">ce&ndash;ntered line
 </div></th></tr></table>
 <tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+
 </pre></th></tr></table></td></tr>
 </table>
 
@@ -1632,17 +1832,21 @@ html
 <pre class="example">in macro
 
 </pre><pre class="example">
+
 </pre><table class="menu" border="0" cellspacing="0"><tr><td>
 <pre class="menu-comment">in format_command
 </pre></td></tr></table>
 <pre class="example">
+
 Something
 </pre><pre class="example">
+
 Something
 </pre><table class="menu" border="0" cellspacing="0"><tr><td>
 <pre class="menu-comment">in group
 </pre></td></tr></table>
 <pre class="example">
+
 Something2
 </pre><pre class="example">After
 
@@ -1659,29 +1863,36 @@ Something2
 <pre class="menu-comment">in group
 </pre></td></tr></table>
 <pre class="example">
+
 </pre><table class="menu" border="0" cellspacing="0"><tr><td>
 <blockquote>
 <pre class="menu-comment">A quot---ation
 </pre></blockquote>
 </td></tr></table>
 <pre class="example">
+
 </pre><a name="subheading-11"></a>
 <strong>subheading</strong>
 <pre class="example">
+
 </pre><pre class="verbatim">in verbatim
 </pre><pre class="example">
 
+
 html
+
 
 </pre><ul>
 <li> <pre class="example">i--tem 1
 </pre></li><li> <pre class="example">i--tem 2
 </pre></li></ul>
 <pre class="example">
+
 </pre><ol>
 <li> <pre class="example">e--numerate
 </pre></li></ol>
 <pre class="example">
+
 </pre><table>
 <thead><tr><th width="60%"><pre class="example">mu--ltitable headitem</pre></th><th width="70%"><pre class="example">another tab</pre></th></tr></thead>
 <tr><td width="60%"><pre class="example">mu--ltitable item</pre></td><td width="70%"><pre class="example">multitable tab</pre></td></tr>
@@ -1689,36 +1900,45 @@ html
 <tr><td width="60%"><pre class="example">lone mu--ltitable item</pre></td></tr>
 </table>
 <pre class="example">
+
 </pre><div class="example">
 <pre class="example">e--xample  some
    text
 </pre></div>
 <pre class="example">
+
 </pre><div class="smallexample">
 <pre class="smallexample">s--mallexample
 </pre></div>
 <pre class="example">
+
 </pre><dl>
 <dt><a name="index-d_002d_002deffn_005fname-22"></a>c--ategory: <strong>d--effn_name</strong> <em>a--rguments...</em></dt>
 <dd><pre class="example">d--effn
 </pre></dd></dl>
 <pre class="example">
+
 </pre><dl compact="compact">
 <dt><tt>a</tt></dt>
 <dd><pre class="example">l--ine
 </pre></dd>
 </dl>
 <pre class="example">
+
 </pre><table class="cartouche" border="1"><tr><td>
 <pre class="example">c--artouche
 </pre></td></tr></table>
 <pre class="example">
+
 </pre><pre class="example">f--lushleft
 </pre><pre class="example">
+
 </pre><pre class="example">f--lushright
 </pre><pre class="example">
+
 </pre><div align="center">ce--ntered line
 </div><pre class="example">
+
 </pre><table class="menu" border="0" cellspacing="0"><tr><td>
 <pre class="menu-comment">in macro, a format_command containing some other commands.
 </pre><ul>
@@ -1726,10 +1946,12 @@ html
 </pre></li><li> <pre class="menu-comment">i--tem 2
 </pre></li></ul>
 <pre class="menu-comment">
+
 </pre><ol>
 <li> <pre class="menu-comment">e--numerate
 </pre></li></ol>
 <pre class="menu-comment">
+
 </pre><table>
 <thead><tr><th width="60%"><pre class="menu-comment">mu--ltitable headitem</pre></th><th width="70%"><pre class="menu-comment">another tab</pre></th></tr></thead>
 <tr><td width="60%"><pre class="menu-comment">mu--ltitable item</pre></td><td width="70%"><pre class="menu-comment">multitable tab</pre></td></tr>
@@ -1737,54 +1959,67 @@ html
 <tr><td width="60%"><pre class="menu-comment">lone mu--ltitable item</pre></td></tr>
 </table>
 <pre class="menu-comment">
+
 </pre><div class="example">
 <pre class="example">e--xample  some
    text
 </pre></div>
 <pre class="menu-comment">
+
 </pre><div class="smallexample">
 <pre class="smallexample">s--mallexample
 </pre></div>
 <pre class="menu-comment">
+
 </pre><dl>
 <dt><a name="index-d_002d_002deffn_005fname-23"></a>c--ategory: <strong>d--effn_name</strong> <em>a--rguments...</em></dt>
 <dd><pre class="menu-comment">d--effn
 </pre></dd></dl>
 <pre class="menu-comment">
+
 </pre><dl compact="compact">
 <dt><tt>a</tt></dt>
 <dd><pre class="menu-comment">l--ine
 </pre></dd>
 </dl>
 <pre class="menu-comment">
+
 </pre><table class="cartouche" border="1"><tr><td>
 <pre class="menu-comment">c--artouche
 </pre></td></tr></table>
 <pre class="menu-comment">
+
 </pre><pre class="menu-comment">f--lushleft
 </pre><pre class="menu-comment">
+
 </pre><pre class="menu-comment">f--lushright
 </pre><pre class="menu-comment">
+
 </pre><div align="center">ce--ntered line
 </div></td></tr></table>
 <pre class="example">
+
 example  some
    text
 call macro in example
 in macro
 
 </pre><pre class="example">
+
 </pre><table class="menu" border="0" cellspacing="0"><tr><td>
 <pre class="menu-comment">in format_command
 </pre></td></tr></table>
 <pre class="example">
+
 Something
 </pre><pre class="example">
+
 Something
 </pre><table class="menu" border="0" cellspacing="0"><tr><td>
 <pre class="menu-comment">in group
 </pre></td></tr></table>
 <pre class="example">
+
 Something2
 </pre><pre class="example">After
 
@@ -1801,29 +2036,36 @@ Something2
 <pre class="menu-comment">in group
 </pre></td></tr></table>
 <pre class="example">
+
 </pre><table class="menu" border="0" cellspacing="0"><tr><td>
 <blockquote>
 <pre class="menu-comment">A quot---ation
 </pre></blockquote>
 </td></tr></table>
 <pre class="example">
+
 </pre><a name="subheading-12"></a>
 <strong>subheading</strong>
 <pre class="example">
+
 </pre><pre class="verbatim">in verbatim
 </pre><pre class="example">
 
+
 html
+
 
 </pre><ul>
 <li> <pre class="example">i--tem 1
 </pre></li><li> <pre class="example">i--tem 2
 </pre></li></ul>
 <pre class="example">
+
 </pre><ol>
 <li> <pre class="example">e--numerate
 </pre></li></ol>
 <pre class="example">
+
 </pre><table>
 <thead><tr><th width="60%"><pre class="example">mu--ltitable headitem</pre></th><th width="70%"><pre class="example">another tab</pre></th></tr></thead>
 <tr><td width="60%"><pre class="example">mu--ltitable item</pre></td><td width="70%"><pre class="example">multitable tab</pre></td></tr>
@@ -1831,36 +2073,45 @@ html
 <tr><td width="60%"><pre class="example">lone mu--ltitable item</pre></td></tr>
 </table>
 <pre class="example">
+
 </pre><div class="example">
 <pre class="example">e--xample  some
    text
 </pre></div>
 <pre class="example">
+
 </pre><div class="smallexample">
 <pre class="smallexample">s--mallexample
 </pre></div>
 <pre class="example">
+
 </pre><dl>
 <dt><a name="index-d_002d_002deffn_005fname-24"></a>c--ategory: <strong>d--effn_name</strong> <em>a--rguments...</em></dt>
 <dd><pre class="example">d--effn
 </pre></dd></dl>
 <pre class="example">
+
 </pre><dl compact="compact">
 <dt><tt>a</tt></dt>
 <dd><pre class="example">l--ine
 </pre></dd>
 </dl>
 <pre class="example">
+
 </pre><table class="cartouche" border="1"><tr><td>
 <pre class="example">c--artouche
 </pre></td></tr></table>
 <pre class="example">
+
 </pre><pre class="example">f--lushleft
 </pre><pre class="example">
+
 </pre><pre class="example">f--lushright
 </pre><pre class="example">
+
 </pre><div align="center">ce--ntered line
 </div><pre class="example">
+
 </pre><table class="menu" border="0" cellspacing="0"><tr><td>
 <pre class="menu-comment">in macro, a format_command containing some other commands.
 </pre><ul>
@@ -1868,10 +2119,12 @@ html
 </pre></li><li> <pre class="menu-comment">i--tem 2
 </pre></li></ul>
 <pre class="menu-comment">
+
 </pre><ol>
 <li> <pre class="menu-comment">e--numerate
 </pre></li></ol>
 <pre class="menu-comment">
+
 </pre><table>
 <thead><tr><th width="60%"><pre class="menu-comment">mu--ltitable headitem</pre></th><th width="70%"><pre class="menu-comment">another tab</pre></th></tr></thead>
 <tr><td width="60%"><pre class="menu-comment">mu--ltitable item</pre></td><td width="70%"><pre class="menu-comment">multitable tab</pre></td></tr>
@@ -1879,37 +2132,46 @@ html
 <tr><td width="60%"><pre class="menu-comment">lone mu--ltitable item</pre></td></tr>
 </table>
 <pre class="menu-comment">
+
 </pre><div class="example">
 <pre class="example">e--xample  some
    text
 </pre></div>
 <pre class="menu-comment">
+
 </pre><div class="smallexample">
 <pre class="smallexample">s--mallexample
 </pre></div>
 <pre class="menu-comment">
+
 </pre><dl>
 <dt><a name="index-d_002d_002deffn_005fname-25"></a>c--ategory: <strong>d--effn_name</strong> <em>a--rguments...</em></dt>
 <dd><pre class="menu-comment">d--effn
 </pre></dd></dl>
 <pre class="menu-comment">
+
 </pre><dl compact="compact">
 <dt><tt>a</tt></dt>
 <dd><pre class="menu-comment">l--ine
 </pre></dd>
 </dl>
 <pre class="menu-comment">
+
 </pre><table class="cartouche" border="1"><tr><td>
 <pre class="menu-comment">c--artouche
 </pre></td></tr></table>
 <pre class="menu-comment">
+
 </pre><pre class="menu-comment">f--lushleft
 </pre><pre class="menu-comment">
+
 </pre><pre class="menu-comment">f--lushright
 </pre><pre class="menu-comment">
+
 </pre><div align="center">ce--ntered line
 </div></td></tr></table>
 <pre class="example">
+
 
 more example text
 call macro in example in format_command
@@ -1917,17 +2179,21 @@ call macro in example in format_command
 <pre class="menu-comment">in macro
 
 </pre><pre class="menu-preformatted">
+
 </pre><table class="menu" border="0" cellspacing="0"><tr><td>
 <pre class="menu-comment">in format_command
 </pre></td></tr></table>
 <pre class="menu-preformatted">
+
 Something
 </pre><pre class="menu-preformatted">
+
 Something
 </pre><table class="menu" border="0" cellspacing="0"><tr><td>
 <pre class="menu-comment">in group
 </pre></td></tr></table>
 <pre class="menu-preformatted">
+
 Something2
 </pre><pre class="menu-preformatted">After
 
@@ -1944,29 +2210,36 @@ Something2
 <pre class="menu-comment">in group
 </pre></td></tr></table>
 <pre class="menu-preformatted">
+
 </pre><table class="menu" border="0" cellspacing="0"><tr><td>
 <blockquote>
 <pre class="menu-comment">A quot---ation
 </pre></blockquote>
 </td></tr></table>
 <pre class="menu-preformatted">
+
 </pre><a name="subheading-13"></a>
 <strong>subheading</strong>
 <pre class="menu-preformatted">
+
 </pre><pre class="verbatim">in verbatim
 </pre><pre class="menu-preformatted">
 
+
 html
+
 
 </pre><ul>
 <li> <pre class="menu-preformatted">i--tem 1
 </pre></li><li> <pre class="menu-preformatted">i--tem 2
 </pre></li></ul>
 <pre class="menu-preformatted">
+
 </pre><ol>
 <li> <pre class="menu-preformatted">e--numerate
 </pre></li></ol>
 <pre class="menu-preformatted">
+
 </pre><table>
 <thead><tr><th width="60%"><pre class="menu-preformatted">mu--ltitable headitem</pre></th><th width="70%"><pre class="menu-preformatted">another tab</pre></th></tr></thead>
 <tr><td width="60%"><pre class="menu-preformatted">mu--ltitable item</pre></td><td width="70%"><pre class="menu-preformatted">multitable tab</pre></td></tr>
@@ -1974,36 +2247,45 @@ html
 <tr><td width="60%"><pre class="menu-preformatted">lone mu--ltitable item</pre></td></tr>
 </table>
 <pre class="menu-preformatted">
+
 </pre><div class="example">
 <pre class="example">e--xample  some
    text
 </pre></div>
 <pre class="menu-preformatted">
+
 </pre><div class="smallexample">
 <pre class="smallexample">s--mallexample
 </pre></div>
 <pre class="menu-preformatted">
+
 </pre><dl>
 <dt><a name="index-d_002d_002deffn_005fname-26"></a>c--ategory: <strong>d--effn_name</strong> <em>a--rguments...</em></dt>
 <dd><pre class="menu-preformatted">d--effn
 </pre></dd></dl>
 <pre class="menu-preformatted">
+
 </pre><dl compact="compact">
 <dt><tt>a</tt></dt>
 <dd><pre class="menu-preformatted">l--ine
 </pre></dd>
 </dl>
 <pre class="menu-preformatted">
+
 </pre><table class="cartouche" border="1"><tr><td>
 <pre class="menu-preformatted">c--artouche
 </pre></td></tr></table>
 <pre class="menu-preformatted">
+
 </pre><pre class="menu-preformatted">f--lushleft
 </pre><pre class="menu-preformatted">
+
 </pre><pre class="menu-preformatted">f--lushright
 </pre><pre class="menu-preformatted">
+
 </pre><div align="center">ce--ntered line
 </div><pre class="menu-preformatted">
+
 </pre><table class="menu" border="0" cellspacing="0"><tr><td>
 <pre class="menu-comment">in macro, a format_command containing some other commands.
 </pre><ul>
@@ -2011,10 +2293,12 @@ html
 </pre></li><li> <pre class="menu-comment">i--tem 2
 </pre></li></ul>
 <pre class="menu-comment">
+
 </pre><ol>
 <li> <pre class="menu-comment">e--numerate
 </pre></li></ol>
 <pre class="menu-comment">
+
 </pre><table>
 <thead><tr><th width="60%"><pre class="menu-comment">mu--ltitable headitem</pre></th><th width="70%"><pre class="menu-comment">another tab</pre></th></tr></thead>
 <tr><td width="60%"><pre class="menu-comment">mu--ltitable item</pre></td><td width="70%"><pre class="menu-comment">multitable tab</pre></td></tr>
@@ -2022,37 +2306,46 @@ html
 <tr><td width="60%"><pre class="menu-comment">lone mu--ltitable item</pre></td></tr>
 </table>
 <pre class="menu-comment">
+
 </pre><div class="example">
 <pre class="example">e--xample  some
    text
 </pre></div>
 <pre class="menu-comment">
+
 </pre><div class="smallexample">
 <pre class="smallexample">s--mallexample
 </pre></div>
 <pre class="menu-comment">
+
 </pre><dl>
 <dt><a name="index-d_002d_002deffn_005fname-27"></a>c--ategory: <strong>d--effn_name</strong> <em>a--rguments...</em></dt>
 <dd><pre class="menu-comment">d--effn
 </pre></dd></dl>
 <pre class="menu-comment">
+
 </pre><dl compact="compact">
 <dt><tt>a</tt></dt>
 <dd><pre class="menu-comment">l--ine
 </pre></dd>
 </dl>
 <pre class="menu-comment">
+
 </pre><table class="cartouche" border="1"><tr><td>
 <pre class="menu-comment">c--artouche
 </pre></td></tr></table>
 <pre class="menu-comment">
+
 </pre><pre class="menu-comment">f--lushleft
 </pre><pre class="menu-comment">
+
 </pre><pre class="menu-comment">f--lushright
 </pre><pre class="menu-comment">
+
 </pre><div align="center">ce--ntered line
 </div></td></tr></table>
 <pre class="menu-preformatted">
+
 </pre></td></tr></table>
 </div>
 
@@ -2108,6 +2401,7 @@ in macro
 
 html
 
+
 <ul>
 <li> i&ndash;tem 1
 </li><li> i&ndash;tem 2
@@ -2161,10 +2455,12 @@ html
 </pre></li><li> <pre class="menu-comment">i&ndash;tem 2
 </pre></li></ul>
 <pre class="menu-comment">
+
 </pre><ol>
 <li> <pre class="menu-comment">e&ndash;numerate
 </pre></li></ol>
 <pre class="menu-comment">
+
 </pre><table>
 <thead><tr><th width="60%"><pre class="menu-comment">mu&ndash;ltitable headitem</pre></th><th width="70%"><pre class="menu-comment">another tab</pre></th></tr></thead>
 <tr><td width="60%"><pre class="menu-comment">mu&ndash;ltitable item</pre></td><td width="70%"><pre class="menu-comment">multitable tab</pre></td></tr>
@@ -2172,34 +2468,42 @@ html
 <tr><td width="60%"><pre class="menu-comment">lone mu&ndash;ltitable item</pre></td></tr>
 </table>
 <pre class="menu-comment">
+
 </pre><div class="example">
 <pre class="example">e--xample  some
    text
 </pre></div>
 <pre class="menu-comment">
+
 </pre><div class="smallexample">
 <pre class="smallexample">s--mallexample
 </pre></div>
 <pre class="menu-comment">
+
 </pre><dl>
 <dt><a name="index-d_002d_002deffn_005fname-30"></a>c--ategory: <strong>d--effn_name</strong> <em>a--rguments...</em></dt>
 <dd><pre class="menu-comment">d&ndash;effn
 </pre></dd></dl>
 <pre class="menu-comment">
+
 </pre><dl compact="compact">
 <dt>a</dt>
 <dd><pre class="menu-comment">l&ndash;ine
 </pre></dd>
 </dl>
 <pre class="menu-comment">
+
 </pre><table class="cartouche" border="1"><tr><td>
 <pre class="menu-comment">c&ndash;artouche
 </pre></td></tr></table>
 <pre class="menu-comment">
+
 </pre><pre class="menu-comment">f&ndash;lushleft
 </pre><pre class="menu-comment">
+
 </pre><pre class="menu-comment">f&ndash;lushright
 </pre><pre class="menu-comment">
+
 </pre><div align="center">ce&ndash;ntered line
 </div></th></tr></table>
 
@@ -2209,17 +2513,21 @@ call macro in deffn in format_command
 <tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">in macro
 
 </pre></th></tr><tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+
 </pre></th></tr><table class="menu" border="0" cellspacing="0">
 <tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">in format_command
 </pre></th></tr></table>
 <tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+
 Something
 </pre></th></tr><tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+
 Something
 </pre></th></tr><table class="menu" border="0" cellspacing="0">
 <tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">in group
 </pre></th></tr></table>
 <tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+
 Something2
 </pre></th></tr><tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">After
 
@@ -2236,29 +2544,36 @@ Something2
 <tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">in group
 </pre></th></tr></table>
 <tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+
 </pre></th></tr><table class="menu" border="0" cellspacing="0">
 <tr><th colspan="3" align="left" valign="top"><blockquote>
 <pre class="menu-comment">A quot&mdash;ation
 </pre></blockquote>
 </th></tr></table>
 <tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+
 </pre><a name="subheading-15"></a>
 <strong>subheading</strong>
 <pre class="menu-comment">
+
 </pre><pre class="verbatim">in verbatim
 </pre><pre class="menu-comment">
 
+
 html
+
 
 </pre><ul>
 <li> <pre class="menu-comment">i&ndash;tem 1
 </pre></li><li> <pre class="menu-comment">i&ndash;tem 2
 </pre></li></ul>
 <pre class="menu-comment">
+
 </pre><ol>
 <li> <pre class="menu-comment">e&ndash;numerate
 </pre></li></ol>
 <pre class="menu-comment">
+
 </pre><table>
 <thead><tr><th width="60%"><pre class="menu-comment">mu&ndash;ltitable headitem</pre></th><th width="70%"><pre class="menu-comment">another tab</pre></th></tr></thead>
 <tr><td width="60%"><pre class="menu-comment">mu&ndash;ltitable item</pre></td><td width="70%"><pre class="menu-comment">multitable tab</pre></td></tr>
@@ -2266,36 +2581,45 @@ html
 <tr><td width="60%"><pre class="menu-comment">lone mu&ndash;ltitable item</pre></td></tr>
 </table>
 <pre class="menu-comment">
+
 </pre><div class="example">
 <pre class="example">e--xample  some
    text
 </pre></div>
 <pre class="menu-comment">
+
 </pre><div class="smallexample">
 <pre class="smallexample">s--mallexample
 </pre></div>
 <pre class="menu-comment">
+
 </pre><dl>
 <dt><a name="index-d_002d_002deffn_005fname-31"></a>c--ategory: <strong>d--effn_name</strong> <em>a--rguments...</em></dt>
 <dd><pre class="menu-comment">d&ndash;effn
 </pre></dd></dl>
 <pre class="menu-comment">
+
 </pre><dl compact="compact">
 <dt>a</dt>
 <dd><pre class="menu-comment">l&ndash;ine
 </pre></dd>
 </dl>
 <pre class="menu-comment">
+
 </pre><table class="cartouche" border="1"><tr><td>
 <pre class="menu-comment">c&ndash;artouche
 </pre></td></tr></table>
 <pre class="menu-comment">
+
 </pre><pre class="menu-comment">f&ndash;lushleft
 </pre><pre class="menu-comment">
+
 </pre><pre class="menu-comment">f&ndash;lushright
 </pre><pre class="menu-comment">
+
 </pre><div align="center">ce&ndash;ntered line
 </div><pre class="menu-comment">
+
 </pre></th></tr><table class="menu" border="0" cellspacing="0">
 <tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">in macro, a format_command containing some other commands.
 </pre><ul>
@@ -2303,10 +2627,12 @@ html
 </pre></li><li> <pre class="menu-comment">i&ndash;tem 2
 </pre></li></ul>
 <pre class="menu-comment">
+
 </pre><ol>
 <li> <pre class="menu-comment">e&ndash;numerate
 </pre></li></ol>
 <pre class="menu-comment">
+
 </pre><table>
 <thead><tr><th width="60%"><pre class="menu-comment">mu&ndash;ltitable headitem</pre></th><th width="70%"><pre class="menu-comment">another tab</pre></th></tr></thead>
 <tr><td width="60%"><pre class="menu-comment">mu&ndash;ltitable item</pre></td><td width="70%"><pre class="menu-comment">multitable tab</pre></td></tr>
@@ -2314,37 +2640,46 @@ html
 <tr><td width="60%"><pre class="menu-comment">lone mu&ndash;ltitable item</pre></td></tr>
 </table>
 <pre class="menu-comment">
+
 </pre><div class="example">
 <pre class="example">e--xample  some
    text
 </pre></div>
 <pre class="menu-comment">
+
 </pre><div class="smallexample">
 <pre class="smallexample">s--mallexample
 </pre></div>
 <pre class="menu-comment">
+
 </pre><dl>
 <dt><a name="index-d_002d_002deffn_005fname-32"></a>c--ategory: <strong>d--effn_name</strong> <em>a--rguments...</em></dt>
 <dd><pre class="menu-comment">d&ndash;effn
 </pre></dd></dl>
 <pre class="menu-comment">
+
 </pre><dl compact="compact">
 <dt>a</dt>
 <dd><pre class="menu-comment">l&ndash;ine
 </pre></dd>
 </dl>
 <pre class="menu-comment">
+
 </pre><table class="cartouche" border="1"><tr><td>
 <pre class="menu-comment">c&ndash;artouche
 </pre></td></tr></table>
 <pre class="menu-comment">
+
 </pre><pre class="menu-comment">f&ndash;lushleft
 </pre><pre class="menu-comment">
+
 </pre><pre class="menu-comment">f&ndash;lushright
 </pre><pre class="menu-comment">
+
 </pre><div align="center">ce&ndash;ntered line
 </div></th></tr></table>
 <tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+
 </pre></th></tr></table>
 </dd></dl>
 
@@ -2394,6 +2729,7 @@ html
 </pre>
 
 html
+
 
 <ul>
 <li> i&ndash;tem 1
@@ -2448,10 +2784,12 @@ html
 </pre></li><li> <pre class="menu-comment">i&ndash;tem 2
 </pre></li></ul>
 <pre class="menu-comment">
+
 </pre><ol>
 <li> <pre class="menu-comment">e&ndash;numerate
 </pre></li></ol>
 <pre class="menu-comment">
+
 </pre><table>
 <thead><tr><th width="60%"><pre class="menu-comment">mu&ndash;ltitable headitem</pre></th><th width="70%"><pre class="menu-comment">another tab</pre></th></tr></thead>
 <tr><td width="60%"><pre class="menu-comment">mu&ndash;ltitable item</pre></td><td width="70%"><pre class="menu-comment">multitable tab</pre></td></tr>
@@ -2459,34 +2797,42 @@ html
 <tr><td width="60%"><pre class="menu-comment">lone mu&ndash;ltitable item</pre></td></tr>
 </table>
 <pre class="menu-comment">
+
 </pre><div class="example">
 <pre class="example">e--xample  some
    text
 </pre></div>
 <pre class="menu-comment">
+
 </pre><div class="smallexample">
 <pre class="smallexample">s--mallexample
 </pre></div>
 <pre class="menu-comment">
+
 </pre><dl>
 <dt><a name="index-d_002d_002deffn_005fname-34"></a>c--ategory: <strong>d--effn_name</strong> <em>a--rguments...</em></dt>
 <dd><pre class="menu-comment">d&ndash;effn
 </pre></dd></dl>
 <pre class="menu-comment">
+
 </pre><dl compact="compact">
 <dt>a</dt>
 <dd><pre class="menu-comment">l&ndash;ine
 </pre></dd>
 </dl>
 <pre class="menu-comment">
+
 </pre><table class="cartouche" border="1"><tr><td>
 <pre class="menu-comment">c&ndash;artouche
 </pre></td></tr></table>
 <pre class="menu-comment">
+
 </pre><pre class="menu-comment">f&ndash;lushleft
 </pre><pre class="menu-comment">
+
 </pre><pre class="menu-comment">f&ndash;lushright
 </pre><pre class="menu-comment">
+
 </pre><div align="center">ce&ndash;ntered line
 </div></th></tr></table>
 
@@ -2538,6 +2884,7 @@ in macro
 </pre>
 
 html
+
 
 <ul>
 <li> i&ndash;tem 1
@@ -2592,10 +2939,12 @@ html
 </pre></li><li> <pre class="menu-comment">i&ndash;tem 2
 </pre></li></ul>
 <pre class="menu-comment">
+
 </pre><ol>
 <li> <pre class="menu-comment">e&ndash;numerate
 </pre></li></ol>
 <pre class="menu-comment">
+
 </pre><table>
 <thead><tr><th width="60%"><pre class="menu-comment">mu&ndash;ltitable headitem</pre></th><th width="70%"><pre class="menu-comment">another tab</pre></th></tr></thead>
 <tr><td width="60%"><pre class="menu-comment">mu&ndash;ltitable item</pre></td><td width="70%"><pre class="menu-comment">multitable tab</pre></td></tr>
@@ -2603,34 +2952,42 @@ html
 <tr><td width="60%"><pre class="menu-comment">lone mu&ndash;ltitable item</pre></td></tr>
 </table>
 <pre class="menu-comment">
+
 </pre><div class="example">
 <pre class="example">e--xample  some
    text
 </pre></div>
 <pre class="menu-comment">
+
 </pre><div class="smallexample">
 <pre class="smallexample">s--mallexample
 </pre></div>
 <pre class="menu-comment">
+
 </pre><dl>
 <dt><a name="index-d_002d_002deffn_005fname-36"></a>c--ategory: <strong>d--effn_name</strong> <em>a--rguments...</em></dt>
 <dd><pre class="menu-comment">d&ndash;effn
 </pre></dd></dl>
 <pre class="menu-comment">
+
 </pre><dl compact="compact">
 <dt>a</dt>
 <dd><pre class="menu-comment">l&ndash;ine
 </pre></dd>
 </dl>
 <pre class="menu-comment">
+
 </pre><table class="cartouche" border="1"><tr><td>
 <pre class="menu-comment">c&ndash;artouche
 </pre></td></tr></table>
 <pre class="menu-comment">
+
 </pre><pre class="menu-comment">f&ndash;lushleft
 </pre><pre class="menu-comment">
+
 </pre><pre class="menu-comment">f&ndash;lushright
 </pre><pre class="menu-comment">
+
 </pre><div align="center">ce&ndash;ntered line
 </div></th></tr></table>
 
@@ -2680,6 +3037,7 @@ html
 </pre>
 
 html
+
 
 <ul>
 <li> i&ndash;tem 1
@@ -2734,10 +3092,12 @@ html
 </pre></li><li> <pre class="menu-comment">i&ndash;tem 2
 </pre></li></ul>
 <pre class="menu-comment">
+
 </pre><ol>
 <li> <pre class="menu-comment">e&ndash;numerate
 </pre></li></ol>
 <pre class="menu-comment">
+
 </pre><table>
 <thead><tr><th width="60%"><pre class="menu-comment">mu&ndash;ltitable headitem</pre></th><th width="70%"><pre class="menu-comment">another tab</pre></th></tr></thead>
 <tr><td width="60%"><pre class="menu-comment">mu&ndash;ltitable item</pre></td><td width="70%"><pre class="menu-comment">multitable tab</pre></td></tr>
@@ -2745,34 +3105,42 @@ html
 <tr><td width="60%"><pre class="menu-comment">lone mu&ndash;ltitable item</pre></td></tr>
 </table>
 <pre class="menu-comment">
+
 </pre><div class="example">
 <pre class="example">e--xample  some
    text
 </pre></div>
 <pre class="menu-comment">
+
 </pre><div class="smallexample">
 <pre class="smallexample">s--mallexample
 </pre></div>
 <pre class="menu-comment">
+
 </pre><dl>
 <dt><a name="index-d_002d_002deffn_005fname-38"></a>c--ategory: <strong>d--effn_name</strong> <em>a--rguments...</em></dt>
 <dd><pre class="menu-comment">d&ndash;effn
 </pre></dd></dl>
 <pre class="menu-comment">
+
 </pre><dl compact="compact">
 <dt>a</dt>
 <dd><pre class="menu-comment">l&ndash;ine
 </pre></dd>
 </dl>
 <pre class="menu-comment">
+
 </pre><table class="cartouche" border="1"><tr><td>
 <pre class="menu-comment">c&ndash;artouche
 </pre></td></tr></table>
 <pre class="menu-comment">
+
 </pre><pre class="menu-comment">f&ndash;lushleft
 </pre><pre class="menu-comment">
+
 </pre><pre class="menu-comment">f&ndash;lushright
 </pre><pre class="menu-comment">
+
 </pre><div align="center">ce&ndash;ntered line
 </div></th></tr></table>
 
@@ -2783,17 +3151,21 @@ html
 <tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">in macro
 
 </pre></th></tr><tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+
 </pre></th></tr><table class="menu" border="0" cellspacing="0">
 <tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">in format_command
 </pre></th></tr></table>
 <tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+
 Something
 </pre></th></tr><tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+
 Something
 </pre></th></tr><table class="menu" border="0" cellspacing="0">
 <tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">in group
 </pre></th></tr></table>
 <tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+
 Something2
 </pre></th></tr><tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">After
 
@@ -2810,29 +3182,36 @@ Something2
 <tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">in group
 </pre></th></tr></table>
 <tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+
 </pre></th></tr><table class="menu" border="0" cellspacing="0">
 <tr><th colspan="3" align="left" valign="top"><blockquote>
 <pre class="menu-comment">A quot&mdash;ation
 </pre></blockquote>
 </th></tr></table>
 <tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+
 </pre><a name="subheading-19"></a>
 <strong>subheading</strong>
 <pre class="menu-comment">
+
 </pre><pre class="verbatim">in verbatim
 </pre><pre class="menu-comment">
 
+
 html
+
 
 </pre><ul>
 <li> <pre class="menu-comment">i&ndash;tem 1
 </pre></li><li> <pre class="menu-comment">i&ndash;tem 2
 </pre></li></ul>
 <pre class="menu-comment">
+
 </pre><ol>
 <li> <pre class="menu-comment">e&ndash;numerate
 </pre></li></ol>
 <pre class="menu-comment">
+
 </pre><table>
 <thead><tr><th width="60%"><pre class="menu-comment">mu&ndash;ltitable headitem</pre></th><th width="70%"><pre class="menu-comment">another tab</pre></th></tr></thead>
 <tr><td width="60%"><pre class="menu-comment">mu&ndash;ltitable item</pre></td><td width="70%"><pre class="menu-comment">multitable tab</pre></td></tr>
@@ -2840,36 +3219,45 @@ html
 <tr><td width="60%"><pre class="menu-comment">lone mu&ndash;ltitable item</pre></td></tr>
 </table>
 <pre class="menu-comment">
+
 </pre><div class="example">
 <pre class="example">e--xample  some
    text
 </pre></div>
 <pre class="menu-comment">
+
 </pre><div class="smallexample">
 <pre class="smallexample">s--mallexample
 </pre></div>
 <pre class="menu-comment">
+
 </pre><dl>
 <dt><a name="index-d_002d_002deffn_005fname-39"></a>c--ategory: <strong>d--effn_name</strong> <em>a--rguments...</em></dt>
 <dd><pre class="menu-comment">d&ndash;effn
 </pre></dd></dl>
 <pre class="menu-comment">
+
 </pre><dl compact="compact">
 <dt>a</dt>
 <dd><pre class="menu-comment">l&ndash;ine
 </pre></dd>
 </dl>
 <pre class="menu-comment">
+
 </pre><table class="cartouche" border="1"><tr><td>
 <pre class="menu-comment">c&ndash;artouche
 </pre></td></tr></table>
 <pre class="menu-comment">
+
 </pre><pre class="menu-comment">f&ndash;lushleft
 </pre><pre class="menu-comment">
+
 </pre><pre class="menu-comment">f&ndash;lushright
 </pre><pre class="menu-comment">
+
 </pre><div align="center">ce&ndash;ntered line
 </div><pre class="menu-comment">
+
 </pre></th></tr><table class="menu" border="0" cellspacing="0">
 <tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">in macro, a format_command containing some other commands.
 </pre><ul>
@@ -2877,10 +3265,12 @@ html
 </pre></li><li> <pre class="menu-comment">i&ndash;tem 2
 </pre></li></ul>
 <pre class="menu-comment">
+
 </pre><ol>
 <li> <pre class="menu-comment">e&ndash;numerate
 </pre></li></ol>
 <pre class="menu-comment">
+
 </pre><table>
 <thead><tr><th width="60%"><pre class="menu-comment">mu&ndash;ltitable headitem</pre></th><th width="70%"><pre class="menu-comment">another tab</pre></th></tr></thead>
 <tr><td width="60%"><pre class="menu-comment">mu&ndash;ltitable item</pre></td><td width="70%"><pre class="menu-comment">multitable tab</pre></td></tr>
@@ -2888,37 +3278,46 @@ html
 <tr><td width="60%"><pre class="menu-comment">lone mu&ndash;ltitable item</pre></td></tr>
 </table>
 <pre class="menu-comment">
+
 </pre><div class="example">
 <pre class="example">e--xample  some
    text
 </pre></div>
 <pre class="menu-comment">
+
 </pre><div class="smallexample">
 <pre class="smallexample">s--mallexample
 </pre></div>
 <pre class="menu-comment">
+
 </pre><dl>
 <dt><a name="index-d_002d_002deffn_005fname-40"></a>c--ategory: <strong>d--effn_name</strong> <em>a--rguments...</em></dt>
 <dd><pre class="menu-comment">d&ndash;effn
 </pre></dd></dl>
 <pre class="menu-comment">
+
 </pre><dl compact="compact">
 <dt>a</dt>
 <dd><pre class="menu-comment">l&ndash;ine
 </pre></dd>
 </dl>
 <pre class="menu-comment">
+
 </pre><table class="cartouche" border="1"><tr><td>
 <pre class="menu-comment">c&ndash;artouche
 </pre></td></tr></table>
 <pre class="menu-comment">
+
 </pre><pre class="menu-comment">f&ndash;lushleft
 </pre><pre class="menu-comment">
+
 </pre><pre class="menu-comment">f&ndash;lushright
 </pre><pre class="menu-comment">
+
 </pre><div align="center">ce&ndash;ntered line
 </div></th></tr></table>
 <tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+
 </pre></th></tr></table>
 </dd>
 </dl>
@@ -2968,6 +3367,7 @@ html
 </pre>
 
 html
+
 
 <ul>
 <li> i&ndash;tem 1
@@ -3022,10 +3422,12 @@ html
 </pre></li><li> <pre class="menu-comment">i&ndash;tem 2
 </pre></li></ul>
 <pre class="menu-comment">
+
 </pre><ol>
 <li> <pre class="menu-comment">e&ndash;numerate
 </pre></li></ol>
 <pre class="menu-comment">
+
 </pre><table>
 <thead><tr><th width="60%"><pre class="menu-comment">mu&ndash;ltitable headitem</pre></th><th width="70%"><pre class="menu-comment">another tab</pre></th></tr></thead>
 <tr><td width="60%"><pre class="menu-comment">mu&ndash;ltitable item</pre></td><td width="70%"><pre class="menu-comment">multitable tab</pre></td></tr>
@@ -3033,34 +3435,42 @@ html
 <tr><td width="60%"><pre class="menu-comment">lone mu&ndash;ltitable item</pre></td></tr>
 </table>
 <pre class="menu-comment">
+
 </pre><div class="example">
 <pre class="example">e--xample  some
    text
 </pre></div>
 <pre class="menu-comment">
+
 </pre><div class="smallexample">
 <pre class="smallexample">s--mallexample
 </pre></div>
 <pre class="menu-comment">
+
 </pre><dl>
 <dt><a name="index-d_002d_002deffn_005fname-42"></a>c--ategory: <strong>d--effn_name</strong> <em>a--rguments...</em></dt>
 <dd><pre class="menu-comment">d&ndash;effn
 </pre></dd></dl>
 <pre class="menu-comment">
+
 </pre><dl compact="compact">
 <dt>a</dt>
 <dd><pre class="menu-comment">l&ndash;ine
 </pre></dd>
 </dl>
 <pre class="menu-comment">
+
 </pre><table class="cartouche" border="1"><tr><td>
 <pre class="menu-comment">c&ndash;artouche
 </pre></td></tr></table>
 <pre class="menu-comment">
+
 </pre><pre class="menu-comment">f&ndash;lushleft
 </pre><pre class="menu-comment">
+
 </pre><pre class="menu-comment">f&ndash;lushright
 </pre><pre class="menu-comment">
+
 </pre><div align="center">ce&ndash;ntered line
 </div></th></tr></table>
 
@@ -3109,6 +3519,7 @@ in macro
 </pre>
 
 html
+
 
 <ul>
 <li> i&ndash;tem 1
@@ -3163,10 +3574,12 @@ html
 </pre></li><li> <pre class="menu-comment">i&ndash;tem 2
 </pre></li></ul>
 <pre class="menu-comment">
+
 </pre><ol>
 <li> <pre class="menu-comment">e&ndash;numerate
 </pre></li></ol>
 <pre class="menu-comment">
+
 </pre><table>
 <thead><tr><th width="60%"><pre class="menu-comment">mu&ndash;ltitable headitem</pre></th><th width="70%"><pre class="menu-comment">another tab</pre></th></tr></thead>
 <tr><td width="60%"><pre class="menu-comment">mu&ndash;ltitable item</pre></td><td width="70%"><pre class="menu-comment">multitable tab</pre></td></tr>
@@ -3174,34 +3587,42 @@ html
 <tr><td width="60%"><pre class="menu-comment">lone mu&ndash;ltitable item</pre></td></tr>
 </table>
 <pre class="menu-comment">
+
 </pre><div class="example">
 <pre class="example">e--xample  some
    text
 </pre></div>
 <pre class="menu-comment">
+
 </pre><div class="smallexample">
 <pre class="smallexample">s--mallexample
 </pre></div>
 <pre class="menu-comment">
+
 </pre><dl>
 <dt><a name="index-d_002d_002deffn_005fname-44"></a>c--ategory: <strong>d--effn_name</strong> <em>a--rguments...</em></dt>
 <dd><pre class="menu-comment">d&ndash;effn
 </pre></dd></dl>
 <pre class="menu-comment">
+
 </pre><dl compact="compact">
 <dt>a</dt>
 <dd><pre class="menu-comment">l&ndash;ine
 </pre></dd>
 </dl>
 <pre class="menu-comment">
+
 </pre><table class="cartouche" border="1"><tr><td>
 <pre class="menu-comment">c&ndash;artouche
 </pre></td></tr></table>
 <pre class="menu-comment">
+
 </pre><pre class="menu-comment">f&ndash;lushleft
 </pre><pre class="menu-comment">
+
 </pre><pre class="menu-comment">f&ndash;lushright
 </pre><pre class="menu-comment">
+
 </pre><div align="center">ce&ndash;ntered line
 </div></th></tr></table>
 
@@ -3210,17 +3631,21 @@ html
 <tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">in macro
 
 </pre></th></tr><tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+
 </pre></th></tr><table class="menu" border="0" cellspacing="0">
 <tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">in format_command
 </pre></th></tr></table>
 <tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+
 Something
 </pre></th></tr><tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+
 Something
 </pre></th></tr><table class="menu" border="0" cellspacing="0">
 <tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">in group
 </pre></th></tr></table>
 <tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+
 Something2
 </pre></th></tr><tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">After
 
@@ -3237,29 +3662,36 @@ Something2
 <tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">in group
 </pre></th></tr></table>
 <tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+
 </pre></th></tr><table class="menu" border="0" cellspacing="0">
 <tr><th colspan="3" align="left" valign="top"><blockquote>
 <pre class="menu-comment">A quot&mdash;ation
 </pre></blockquote>
 </th></tr></table>
 <tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+
 </pre><a name="subheading-22"></a>
 <strong>subheading</strong>
 <pre class="menu-comment">
+
 </pre><pre class="verbatim">in verbatim
 </pre><pre class="menu-comment">
 
+
 html
+
 
 </pre><ul>
 <li> <pre class="menu-comment">i&ndash;tem 1
 </pre></li><li> <pre class="menu-comment">i&ndash;tem 2
 </pre></li></ul>
 <pre class="menu-comment">
+
 </pre><ol>
 <li> <pre class="menu-comment">e&ndash;numerate
 </pre></li></ol>
 <pre class="menu-comment">
+
 </pre><table>
 <thead><tr><th width="60%"><pre class="menu-comment">mu&ndash;ltitable headitem</pre></th><th width="70%"><pre class="menu-comment">another tab</pre></th></tr></thead>
 <tr><td width="60%"><pre class="menu-comment">mu&ndash;ltitable item</pre></td><td width="70%"><pre class="menu-comment">multitable tab</pre></td></tr>
@@ -3267,36 +3699,45 @@ html
 <tr><td width="60%"><pre class="menu-comment">lone mu&ndash;ltitable item</pre></td></tr>
 </table>
 <pre class="menu-comment">
+
 </pre><div class="example">
 <pre class="example">e--xample  some
    text
 </pre></div>
 <pre class="menu-comment">
+
 </pre><div class="smallexample">
 <pre class="smallexample">s--mallexample
 </pre></div>
 <pre class="menu-comment">
+
 </pre><dl>
 <dt><a name="index-d_002d_002deffn_005fname-45"></a>c--ategory: <strong>d--effn_name</strong> <em>a--rguments...</em></dt>
 <dd><pre class="menu-comment">d&ndash;effn
 </pre></dd></dl>
 <pre class="menu-comment">
+
 </pre><dl compact="compact">
 <dt>a</dt>
 <dd><pre class="menu-comment">l&ndash;ine
 </pre></dd>
 </dl>
 <pre class="menu-comment">
+
 </pre><table class="cartouche" border="1"><tr><td>
 <pre class="menu-comment">c&ndash;artouche
 </pre></td></tr></table>
 <pre class="menu-comment">
+
 </pre><pre class="menu-comment">f&ndash;lushleft
 </pre><pre class="menu-comment">
+
 </pre><pre class="menu-comment">f&ndash;lushright
 </pre><pre class="menu-comment">
+
 </pre><div align="center">ce&ndash;ntered line
 </div><pre class="menu-comment">
+
 </pre></th></tr><table class="menu" border="0" cellspacing="0">
 <tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">in macro, a format_command containing some other commands.
 </pre><ul>
@@ -3304,10 +3745,12 @@ html
 </pre></li><li> <pre class="menu-comment">i&ndash;tem 2
 </pre></li></ul>
 <pre class="menu-comment">
+
 </pre><ol>
 <li> <pre class="menu-comment">e&ndash;numerate
 </pre></li></ol>
 <pre class="menu-comment">
+
 </pre><table>
 <thead><tr><th width="60%"><pre class="menu-comment">mu&ndash;ltitable headitem</pre></th><th width="70%"><pre class="menu-comment">another tab</pre></th></tr></thead>
 <tr><td width="60%"><pre class="menu-comment">mu&ndash;ltitable item</pre></td><td width="70%"><pre class="menu-comment">multitable tab</pre></td></tr>
@@ -3315,37 +3758,46 @@ html
 <tr><td width="60%"><pre class="menu-comment">lone mu&ndash;ltitable item</pre></td></tr>
 </table>
 <pre class="menu-comment">
+
 </pre><div class="example">
 <pre class="example">e--xample  some
    text
 </pre></div>
 <pre class="menu-comment">
+
 </pre><div class="smallexample">
 <pre class="smallexample">s--mallexample
 </pre></div>
 <pre class="menu-comment">
+
 </pre><dl>
 <dt><a name="index-d_002d_002deffn_005fname-46"></a>c--ategory: <strong>d--effn_name</strong> <em>a--rguments...</em></dt>
 <dd><pre class="menu-comment">d&ndash;effn
 </pre></dd></dl>
 <pre class="menu-comment">
+
 </pre><dl compact="compact">
 <dt>a</dt>
 <dd><pre class="menu-comment">l&ndash;ine
 </pre></dd>
 </dl>
 <pre class="menu-comment">
+
 </pre><table class="cartouche" border="1"><tr><td>
 <pre class="menu-comment">c&ndash;artouche
 </pre></td></tr></table>
 <pre class="menu-comment">
+
 </pre><pre class="menu-comment">f&ndash;lushleft
 </pre><pre class="menu-comment">
+
 </pre><pre class="menu-comment">f&ndash;lushright
 </pre><pre class="menu-comment">
+
 </pre><div align="center">ce&ndash;ntered line
 </div></th></tr></table>
 <tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+
 </pre></th></tr></table>
 </td></tr></table>
 
@@ -3393,6 +3845,7 @@ in macro
 </pre>
 
 html
+
 
 <ul>
 <li> i&ndash;tem 1
@@ -3447,10 +3900,12 @@ html
 </pre></li><li> <pre class="menu-comment">i&ndash;tem 2
 </pre></li></ul>
 <pre class="menu-comment">
+
 </pre><ol>
 <li> <pre class="menu-comment">e&ndash;numerate
 </pre></li></ol>
 <pre class="menu-comment">
+
 </pre><table>
 <thead><tr><th width="60%"><pre class="menu-comment">mu&ndash;ltitable headitem</pre></th><th width="70%"><pre class="menu-comment">another tab</pre></th></tr></thead>
 <tr><td width="60%"><pre class="menu-comment">mu&ndash;ltitable item</pre></td><td width="70%"><pre class="menu-comment">multitable tab</pre></td></tr>
@@ -3458,34 +3913,42 @@ html
 <tr><td width="60%"><pre class="menu-comment">lone mu&ndash;ltitable item</pre></td></tr>
 </table>
 <pre class="menu-comment">
+
 </pre><div class="example">
 <pre class="example">e--xample  some
    text
 </pre></div>
 <pre class="menu-comment">
+
 </pre><div class="smallexample">
 <pre class="smallexample">s--mallexample
 </pre></div>
 <pre class="menu-comment">
+
 </pre><dl>
 <dt><a name="index-d_002d_002deffn_005fname-48"></a>c--ategory: <strong>d--effn_name</strong> <em>a--rguments...</em></dt>
 <dd><pre class="menu-comment">d&ndash;effn
 </pre></dd></dl>
 <pre class="menu-comment">
+
 </pre><dl compact="compact">
 <dt>a</dt>
 <dd><pre class="menu-comment">l&ndash;ine
 </pre></dd>
 </dl>
 <pre class="menu-comment">
+
 </pre><table class="cartouche" border="1"><tr><td>
 <pre class="menu-comment">c&ndash;artouche
 </pre></td></tr></table>
 <pre class="menu-comment">
+
 </pre><pre class="menu-comment">f&ndash;lushleft
 </pre><pre class="menu-comment">
+
 </pre><pre class="menu-comment">f&ndash;lushright
 </pre><pre class="menu-comment">
+
 </pre><div align="center">ce&ndash;ntered line
 </div></th></tr></table>
 
@@ -3495,17 +3958,21 @@ call macro in flushleft in format_command
 <tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">in macro
 
 </pre></th></tr><tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+
 </pre></th></tr><table class="menu" border="0" cellspacing="0">
 <tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">in format_command
 </pre></th></tr></table>
 <tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+
 Something
 </pre></th></tr><tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+
 Something
 </pre></th></tr><table class="menu" border="0" cellspacing="0">
 <tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">in group
 </pre></th></tr></table>
 <tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+
 Something2
 </pre></th></tr><tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">After
 
@@ -3522,29 +3989,36 @@ Something2
 <tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">in group
 </pre></th></tr></table>
 <tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+
 </pre></th></tr><table class="menu" border="0" cellspacing="0">
 <tr><th colspan="3" align="left" valign="top"><blockquote>
 <pre class="menu-comment">A quot&mdash;ation
 </pre></blockquote>
 </th></tr></table>
 <tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+
 </pre><a name="subheading-24"></a>
 <strong>subheading</strong>
 <pre class="menu-comment">
+
 </pre><pre class="verbatim">in verbatim
 </pre><pre class="menu-comment">
 
+
 html
+
 
 </pre><ul>
 <li> <pre class="menu-comment">i&ndash;tem 1
 </pre></li><li> <pre class="menu-comment">i&ndash;tem 2
 </pre></li></ul>
 <pre class="menu-comment">
+
 </pre><ol>
 <li> <pre class="menu-comment">e&ndash;numerate
 </pre></li></ol>
 <pre class="menu-comment">
+
 </pre><table>
 <thead><tr><th width="60%"><pre class="menu-comment">mu&ndash;ltitable headitem</pre></th><th width="70%"><pre class="menu-comment">another tab</pre></th></tr></thead>
 <tr><td width="60%"><pre class="menu-comment">mu&ndash;ltitable item</pre></td><td width="70%"><pre class="menu-comment">multitable tab</pre></td></tr>
@@ -3552,36 +4026,45 @@ html
 <tr><td width="60%"><pre class="menu-comment">lone mu&ndash;ltitable item</pre></td></tr>
 </table>
 <pre class="menu-comment">
+
 </pre><div class="example">
 <pre class="example">e--xample  some
    text
 </pre></div>
 <pre class="menu-comment">
+
 </pre><div class="smallexample">
 <pre class="smallexample">s--mallexample
 </pre></div>
 <pre class="menu-comment">
+
 </pre><dl>
 <dt><a name="index-d_002d_002deffn_005fname-49"></a>c--ategory: <strong>d--effn_name</strong> <em>a--rguments...</em></dt>
 <dd><pre class="menu-comment">d&ndash;effn
 </pre></dd></dl>
 <pre class="menu-comment">
+
 </pre><dl compact="compact">
 <dt>a</dt>
 <dd><pre class="menu-comment">l&ndash;ine
 </pre></dd>
 </dl>
 <pre class="menu-comment">
+
 </pre><table class="cartouche" border="1"><tr><td>
 <pre class="menu-comment">c&ndash;artouche
 </pre></td></tr></table>
 <pre class="menu-comment">
+
 </pre><pre class="menu-comment">f&ndash;lushleft
 </pre><pre class="menu-comment">
+
 </pre><pre class="menu-comment">f&ndash;lushright
 </pre><pre class="menu-comment">
+
 </pre><div align="center">ce&ndash;ntered line
 </div><pre class="menu-comment">
+
 </pre></th></tr><table class="menu" border="0" cellspacing="0">
 <tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">in macro, a format_command containing some other commands.
 </pre><ul>
@@ -3589,10 +4072,12 @@ html
 </pre></li><li> <pre class="menu-comment">i&ndash;tem 2
 </pre></li></ul>
 <pre class="menu-comment">
+
 </pre><ol>
 <li> <pre class="menu-comment">e&ndash;numerate
 </pre></li></ol>
 <pre class="menu-comment">
+
 </pre><table>
 <thead><tr><th width="60%"><pre class="menu-comment">mu&ndash;ltitable headitem</pre></th><th width="70%"><pre class="menu-comment">another tab</pre></th></tr></thead>
 <tr><td width="60%"><pre class="menu-comment">mu&ndash;ltitable item</pre></td><td width="70%"><pre class="menu-comment">multitable tab</pre></td></tr>
@@ -3600,37 +4085,46 @@ html
 <tr><td width="60%"><pre class="menu-comment">lone mu&ndash;ltitable item</pre></td></tr>
 </table>
 <pre class="menu-comment">
+
 </pre><div class="example">
 <pre class="example">e--xample  some
    text
 </pre></div>
 <pre class="menu-comment">
+
 </pre><div class="smallexample">
 <pre class="smallexample">s--mallexample
 </pre></div>
 <pre class="menu-comment">
+
 </pre><dl>
 <dt><a name="index-d_002d_002deffn_005fname-50"></a>c--ategory: <strong>d--effn_name</strong> <em>a--rguments...</em></dt>
 <dd><pre class="menu-comment">d&ndash;effn
 </pre></dd></dl>
 <pre class="menu-comment">
+
 </pre><dl compact="compact">
 <dt>a</dt>
 <dd><pre class="menu-comment">l&ndash;ine
 </pre></dd>
 </dl>
 <pre class="menu-comment">
+
 </pre><table class="cartouche" border="1"><tr><td>
 <pre class="menu-comment">c&ndash;artouche
 </pre></td></tr></table>
 <pre class="menu-comment">
+
 </pre><pre class="menu-comment">f&ndash;lushleft
 </pre><pre class="menu-comment">
+
 </pre><pre class="menu-comment">f&ndash;lushright
 </pre><pre class="menu-comment">
+
 </pre><div align="center">ce&ndash;ntered line
 </div></th></tr></table>
 <tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+
 </pre></th></tr></table>
 
 <p align="right">in macro
@@ -3676,6 +4170,7 @@ html
 </pre>
 
 html
+
 
 <ul>
 <li> i&ndash;tem 1
@@ -3730,10 +4225,12 @@ html
 </pre></li><li> <pre class="menu-comment">i&ndash;tem 2
 </pre></li></ul>
 <pre class="menu-comment">
+
 </pre><ol>
 <li> <pre class="menu-comment">e&ndash;numerate
 </pre></li></ol>
 <pre class="menu-comment">
+
 </pre><table>
 <thead><tr><th width="60%"><pre class="menu-comment">mu&ndash;ltitable headitem</pre></th><th width="70%"><pre class="menu-comment">another tab</pre></th></tr></thead>
 <tr><td width="60%"><pre class="menu-comment">mu&ndash;ltitable item</pre></td><td width="70%"><pre class="menu-comment">multitable tab</pre></td></tr>
@@ -3741,34 +4238,42 @@ html
 <tr><td width="60%"><pre class="menu-comment">lone mu&ndash;ltitable item</pre></td></tr>
 </table>
 <pre class="menu-comment">
+
 </pre><div class="example">
 <pre class="example">e--xample  some
    text
 </pre></div>
 <pre class="menu-comment">
+
 </pre><div class="smallexample">
 <pre class="smallexample">s--mallexample
 </pre></div>
 <pre class="menu-comment">
+
 </pre><dl>
 <dt><a name="index-d_002d_002deffn_005fname-52"></a>c--ategory: <strong>d--effn_name</strong> <em>a--rguments...</em></dt>
 <dd><pre class="menu-comment">d&ndash;effn
 </pre></dd></dl>
 <pre class="menu-comment">
+
 </pre><dl compact="compact">
 <dt>a</dt>
 <dd><pre class="menu-comment">l&ndash;ine
 </pre></dd>
 </dl>
 <pre class="menu-comment">
+
 </pre><table class="cartouche" border="1"><tr><td>
 <pre class="menu-comment">c&ndash;artouche
 </pre></td></tr></table>
 <pre class="menu-comment">
+
 </pre><pre class="menu-comment">f&ndash;lushleft
 </pre><pre class="menu-comment">
+
 </pre><pre class="menu-comment">f&ndash;lushright
 </pre><pre class="menu-comment">
+
 </pre><div align="center">ce&ndash;ntered line
 </div></th></tr></table>
 
@@ -3777,17 +4282,21 @@ html
 <tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">in macro
 
 </pre></th></tr><tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+
 </pre></th></tr><table class="menu" border="0" cellspacing="0">
 <tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">in format_command
 </pre></th></tr></table>
 <tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+
 Something
 </pre></th></tr><tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+
 Something
 </pre></th></tr><table class="menu" border="0" cellspacing="0">
 <tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">in group
 </pre></th></tr></table>
 <tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+
 Something2
 </pre></th></tr><tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">After
 
@@ -3804,29 +4313,36 @@ Something2
 <tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">in group
 </pre></th></tr></table>
 <tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+
 </pre></th></tr><table class="menu" border="0" cellspacing="0">
 <tr><th colspan="3" align="left" valign="top"><blockquote>
 <pre class="menu-comment">A quot&mdash;ation
 </pre></blockquote>
 </th></tr></table>
 <tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+
 </pre><a name="subheading-26"></a>
 <strong>subheading</strong>
 <pre class="menu-comment">
+
 </pre><pre class="verbatim">in verbatim
 </pre><pre class="menu-comment">
 
+
 html
+
 
 </pre><ul>
 <li> <pre class="menu-comment">i&ndash;tem 1
 </pre></li><li> <pre class="menu-comment">i&ndash;tem 2
 </pre></li></ul>
 <pre class="menu-comment">
+
 </pre><ol>
 <li> <pre class="menu-comment">e&ndash;numerate
 </pre></li></ol>
 <pre class="menu-comment">
+
 </pre><table>
 <thead><tr><th width="60%"><pre class="menu-comment">mu&ndash;ltitable headitem</pre></th><th width="70%"><pre class="menu-comment">another tab</pre></th></tr></thead>
 <tr><td width="60%"><pre class="menu-comment">mu&ndash;ltitable item</pre></td><td width="70%"><pre class="menu-comment">multitable tab</pre></td></tr>
@@ -3834,36 +4350,45 @@ html
 <tr><td width="60%"><pre class="menu-comment">lone mu&ndash;ltitable item</pre></td></tr>
 </table>
 <pre class="menu-comment">
+
 </pre><div class="example">
 <pre class="example">e--xample  some
    text
 </pre></div>
 <pre class="menu-comment">
+
 </pre><div class="smallexample">
 <pre class="smallexample">s--mallexample
 </pre></div>
 <pre class="menu-comment">
+
 </pre><dl>
 <dt><a name="index-d_002d_002deffn_005fname-53"></a>c--ategory: <strong>d--effn_name</strong> <em>a--rguments...</em></dt>
 <dd><pre class="menu-comment">d&ndash;effn
 </pre></dd></dl>
 <pre class="menu-comment">
+
 </pre><dl compact="compact">
 <dt>a</dt>
 <dd><pre class="menu-comment">l&ndash;ine
 </pre></dd>
 </dl>
 <pre class="menu-comment">
+
 </pre><table class="cartouche" border="1"><tr><td>
 <pre class="menu-comment">c&ndash;artouche
 </pre></td></tr></table>
 <pre class="menu-comment">
+
 </pre><pre class="menu-comment">f&ndash;lushleft
 </pre><pre class="menu-comment">
+
 </pre><pre class="menu-comment">f&ndash;lushright
 </pre><pre class="menu-comment">
+
 </pre><div align="center">ce&ndash;ntered line
 </div><pre class="menu-comment">
+
 </pre></th></tr><table class="menu" border="0" cellspacing="0">
 <tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">in macro, a format_command containing some other commands.
 </pre><ul>
@@ -3871,10 +4396,12 @@ html
 </pre></li><li> <pre class="menu-comment">i&ndash;tem 2
 </pre></li></ul>
 <pre class="menu-comment">
+
 </pre><ol>
 <li> <pre class="menu-comment">e&ndash;numerate
 </pre></li></ol>
 <pre class="menu-comment">
+
 </pre><table>
 <thead><tr><th width="60%"><pre class="menu-comment">mu&ndash;ltitable headitem</pre></th><th width="70%"><pre class="menu-comment">another tab</pre></th></tr></thead>
 <tr><td width="60%"><pre class="menu-comment">mu&ndash;ltitable item</pre></td><td width="70%"><pre class="menu-comment">multitable tab</pre></td></tr>
@@ -3882,37 +4409,46 @@ html
 <tr><td width="60%"><pre class="menu-comment">lone mu&ndash;ltitable item</pre></td></tr>
 </table>
 <pre class="menu-comment">
+
 </pre><div class="example">
 <pre class="example">e--xample  some
    text
 </pre></div>
 <pre class="menu-comment">
+
 </pre><div class="smallexample">
 <pre class="smallexample">s--mallexample
 </pre></div>
 <pre class="menu-comment">
+
 </pre><dl>
 <dt><a name="index-d_002d_002deffn_005fname-54"></a>c--ategory: <strong>d--effn_name</strong> <em>a--rguments...</em></dt>
 <dd><pre class="menu-comment">d&ndash;effn
 </pre></dd></dl>
 <pre class="menu-comment">
+
 </pre><dl compact="compact">
 <dt>a</dt>
 <dd><pre class="menu-comment">l&ndash;ine
 </pre></dd>
 </dl>
 <pre class="menu-comment">
+
 </pre><table class="cartouche" border="1"><tr><td>
 <pre class="menu-comment">c&ndash;artouche
 </pre></td></tr></table>
 <pre class="menu-comment">
+
 </pre><pre class="menu-comment">f&ndash;lushleft
 </pre><pre class="menu-comment">
+
 </pre><pre class="menu-comment">f&ndash;lushright
 </pre><pre class="menu-comment">
+
 </pre><div align="center">ce&ndash;ntered line
 </div></th></tr></table>
 <tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+
 </pre></th></tr></table>
 
 <hr>

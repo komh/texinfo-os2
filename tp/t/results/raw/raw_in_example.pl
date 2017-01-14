@@ -304,9 +304,11 @@ $result_trees{'raw_in_example'} = {
                       'text' => '\\chi^2 = \\sum_'
                     },
                     {
+                      'parent' => {},
                       'text' => '{i=1'
                     },
                     {
+                      'parent' => {},
                       'text' => '}^N
 '
                     },
@@ -516,6 +518,8 @@ $result_trees{'raw_in_example'}{'contents'}[2]{'contents'}[1]{'contents'}[3]{'co
 $result_trees{'raw_in_example'}{'contents'}[2]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'raw_in_example'}{'contents'}[2]{'contents'}[1]{'contents'}[3]{'contents'}[1];
 $result_trees{'raw_in_example'}{'contents'}[2]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'raw_in_example'}{'contents'}[2]{'contents'}[1]{'contents'}[3]{'contents'}[1];
 $result_trees{'raw_in_example'}{'contents'}[2]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[2]{'parent'} = $result_trees{'raw_in_example'}{'contents'}[2]{'contents'}[1]{'contents'}[3]{'contents'}[1];
+$result_trees{'raw_in_example'}{'contents'}[2]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'parent'} = $result_trees{'raw_in_example'}{'contents'}[2]{'contents'}[1]{'contents'}[3]{'contents'}[1];
+$result_trees{'raw_in_example'}{'contents'}[2]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[4]{'parent'} = $result_trees{'raw_in_example'}{'contents'}[2]{'contents'}[1]{'contents'}[3]{'contents'}[1];
 $result_trees{'raw_in_example'}{'contents'}[2]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[5]{'parent'} = $result_trees{'raw_in_example'}{'contents'}[2]{'contents'}[1]{'contents'}[3]{'contents'}[1];
 $result_trees{'raw_in_example'}{'contents'}[2]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[6]{'parent'} = $result_trees{'raw_in_example'}{'contents'}[2]{'contents'}[1]{'contents'}[3]{'contents'}[1];
 $result_trees{'raw_in_example'}{'contents'}[2]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[7]{'parent'} = $result_trees{'raw_in_example'}{'contents'}[2]{'contents'}[1]{'contents'}[3]{'contents'}[1];
@@ -590,16 +594,21 @@ $result_errors{'raw_in_example'} = [];
 $result_converted{'plaintext'}->{'raw_in_example'} = '
 
 
+
+
 ';
 
 
 $result_converted{'html_text'}->{'raw_in_example'} = '<div class="example">
-<pre class="example">in html</pre></div>
+<pre class="example">in html
+</pre></div>
 
 <div class="example">
 <pre class="example">
 
+
 Some html <code>some code</code>.
+
 
 
 </pre></div>

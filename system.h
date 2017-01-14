@@ -1,8 +1,8 @@
 /* system.h: system-dependent declarations; include this first.
-   $Id: system.h 5191 2013-02-23 00:11:18Z karl $
+   $Id: system.h 6906 2016-01-01 18:33:45Z karl $
 
    Copyright 1997, 1998, 1999, 2000, 2001, 2002, 2003, 2004, 2005,
-   2006, 2007, 2008, 2009, 2010, 2011
+   2006, 2007, 2008, 2009, 2010, 2011, 2012, 2014, 2015, 2016
    Free Software Foundation, Inc.
 
    This program is free software: you can redistribute it and/or modify
@@ -148,7 +148,9 @@ extern int strcoll ();
 #  define SET_SCREEN_SIZE_HELPER terminal_prep_terminal()
 #  define DEFAULT_INFO_PRINT_COMMAND ">PRN"
 # else   /* O_BINARY && !__MSDOS__ */
-#  define setmode(f,m)  _setmode(f,m)
+#  ifndef setmode
+#   define setmode(f,m)  _setmode(f,m)
+#  endif
 #  define HAVE_LONG_FILENAMES(dir)   (1)
 #  define NULL_DEVICE	"NUL"
 # endif  /* O_BINARY && !__MSDOS__ */
@@ -162,6 +164,7 @@ extern int strcoll ();
 # else  /* O_BINARY && !__CYGWIN__ */
 #  ifdef __MINGW32__
 #   define SET_SCREEN_SIZE_HELPER terminal_prep_terminal()
+extern int kill (pid_t, int);
 #  endif  /* _WIN32 */
 #  define DEFAULT_TMPDIR	"c:/"
 #  define PATH_SEP	";"
@@ -175,6 +178,7 @@ extern int strcoll ();
 # define FOPEN_WBIN	"wb"
 # define HAVE_DRIVE(n)	((n)[0] && (n)[1] == ':')
 # define IS_SLASH(c)	((c) == '/' || (c) == '\\')
+# define HAS_SLASH(s)	(strchr ((s), '/') || strchr ((s), '\\'))
 # define IS_ABSOLUTE(n)	(IS_SLASH((n)[0]) || HAVE_DRIVE(n))
 # define SET_BINARY(f)  do {if (!isatty(f)) setmode(f,O_BINARY);} while(0)
 
@@ -183,6 +187,7 @@ extern int strcoll ();
 # define FOPEN_RBIN	"r"
 # define FOPEN_WBIN	"w"
 # define IS_SLASH(c)	((c) == '/')
+# define HAS_SLASH(s)	(strchr ((s), '/'))
 # define HAVE_DRIVE(n)	(0)
 # define IS_ABSOLUTE(n)	((n)[0] == '/')
 # define FILENAME_CMP	strcmp

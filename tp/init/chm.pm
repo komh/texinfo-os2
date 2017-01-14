@@ -4,7 +4,8 @@
 #
 # chm.pm: convert to chm intermediate formats hhp, hhc, hhk and html files
 #
-#    Copyright 2004, 2006, 2009, 2011, 2012 Free Software Foundation, Inc.
+#    Copyright 2004, 2006, 2009, 2011, 2012, 2013 Free Software
+#    Foundation, Inc.
 #
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -237,7 +238,7 @@ sub chm_init($)
                                           $self->{'index_entries'},
                                           $self->{'index_names'});
   if ($index_entries) {
-    foreach my $index_name (keys (%$index_entries)) {
+    foreach my $index_name (sort(keys(%$index_entries))) {
       foreach my $index_entry_ref (@{$index_entries->{$index_name}}) {
         my $file = $self->command_filename($index_entry_ref->{'command'});
         # happens for things in @titlepage when it is not output

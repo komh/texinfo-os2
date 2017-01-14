@@ -139,7 +139,7 @@ f-lushleft
                A quot--ation
 
      subheading
----------------
+     ----------
 
      in verbatim
 
@@ -238,7 +238,7 @@ f-lushleft
                A quot--ation
 
      subheading
----------------
+     ----------
 
      in verbatim
 
@@ -336,7 +336,7 @@ f-lushleft
                A quot--ation
 
      subheading
----------------
+     ----------
 
      in verbatim
 
@@ -436,7 +436,7 @@ f-lushleft
                     A quot--ation
 
           subheading
---------------------
+          ----------
 
           in verbatim
 
@@ -536,7 +536,7 @@ f-lushleft
                A quot--ation
 
      subheading
----------------
+     ----------
 
      in verbatim
 
@@ -634,7 +634,7 @@ f-lushleft
                A quot--ation
 
      subheading
----------------
+     ----------
 
      in verbatim
 
@@ -734,7 +734,7 @@ f-lushleft
                     A quot--ation
 
           subheading
---------------------
+          ----------
 
           in verbatim
 
@@ -1041,7 +1041,7 @@ mutitable in format_command
                A quot--ation
 
      subheading
----------------
+     ----------
 
      in verbatim
 
@@ -1144,7 +1144,7 @@ mutitable in format_command
                A quot---ation
 
      subheading
----------------
+     ----------
 
 
      in verbatim
@@ -1250,7 +1250,7 @@ mutitable in format_command
                A quot---ation
 
      subheading
----------------
+     ----------
 
 
      in verbatim
@@ -1357,7 +1357,7 @@ mutitable in format_command
                     A quot---ation
 
           subheading
---------------------
+          ----------
 
 
           in verbatim
@@ -1427,6 +1427,7 @@ mutitable in format_command
 
                             ce-ntered line
 
+
      s--mallexample
 
  -- c--ategory: d--effn_name a--rguments...
@@ -1462,7 +1463,7 @@ mutitable in format_command
                A quot--ation
 
      subheading
----------------
+     ----------
 
      in verbatim
 
@@ -1562,7 +1563,7 @@ mutitable in format_command
                     A quot--ation
 
           subheading
---------------------
+          ----------
 
           in verbatim
 
@@ -1663,7 +1664,7 @@ mutitable in format_command
                A quot--ation
 
      subheading
----------------
+     ----------
 
      in verbatim
 
@@ -1762,7 +1763,7 @@ a line
                A quot--ation
 
      subheading
----------------
+     ----------
 
      in verbatim
 
@@ -1862,7 +1863,7 @@ a line
                A quot--ation
 
      subheading
----------------
+     ----------
 
      in verbatim
 
@@ -1963,7 +1964,7 @@ a line2
                     A quot--ation
 
           subheading
---------------------
+          ----------
 
           in verbatim
 
@@ -2261,7 +2262,7 @@ f-lushleft
                A quot--ation
 
      subheading
----------------
+     ----------
 
      in verbatim
 
@@ -2461,7 +2462,7 @@ call macro in flushleft in format_command
                A quot--ation
 
      subheading
----------------
+     ----------
 
      in verbatim
 
@@ -2659,7 +2660,7 @@ f-lushleft
                                                           A quot--ation
 
      subheading
----------------
+     ----------
 
      in verbatim
 

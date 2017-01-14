@@ -1,6 +1,6 @@
 # Text.pm: output tree as simple text.
 #
-# Copyright 2010, 2011, 2012 Free Software Foundation, Inc.
+# Copyright 2010, 2011, 2012, 2013, 2014 Free Software Foundation, Inc.
 # 
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -52,7 +52,7 @@ use vars qw($VERSION @ISA @EXPORT @EXPORT_OK %EXPORT_TAGS);
 @EXPORT = qw(
 );
 
-$VERSION = '5.0';
+$VERSION = '6.2';
 
 # this is in fact not needed for 'footnote', 'shortcaption', 'caption'
 # when they have no brace_command_arg, see below.
@@ -286,19 +286,32 @@ my %underline_symbol = (
   4 => '.'
 );
 
-sub heading($$$;$)
+# Return the text of an underlined heading, possibly indented.
+sub heading($$$;$$)
 {
   my $current = shift;
   my $text = shift;
   my $converter = shift;
   my $numbered = shift;
+  my $indent_length = shift;
 
+  # REMARK to get the numberig right in case of an indented text, the
+  # indentation should be given here.  But this should never happen as
+  # the only @-commands allowed in indented context are not number.
   $text = Texinfo::Common::numbered_heading($converter, $current, $text, 
                                             $numbered);
   return '' if ($text !~ /\S/);
   my $result = $text ."\n";
+  if (defined($indent_length)) {
+    if ($indent_length < 0) {
+      $indent_length = 0;
+    }
+    $result .= (' ' x $indent_length);
+  } else {
+    $indent_length = 0;
+  }
   $result .=($underline_symbol{$current->{'level'}} 
-     x Texinfo::Convert::Unicode::string_width($text))."\n";
+     x (Texinfo::Convert::Unicode::string_width($text) - $indent_length))."\n";
   return $result;
 }
 
@@ -359,9 +372,13 @@ sub _convert($;$)
                  or ($ignored_block_commands{$root->{'cmdname'}}
                      and !(defined($options->{'expanded_formats_hash'})
                            and $options->{'expanded_formats_hash'}->{$root->{'cmdname'}}))
-                 or ($Texinfo::Common::inline_format_commands{$root->{'cmdname'}}
-                     and (!$root->{'extra'}->{'format'}
-                          or !$options->{'expanded_formats_hash'}->{$root->{'extra'}->{'format'}}))
+                 or ($Texinfo::Common::inline_commands{$root->{'cmdname'}}
+                     and $root->{'cmdname'} ne 'inlinefmtifelse'
+                     and (($Texinfo::Common::inline_format_commands{$root->{'cmdname'}}
+                          and (!$root->{'extra'}->{'format'}
+                               or !$options->{'expanded_formats_hash'}->{$root->{'extra'}->{'format'}}))
+                         or (!$Texinfo::Common::inline_format_commands{$root->{'cmdname'}}
+                             and !defined($root->{'extra'}->{'expand_index'}))))
              # here ignore most of the misc commands
                  or ($root->{'args'} and $root->{'args'}->[0] 
                      and $root->{'args'}->[0]->{'type'} 
@@ -443,9 +460,19 @@ sub _convert($;$)
       } else {
         return _convert($root->{'args'}->[0], $options);
       }
-    } elsif ($Texinfo::Common::inline_format_commands{$root->{'cmdname'}}) {
+    } elsif ($Texinfo::Common::inline_commands{$root->{'cmdname'}}) {
       $options->{'raw'} = 1 if ($root->{'cmdname'} eq 'inlineraw');
-      return _convert($root->{'args'}->[1], $options);
+      my $arg_index = 1;
+      if ($root->{'cmdname'} eq 'inlinefmtifelse'
+          and (!$root->{'extra'}->{'format'}
+               or !$options->{'expanded_formats_hash'}->{$root->{'extra'}->{'format'}})) {
+        $arg_index = 2;
+      }
+      if (scalar(@{$root->{'args'}}) > $arg_index) {
+        return _convert($root->{'args'}->[$arg_index], $options);
+      } else {
+        return '';
+      }
     } elsif ($root->{'args'} and $root->{'args'}->[0] 
            and (($root->{'args'}->[0]->{'type'}
                 and $root->{'args'}->[0]->{'type'} eq 'brace_command_arg')
@@ -494,11 +521,11 @@ sub _convert($;$)
       } elsif ($root->{'cmdname'} ne 'node') {
         $result = _convert($root->{'args'}->[0], $options);
         if ($Texinfo::Common::sectioning_commands{$root->{'cmdname'}}) {
-          $result = heading ($root, $result, $options->{'converter'}, 
-                             $options->{'NUMBER_SECTIONS'});
+          $result = heading($root, $result, $options->{'converter'}, 
+                            $options->{'NUMBER_SECTIONS'});
         } else {
         # we always want an end of line even if is was eaten by a command
-          chomp ($result);
+          chomp($result);
           $result .= "\n";
         }
       }

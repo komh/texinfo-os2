@@ -1,8 +1,8 @@
 # Process this file with autoconf to produce a configure script.
-# $Id: configure.ac 5234 2013-03-12 22:56:31Z karl $
+# $Id: configure.ac 7353 2016-09-10 13:03:54Z gavin $
 #
 # Copyright 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011,
-# 2012, 2013 Free Software Foundation, Inc.
+# 2012, 2013, 2014, 2015, 2016 Free Software Foundation, Inc.
 #
 # This file is free software; as a special exception the author gives
 # unlimited permission to copy and/or distribute it, with or without
@@ -12,29 +12,30 @@
 # WITHOUT ANY WARRANTY, to the extent permitted by law; without even the
 # implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 #
-AC_INIT([GNU Texinfo], [5.1], [bug-texinfo@gnu.org])
+AC_INIT([GNU Texinfo], [6.3], [bug-texinfo@gnu.org])
 
 dnl Must come before AM_INIT_AUTOMAKE.
 AC_CONFIG_AUX_DIR([build-aux])
 dnl tar-ustar because we have long filenames for some test files.
 dnl parallel-tests as recommended by stefano.
-AM_INIT_AUTOMAKE([1.12 tar-ustar parallel-tests readme-alpha dist-xz])
+AM_INIT_AUTOMAKE([1.14 dist-xz
+                 info-in-builddir parallel-tests readme-alpha tar-ustar])
 
 # Where to generate output; srcdir location.
 AC_CONFIG_HEADERS([config.h:config.in])dnl Keep filename to 8.3 for MS-DOS.
 AC_CONFIG_SRCDIR([info/info.c])
 
-# version for the dtd.  It is manually set to the next version number 
-# rather than $PACKAGE_VERSION as soon as the DTD is modified.  There 
-# are 3 reasons for that:
-# 1. to avoid using a DTD from internet that wouldn't be in sync;
-# 2. to avoid unnnecessary changes in XML output file headers, in
-#    test results for instance.  Otherwise after a release the 
-#    devel version and the pretest versions would be used;
-# 3. it may be kept as is in case there were no change in the DTD
-#    between releases.  This is highly improbable, but who knows.
-# TEXINFO_DTD_VERSION=$PACKAGE_VERSION
-TEXINFO_DTD_VERSION=5.0
+# TexinfoXML DTD (./util/texinfo.dtd) version:
+# manually set this to the next version number rather than
+# $PACKAGE_VERSION, as soon as the DTD is modified, and perhaps put the
+# file on the web, too.  Several reasons:
+# 1. To avoid using a DTD from the Internet that wouldn't be in sync;
+# 2. To avoid unnnecessary changes in XML output file headers, in
+#    test results for instance.
+# 3. It may be kept as is in case there were no change in the DTD
+#    between releases.  This is rare, but has happened.
+#
+TEXINFO_DTD_VERSION=6.0
 AC_SUBST([TEXINFO_DTD_VERSION])
 
 # Conditional texi2html support.
@@ -46,8 +47,6 @@ AC_SUBST([PACKAGE_DATE])
 
 # We need Perl
 AC_ARG_VAR([PERL], [The path to the 'perl' executable.])
-dnl AC_PATH_PROG([PERL], [perl], [/usr/bin/env perl], [/opt/perl5/bin:"$PATH"])
-
 AC_PATH_PROG([PERL], [perl])
 if test -z "$PERL"; then
    AC_MSG_ERROR(
@@ -58,6 +57,12 @@ specify where it is using
 ])
 fi
 
+# User variables for a Perl XS extension, which may be different, for
+# example if the Perl interpreter being used was compiled with a
+# different compiler.  Also in tp/Texinfo/Convert/XSParagraph/configure.ac.
+AC_ARG_VAR([PERL_EXT_CFLAGS], [Compiler flags for a Perl extension])
+AC_ARG_VAR([PERL_EXT_CPPFLAGS], [C preprocessor flags for a Perl extension])
+AC_ARG_VAR([PERL_EXT_LDFLAGS], [Linker flags for a Perl extension])
 
 AC_MSG_CHECKING([Perl version and Encode module])
 if $PERL -e "use 5.007_003; use Encode;" > /dev/null 2>&1; then
@@ -129,7 +134,7 @@ rm -f conftest.dtx
 
 DIFF_A_OPTION=
 if test "z$diff_accepts_a_option" = 'zyes' ; then
-  DIFF_U_OPTION=-a
+  DIFF_A_OPTION=-a
 fi
 AC_SUBST([DIFF_A_OPTION])
 
@@ -140,8 +145,9 @@ AC_CHECK_FUNC(sigblock, , [AC_CHECK_LIB(bsd, sigblock)])
 AC_HEADER_STAT
 AC_HEADER_STDC
 AC_CHECK_HEADERS(fcntl.h io.h limits.h pwd.h string.h strings.h \
-  termcap.h termio.h termios.h unistd.h \
-  sys/fcntl.h sys/file.h sys/stream.h sys/time.h sys/ttold.h sys/wait.h)
+  stropts.h termcap.h termio.h termios.h unistd.h \
+  sys/fcntl.h sys/file.h sys/ioctl.h sys/stream.h \
+  sys/time.h sys/ttold.h sys/wait.h)
 
 # sys/ptem.h requires sys/stream.h for mblk_t on Solaris.
 AC_CHECK_HEADERS([sys/ptem.h],,,
@@ -151,7 +157,6 @@ AC_CHECK_HEADERS([sys/ptem.h],,,
 ])
 
 AC_SYS_POSIX_TERMIOS
-AC_HEADER_TIOCGWINSZ
 
 # Checks for typedefs, structures, and compiler characteristics.
 AC_TYPE_OFF_T
@@ -169,8 +174,11 @@ AC_FUNC_VPRINTF
 # that anyone compiling new texinfo still has such a thing? we'll see.
 # AC_FUNC_SETVBUF_REVERSED
 AC_CHECK_FUNCS(bzero getcwd memset setlocale setvbuf sigaction sigprocmask \
-               sigsetmask strchr)
+	       sigsetmask strchr posix_openpt)
 AC_REPLACE_FUNCS(memcpy memmove strdup strerror)
+
+# Used for Info tests
+AM_CONDITIONAL([have_ptys], [test x$ac_cv_func_posix_openpt = xyes])
 
 # We want to recognize djgpp to avoid the useless warning about no
 # term library.
@@ -223,9 +231,10 @@ for termlib in ${TERMLIB_VARIANTS}; do
      [TERMLIBS="${TERMLIBS} -l${termlib}"; break])
 done
 have_termlib=yes
-# don't bother warning on djgpp, it doesn't have a term library, it
-# ports each termcap-needing program separately according to its needs.
-if test -z "$TERMLIBS" && echo "$build" | grep -v djgpp >/dev/null; then
+# don't bother warning on djgpp and MinGW, they don't have a term library,
+# and port each termcap-needing program separately according to the needs.
+if test -z "$TERMLIBS" \
+   && echo "$build" | grep -v djgpp | grep -v mingw >/dev/null; then
   AC_MSG_WARN([info needs a terminal library, one of: ${TERMLIB_VARIANTS}])
   have_termlib=no
 fi
@@ -329,7 +338,7 @@ AC_SUBST([USE_EXTERNAL_UNIDECODE])
 # i18n support.  To update to a new version of gettext, run:
 #   gettextize -f -c
 # See http://gnu.org/s/gnulib/manual/html_node/gettextize-and-autopoint.html.
-AM_GNU_GETTEXT_VERSION([0.18.2])
+AM_GNU_GETTEXT_VERSION([0.19.6])
 AM_GNU_GETTEXT([external])
 
 USE_EXTERNAL_LIBINTL=no
@@ -343,11 +352,63 @@ AC_ARG_WITH([external-libintl-perl],
 
 AC_SUBST([USE_EXTERNAL_LIBINTL])
 
+AC_ARG_ENABLE([perl-xs],
+    AC_HELP_STRING([--enable-perl-xs],
+              [build Perl XS modules for speed (default: check)]),
+    [ enable_xs=$enableval],
+    [ enable_xs=check])
+
+# Set xs_srcdir to the path from XSParagraph builddir to srcdir
+case $srcdir in
+  .)  # We are building in place.
+    xs_srcdir=. ;;
+  [[\\/]]* | ?:[[\\/]]* )  # Absolute name.
+    xs_srcdir=$srcdir/tp/Texinfo/Convert/XSParagraph ;;
+  *) # Relative name.
+    xs_srcdir=../../../../$srcdir/tp/Texinfo/Convert/XSParagraph ;;
+esac
+
+# Pass on all the options we were given to the subsidiary configure 
+# script.
+# Don't use AC_CONFIG_SUBDIRS for this because it isn't done right away,
+# and we need it for the check that follows.
+# We use the _AC_OUTPUT_SUBDIRS internal autoconf macro
+# (in /usr/share/autoconf/autoconf/status.m4) for this in order to
+# pass on the configure command line correctly; for example, adjusting
+# paths.  It is done in a subshell to be resilient against failure of the
+# subsidiary configure script, which happens if the C compiler is found
+# not to work.
+#
+save_subdirs=$subdirs
+subdirs=tp/Texinfo/Convert/XSParagraph
+( _AC_OUTPUT_SUBDIRS ) || enable_xs=no
+subdirs=$save_subdirs
+
+if test $enable_xs = check; then
+  AC_MSG_CHECKING([whether we can build Perl extension (XS) modules])
+  AC_MSG_RESULT([])
+  enable_xs=no
+  (cd tp/Texinfo/Convert/XSParagraph \
+   && make clean \
+   && make TestXS.la \
+   && ${PERL} -I . \
+              -I ${xs_srcdir} \
+              -w ${xs_srcdir}/fail.pl \
+      | grep 'message from XS module') \
+  && enable_xs=yes
+  AC_MSG_CHECKING([whether we can build Perl extension (XS) modules])
+  AC_MSG_RESULT([$enable_xs])
+fi
+
+AC_SUBST([enable_xs])
+
+AM_CONDITIONAL([DISABLE_XS], [test "z$enable_xs" = zno])
+
 
 # Tests.
 AC_CONFIG_FILES([install-info/tests/defs])
-dnl Except we cannot enable the TeX-related tests,
-dnl so don't waste time configuring them.  See util/tests/README.
+dnl We cannot enable the TeX-related tests, so don't waste time
+dnl configuring them.  See contrib/nontests/README.
 dnl AC_CONFIG_FILES([util/tests/defs])
 dnl AC_CHECK_PROGS([HEVEA], [hevea], [])
 dnl AC_CHECK_PROGS([TEX], [tex], [])
@@ -443,7 +504,9 @@ AC_CONFIG_FILES([\
   po/Makefile.in
   po_document/Makefile.in
   util/Makefile
+  texindex/Makefile
   tp/Makefile
+  tp/Texinfo/ModulePath.pm
   tp/tests/Makefile
   tp/tests/many_input_files/Makefile
   tp/tests/sectioning/Makefile

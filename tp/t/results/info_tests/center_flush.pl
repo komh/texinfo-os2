@@ -164,11 +164,7 @@ $result_trees{'center_flush'} = {
                 'node_content' => [
                   {}
                 ],
-                'normalized' => 'anchor-in-flushleft',
-                'spaces_before_argument' => {
-                  'text' => '',
-                  'type' => 'empty_spaces_before_argument'
-                }
+                'normalized' => 'anchor-in-flushleft'
               },
               'line_nr' => {
                 'file_name' => '',
@@ -178,6 +174,7 @@ $result_trees{'center_flush'} = {
               'parent' => {}
             },
             {
+              'parent' => {},
               'text' => '
 ',
               'type' => 'empty_spaces_after_close_brace'
@@ -360,11 +357,7 @@ $result_trees{'center_flush'} = {
                 'node_content' => [
                   {}
                 ],
-                'normalized' => 'anchor-in-flushright',
-                'spaces_before_argument' => {
-                  'text' => '',
-                  'type' => 'empty_spaces_before_argument'
-                }
+                'normalized' => 'anchor-in-flushright'
               },
               'line_nr' => {
                 'file_name' => '',
@@ -374,6 +367,7 @@ $result_trees{'center_flush'} = {
               'parent' => {}
             },
             {
+              'parent' => {},
               'text' => '
 ',
               'type' => 'empty_spaces_after_close_brace'
@@ -411,11 +405,7 @@ $result_trees{'center_flush'} = {
                 'node_content' => [
                   {}
                 ],
-                'normalized' => 'second-anchor-in-flushright',
-                'spaces_before_argument' => {
-                  'text' => '',
-                  'type' => 'empty_spaces_before_argument'
-                }
+                'normalized' => 'second-anchor-in-flushright'
               },
               'line_nr' => {
                 'file_name' => '',
@@ -425,6 +415,7 @@ $result_trees{'center_flush'} = {
               'parent' => {}
             },
             {
+              'parent' => {},
               'text' => ' ',
               'type' => 'empty_spaces_after_close_brace'
             },
@@ -522,6 +513,7 @@ $result_trees{'center_flush'}{'contents'}[2]{'contents'}[8]{'contents'}[1]{'args
 $result_trees{'center_flush'}{'contents'}[2]{'contents'}[8]{'contents'}[1]{'extra'}{'brace_command_contents'}[0][0] = $result_trees{'center_flush'}{'contents'}[2]{'contents'}[8]{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'center_flush'}{'contents'}[2]{'contents'}[8]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'center_flush'}{'contents'}[2]{'contents'}[8]{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'center_flush'}{'contents'}[2]{'contents'}[8]{'contents'}[1]{'parent'} = $result_trees{'center_flush'}{'contents'}[2]{'contents'}[8];
+$result_trees{'center_flush'}{'contents'}[2]{'contents'}[8]{'contents'}[2]{'parent'} = $result_trees{'center_flush'}{'contents'}[2]{'contents'}[8];
 $result_trees{'center_flush'}{'contents'}[2]{'contents'}[8]{'contents'}[3]{'parent'} = $result_trees{'center_flush'}{'contents'}[2]{'contents'}[8];
 $result_trees{'center_flush'}{'contents'}[2]{'contents'}[8]{'parent'} = $result_trees{'center_flush'}{'contents'}[2];
 $result_trees{'center_flush'}{'contents'}[2]{'contents'}[9]{'args'}[0]{'contents'}[0]{'extra'}{'command'} = $result_trees{'center_flush'}{'contents'}[2]{'contents'}[9];
@@ -556,6 +548,7 @@ $result_trees{'center_flush'}{'contents'}[4]{'contents'}[8]{'contents'}[1]{'args
 $result_trees{'center_flush'}{'contents'}[4]{'contents'}[8]{'contents'}[1]{'extra'}{'brace_command_contents'}[0][0] = $result_trees{'center_flush'}{'contents'}[4]{'contents'}[8]{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'center_flush'}{'contents'}[4]{'contents'}[8]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'center_flush'}{'contents'}[4]{'contents'}[8]{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'center_flush'}{'contents'}[4]{'contents'}[8]{'contents'}[1]{'parent'} = $result_trees{'center_flush'}{'contents'}[4]{'contents'}[8];
+$result_trees{'center_flush'}{'contents'}[4]{'contents'}[8]{'contents'}[2]{'parent'} = $result_trees{'center_flush'}{'contents'}[4]{'contents'}[8];
 $result_trees{'center_flush'}{'contents'}[4]{'contents'}[8]{'contents'}[3]{'parent'} = $result_trees{'center_flush'}{'contents'}[4]{'contents'}[8];
 $result_trees{'center_flush'}{'contents'}[4]{'contents'}[8]{'contents'}[4]{'parent'} = $result_trees{'center_flush'}{'contents'}[4]{'contents'}[8];
 $result_trees{'center_flush'}{'contents'}[4]{'contents'}[8]{'contents'}[5]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'center_flush'}{'contents'}[4]{'contents'}[8]{'contents'}[5]{'args'}[0];
@@ -563,6 +556,7 @@ $result_trees{'center_flush'}{'contents'}[4]{'contents'}[8]{'contents'}[5]{'args
 $result_trees{'center_flush'}{'contents'}[4]{'contents'}[8]{'contents'}[5]{'extra'}{'brace_command_contents'}[0][0] = $result_trees{'center_flush'}{'contents'}[4]{'contents'}[8]{'contents'}[5]{'args'}[0]{'contents'}[0];
 $result_trees{'center_flush'}{'contents'}[4]{'contents'}[8]{'contents'}[5]{'extra'}{'node_content'}[0] = $result_trees{'center_flush'}{'contents'}[4]{'contents'}[8]{'contents'}[5]{'args'}[0]{'contents'}[0];
 $result_trees{'center_flush'}{'contents'}[4]{'contents'}[8]{'contents'}[5]{'parent'} = $result_trees{'center_flush'}{'contents'}[4]{'contents'}[8];
+$result_trees{'center_flush'}{'contents'}[4]{'contents'}[8]{'contents'}[6]{'parent'} = $result_trees{'center_flush'}{'contents'}[4]{'contents'}[8];
 $result_trees{'center_flush'}{'contents'}[4]{'contents'}[8]{'contents'}[7]{'parent'} = $result_trees{'center_flush'}{'contents'}[4]{'contents'}[8];
 $result_trees{'center_flush'}{'contents'}[4]{'contents'}[8]{'parent'} = $result_trees{'center_flush'}{'contents'}[4];
 $result_trees{'center_flush'}{'contents'}[4]{'contents'}[9]{'args'}[0]{'contents'}[0]{'extra'}{'command'} = $result_trees{'center_flush'}{'contents'}[4]{'contents'}[9];
@@ -673,9 +667,9 @@ after anchor
 
 
 Tag Table:
-Ref: anchor in flushleft98
-Ref: anchor in flushright601
-Ref: second anchor in flushright671
+Ref: anchor in flushleft99
+Ref: anchor in flushright607
+Ref: second anchor in flushright677
 
 End Tag Table
 ';
@@ -688,31 +682,31 @@ $result_converted_errors{'info'}->{'center_flush'} = [
     'type' => 'warning'
   },
   {
-    'file_name' => '',
     'error_line' => ':14: warning: @anchor outside of any node
 ',
-    'text' => '@anchor outside of any node',
-    'type' => 'warning',
+    'file_name' => '',
+    'line_nr' => 14,
     'macro' => '',
-    'line_nr' => 14
+    'text' => '@anchor outside of any node',
+    'type' => 'warning'
   },
   {
-    'file_name' => '',
     'error_line' => ':29: warning: @anchor outside of any node
 ',
-    'text' => '@anchor outside of any node',
-    'type' => 'warning',
+    'file_name' => '',
+    'line_nr' => 29,
     'macro' => '',
-    'line_nr' => 29
+    'text' => '@anchor outside of any node',
+    'type' => 'warning'
   },
   {
-    'file_name' => '',
     'error_line' => ':31: warning: @anchor outside of any node
 ',
-    'text' => '@anchor outside of any node',
-    'type' => 'warning',
+    'file_name' => '',
+    'line_nr' => 31,
     'macro' => '',
-    'line_nr' => 31
+    'text' => '@anchor outside of any node',
+    'type' => 'warning'
   }
 ];
 

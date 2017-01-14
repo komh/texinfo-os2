@@ -1,7 +1,7 @@
 /* termdep.h -- system things that terminal.c depends on.
-   $Id: termdep.h 5191 2013-02-23 00:11:18Z karl $
+   $Id: termdep.h 6906 2016-01-01 18:33:45Z karl $
 
-   Copyright (C) 1993, 1996, 1997, 1998, 2001, 2002, 2007, 2012
+   Copyright 1993, 1996, 1997, 1998, 2001, 2002, 2007, 2012, 2013, 2014, 2016
    Free Software Foundation, Inc.
 
    This program is free software: you can redistribute it and/or modify
@@ -17,7 +17,7 @@
    You should have received a copy of the GNU General Public License
    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-   Written by Brian Fox (bfox@ai.mit.edu). */
+   Originally written by Brian Fox. */
 
 #ifndef INFO_TERMDEP_H
 #define INFO_TERMDEP_H
@@ -49,7 +49,7 @@
 #  endif /* !HAVE_TERMIO_H */
 #endif /* !HAVE_TERMIOS_H */
 
-#ifdef GWINSZ_IN_SYS_IOCTL
+#ifdef HAVE_SYS_IOCTL_H
 #  include <sys/ioctl.h>
 #endif
 

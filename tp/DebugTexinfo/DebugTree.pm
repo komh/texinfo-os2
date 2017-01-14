@@ -1,6 +1,6 @@
 # DebugTexinfo::DebugTree.pm: debug a Texinfo::Parser tree.
 #
-# Copyright 2011, 2012 Free Software Foundation, Inc.
+# Copyright 2011, 2012, 2013 Free Software Foundation, Inc.
 # 
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -129,6 +129,8 @@ sub _print_tree($$;$$)
   if (defined($root->{'text'})) {
     my $text = $root->{'text'};
     $text =~ s/\n/\\n/g;
+    $text =~ s/\f/\\f/g;
+    $text =~ s/\r/\\r/g;
     $result .= "|$text|";
   }
   $result .= "\n";

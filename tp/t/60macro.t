@@ -46,6 +46,14 @@ in macro
 
 This 2 see.@texnltwo  A.
 '],
+['macro_expands_to_empty',
+'@macro foo {arg}
+\arg\
+@end macro
+
+@foo{}
+@foo{aa}
+'],
 ['empty_end','@macro foo {aaa, }
 in foo
 @end macro'],
@@ -513,7 +521,9 @@ macroseven defined
 Call macroseven
 @macroseven{aaa}
 
-'],
+',
+{'expanded_formats' => []}
+],
 ['expansion_order',
 '@macro bidule{arg}
 @machin{}
@@ -954,6 +964,36 @@ a
 
 @mymacro{}
 ', {'MACRO_BODY_IGNORES_LEADING_SPACE' => 1}],
+['form_feeds',
+'@macro mymacro{a, b}
+f \a\ n \b\
+@end macro
+
+@macro oneargmacro{c}
+g \c\ v
+@end macro
+
+@mymacro  {  arg1, arg2}
+
+@oneargmacro   a@{rgline
+
+'
+],
+['ignored_macro_definition',
+'@macro mymacro{}
+outside
+@end macro
+
+
+@inlinefmt{tex,
+@unmacro mymacro
+@macro mymacro{}
+in inlinefmt tex
+@end macro
+}
+
+@mymacro{}.
+']
 );
 
 my @todo =(

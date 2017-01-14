@@ -1,5 +1,12 @@
 \input texinfo @c -*-texinfo-*-
 @setfilename formatting.info
+
+@dircategory Formatting @'e @code{@@ @TeX{}} test
+@direntry
+* Truc: (formatting).           The GNU documentation truc.
+* @code{@@ @'e @equiv{}}: (formatting).  ``@asis{--- something}'' 
+                           @command{cmd} @`a
+@end direntry
 @node Top
 @top Top section
 
@@ -49,6 +56,8 @@ kbd: @kbd{``simple-double--three---four----''} @*
 @@,@{@@'C@} @,{@'C}
 @@,c @,c
 @@,c@@"u @,c@"u @*
+
+@@U@{0075@} @U{0075}
 
 @@* @*
 @@ followed by a space
@@ -657,6 +666,14 @@ Invalid use of @@':@*
 @code{@@dotless@{--a@}} @dotless{--a}
 @code{@@dotless@{a@}} @dotless{a}
 
+@c @U arg must be specified and within range
+@@U, without braces @U
+@@U@{@}, with empty arg @U{}
+@@U@{z@}, with non-hex arg @U{z}
+@@U@{abc@}, with <4 hex digits @U{abc}
+@@U@{FFFFFFFFFFFFFF@}, value much too large @U{FFFFFFFFFFFFFF}
+@@U@{110000@}, value just beyond Unicode @U{110000}
+
 @c braces missing
 @@TeX, but without brace @TeX
 
@@ -777,6 +794,8 @@ kbd: @kbd{``simple-double--three---four----''} @*
 @@,@{@@'C@} @,{@'C}
 @@,c @,c
 @@,c@@"u @,c@"u @*
+
+@@U@{0075@} @U{0075}
 
 @@* @*
 @@ followed by a space
@@ -1319,7 +1338,6 @@ in verbatim ''
 @end verbatim
 
 @xml
-<para> xml para </para> ''
 @end xml
 
 @html
@@ -1327,11 +1345,9 @@ html ''
 @end html
 
 @tex
-$$\partial_t \eta (t) = g(\eta(t),\varphi(t))$$ ''
 @end tex
 
 @docbook
-docbook ''
 @end docbook
 
 @majorheading majorheading
@@ -1376,6 +1392,13 @@ Invalid use of @@':@*
 @@dotless@{ij@} @dotless{ij}
 @code{@@dotless@{--a@}} @dotless{--a}
 @code{@@dotless@{a@}} @dotless{a}
+
+@c @U arg must be specified and within range
+@@U, without braces @U@@U@{@}, with empty arg @U{}
+@@U@{z@}, with non-hex arg @U{z}
+@@U@{abc@}, with <4 hex digits @U{abc}
+@@U@{FFFFFFFFFFFFFF@}, value much too large @U{FFFFFFFFFFFFFF}
+@@U@{110000@}, value just beyond Unicode @U{110000}
 
 @c braces missing
 @@TeX, but without brace @TeX@c unknown command
@@ -1500,6 +1523,8 @@ kbd: @kbd{``simple-double--three---four----''} @*
 @@,c @,c
 @@,c@@"u @,c@"u @*
 
+@@U@{0075@} @U{0075}
+
 @@* @*
 @@ followed by a space
 @ 
@@ -2041,7 +2066,6 @@ in verbatim ''
 @end verbatim
 
 @xml
-<para> xml para </para> ''
 @end xml
 
 @html
@@ -2049,11 +2073,9 @@ html ''
 @end html
 
 @tex
-$$\partial_t \eta (t) = g(\eta(t),\varphi(t))$$ ''
 @end tex
 
 @docbook
-docbook ''
 @end docbook
 
 @majorheading majorheading
@@ -2098,6 +2120,13 @@ Invalid use of @@':@*
 @@dotless@{ij@} @dotless{ij}
 @code{@@dotless@{--a@}} @dotless{--a}
 @code{@@dotless@{a@}} @dotless{a}
+
+@c @U arg must be specified and within range
+@@U, without braces @U@@U@{@}, with empty arg @U{}
+@@U@{z@}, with non-hex arg @U{z}
+@@U@{abc@}, with <4 hex digits @U{abc}
+@@U@{FFFFFFFFFFFFFF@}, value much too large @U{FFFFFFFFFFFFFF}
+@@U@{110000@}, value just beyond Unicode @U{110000}
 
 @c braces missing
 @@TeX, but without brace @TeX@c unknown command
@@ -2222,6 +2251,8 @@ kbd: @kbd{``simple-double--three---four----''} @*
 @@,c @,c
 @@,c@@"u @,c@"u @*
 
+@@U@{0075@} @U{0075}
+
 @@* @*
 @@ followed by a space
 @ 
@@ -2763,7 +2794,6 @@ in verbatim ''
 @end verbatim
 
 @xml
-<para> xml para </para> ''
 @end xml
 
 @html
@@ -2771,11 +2801,9 @@ html ''
 @end html
 
 @tex
-$$\partial_t \eta (t) = g(\eta(t),\varphi(t))$$ ''
 @end tex
 
 @docbook
-docbook ''
 @end docbook
 
 @majorheading majorheading
@@ -2820,6 +2848,13 @@ Invalid use of @@':@*
 @@dotless@{ij@} @dotless{ij}
 @code{@@dotless@{--a@}} @dotless{--a}
 @code{@@dotless@{a@}} @dotless{a}
+
+@c @U arg must be specified and within range
+@@U, without braces @U@@U@{@}, with empty arg @U{}
+@@U@{z@}, with non-hex arg @U{z}
+@@U@{abc@}, with <4 hex digits @U{abc}
+@@U@{FFFFFFFFFFFFFF@}, value much too large @U{FFFFFFFFFFFFFF}
+@@U@{110000@}, value just beyond Unicode @U{110000}
 
 @c braces missing
 @@TeX, but without brace @TeX@c unknown command
@@ -2938,6 +2973,8 @@ kbd: @kbd{``simple-double--three---four----''} @*
 @@,c @,c
 @@,c@@"u @,c@"u @*
 
+@@U@{0075@} @U{0075}
+
 @@* @*
 @@ followed by a space
 @ 
@@ -3479,7 +3516,6 @@ in verbatim ''
 @end verbatim
 
 @xml
-<para> xml para </para> ''
 @end xml
 
 @html
@@ -3487,11 +3523,9 @@ html ''
 @end html
 
 @tex
-$$\partial_t \eta (t) = g(\eta(t),\varphi(t))$$ ''
 @end tex
 
 @docbook
-docbook ''
 @end docbook
 
 @majorheading majorheading
@@ -3536,6 +3570,13 @@ Invalid use of @@':@*
 @@dotless@{ij@} @dotless{ij}
 @code{@@dotless@{--a@}} @dotless{--a}
 @code{@@dotless@{a@}} @dotless{a}
+
+@c @U arg must be specified and within range
+@@U, without braces @U@@U@{@}, with empty arg @U{}
+@@U@{z@}, with non-hex arg @U{z}
+@@U@{abc@}, with <4 hex digits @U{abc}
+@@U@{FFFFFFFFFFFFFF@}, value much too large @U{FFFFFFFFFFFFFF}
+@@U@{110000@}, value just beyond Unicode @U{110000}
 
 @c braces missing
 @@TeX, but without brace @TeX@c unknown command

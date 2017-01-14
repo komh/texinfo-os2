@@ -276,6 +276,12 @@ $result_trees{'line_breaks'} = {
             },
             {
               'cmdname' => 'strong',
+              'contents' => [],
+              'line_nr' => {
+                'file_name' => '',
+                'line_nr' => 10,
+                'macro' => ''
+              },
               'parent' => {},
               'type' => 'command_as_argument'
             },
@@ -475,11 +481,7 @@ $result_trees{'line_breaks'} = {
         'end_command' => {},
         'spaces_after_command' => {}
       },
-      'line_nr' => {
-        'file_name' => '',
-        'line_nr' => 10,
-        'macro' => ''
-      },
+      'line_nr' => {},
       'parent' => {}
     },
     {
@@ -701,6 +703,7 @@ $result_trees{'line_breaks'}{'contents'}[7]{'extra'}{'block_command_line_content
 $result_trees{'line_breaks'}{'contents'}[7]{'extra'}{'command_as_argument'} = $result_trees{'line_breaks'}{'contents'}[7]{'args'}[0]{'contents'}[1];
 $result_trees{'line_breaks'}{'contents'}[7]{'extra'}{'end_command'} = $result_trees{'line_breaks'}{'contents'}[7]{'contents'}[1];
 $result_trees{'line_breaks'}{'contents'}[7]{'extra'}{'spaces_after_command'} = $result_trees{'line_breaks'}{'contents'}[7]{'args'}[0]{'contents'}[0];
+$result_trees{'line_breaks'}{'contents'}[7]{'line_nr'} = $result_trees{'line_breaks'}{'contents'}[7]{'args'}[0]{'contents'}[1]{'line_nr'};
 $result_trees{'line_breaks'}{'contents'}[7]{'parent'} = $result_trees{'line_breaks'};
 $result_trees{'line_breaks'}{'contents'}[8]{'parent'} = $result_trees{'line_breaks'};
 $result_trees{'line_breaks'}{'contents'}[9]{'args'}[0]{'contents'}[0]{'extra'}{'command'} = $result_trees{'line_breaks'}{'contents'}[9];
@@ -799,16 +802,16 @@ $result_converted{'html'}->{'line_breaks'} = '<!DOCTYPE html PUBLIC "-//W3C//DTD
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
 blockquote.smallquotation {font-size: smaller}
 div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
-div.indentedblock {margin-left: 3.2em}
 div.lisp {margin-left: 3.2em}
 div.smalldisplay {margin-left: 3.2em}
 div.smallexample {margin-left: 3.2em}
-div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
 div.smalllisp {margin-left: 3.2em}
-kbd {font-style:oblique}
+kbd {font-style: oblique}
 pre.display {font-family: inherit}
 pre.format {font-family: inherit}
 pre.menu-comment {font-family: serif}
@@ -817,10 +820,9 @@ pre.smalldisplay {font-family: inherit; font-size: smaller}
 pre.smallexample {font-size: smaller}
 pre.smallformat {font-family: inherit; font-size: smaller}
 pre.smalllisp {font-size: smaller}
-span.nocodebreak {white-space:nowrap}
-span.nolinebreak {white-space:nowrap}
-span.roman {font-family:serif; font-weight:normal}
-span.sansserif {font-family:sans-serif; font-weight:normal}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
@@ -828,7 +830,7 @@ ul.no-bullet {list-style: none}
 
 </head>
 
-<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<body lang="en">
 <h1 class="settitle" align="center">the manual <br> new version</h1>
 
 <h1>AWK As A Major Systems Programming <br> Language&mdash;Revisited</h1>

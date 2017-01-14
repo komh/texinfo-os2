@@ -85,11 +85,7 @@ $result_trees{'image_in_paragraph'} = {
               [
                 {}
               ]
-            ],
-            'spaces_before_argument' => {
-              'text' => '',
-              'type' => 'empty_spaces_before_argument'
-            }
+            ]
           },
           'line_nr' => {
             'file_name' => '',
@@ -150,13 +146,13 @@ $result_converted{'html_text'}->{'image_in_paragraph'} = '<p>Para. <img src="aa.
 
 $result_converted_errors{'html_text'}->{'image_in_paragraph'} = [
   {
-    'file_name' => '',
     'error_line' => ':1: warning: @image file `aa\' (for HTML) not found, using `aa.ee\'
 ',
-    'text' => '@image file `aa\' (for HTML) not found, using `aa.ee\'',
-    'type' => 'warning',
+    'file_name' => '',
+    'line_nr' => 1,
     'macro' => '',
-    'line_nr' => 1
+    'text' => '@image file `aa\' (for HTML) not found, using `aa.ee\'',
+    'type' => 'warning'
   }
 ];
 

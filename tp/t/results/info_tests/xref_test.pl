@@ -91,10 +91,6 @@ $result_trees{'xref_test'} = {
                     }
                   ],
                   'normalized' => 'in-xref'
-                },
-                'spaces_before_argument' => {
-                  'text' => '',
-                  'type' => 'empty_spaces_before_argument'
                 }
               },
               'line_nr' => {
@@ -143,10 +139,6 @@ $result_trees{'xref_test'} = {
                     }
                   ],
                   'normalized' => 'bad-xref'
-                },
-                'spaces_before_argument' => {
-                  'text' => '',
-                  'type' => 'empty_spaces_before_argument'
                 }
               },
               'line_nr' => {},
@@ -196,10 +188,6 @@ $result_trees{'xref_test'} = {
                             }
                           ],
                           'normalized' => 'bad-nested-xref'
-                        },
-                        'spaces_before_argument' => {
-                          'text' => '',
-                          'type' => 'empty_spaces_before_argument'
                         }
                       },
                       'line_nr' => {
@@ -239,6 +227,7 @@ $result_trees{'xref_test'} = {
                 {
                   'contents' => [
                     {
+                      'parent' => {},
                       'text' => ' ',
                       'type' => 'empty_spaces_before_argument'
                     },
@@ -276,10 +265,6 @@ $result_trees{'xref_test'} = {
                     }
                   ],
                   'normalized' => 'in-ref-ending-with-a-dot_002e'
-                },
-                'spaces_before_argument' => {
-                  'text' => '',
-                  'type' => 'empty_spaces_before_argument'
                 }
               },
               'line_nr' => {
@@ -329,10 +314,6 @@ $result_trees{'xref_test'} = {
                     }
                   ],
                   'normalized' => 'in-ref-followed-by-symbol'
-                },
-                'spaces_before_argument' => {
-                  'text' => '',
-                  'type' => 'empty_spaces_before_argument'
                 }
               },
               'line_nr' => {
@@ -410,6 +391,7 @@ $result_trees{'xref_test'}{'contents'}[1]{'contents'}[1]{'contents'}[4]{'parent'
 $result_trees{'xref_test'}{'contents'}[1]{'contents'}[1]{'contents'}[5]{'parent'} = $result_trees{'xref_test'}{'contents'}[1]{'contents'}[1];
 $result_trees{'xref_test'}{'contents'}[1]{'contents'}[1]{'contents'}[6]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'xref_test'}{'contents'}[1]{'contents'}[1]{'contents'}[6]{'args'}[0];
 $result_trees{'xref_test'}{'contents'}[1]{'contents'}[1]{'contents'}[6]{'args'}[0]{'parent'} = $result_trees{'xref_test'}{'contents'}[1]{'contents'}[1]{'contents'}[6];
+$result_trees{'xref_test'}{'contents'}[1]{'contents'}[1]{'contents'}[6]{'args'}[1]{'contents'}[0]{'parent'} = $result_trees{'xref_test'}{'contents'}[1]{'contents'}[1]{'contents'}[6]{'args'}[1];
 $result_trees{'xref_test'}{'contents'}[1]{'contents'}[1]{'contents'}[6]{'args'}[1]{'contents'}[1]{'parent'} = $result_trees{'xref_test'}{'contents'}[1]{'contents'}[1]{'contents'}[6]{'args'}[1];
 $result_trees{'xref_test'}{'contents'}[1]{'contents'}[1]{'contents'}[6]{'args'}[1]{'parent'} = $result_trees{'xref_test'}{'contents'}[1]{'contents'}[1]{'contents'}[6];
 $result_trees{'xref_test'}{'contents'}[1]{'contents'}[1]{'contents'}[6]{'extra'}{'brace_command_contents'}[0][0] = $result_trees{'xref_test'}{'contents'}[1]{'contents'}[1]{'contents'}[6]{'args'}[0]{'contents'}[0];
@@ -486,9 +468,9 @@ $result_converted{'info'}->{'xref_test'} = 'This is , produced from .
 
 File: ,  Node: Top,  Up: (dir)
 
-*Note (m)in xref::.  *Note (m)bad xref::.  after xref.  \'*Note (m)bad
-nested xref::.\'.  *Note name: (m)in ref ending with a dot..  !  after
-xref and dot inside.  *Note (m)in ref followed by symbol::.# g.
+*Note (m)in xref::.  *Note (m)bad xref:: after xref.  \'*Note (m)bad
+nested xref::\'.  *Note name: (m)in ref ending with a dot..  !  after
+xref and dot inside.  *Note (m)in ref followed by symbol::# g.
 
 
 Tag Table:
@@ -499,40 +481,22 @@ End Tag Table
 
 $result_converted_errors{'info'}->{'xref_test'} = [
   {
-    'file_name' => '',
-    'error_line' => ':4: warning: `.\' or `,\' must follow @xref, not a
+    'error_line' => ':6: warning: @xref node name should not contain `.\'
 ',
-    'text' => '`.\' or `,\' must follow @xref, not a',
-    'type' => 'warning',
+    'file_name' => '',
+    'line_nr' => 6,
     'macro' => '',
-    'line_nr' => 4
+    'text' => '@xref node name should not contain `.\'',
+    'type' => 'warning'
   },
   {
-    'file_name' => '',
-    'error_line' => ':5: warning: `.\' or `,\' must follow @xref
-',
-    'text' => '`.\' or `,\' must follow @xref',
-    'type' => 'warning',
-    'macro' => '',
-    'line_nr' => 5
-  },
-  {
-    'file_name' => '',
     'error_line' => ':6: warning: `.\' or `,\' must follow @xref, not !
 ',
-    'text' => '`.\' or `,\' must follow @xref, not !',
-    'type' => 'warning',
-    'macro' => '',
-    'line_nr' => 6
-  },
-  {
     'file_name' => '',
-    'error_line' => ':7: warning: `.\' or `,\' must follow @xref, not #
-',
-    'text' => '`.\' or `,\' must follow @xref, not #',
-    'type' => 'warning',
+    'line_nr' => 6,
     'macro' => '',
-    'line_nr' => 7
+    'text' => '`.\' or `,\' must follow @xref, not !',
+    'type' => 'warning'
   }
 ];
 

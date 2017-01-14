@@ -1,8 +1,8 @@
 /* tag.c -- Functions to handle Info tags (that is, the special
    construct for images, not the "tag table" of starting position.)
-   $Id: tag.c 5191 2013-02-23 00:11:18Z karl $
+   $Id: tag.c 5884 2014-10-22 22:19:04Z gavin $
 
-   Copyright (C) 2012, 2013 Free Software Foundation, Inc.
+   Copyright 2012, 2013, 2014 Free Software Foundation, Inc.
 
    This program is free software: you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
@@ -113,6 +113,8 @@ tag_image (char *text, struct text_buffer *outbuf)
 	  if (state == state_delim)
 	    continue;
 	}
+      else if (state == state_delim)
+	state = state_kw;
       cur_len = mb_len (mbi_cur (iter));
       cur_ptr = mbi_cur_ptr (iter);
       
@@ -125,6 +127,8 @@ tag_image (char *text, struct text_buffer *outbuf)
 	  switch (*cur_ptr)
 	    {
 	    case '=':
+	      if (state != state_kw)
+		break;
 	      text_buffer_add_char (&tmpbuf, 0);
 	      kw = tmpbuf.base;
 	      if (!mbi_avail (iter))
@@ -183,6 +187,7 @@ tag_image (char *text, struct text_buffer *outbuf)
 
 static struct tag_handler tagtab[] = {
   { "image", 5, tag_image },
+  { "index", 5, NULL },
   { NULL }
 };
 
@@ -197,68 +202,38 @@ find_tag_handler (char *tag, size_t taglen)
   return NULL;
 }
 
-void
-tags_expand (char **pbuf, size_t *pbuflen)
+/* Expand \b[...\b] construct at *INPUT.  If encountered, append the
+   expanded text to OUTBUF, advance *INPUT past the tag, and return 1.
+   Otherwise, return 0.  If it is an index tag, set IS_INDEX to 1. */
+int
+tag_expand (char **input, struct text_buffer *outbuf, int *is_index)
 {
-  char *input = *pbuf;
-  char *endp = input + *pbuflen;
-  struct text_buffer outbuf;
-  char *p;
+  char *p = *input;
+  char *q;
+  size_t len;
+  struct tag_handler *tp;
 
-  text_buffer_init (&outbuf);
+  if (memcmp(p, "\0\b[", 3) != 0)       /* opening magic? */
+    return 0;
 
-  while ((p = input + strlen (input)) < endp) /* go forward to null */
+  p += 3;
+  q = p + strlen (p);
+  if (memcmp (q + 1, "\b]", 2)) /* closing magic? */
+    return 0; /* Not a proper tag. */
+
+  /* Output is different for index nodes */
+  if (!strncmp ("index", p, strlen ("index")))
+    *is_index = 1;
+
+  len = strcspn (p, " \t");       /* tag name */
+  tp = find_tag_handler (p, len);
+  if (tp && tp->handler)
     {
-      if (memcmp(p + 1, "\b[", 2) == 0)       /* opening magic? */
-	{
-	  char *q;
-
-	  p += 3;
-	  q = p + strlen (p);                 /* forward to next null */
-	  if (memcmp (q + 1, "\b]", 2) == 0)  /* closing magic? */
-	    {
-	      size_t len;
-	      struct tag_handler *tp;
-
-	      len = strcspn (p, " \t");       /* tag name */
-	      tp = find_tag_handler (p, len);
-	      if (tp)
-		{
-		  while (p[len] == ' ' || p[len] == '\t')
-		    ++len;                      /* move past whitespace */
-	      
-		  if (!text_buffer_off (&outbuf))
-		    text_buffer_add_string (&outbuf, *pbuf, p - *pbuf - 3);
-		  else
-		    text_buffer_add_string (&outbuf, input, p - input - 3);
-		  if (tp->handler (p + len, &outbuf) == 0)
-		    {
-		      input = q + 3;
-		      continue;
-		    }
-		}
-	    }
-	}
-
-      if (text_buffer_off (&outbuf))
-	{
-	  text_buffer_add_string (&outbuf, input, p - input);
-	}
-      input = p + 1;
-    }
-
-  if (text_buffer_off (&outbuf))
-    {
-      if (input < endp)
-	text_buffer_add_string (&outbuf, input, endp - input);
-      free (*pbuf);
-      *pbuflen = text_buffer_off (&outbuf);
-      *pbuf = text_buffer_base (&outbuf);
-    }
-}
+      while (p[len] == ' ' || p[len] == '\t')
+        ++len;                      /* move past whitespace */
   
-void
-handle_tag (char *tag)
-{
-  /* Nothing so far */
+      tp->handler (p + len, outbuf);
+    }
+  *input = q + 3;
+  return 1;
 }

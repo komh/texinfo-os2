@@ -1,8 +1,8 @@
 /* variables.c -- how to manipulate user visible variables in Info.
-   $Id: variables.c 5191 2013-02-23 00:11:18Z karl $
+   $Id: variables.c 6877 2015-12-19 16:42:47Z gavin $
 
-   Copyright (C) 1993, 1997, 2001, 2002, 2004, 2007, 2008, 2011
-   Free Software Foundation, Inc.
+   Copyright 1993, 1997, 2001, 2002, 2004, 2007, 2008, 2011, 2013,
+   2014, 2015 Free Software Foundation, Inc.
 
    This program is free software: you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
@@ -17,10 +17,14 @@
    You should have received a copy of the GNU General Public License
    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-   Written by Brian Fox (bfox@ai.mit.edu). */
+   Originally written by Brian Fox. */
 
 #include "info.h"
+#include "session.h"
+#include "echo-area.h"
 #include "variables.h"
+#include "terminal.h"
+#include "display.h"
 
 /* **************************************************************** */
 /*                                                                  */
@@ -32,6 +36,30 @@
    a variable. */
 static char *on_off_choices[] = { "Off", "On", NULL };
 
+static char *mouse_choices[] = { "Off", "normal-tracking", NULL };
+
+static char *follow_strategy_choices[] = { "remain", "path", NULL };
+
+static char *nodeline_choices[] = { "no", "print", "pointers", NULL };
+
+/* Choices used by the completer when reading a value for the user-visible
+   variable "scroll-behaviour". */
+static char *info_scroll_choices[] = { "Continuous", "Next Only",
+    "Page Only", NULL };
+
+/* Choices for the scroll-last-node variable */
+static char *scroll_last_node_choices[] = { "Stop", "Top", NULL };
+
+/* Set choices to address of this to indicate takes a value in the
+   format for specifying renditions.  Nothing is actually stored in
+   this variable. */
+char *rendition_variable = 0;
+
+/* Address of this indicates the 'highlight-searches' variable. */
+static int *highlight_searches;
+
+/* Note that the 'where_set' field of each element in the array is
+   not given and defaults to 0. */
 VARIABLE_ALIST info_variables[] = {
   { "automatic-footnotes",
       N_("When \"On\", footnotes appear and disappear automatically"),
@@ -86,8 +114,53 @@ VARIABLE_ALIST info_variables[] = {
     N_("Minimal length of a search string"),
     &min_search_length, NULL },
 
+  { "search-skip-screen",
+      N_("Skip current window when searching"),
+    &search_skip_screen_p, (char **)on_off_choices },
+
+  { "infopath-no-defaults",
+      N_("Exclude default directories from file search path"),
+    &infopath_no_defaults_p, (char **)on_off_choices },
+
+  { "hide-note-references",
+      N_("Hide some Info file syntax in the text of nodes"),
+    &preprocess_nodes_p, (char **)on_off_choices },
+
+  { "key-time",
+      N_("Length of time in milliseconds to wait for the next byte in a sequence indicating that a key has been pressed"),
+    &key_time, NULL },
+
+  { "mouse",
+      N_("Method to use to track mouse events"),
+    &mouse_protocol, (char **)mouse_choices },
+
+  { "follow-strategy",
+      N_("How to follow a cross-reference"),
+    &follow_strategy, (char **)follow_strategy_choices },
+
+  { "highlight-searches",
+      N_("Highlight search matches"),
+    &highlight_searches, (char **)on_off_choices },
+
+  { "link-style",
+      N_("Styles for links"),
+    &ref_rendition, &rendition_variable },
+
+  { "active-link-style",
+      N_("Styles for active links"),
+    &hl_ref_rendition, &rendition_variable },
+
+  { "match-style",
+      N_("Styles for search matches"),
+    &match_rendition, &rendition_variable },
+
+  { "nodeline",
+      N_("How to print the information line at the start of a node"),
+    &nodeline_print, (char **)nodeline_choices },
+
   { NULL }
 };
+
 
 DECLARE_INFO_COMMAND (describe_variable, _("Explain the use of a variable"))
 {
@@ -96,19 +169,15 @@ DECLARE_INFO_COMMAND (describe_variable, _("Explain the use of a variable"))
 
   /* Get the variable's name. */
   var = read_variable_name (_("Describe variable: "), window);
-
   if (!var)
     return;
 
-  description = xmalloc (20 + strlen (var->name)
-			 + strlen (_(var->doc)));
-
   if (var->choices)
-    sprintf (description, "%s (%s): %s.",
-             var->name, var->choices[*(var->value)], _(var->doc));
+    asprintf (&description, "%s (%s): %s.",
+             var->name, var->choices[*(int *)var->value], _(var->doc));
   else
-    sprintf (description, "%s (%d): %s.",
-	     var->name, *(var->value), _(var->doc));
+    asprintf (&description, "%s (%d): %s.",
+             var->name, *(int *)var->value, _(var->doc));
 
   window_message_in_echo_area ("%s", description);
   free (description);
@@ -118,6 +187,7 @@ DECLARE_INFO_COMMAND (set_variable, _("Set the value of an Info variable"))
 {
   VARIABLE_ALIST *var;
   char *line;
+  char prompt[100];
 
   /* Get the variable's name and value. */
   var = read_variable_name (_("Set variable: "), window);
@@ -126,102 +196,98 @@ DECLARE_INFO_COMMAND (set_variable, _("Set the value of an Info variable"))
     return;
 
   /* Read a new value for this variable. */
-  {
-    char prompt[100];
 
-    if (!var->choices)
-      {
-        int potential_value;
+  if (!var->choices)
+    {
+      int potential_value;
 
-        if (info_explicit_arg || count != 1)
-          potential_value = count;
-        else
-          potential_value = *(var->value);
+      if (info_explicit_arg || count != 1)
+        potential_value = count;
+      else
+        potential_value = *(int *)(var->value);
 
-        sprintf (prompt, _("Set %s to value (%d): "),
-                 var->name, potential_value);
-        line = info_read_in_echo_area (active_window, prompt);
+      sprintf (prompt, _("Set %s to value (%d): "),
+               var->name, potential_value);
+      line = info_read_in_echo_area (prompt);
 
-        /* If no error was printed, clear the echo area. */
-        if (!info_error_was_printed)
-          window_clear_echo_area ();
+      /* User aborted? */
+      if (!line)
+        return;
 
-        /* User aborted? */
-        if (!line)
+      /* If the user specified a value, get that, otherwise, we are done. */
+      canonicalize_whitespace (line);
+
+      set_variable_to_value (var, line, SET_IN_SESSION);
+
+      free (line);
+    }
+  else
+    {
+      register int i;
+      REFERENCE **array = NULL;
+      size_t array_index = 0;
+      size_t array_slots = 0;
+
+      for (i = 0; var->choices[i]; i++)
+        {
+          REFERENCE *entry;
+
+          entry = xmalloc (sizeof (REFERENCE));
+          entry->label = xstrdup (var->choices[i]);
+          entry->nodename = NULL;
+          entry->filename = NULL;
+
+          add_pointer_to_array (entry, array_index, array, array_slots, 10);
+        }
+
+      sprintf (prompt, _("Set %s to value (%s): "),
+               var->name, var->choices[*(int *)(var->value)]);
+
+      /* Ask the completer to read a variable value for us. */
+      line = info_read_completing_in_echo_area (prompt, array);
+
+      info_free_references (array);
+
+      /* User aborted? */
+      if (!line)
+        {
+          info_abort_key (active_window, 0);
           return;
+        }
 
-        /* If the user specified a value, get that, otherwise, we are done. */
-        canonicalize_whitespace (line);
-        if (*line)
-          *(var->value) = atoi (line);
-        else
-          *(var->value) = potential_value;
+      /* User accepted default choice?  If so, no change. */
+      if (!*line)
+        {
+          free (line);
+          return;
+        }
 
-        free (line);
-      }
-    else
-      {
-        register int i;
-        REFERENCE **array = NULL;
-        int array_index = 0;
-        int array_slots = 0;
+      set_variable_to_value (var, line, SET_IN_SESSION);
+    }
+}
 
-        for (i = 0; var->choices[i]; i++)
-          {
-            REFERENCE *entry;
+VARIABLE_ALIST *
+variable_by_name (char *name)
+{
+  int i;
 
-            entry = xmalloc (sizeof (REFERENCE));
-            entry->label = xstrdup (var->choices[i]);
-            entry->nodename = NULL;
-            entry->filename = NULL;
+  /* Find the variable in our list of variables. */
+  for (i = 0; info_variables[i].name; i++)
+    if (strcmp (info_variables[i].name, name) == 0)
+      break;
 
-            add_pointer_to_array
-              (entry, array_index, array, array_slots, 10, REFERENCE *);
-          }
-
-        sprintf (prompt, _("Set %s to value (%s): "),
-                 var->name, var->choices[*(var->value)]);
-
-        /* Ask the completer to read a variable value for us. */
-        line = info_read_completing_in_echo_area (window, prompt, array);
-
-        info_free_references (array);
-
-        if (!echo_area_is_active)
-          window_clear_echo_area ();
-
-        /* User aborted? */
-        if (!line)
-          {
-            info_abort_key (active_window, 0, 0);
-            return;
-          }
-
-        /* User accepted default choice?  If so, no change. */
-        if (!*line)
-          {
-            free (line);
-            return;
-          }
-
-        /* Find the choice in our list of choices. */
-        for (i = 0; var->choices[i]; i++)
-          if (strcmp (var->choices[i], line) == 0)
-            break;
-
-        if (var->choices[i])
-          *(var->value) = i;
-      }
-  }
+  if (!info_variables[i].name)
+    return NULL;
+  else
+    return &info_variables[i];
 }
 
 /* Read the name of an Info variable in the echo area and return the
    address of a VARIABLE_ALIST member.  A return value of NULL indicates
    that no variable could be read. */
 VARIABLE_ALIST *
-read_variable_name (const char *prompt, WINDOW *window)
+read_variable_name (char *prompt, WINDOW *window)
 {
-  register int i;
   char *line;
   REFERENCE **variables;
 
@@ -229,18 +295,14 @@ read_variable_name (const char *prompt, WINDOW *window)
   variables = make_variable_completions_array ();
 
   /* Ask the completer to read a variable for us. */
-  line =
-    info_read_completing_in_echo_area (window, prompt, variables);
+  line = info_read_completing_in_echo_area (prompt, variables);
 
   info_free_references (variables);
-
-  if (!echo_area_is_active)
-    window_clear_echo_area ();
 
   /* User aborted? */
   if (!line)
     {
-      info_abort_key (active_window, 0, 0);
+      info_abort_key (active_window, 0);
       return NULL;
     }
 
@@ -251,15 +313,7 @@ read_variable_name (const char *prompt, WINDOW *window)
       return NULL;
     }
 
-  /* Find the variable in our list of variables. */
-  for (i = 0; info_variables[i].name; i++)
-    if (strcmp (info_variables[i].name, line) == 0)
-      break;
-
-  if (!info_variables[i].name)
-    return NULL;
-  else
-    return &info_variables[i];
+  return variable_by_name (line);
 }
 
 /* Make an array of REFERENCE which actually contains the names of the
@@ -269,7 +323,7 @@ make_variable_completions_array (void)
 {
   register int i;
   REFERENCE **array = NULL;
-  int array_index = 0, array_slots = 0;
+  size_t array_index = 0, array_slots = 0;
 
   for (i = 0; info_variables[i].name; i++)
     {
@@ -280,44 +334,124 @@ make_variable_completions_array (void)
       entry->nodename = NULL;
       entry->filename = NULL;
 
-      add_pointer_to_array
-        (entry, array_index, array, array_slots, 200, REFERENCE *);
+      add_pointer_to_array (entry, array_index, array, array_slots, 200);
     }
 
   return array;
 }
 
-#if defined(INFOKEY)
-
-void
-set_variable_to_value(char *name, char *value)
+/* VALUE is a string that is the value of the variable specified
+   by the user.  Update our internal data structure VAR using this
+   information. */
+int
+set_variable_to_value (VARIABLE_ALIST *var, char *value, int where)
 {
-	register int i;
+  /* If variable was set elsewhere with a higher priority, don't do
+     anything, but don't indicate an error. */
+  if (var->where_set > where)
+    return 1;
 
-	/* Find the variable in our list of variables. */
-	for (i = 0; info_variables[i].name; i++)
-		if (strcmp(info_variables[i].name, name) == 0)
-			break;
+  if (var->choices)
+    {
+      register int j;
 
-	if (!info_variables[i].name)
-		return;
+      /* "highlight-searches=On" is equivalent to
+         "match-rendition=standout". */
+      if (var->value == &highlight_searches)
+        {
+          match_rendition.mask = STANDOUT_MASK;
+          match_rendition.value = STANDOUT_MASK;
+        }
+      else if (var->choices != (char **) &rendition_variable)
+        {
+          /* Find the choice in our list of choices. */
+          for (j = 0; var->choices[j]; j++)
+            if (strcmp (var->choices[j], value) == 0)
+              {
+                *(int *)var->value = j;
+                var->where_set = where;
+                return 1;
+              }
+        }
+      else
+        {
+          static struct {
+              unsigned long mask;
+              unsigned long value;
+              char *name;
+          } styles[] = {
+              COLOUR_MASK, COLOUR_BLACK,   "black",
+              COLOUR_MASK, COLOUR_RED,     "red",
+              COLOUR_MASK, COLOUR_GREEN,   "green",
+              COLOUR_MASK, COLOUR_YELLOW,  "yellow",
+              COLOUR_MASK, COLOUR_BLUE,    "blue",
+              COLOUR_MASK, COLOUR_MAGENTA, "magenta",
+              COLOUR_MASK, COLOUR_CYAN,    "cyan",
+              COLOUR_MASK, COLOUR_WHITE,   "white",
+              COLOUR_MASK, 0,           "nocolour",
+              COLOUR_MASK, 0,           "nocolor",
+              BGCOLOUR_MASK, BGCOLOUR_BLACK,   "bgblack",
+              BGCOLOUR_MASK, BGCOLOUR_RED,     "bgred",
+              BGCOLOUR_MASK, BGCOLOUR_GREEN,   "bggreen",
+              BGCOLOUR_MASK, BGCOLOUR_YELLOW,  "bgyellow",
+              BGCOLOUR_MASK, BGCOLOUR_BLUE,    "bgblue",
+              BGCOLOUR_MASK, BGCOLOUR_MAGENTA, "bgmagenta",
+              BGCOLOUR_MASK, BGCOLOUR_CYAN,    "bgcyan",
+              BGCOLOUR_MASK, BGCOLOUR_WHITE,   "bgwhite",
+              BGCOLOUR_MASK, 0,           "nobgcolour",
+              BGCOLOUR_MASK, 0,           "nobgcolor",
+              UNDERLINE_MASK, UNDERLINE_MASK, "underline",
+              UNDERLINE_MASK, 0,              "nounderline",
+              STANDOUT_MASK, STANDOUT_MASK, "standout",
+              STANDOUT_MASK, 0,             "nostandout",
+              BOLD_MASK, BOLD_MASK,         "bold",
+              BOLD_MASK, 0,                 "regular",
+              BOLD_MASK, 0,                 "nobold",
+              BLINK_MASK, BLINK_MASK,       "blink",
+              BLINK_MASK, 0,                "noblink",
+          };
+          int i;
+          char *component;
+          unsigned long rendition_mask = 0;
+          unsigned long rendition_value = 0;
 
-	if (info_variables[i].choices)
+          component = strtok (value, ",");
+          while (component)
+            {
+              for (i = 0; (styles[i].name); i++)
+                {
+                  if (!strcmp (styles[i].name, component))
+                    break;
+                }
+              if (styles[i].name)
+                {
+                  rendition_mask |= styles[i].mask;
+                  rendition_value &= ~styles[i].mask;
+                  rendition_value |= styles[i].value;
+                }
+              /* If not found, silently ignore, in case more options are
+                 added in the future. */
+
+              component = strtok (0, ",");
+            }
+
+          /* Now all the specified styles are recorded in rendition_value. */
+          ((RENDITION *)var->value)->mask = rendition_mask;
+          ((RENDITION *)var->value)->value = rendition_value;
+        }
+      return 1;
+    }
+  else
+    {
+      char *p;
+      long n = strtol (value, &p, 10);
+      if (*p == 0 && INT_MIN <= n && n <= INT_MAX)
 	{
-		register int j;
-
-		/* Find the choice in our list of choices. */
-		for (j = 0; info_variables[i].choices[j]; j++)
-			if (strcmp (info_variables[i].choices[j], value) == 0)
-				break;
-
-		if (info_variables[i].choices[j])
-			*info_variables[i].value = j;
+          *(int *)var->value = n;
+	  return 1;
 	}
-	else
-	{
-		*info_variables[i].value = atoi(value);
-	}
+    }
+
+  return 0;
 }
 
-#endif /* INFOKEY */

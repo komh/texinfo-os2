@@ -1,7 +1,7 @@
 /* pcterm.c -- How to handle the PC terminal for Info under MS-DOS/MS-Windows.
-   $Id: pcterm.c 5191 2013-02-23 00:11:18Z karl $
+   $Id: pcterm.c 6914 2016-01-02 17:36:03Z gavin $
 
-   Copyright (C) 1998, 1999, 2003, 2004, 2007, 2008, 2012
+   Copyright 1998, 1999, 2003, 2004, 2007, 2008, 2012, 2013, 2014, 2015
    Free Software Foundation, Inc.
 
    This program is free software: you can redistribute it and/or modify
@@ -39,6 +39,8 @@
 #include <io.h>
 #include <conio.h>
 #include <process.h>
+#include <malloc.h>	/* for alloca */
+#define WIN32_LEAN_AND_MEAN
 #include <windows.h>
 
 struct text_info {
@@ -68,9 +70,16 @@ enum text_modes { LASTMODE=-1 };
 #undef read
 #undef _read
 
+#include "display.h"
+
+void reset_info_window_sizes (void);
+void redisplay_after_signal (void);
+
 #endif
 
 #include "variables.h"
+#include "session.h"
+#include "terminal.h"
 
 extern int speech_friendly;	/* defined in info.c */
 
@@ -82,15 +91,17 @@ extern int speech_friendly;	/* defined in info.c */
 
 static struct text_info outside_info;  /* holds screen params outside Info */
 #ifdef _WIN32
-static SHORT norm_attr, inv_attr;
+static SHORT norm_attr, inv_attr, xref_attr;
 static SHORT current_attr;
 static HANDLE hstdin = INVALID_HANDLE_VALUE;
 static HANDLE hstdout = INVALID_HANDLE_VALUE;
 static HANDLE hinfo = INVALID_HANDLE_VALUE;
 static HANDLE hscreen = INVALID_HANDLE_VALUE;
 static DWORD old_inpmode;
+static DWORD old_outpmode;
+static UINT output_cp;
 #else
-static unsigned char    norm_attr, inv_attr;
+static unsigned char    norm_attr, inv_attr, xref_attr;
 #endif
 
 static unsigned const char * find_sequence (int);
@@ -101,25 +112,44 @@ static unsigned const char * find_sequence (int);
 void
 w32_info_prep (void)
 {
-  SetConsoleActiveScreenBuffer (hinfo);
-  current_attr = norm_attr;
-  hscreen = hinfo;
-  SetConsoleMode (hstdin, ENABLE_WINDOW_INPUT);
+  if (hinfo != INVALID_HANDLE_VALUE)
+    {
+      SetConsoleActiveScreenBuffer (hinfo);
+      current_attr = norm_attr;
+      hscreen = hinfo;
+      SetConsoleMode (hstdin, ENABLE_WINDOW_INPUT | ENABLE_MOUSE_INPUT);
+      GetConsoleMode (hscreen, &old_outpmode);
+      SetConsoleMode (hscreen, old_outpmode & ~ENABLE_WRAP_AT_EOL_OUTPUT);
+    }
 }
 
 void
 w32_info_unprep (void)
 {
-  SetConsoleActiveScreenBuffer (hstdout);
-  current_attr = outside_info.normattr;
-  hscreen = hstdout;
-  SetConsoleMode (hstdin, old_inpmode);
+  if (hinfo != INVALID_HANDLE_VALUE)
+    {
+      SetConsoleActiveScreenBuffer (hstdout);
+      current_attr = outside_info.normattr;
+      hscreen = hstdout;
+      SetConsoleMode (hstdin, old_inpmode);
+    }
 }
 
 void
 w32_cleanup (void)
 {
-  CloseHandle (hinfo);
+  if (hinfo != INVALID_HANDLE_VALUE)
+    {
+      COORD cursor_pos;
+
+      /* Restore the original position of the cursor.  */
+      cursor_pos.X = outside_info.curx;
+      cursor_pos.Y = outside_info.cury;
+      SetConsoleCursorPosition (hstdout, cursor_pos);
+
+      /* Close the input handle we created.  */
+      CloseHandle (hinfo);
+    }
 }
 
 static void w32_info_init (void) __attribute__((constructor));
@@ -139,52 +169,63 @@ gettextinfo (struct text_info *ti)
 {
   CONSOLE_SCREEN_BUFFER_INFO csbi;
   static TCHAR errbuf[500];
+  DWORD ignored;
 
   hstdin = GetStdHandle (STD_INPUT_HANDLE);
   hstdout = GetStdHandle (STD_OUTPUT_HANDLE);
-  hinfo = CreateConsoleScreenBuffer (GENERIC_READ | GENERIC_WRITE,
-				     FILE_SHARE_READ | FILE_SHARE_WRITE,
-				     NULL, CONSOLE_TEXTMODE_BUFFER, NULL);
 
   if (hstdin != INVALID_HANDLE_VALUE
       && hstdout != INVALID_HANDLE_VALUE
-      && hinfo != INVALID_HANDLE_VALUE
-      && GetConsoleMode (hstdin, &old_inpmode)
-      && GetConsoleScreenBufferInfo (hstdout, &csbi))
+      && GetConsoleMode (hstdout, &ignored)
+      && GetConsoleMode (hstdin, &old_inpmode))
     {
-      ti->normattr = csbi.wAttributes;
-      ti->winleft = 1;
-      ti->wintop = 1;
-      ti->winright = csbi.srWindow.Right + 1;
-      ti->winbottom = csbi.srWindow.Bottom - csbi.srWindow.Top + 1;
-      ti->attribute = csbi.wAttributes;
-      ti->screenheight = csbi.srWindow.Bottom - csbi.srWindow.Top + 1;
-      ti->screenwidth = csbi.srWindow.Right - csbi.srWindow.Left + 1;
-      ti->curx = csbi.dwCursorPosition.X;
-      ti->cury = csbi.dwCursorPosition.Y;
-      ti->bufsize = csbi.dwSize;
+      hinfo = CreateConsoleScreenBuffer (GENERIC_READ | GENERIC_WRITE,
+					 FILE_SHARE_READ | FILE_SHARE_WRITE,
+					 NULL, CONSOLE_TEXTMODE_BUFFER, NULL);
+      if (hinfo != INVALID_HANDLE_VALUE
+	  && GetConsoleScreenBufferInfo (hstdout, &csbi))
+	{
+	  ti->normattr = csbi.wAttributes;
+	  ti->winleft = 1;
+	  ti->wintop = 1;
+	  ti->winright = csbi.srWindow.Right + 1;
+	  ti->winbottom = csbi.srWindow.Bottom - csbi.srWindow.Top + 1;
+	  ti->attribute = csbi.wAttributes;
+	  ti->screenheight = csbi.srWindow.Bottom - csbi.srWindow.Top + 1;
+	  ti->screenwidth = csbi.srWindow.Right - csbi.srWindow.Left + 1;
+	  ti->curx = csbi.dwCursorPosition.X;
+	  ti->cury = csbi.dwCursorPosition.Y;
+	  ti->bufsize = csbi.dwSize;
 
-      atexit (w32_cleanup);
+	  atexit (w32_cleanup);
+	}
+      else
+	{
+	  DWORD error_no = GetLastError ();
+
+	  if (!FormatMessage (FORMAT_MESSAGE_FROM_SYSTEM, NULL,
+			      error_no,
+			      0, /* choose most suitable language */
+			      errbuf, sizeof (errbuf), NULL))
+	    sprintf (errbuf, "w32 error %u", error_no);
+	  CloseHandle (hinfo);
+	  info_error (_("Terminal cannot be initialized: %s\n"), errbuf);
+	  exit (1);
+	}
     }
   else
     {
-      DWORD error_no = GetLastError ();
-
-      if (!FormatMessage (FORMAT_MESSAGE_FROM_SYSTEM, NULL,
-			  error_no,
-			  0, /* choose most suitable language */
-			  errbuf, sizeof (errbuf), NULL))
-	sprintf (errbuf, "w32 error %u", error_no);
-      CloseHandle (hinfo);
-      info_error (_("Terminal cannot be initialized: %s\n"), errbuf, NULL);
-      exit (1);
+      /* We were invoked non-interactively.  Do the minimum we must.   */
+      ti->screenheight = 24;
+      ti->screenwidth = 80;
     }
 }
 
 void
 textattr (int attr)
 {
-  SetConsoleTextAttribute (hscreen, attr);
+  if (hscreen != INVALID_HANDLE_VALUE)
+    SetConsoleTextAttribute (hscreen, attr);
 }
 
 void
@@ -194,139 +235,242 @@ textmode (int mode)
 }
 
 void
+highvideo (void)
+{
+  int attr;
+  CONSOLE_SCREEN_BUFFER_INFO csbi;
+
+  GetConsoleScreenBufferInfo (hscreen, &csbi);
+  attr = csbi.wAttributes | FOREGROUND_INTENSITY;
+  textattr (attr);
+}
+
+void
+normvideo (void)
+{
+  int attr;
+  CONSOLE_SCREEN_BUFFER_INFO csbi;
+
+  GetConsoleScreenBufferInfo (hscreen, &csbi);
+  attr = csbi.wAttributes & ~FOREGROUND_INTENSITY;
+  textattr (attr);
+}
+
+void
+blinkvideo (void)
+{
+  highvideo ();
+}
+
+void
+textcolor (int color)
+{
+  int attr;
+  CONSOLE_SCREEN_BUFFER_INFO csbi;
+
+  GetConsoleScreenBufferInfo (hscreen, &csbi);
+  attr = (csbi.wAttributes & 0xf0) | (color & 0x0f);
+  textattr (attr);
+}
+
+void
+textbackground (int color)
+{
+  int attr;
+  CONSOLE_SCREEN_BUFFER_INFO csbi;
+
+  GetConsoleScreenBufferInfo (hscreen, &csbi);
+  attr = (csbi.wAttributes & 0x0f) | ((color & 0x0f) << 4);
+  textattr (attr);
+}
+
+void
 ScreenGetCursor (int *row, int *col)
 {
   CONSOLE_SCREEN_BUFFER_INFO csbi;
 
-  GetConsoleScreenBufferInfo (hscreen, &csbi);
-  *row = csbi.dwCursorPosition.Y;
-  *col = csbi.dwCursorPosition.X;
+  if (hscreen == INVALID_HANDLE_VALUE)
+    *row = *col = 0;
+  else
+    {
+      GetConsoleScreenBufferInfo (hscreen, &csbi);
+      *row = csbi.dwCursorPosition.Y;
+      *col = csbi.dwCursorPosition.X;
+    }
 }
 
 void
 ScreenSetCursor (int row, int col)
 {
-  COORD cursor_pos;
+  if (hscreen != INVALID_HANDLE_VALUE)
+    {
+      COORD cursor_pos;
 
-  cursor_pos.X = col;
-  cursor_pos.Y = row;
+      cursor_pos.X = col;
+      cursor_pos.Y = row;
 
-  SetConsoleCursorPosition (hscreen, cursor_pos);
+      SetConsoleCursorPosition (hscreen, cursor_pos);
+    }
 }
 
 void
 ScreenClear (void)
 {
-  DWORD nchars = screenwidth * screenheight;
-  COORD start_pos;
-  DWORD written;
+  if (hscreen != INVALID_HANDLE_VALUE)
+    {
+      DWORD nchars = screenwidth * screenheight;
+      COORD start_pos;
+      DWORD written;
 
-  start_pos.X = start_pos.Y = 0;
-  FillConsoleOutputAttribute (hscreen, norm_attr, nchars, start_pos, &written);
-  FillConsoleOutputCharacter (hscreen, ' ', nchars, start_pos, &written);
+      start_pos.X = start_pos.Y = 0;
+      FillConsoleOutputAttribute (hscreen, norm_attr, nchars, start_pos,
+				  &written);
+      FillConsoleOutputCharacter (hscreen, ' ', nchars, start_pos, &written);
+    }
 }
 
 void
 clreol (void)
 {
-  DWORD nchars;
-  COORD start_pos;
-  DWORD written;
-  CONSOLE_SCREEN_BUFFER_INFO csbi;
+  if (hscreen != INVALID_HANDLE_VALUE)
+    {
+      DWORD nchars;
+      COORD start_pos;
+      DWORD written;
+      CONSOLE_SCREEN_BUFFER_INFO csbi;
 
-  GetConsoleScreenBufferInfo (hscreen, &csbi);
-  start_pos = csbi.dwCursorPosition;
-  nchars = csbi.dwSize.X - start_pos.X;
+      GetConsoleScreenBufferInfo (hscreen, &csbi);
+      start_pos = csbi.dwCursorPosition;
+      nchars = csbi.dwSize.X - start_pos.X;
 
-  FillConsoleOutputAttribute (hscreen, current_attr, nchars, start_pos,
-			      &written);
-  FillConsoleOutputCharacter (hscreen, ' ', nchars, start_pos, &written);
+      FillConsoleOutputAttribute (hscreen, current_attr, nchars, start_pos,
+				  &written);
+      FillConsoleOutputCharacter (hscreen, ' ', nchars, start_pos, &written);
+    }
 }
 
 void
 ScreenVisualBell (void)
 {
-  DWORD nchars = screenwidth * screenheight;
-  COORD start_pos;
-  DWORD written;
+  if (hscreen != INVALID_HANDLE_VALUE)
+    {
+      DWORD nchars = screenwidth * screenheight;
+      COORD start_pos;
+      DWORD written;
+      PWORD attr;
+      DWORD i;
 
-  start_pos.X = start_pos.Y = 0;
-  FillConsoleOutputAttribute (hscreen, inv_attr, nchars, start_pos, &written);
-  Sleep (20);
-  FillConsoleOutputAttribute (hscreen, norm_attr, nchars, start_pos, &written);
+      start_pos.X = start_pos.Y = 0;
+      attr = xmalloc (nchars * sizeof (WORD));
+      ReadConsoleOutputAttribute (hscreen, attr, nchars, start_pos, &written);
+      for (i = 0; i < nchars; ++i)
+	attr[i] ^= norm_attr ^ inv_attr;
+      WriteConsoleOutputAttribute (hscreen, attr, nchars, start_pos, &written);
+      Sleep (50);
+      for (i = 0; i < nchars; ++i)
+	attr[i] ^= norm_attr ^ inv_attr;
+      WriteConsoleOutputAttribute (hscreen, attr, nchars, start_pos, &written);
+      free (attr);
+    }
+  else
+    {
+      printf ("%c", '\a');
+      fflush (stdout);
+    }
 }
 
 int
 movetext(int left, int top, int right, int bottom, int destleft, int desttop)
 {
-  SMALL_RECT src;
-  COORD dest;
-  CHAR_INFO fill;
+  if (hscreen != INVALID_HANDLE_VALUE)
+    {
+      SMALL_RECT src;
+      COORD dest;
+      CHAR_INFO fill;
 
-  src.Left = left - 1;
-  src.Top = top - 1;
-  src.Right = right - 1;
-  src.Bottom = bottom - 1;
+      src.Left = left - 1;
+      src.Top = top - 1;
+      src.Right = right - 1;
+      src.Bottom = bottom - 1;
 
-  dest.X = destleft - 1;
-  dest.Y = desttop - 1;
+      dest.X = destleft - 1;
+      dest.Y = desttop - 1;
 
-  fill.Attributes = norm_attr;
-  fill.Char.AsciiChar = (CHAR)' ';
+      fill.Attributes = norm_attr;
+      fill.Char.AsciiChar = (CHAR)' ';
 
-  return ScrollConsoleScreenBuffer (hscreen, &src , NULL, dest, &fill) != 0;
+      return ScrollConsoleScreenBuffer (hscreen, &src , NULL, dest, &fill) != 0;
+    }
+  else
+    return 0;
 }
 
 int
 ScreenRows (void)
 {
-  CONSOLE_SCREEN_BUFFER_INFO csbi;
+  if (hscreen != INVALID_HANDLE_VALUE)
+    {
+      CONSOLE_SCREEN_BUFFER_INFO csbi;
 
-  GetConsoleScreenBufferInfo (hscreen, &csbi);
-  return csbi.srWindow.Bottom - csbi.srWindow.Top + 1;
+      GetConsoleScreenBufferInfo (hscreen, &csbi);
+      return csbi.srWindow.Bottom - csbi.srWindow.Top + 1;
+    }
+  else
+    return 24;
 }
 
 int
 ScreenCols (void)
 {
-  CONSOLE_SCREEN_BUFFER_INFO csbi;
+  if (hscreen != INVALID_HANDLE_VALUE)
+    {
+      CONSOLE_SCREEN_BUFFER_INFO csbi;
 
-  GetConsoleScreenBufferInfo (hscreen, &csbi);
-  return csbi.srWindow.Right - csbi.srWindow.Left + 1;
+      GetConsoleScreenBufferInfo (hscreen, &csbi);
+      return csbi.srWindow.Right - csbi.srWindow.Left + 1;
+    }
+  else
+    return 80;
 }
 
 void
 _set_screen_lines (int lines)
 {
-  SMALL_RECT window_rectangle;
-  CONSOLE_SCREEN_BUFFER_INFO csbi;
-  COORD scrbufsize;
+  if (hscreen != INVALID_HANDLE_VALUE)
+    {
+      SMALL_RECT window_rectangle;
+      CONSOLE_SCREEN_BUFFER_INFO csbi;
+      COORD scrbufsize;
 
-  GetConsoleScreenBufferInfo (hscreen, &csbi);
+      GetConsoleScreenBufferInfo (hscreen, &csbi);
 
-  window_rectangle = csbi.srWindow;
-  window_rectangle.Bottom = window_rectangle.Top + lines - 1;
-  SetConsoleWindowInfo (hscreen, TRUE, &window_rectangle);
+      window_rectangle = csbi.srWindow;
+      window_rectangle.Bottom = window_rectangle.Top + lines - 1;
+      SetConsoleWindowInfo (hscreen, TRUE, &window_rectangle);
 
-  /* Set the screen buffer size to the same dimensions as the window,
-     so that the dysfunctional scroll bar disappears.  */
-  scrbufsize.X = window_rectangle.Right - window_rectangle.Left + 1;
-  scrbufsize.Y = window_rectangle.Bottom - window_rectangle.Top + 1;
-  SetConsoleScreenBufferSize (hscreen, scrbufsize);
+      /* Set the screen buffer size to the same dimensions as the window,
+	 so that the dysfunctional scroll bar disappears.  */
+      scrbufsize.X = window_rectangle.Right - window_rectangle.Left + 1;
+      scrbufsize.Y = window_rectangle.Bottom - window_rectangle.Top + 1;
+      SetConsoleScreenBufferSize (hscreen, scrbufsize);
+    }
 }
 
 void
 w32_set_screen_dimensions (int cols, int rows)
 {
-  SMALL_RECT window_rectangle;
-  CONSOLE_SCREEN_BUFFER_INFO csbi;
+  if (hscreen != INVALID_HANDLE_VALUE)
+    {
+      SMALL_RECT window_rectangle;
+      CONSOLE_SCREEN_BUFFER_INFO csbi;
 
-  GetConsoleScreenBufferInfo (hscreen, &csbi);
+      GetConsoleScreenBufferInfo (hscreen, &csbi);
 
-  window_rectangle = csbi.srWindow;
-  window_rectangle.Bottom = window_rectangle.Top + rows - 1;
-  window_rectangle.Right = window_rectangle.Left + cols - 1;
-  SetConsoleWindowInfo (hscreen, TRUE, &window_rectangle);
+      window_rectangle = csbi.srWindow;
+      window_rectangle.Bottom = window_rectangle.Top + rows - 1;
+      window_rectangle.Right = window_rectangle.Left + cols - 1;
+      SetConsoleWindowInfo (hscreen, TRUE, &window_rectangle);
+    }
 }
 
 /* Emulate `sleep'.  */
@@ -553,6 +697,28 @@ w32_kbd_read (unsigned char *inbuf, size_t n)
 		    redisplay_after_signal ();
 		  }
 		  break;
+		case MOUSE_EVENT:
+		  {
+		    /* Only vertical wheel support for now.  */
+		    int wheeled =
+		      (inrec.Event.MouseEvent.dwEventFlags & MOUSE_WHEELED) != 0;
+		    if (wheeled && mouse_protocol == MP_NORMAL_TRACKING)
+		      {
+			extern void info_up_line (WINDOW *, int count);
+			extern void info_down_line (WINDOW *, int count);
+			extern WINDOW *active_window;
+
+			int hiword =
+			  HIWORD (inrec.Event.MouseEvent.dwButtonState);
+
+			if ((hiword & 0xFF00) == 0)
+			  info_up_line (active_window, 3);
+			else
+			  info_down_line (active_window, 3);
+			display_update_display ();
+		      }
+		  }
+		  break;
 		default:
 		  break;
 	      }
@@ -587,6 +753,75 @@ w32_read (int fd, void *buf, size_t n)
     return _read (fd, buf, n);
 }
 
+/* Write to the console a string of text encoded in UTF-8 or UTF-7.  */
+static void
+write_utf (DWORD cp, const char *text, int nbytes)
+{
+  /* MSDN says UTF-7 requires zero in flags.  */
+  DWORD flags = (cp == CP_UTF7) ? 0 : MB_ERR_INVALID_CHARS;
+  /* How much space do we need for wide characters?  */
+  int wlen = MultiByteToWideChar (cp, flags, text, nbytes, NULL, 0);
+
+  if (wlen)
+    {
+      WCHAR *text_w = alloca (wlen * sizeof (WCHAR));
+      DWORD written;
+
+      if (MultiByteToWideChar (cp, flags, text, nbytes, text_w, wlen) > 0)
+	{
+	  WriteConsoleW (hscreen, text_w, (nbytes < 0) ? wlen - 1 : wlen,
+			 &written, NULL);
+	  return;
+	}
+    }
+  /* Fall back on conio.  */
+  if (nbytes < 0)
+    cputs (text);
+  else
+    cprintf ("%.*s", nbytes, text);
+}
+
+/* A replacement for nl_langinfo which does a more accurate job for
+   the console output codeset.  Windows can use 3 different encodings
+   at the same time, and the Posix-compliant nl_langinfo simply
+   doesn't know enough to decide which one is needed when CODESET is
+   requested.  */
+#undef nl_langinfo
+#include <langinfo.h>
+
+char *
+rpl_nl_langinfo (nl_item item)
+{
+  if (item == CODESET)
+    {
+      static char buf[100];
+
+      /* We need all the help we can get from GNU libiconv, so we
+	 request transliteration as well.  */
+      sprintf (buf, "CP%u//TRANSLIT", GetConsoleOutputCP ());
+      return buf;
+    }
+  else
+    return nl_langinfo (item);
+}
+
+#ifndef HAVE_WCWIDTH
+/* A replacement for wcwidth.  The Gnulib version calls setlocale for
+   every character Info is about to display, which makes display of
+   large nodes annoyingly slow.
+
+   Note that the Gnulib version is still compiled and put into
+   libgnu.a, because the configure script doesn't know about this
+   replacement.  But the linker will not pull the Gnulib version into
+   the binary, because it resolves the calls to this replacement
+   function.  */
+int
+wcwidth (wchar_t wc)
+{
+  return wc == 0 ? 0 : iswprint (wc) ? 1 : -1;
+}
+#endif
+
 #endif	/* _WIN32 */
 
 /* Turn on reverse video. */
@@ -601,6 +836,78 @@ static void
 pc_end_inverse (void)
 {
   textattr (norm_attr);
+}
+
+/* The implementation of the underlined text.  The DOS/Windows console
+   doesn't support underlined text, so we make it blue instead (blue,
+   because this face is used for hyperlinks).  */
+static void
+pc_begin_underline (void)
+{
+  textattr (xref_attr);
+}
+
+static void
+pc_end_underline (void)
+{
+  textattr (norm_attr);
+}
+
+/* Standout (a.k.a. "high video") text.  */
+static void
+pc_begin_standout (void)
+{
+  highvideo ();
+}
+
+static void
+pc_end_standout (void)
+{
+  normvideo ();
+}
+
+static void
+pc_begin_blink (void)
+{
+  blinkvideo ();
+}
+
+static void
+pc_default_color (void)
+{
+  textattr (norm_attr);
+}
+
+/* Info definitions of 8 colors (see terminal.h) are in an order
+   that's different from Windows/DOS console colors.  This function
+   unscrambles the order, and also maps 8 standard ANSI colors to the
+   low-intensity shades of the 16 PC colors, so that "standout" works
+   by turning the intensity bit.  */
+static int
+convert_color (int terminal_color)
+{
+  /* The terminal.h order is:
+     black, red, green, yellow, blue, magenta, cyan, white.  */
+  static int pc_color_map[] = {
+    0, 4, 2, 6, 1, 5, 3, 7
+  };
+
+  if (terminal_color >= 0
+      && terminal_color < sizeof(pc_color_map) / sizeof (pc_color_map[0]))
+    return pc_color_map[terminal_color];
+  return 7;	/* lightgray */
+}
+
+static void
+pc_set_fg_color (int color)
+{
+  textcolor (convert_color (color));
+}
+
+static void
+pc_set_bg_color (int color)
+{
+  textbackground (convert_color (color));
 }
 
 /* Move the cursor up one line. */
@@ -669,6 +976,12 @@ pc_put_text (string)
 {
   if (speech_friendly)
     fputs (string, stdout);
+#ifdef __MINGW32__
+  else if (hscreen == INVALID_HANDLE_VALUE)
+    fputs (string, stdout);
+  else if (output_cp == CP_UTF8 || output_cp == CP_UTF7)
+    write_utf (output_cp, string, -1);
+#endif
   else
     cputs (string);
 }
@@ -697,9 +1010,15 @@ pc_write_chars (string, nchars)
     return;
 
   if (speech_friendly)
-    printf ("%.*s",nchars, string);
+    printf ("%.*s", nchars, string);
+#ifdef __MINGW32__
+  else if (hscreen == INVALID_HANDLE_VALUE)
+    printf ("%.*s", nchars, string);
+  else if (output_cp == CP_UTF8 || output_cp == CP_UTF7)
+    write_utf (output_cp, string, nchars);
+#endif
   else
-    cprintf ("%..*s",nchars, string);
+    cprintf ("%.*s", nchars, string);
 }
 
 /* Scroll an area of the terminal from START to (and excluding) END,
@@ -784,7 +1103,8 @@ pc_unprep_terminal (void)
     pc_clear_to_eol ();	/* for text attributes to really take effect */
 #endif
 #ifdef _WIN32
-  SetConsoleScreenBufferSize (hstdout, outside_info.bufsize);
+  if (hscreen != INVALID_HANDLE_VALUE)
+    SetConsoleScreenBufferSize (hstdout, outside_info.bufsize);
 #endif
 
   /* Switch back to text mode on stdin.  */
@@ -797,9 +1117,8 @@ pc_unprep_terminal (void)
 /* Initialize the terminal which is known as TERMINAL_NAME.  If this
    terminal doesn't have cursor addressability, `terminal_is_dumb_p'
    becomes nonzero.  The variables SCREENHEIGHT and SCREENWIDTH are set
-   to the dimensions that this terminal actually has.  The variable
-   TERMINAL_HAS_META_P becomes nonzero if this terminal supports a Meta
-   key.  Finally, the terminal screen is cleared. */
+   to the dimensions that this terminal actually has.  Finally, the
+   terminal screen is cleared. */
 static void
 pc_initialize_terminal (term_name)
     char *term_name;
@@ -826,6 +1145,12 @@ pc_initialize_terminal (term_name)
   norm_attr    = outside_info.normattr;
   inv_attr     = (((outside_info.normattr &    7) << 4) |
                   ((outside_info.normattr & 0x7f) >> 4));
+#ifdef __MSDOS__
+  xref_attr = CYAN;
+#endif
+#ifdef _WIN32
+  xref_attr = FOREGROUND_BLUE | FOREGROUND_GREEN | FOREGROUND_INTENSITY;
+#endif
 
   /* Does the user want non-default colors?  */
   info_colors = getenv ("INFO_COLORS");
@@ -862,13 +1187,15 @@ pc_initialize_terminal (term_name)
   if (!speech_friendly)
     terminal_has_visible_bell_p = 1;
 
-  /* We have a Meta key.  */
-  terminal_has_meta_p = 1;
-
   /* We are *certainly* NOT dumb!  */
   terminal_is_dumb_p = 0;
 
   pc_get_screen_size ();
+
+#ifdef __MINGW32__
+  /* Record the screen output codepage.  */
+  output_cp = GetConsoleOutputCP ();
+#endif
 
 #ifdef __MSDOS__
   /* Store the arrow keys.  */
@@ -880,17 +1207,25 @@ pc_initialize_terminal (term_name)
   term_kP = (char *)find_sequence (K_PageUp);
   term_kN = (char *)find_sequence (K_PageDown);
 
-#if defined(INFOKEY)
   term_kh = (char *)find_sequence (K_Home);
   term_ke = (char *)find_sequence (K_End);
   term_ki = (char *)find_sequence (K_Insert);
-  term_kx = (char *)find_sequence (K_Delete);
-#endif
+  term_kD = (char *)find_sequence (K_Delete);
 #endif	/* __MSDOS__ */
 
   /* Set all the hooks to our PC-specific functions.  */
   terminal_begin_inverse_hook       = pc_begin_inverse;
   terminal_end_inverse_hook         = pc_end_inverse;
+  terminal_begin_standout_hook      = pc_begin_standout;
+  terminal_end_standout_hook        = pc_end_standout;
+  terminal_begin_underline_hook     = pc_begin_underline;
+  terminal_end_underline_hook       = pc_end_underline;
+  terminal_begin_bold_hook          = pc_begin_standout;
+  terminal_begin_blink_hook         = pc_begin_blink;
+  terminal_end_all_modes_hook       = pc_end_standout;
+  terminal_default_colour_hook      = pc_default_color;
+  terminal_set_colour_hook          = pc_set_fg_color;
+  terminal_set_bgcolour_hook        = pc_set_bg_color;
   terminal_prep_terminal_hook       = pc_prep_terminal;
   terminal_unprep_terminal_hook     = pc_unprep_terminal;
   terminal_up_line_hook             = pc_up_line;
@@ -940,13 +1275,8 @@ static struct
   {K_Control_Down,      "\033\061m"},
   {K_Control_Center,    "\033\061l"},
 
-#if defined(INFOKEY)
   {K_Home,              "\033[H"}, /* ...and these are for moving IN a node */
   {K_End,               "\033[F"}, /* they're Numeric-Keypad-Keys, so       */
-#else
-  {K_Home,              "\001"},
-  {K_End,               "\005"},
-#endif
   {K_Left,              "\033[D"}, /* NUMLOCK should be off !!              */
   {K_Right,             "\033[C"},
   {K_Down,              "\033[B"},
@@ -958,13 +1288,8 @@ static struct
   {K_Control_Home,      "\033<"},
   {K_Control_End,       "\033>"},
 
-#if defined(INFOKEY)
   {K_EHome,             "\033[H"}, /* these are also for moving IN a node */
   {K_EEnd,              "\033[F"}, /* they're the "extended" (Grey) keys  */
-#else
-  {K_EHome,             "\001"},
-  {K_EEnd,              "\005"},
-#endif
   {K_ELeft,             "\033[D"},
   {K_ERight,            "\033[C"},
   {K_EDown,             "\033[B"},
@@ -980,10 +1305,8 @@ static struct
   {K_F1,                "\10"},    /* YEAH, gimme that good old F-one-thing */
   {K_Delete,            "\177"},   /* to make Kp-Del be DEL (0x7f)          */
   {K_EDelete,           "\177"},   /* to make Delete be DEL (0x7f)          */
-#if defined(INFOKEY)
   {K_Insert,            "\033[L"},
   {K_EInsert,           "\033[L"},
-#endif
 
   /* These are here to map more Alt-X keys to ESC X sequences.  */
   {K_Alt_Q,             "\033q"},
@@ -1203,7 +1526,6 @@ install_keyboard_handler (void)
 
 #include <limits.h>
 #include "signals.h"
-#include "session.h"
 
 #ifndef PATH_MAX
 # define PATH_MAX 512
@@ -1223,7 +1545,7 @@ int
 kill (pid_t pid, int sig)
 {
   static char interrupted_msg[] = "Interrupted\r\n";
-  static char stopped_msg[] = "Stopped.  Type `exit RET' to return.\r\n";
+  static char stopped_msg[] = "Stopped.  Type 'exit RET' to return.\r\n";
   char cwd[PATH_MAX + 1];
 
   if (pid == getpid ()

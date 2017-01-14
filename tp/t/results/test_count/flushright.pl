@@ -60,11 +60,7 @@ $result_trees{'flushright'} = {
                 'node_content' => [
                   {}
                 ],
-                'normalized' => 'rrr',
-                'spaces_before_argument' => {
-                  'text' => '',
-                  'type' => 'empty_spaces_before_argument'
-                }
+                'normalized' => 'rrr'
               },
               'line_nr' => {
                 'file_name' => '',
@@ -74,6 +70,7 @@ $result_trees{'flushright'} = {
               'parent' => {}
             },
             {
+              'parent' => {},
               'text' => ' ',
               'type' => 'empty_spaces_after_close_brace'
             },
@@ -110,11 +107,7 @@ $result_trees{'flushright'} = {
                 'node_content' => [
                   {}
                 ],
-                'normalized' => 'a1',
-                'spaces_before_argument' => {
-                  'text' => '',
-                  'type' => 'empty_spaces_before_argument'
-                }
+                'normalized' => 'a1'
               },
               'line_nr' => {
                 'file_name' => '',
@@ -124,6 +117,7 @@ $result_trees{'flushright'} = {
               'parent' => {}
             },
             {
+              'parent' => {},
               'text' => ' ',
               'type' => 'empty_spaces_after_close_brace'
             },
@@ -155,16 +149,13 @@ $result_trees{'flushright'} = {
                 'node_content' => [
                   {}
                 ],
-                'normalized' => 'a2',
-                'spaces_before_argument' => {
-                  'text' => '',
-                  'type' => 'empty_spaces_before_argument'
-                }
+                'normalized' => 'a2'
               },
               'line_nr' => {},
               'parent' => {}
             },
             {
+              'parent' => {},
               'text' => ' ',
               'type' => 'empty_spaces_after_close_brace'
             },
@@ -229,11 +220,7 @@ $result_trees{'flushright'} = {
             'node_content' => [
               {}
             ],
-            'normalized' => 'alone',
-            'spaces_before_argument' => {
-              'text' => '',
-              'type' => 'empty_spaces_before_argument'
-            }
+            'normalized' => 'alone'
           },
           'line_nr' => {
             'file_name' => '',
@@ -243,6 +230,7 @@ $result_trees{'flushright'} = {
           'parent' => {}
         },
         {
+          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_spaces_after_close_brace'
@@ -336,6 +324,7 @@ $result_trees{'flushright'}{'contents'}[1]{'contents'}[2]{'contents'}[1]{'args'}
 $result_trees{'flushright'}{'contents'}[1]{'contents'}[2]{'contents'}[1]{'extra'}{'brace_command_contents'}[0][0] = $result_trees{'flushright'}{'contents'}[1]{'contents'}[2]{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'flushright'}{'contents'}[1]{'contents'}[2]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'flushright'}{'contents'}[1]{'contents'}[2]{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'flushright'}{'contents'}[1]{'contents'}[2]{'contents'}[1]{'parent'} = $result_trees{'flushright'}{'contents'}[1]{'contents'}[2];
+$result_trees{'flushright'}{'contents'}[1]{'contents'}[2]{'contents'}[2]{'parent'} = $result_trees{'flushright'}{'contents'}[1]{'contents'}[2];
 $result_trees{'flushright'}{'contents'}[1]{'contents'}[2]{'contents'}[3]{'parent'} = $result_trees{'flushright'}{'contents'}[1]{'contents'}[2];
 $result_trees{'flushright'}{'contents'}[1]{'contents'}[2]{'contents'}[4]{'parent'} = $result_trees{'flushright'}{'contents'}[1]{'contents'}[2];
 $result_trees{'flushright'}{'contents'}[1]{'contents'}[2]{'contents'}[5]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'flushright'}{'contents'}[1]{'contents'}[2]{'contents'}[5]{'args'}[0];
@@ -343,6 +332,7 @@ $result_trees{'flushright'}{'contents'}[1]{'contents'}[2]{'contents'}[5]{'args'}
 $result_trees{'flushright'}{'contents'}[1]{'contents'}[2]{'contents'}[5]{'extra'}{'brace_command_contents'}[0][0] = $result_trees{'flushright'}{'contents'}[1]{'contents'}[2]{'contents'}[5]{'args'}[0]{'contents'}[0];
 $result_trees{'flushright'}{'contents'}[1]{'contents'}[2]{'contents'}[5]{'extra'}{'node_content'}[0] = $result_trees{'flushright'}{'contents'}[1]{'contents'}[2]{'contents'}[5]{'args'}[0]{'contents'}[0];
 $result_trees{'flushright'}{'contents'}[1]{'contents'}[2]{'contents'}[5]{'parent'} = $result_trees{'flushright'}{'contents'}[1]{'contents'}[2];
+$result_trees{'flushright'}{'contents'}[1]{'contents'}[2]{'contents'}[6]{'parent'} = $result_trees{'flushright'}{'contents'}[1]{'contents'}[2];
 $result_trees{'flushright'}{'contents'}[1]{'contents'}[2]{'contents'}[7]{'parent'} = $result_trees{'flushright'}{'contents'}[1]{'contents'}[2];
 $result_trees{'flushright'}{'contents'}[1]{'contents'}[2]{'contents'}[8]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'flushright'}{'contents'}[1]{'contents'}[2]{'contents'}[8]{'args'}[0];
 $result_trees{'flushright'}{'contents'}[1]{'contents'}[2]{'contents'}[8]{'args'}[0]{'parent'} = $result_trees{'flushright'}{'contents'}[1]{'contents'}[2]{'contents'}[8];
@@ -350,6 +340,7 @@ $result_trees{'flushright'}{'contents'}[1]{'contents'}[2]{'contents'}[8]{'extra'
 $result_trees{'flushright'}{'contents'}[1]{'contents'}[2]{'contents'}[8]{'extra'}{'node_content'}[0] = $result_trees{'flushright'}{'contents'}[1]{'contents'}[2]{'contents'}[8]{'args'}[0]{'contents'}[0];
 $result_trees{'flushright'}{'contents'}[1]{'contents'}[2]{'contents'}[8]{'line_nr'} = $result_trees{'flushright'}{'contents'}[1]{'contents'}[2]{'contents'}[5]{'line_nr'};
 $result_trees{'flushright'}{'contents'}[1]{'contents'}[2]{'contents'}[8]{'parent'} = $result_trees{'flushright'}{'contents'}[1]{'contents'}[2];
+$result_trees{'flushright'}{'contents'}[1]{'contents'}[2]{'contents'}[9]{'parent'} = $result_trees{'flushright'}{'contents'}[1]{'contents'}[2];
 $result_trees{'flushright'}{'contents'}[1]{'contents'}[2]{'contents'}[10]{'parent'} = $result_trees{'flushright'}{'contents'}[1]{'contents'}[2];
 $result_trees{'flushright'}{'contents'}[1]{'contents'}[2]{'parent'} = $result_trees{'flushright'}{'contents'}[1];
 $result_trees{'flushright'}{'contents'}[1]{'contents'}[3]{'parent'} = $result_trees{'flushright'}{'contents'}[1];
@@ -362,6 +353,7 @@ $result_trees{'flushright'}{'contents'}[1]{'contents'}[6]{'args'}[0]{'parent'} =
 $result_trees{'flushright'}{'contents'}[1]{'contents'}[6]{'extra'}{'brace_command_contents'}[0][0] = $result_trees{'flushright'}{'contents'}[1]{'contents'}[6]{'args'}[0]{'contents'}[0];
 $result_trees{'flushright'}{'contents'}[1]{'contents'}[6]{'extra'}{'node_content'}[0] = $result_trees{'flushright'}{'contents'}[1]{'contents'}[6]{'args'}[0]{'contents'}[0];
 $result_trees{'flushright'}{'contents'}[1]{'contents'}[6]{'parent'} = $result_trees{'flushright'}{'contents'}[1];
+$result_trees{'flushright'}{'contents'}[1]{'contents'}[7]{'parent'} = $result_trees{'flushright'}{'contents'}[1];
 $result_trees{'flushright'}{'contents'}[1]{'contents'}[8]{'parent'} = $result_trees{'flushright'}{'contents'}[1];
 $result_trees{'flushright'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'parent'} = $result_trees{'flushright'}{'contents'}[1]{'contents'}[9];
 $result_trees{'flushright'}{'contents'}[1]{'contents'}[9]{'parent'} = $result_trees{'flushright'}{'contents'}[1];
@@ -444,35 +436,35 @@ $result_converted{'debugcount'}->{'flushright'} = ' [1] (0,0) :text_root
     [16] (25,1)
     [17] (25,1) :text|dsdbf\\n|
     [17] (32,2)
-   [6] (142,2)
+   [6] (144,2)
  locations  (1) l 0 b 67 (2) l 1 b 133 (3) l 1 b 137
-   [18] (142,2) :empty_line:text|\\n|
-   [18] (143,3)
-   [19] (143,3) :paragraph
+   [18] (144,2) :empty_line:text|\\n|
+   [18] (145,3)
+   [19] (145,3) :paragraph
     [20] (0,0) :text|dqs\\n|
     [20] (4,1)
     [21] (4,1) :text|sqdd\\n|
     [21] (9,2)
-   [19] (285,5)
-   [22] (285,5) :empty_line:text|\\n|
-   [22] (286,6)
-   [23] (286,6) @anchor
-   [23] (286,6)
- locations  (4) l 6 b 286
-   [24] (286,6) :empty_spaces_after_close_brace:text|\\n|
-   [24] (286,6)
-   [25] (286,6) :empty_line:text|\\n|
-   [25] (286,6)
-   [26] (286,6) :paragraph
+   [19] (289,5)
+   [22] (289,5) :empty_line:text|\\n|
+   [22] (290,6)
+   [23] (290,6) @anchor
+   [23] (290,6)
+ locations  (4) l 6 b 290
+   [24] (290,6) :empty_spaces_after_close_brace:text|\\n|
+   [24] (290,6)
+   [25] (290,6) :empty_line:text|\\n|
+   [25] (290,6)
+   [26] (290,6) :paragraph
     [27] (0,0) :text|new para.\\n|
     [27] (10,1)
-   [26] (357,7)
-   [28] (357,7) :empty_line:text|\\n|
-   [28] (358,8)
-   [29] (358,8) @end
-   [29] (358,8)
-  [3] (358,8)
- [1] (358,8)
+   [26] (362,7)
+   [28] (362,7) :empty_line:text|\\n|
+   [28] (363,8)
+   [29] (363,8) @end
+   [29] (363,8)
+  [3] (363,8)
+ [1] (363,8)
                                                              aaa bb ada
                                                    dad sff sd and dsdbf
 
@@ -485,40 +477,40 @@ $result_converted{'debugcount'}->{'flushright'} = ' [1] (0,0) :text_root
 
 $result_converted_errors{'debugcount'}->{'flushright'} = [
   {
-    'file_name' => '',
     'error_line' => ':3: warning: @anchor outside of any node
 ',
-    'text' => '@anchor outside of any node',
-    'type' => 'warning',
+    'file_name' => '',
+    'line_nr' => 3,
     'macro' => '',
-    'line_nr' => 3
+    'text' => '@anchor outside of any node',
+    'type' => 'warning'
   },
   {
-    'file_name' => '',
     'error_line' => ':4: warning: @anchor outside of any node
 ',
-    'text' => '@anchor outside of any node',
-    'type' => 'warning',
+    'file_name' => '',
+    'line_nr' => 4,
     'macro' => '',
-    'line_nr' => 4
+    'text' => '@anchor outside of any node',
+    'type' => 'warning'
   },
   {
-    'file_name' => '',
     'error_line' => ':4: warning: @anchor outside of any node
 ',
-    'text' => '@anchor outside of any node',
-    'type' => 'warning',
+    'file_name' => '',
+    'line_nr' => 4,
     'macro' => '',
-    'line_nr' => 4
+    'text' => '@anchor outside of any node',
+    'type' => 'warning'
   },
   {
-    'file_name' => '',
     'error_line' => ':9: warning: @anchor outside of any node
 ',
-    'text' => '@anchor outside of any node',
-    'type' => 'warning',
+    'file_name' => '',
+    'line_nr' => 9,
     'macro' => '',
-    'line_nr' => 9
+    'text' => '@anchor outside of any node',
+    'type' => 'warning'
   }
 ];
 

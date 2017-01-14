@@ -17,6 +17,7 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 # 
 # Original author: Patrice Dumas <pertusus@free.fr>
+# ./texi2any.pl --set TEXINFO_OUTPUT_FORMAT=debugcount file.texi
 
 use strict;
 
@@ -33,6 +34,7 @@ sub _convert($$)
   
   $self->{'level'}++;
   $self->{'command_type_nr'}++;
+  $self->_update_count_context();
   my $bytes_before = $self->{'count_context'}->[-1]->{'bytes'};
   my $number_before = "($self->{'count_context'}->[-1]->{'bytes'},$self->{'count_context'}->[-1]->{'lines'})";
   my $command_nr = '['.$self->{'command_type_nr'}.']';
@@ -43,6 +45,7 @@ sub _convert($$)
     $command_type .= ":text";
     my $text = $root->{'text'};
     $text =~ s/\n/\\n/g;
+    $text =~ s/\f/\\f/g;
     $command_type .= "|$text|";
   }
   my $string_before = ' ' x $self->{'level'}. "$command_nr $number_before $command_type\n";
@@ -86,6 +89,7 @@ sub _convert($$)
   }
   #push @{$self->{'debug_count_strings'}}, ' ' x $self->{'level'}. "TEXT: $text|\n"
   #  if ($self->{'count_context'}->[-1]->{'bytes'} > $bytes_before);
+  $self->_update_count_context();
   my $number_after = "($self->{'count_context'}->[-1]->{'bytes'},$self->{'count_context'}->[-1]->{'lines'})";
   my $string_after = ' ' x $self->{'level'}. "$command_nr $number_after\n";
   $string_after .= " locations $all_locations_string"

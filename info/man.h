@@ -1,10 +1,7 @@
 /* man.h: Defines and external function declarations for man.c.
-   $Id: man.h 5191 2013-02-23 00:11:18Z karl $
+   $Id: man.h 5526 2014-05-07 14:37:33Z karl $
 
-   This file is part of GNU Info, a program for reading online documentation
-   stored in Info format.
-
-   Copyright (C) 1993, 1997, 2004, 2007 Free Software Foundation, Inc.
+   Copyright 1993, 1997, 2004, 2007, 2013, 2014 Free Software Foundation, Inc.
 
    This program is free software: you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
@@ -19,20 +16,13 @@
    You should have received a copy of the GNU General Public License
    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-   Author: Brian J. Fox (bfox@ai.mit.edu) Sat May  6 16:19:13 1995. */
+   Originally written by Brian Fox. */
 
 #ifndef INFO_MAN_H
 #define INFO_MAN_H
 
 #define MANPAGE_FILE_BUFFER_NAME "*manpages*"
 
-extern NODE *make_manpage_node (char *pagename);
-extern NODE *get_manpage_node (FILE_BUFFER *file_buffer,
-    char *pagename);
-extern FILE_BUFFER *create_manpage_file_buffer (void);
-extern long locate_manpage_xref (NODE *node, long int start, int dir);
-extern REFERENCE **xrefs_of_manpage (NODE *node);
-extern REFERENCE **manpage_xrefs_in_binding (NODE *node,
-    SEARCH_BINDING *binding);
+extern NODE *get_manpage_node (char *pagename);
 
 #endif /* INFO_MAN_H */

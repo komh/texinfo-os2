@@ -1,7 +1,7 @@
 /* search.h -- Structure used to search large bodies of text, with bounds.
-   $Id: search.h 5191 2013-02-23 00:11:18Z karl $
+   $Id: search.h 7013 2016-02-13 21:19:19Z gavin $
 
-   Copyright (C) 1993, 1997, 1998, 2002, 2004, 2007, 2009, 2011
+   Copyright 1993, 1997, 1998, 2002, 2004, 2007, 2009, 2011, 2013, 2014, 2016
    Free Software Foundation, Inc.
 
    This program is free software: you can redistribute it and/or modify
@@ -17,7 +17,7 @@
    You should have received a copy of the GNU General Public License
    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-   Originally written by Brian Fox (bfox@ai.mit.edu). */
+   Originally written by Brian Fox. */
 
 /* The search functions take two arguments:
 
@@ -31,6 +31,8 @@
 
 #ifndef INFO_SEARCH_H
 #define INFO_SEARCH_H
+
+#include "window.h"
 
 typedef struct {
   char *buffer;                 /* The buffer of text to search. */
@@ -46,42 +48,41 @@ enum search_result
   {
     search_success,             
     search_not_found,
-    search_failure
+    search_invalid
   };
 
-SEARCH_BINDING *make_binding (char *buffer, long int start, long int end);
 SEARCH_BINDING *copy_binding (SEARCH_BINDING *binding);
-extern enum search_result search_forward (char *string,
-					  SEARCH_BINDING *binding, long *poff);
-extern enum search_result search_backward (char *input_string,
-					   SEARCH_BINDING *binding,
-					   long *poff);
-extern enum search_result search (char *string, SEARCH_BINDING *binding,
-				  long *poff);
-extern enum search_result regexp_search (char *regexp,
-					 SEARCH_BINDING *binding,
-					 long *poff,
-					 SEARCH_BINDING *pret);
-extern int looking_at (char *string, SEARCH_BINDING *binding);
+enum search_result search_forward (char *string,
+                                 SEARCH_BINDING *binding, long *poff);
+enum search_result search_backward (char *input_string,
+                                    SEARCH_BINDING *binding,
+                                    long *poff);
+enum search_result search (char *string, SEARCH_BINDING *binding,
+                           long *poff);
+enum search_result regexp_search (char *regexp,
+               int is_literal, int is_insensitive,
+               char *buffer, size_t buflen,
+               regmatch_t **matches_out, size_t *match_count_out);
+int looking_at (char *string, SEARCH_BINDING *binding);
+int looking_at_line (char *string, char *pointer);
 
 /* Note that STRING_IN_LINE () always returns the offset of the 1st character
    after the string. */
-extern int string_in_line (char *string, char *line);
+int string_in_line (char *string, char *line);
 
 /* Function names that start with "skip" are passed a string, and return
    an offset from the start of that string.  Function names that start
    with "find" are passed a SEARCH_BINDING, and return an absolute position
    marker of the item being searched for.  "Find" functions return a value
    of -1 if the item being looked for couldn't be found. */
-extern int skip_whitespace (char *string);
-extern int skip_non_whitespace (char *string);
-extern int skip_whitespace_and_newlines (char *string);
-extern int skip_line (char *string);
-extern int skip_node_characters (char *string, int newlines_okay);
-extern int skip_node_separator (char *body);
+int skip_whitespace (char *string);
+int skip_non_whitespace (char *string);
+int skip_whitespace_and_newlines (char *string);
+int skip_line (char *string);
+int skip_node_separator (char *body);
 
-extern long find_node_separator (SEARCH_BINDING *binding);
-extern long find_tags_table (SEARCH_BINDING *binding);
-extern long find_node_in_binding (char *nodename, SEARCH_BINDING *binding);
+long find_node_separator (SEARCH_BINDING *binding);
+long find_file_section (SEARCH_BINDING *binding, char *label);
+long find_node_in_binding (char *nodename, SEARCH_BINDING *binding);
 
 #endif /* not INFO_SEARCH_H */

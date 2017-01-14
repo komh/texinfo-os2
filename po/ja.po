@@ -7,152 +7,158 @@
 #  derived from the version by Yasuyuki Furukawa <yasu@on.cs.keio.ac.jp> 1998.
 #                              Jun Nishii <jun@flatout.org> 1999.
 #                              Daisuke Yamashita <yamad@mb.infoweb.ne.jp> 1999.
-# Yasuaki Taniguchi <yasuakit@gmail.com>, 2010, 2011.
 # Takeshi Hamasaki <hmatrjp@users.sourceforge.jp>, 2012.
+# Yasuaki Taniguchi <yasuakit@gmail.com>, 2010, 2014.
 msgid ""
 msgstr ""
-"Project-Id-Version: texinfo 4.13.91\n"
+"Project-Id-Version: texinfo 5.1.90\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2013-03-12 15:50-0700\n"
-"PO-Revision-Date: 2012-11-29 07:15+0900\n"
-"Last-Translator: Takeshi Hamasaki <hmatrjp@users.sourceforge.jp>\n"
+"POT-Creation-Date: 2016-09-10 12:45+0100\n"
+"PO-Revision-Date: 2014-11-07 08:03+0000\n"
+"Last-Translator: Yasuaki Taniguchi <yasuakit@gmail.com>\n"
 "Language-Team: Japanese <translation-team-ja@lists.sourceforge.net>\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Bugs: Report translation errors to the Language-Team address.\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Poedit 1.5.4\n"
 
-#: gnulib/lib/error.c:188
+#: gnulib/lib/error.c:191
 msgid "Unknown system error"
-msgstr "不明なシステムエラーです"
+msgstr "不明なシステムエラー"
 
-#: gnulib/lib/getopt.c:547 gnulib/lib/getopt.c:576
-#, fuzzy, c-format
+#: gnulib/lib/getopt.c:575 gnulib/lib/getopt.c:604
+#, c-format
 msgid "%s: option '%s' is ambiguous; possibilities:"
-msgstr "%s: オプション '%s' は曖昧です\n"
+msgstr "%s: オプション '%s' は曖昧です:次のものが可能です:"
 
-#: gnulib/lib/getopt.c:624 gnulib/lib/getopt.c:628
+#: gnulib/lib/getopt.c:619
+#, fuzzy, c-format
+msgid "%s: option '%s' is ambiguous\n"
+msgstr "%s: オプション '-W %s' は曖昧です\n"
+
+#: gnulib/lib/getopt.c:654 gnulib/lib/getopt.c:658
 #, c-format
 msgid "%s: option '--%s' doesn't allow an argument\n"
 msgstr "%s: オプション '--%s' は引数を取ることができません\n"
 
-#: gnulib/lib/getopt.c:637 gnulib/lib/getopt.c:642
+#: gnulib/lib/getopt.c:667 gnulib/lib/getopt.c:672
 #, c-format
 msgid "%s: option '%c%s' doesn't allow an argument\n"
 msgstr "%s: オプション '%c%s' は引数を取ることができません\n"
 
-#: gnulib/lib/getopt.c:685 gnulib/lib/getopt.c:704
-#, fuzzy, c-format
+#: gnulib/lib/getopt.c:715 gnulib/lib/getopt.c:734
+#, c-format
 msgid "%s: option '--%s' requires an argument\n"
-msgstr "%s: --auto/-a オプションに対して不当な引数\n"
+msgstr "%s: オプション '--%s' は引数が必要です\n"
 
-#: gnulib/lib/getopt.c:742 gnulib/lib/getopt.c:745
+#: gnulib/lib/getopt.c:772 gnulib/lib/getopt.c:775
 #, c-format
 msgid "%s: unrecognized option '--%s'\n"
 msgstr "%s: オプション '--%s' を認識できません\n"
 
-#: gnulib/lib/getopt.c:753 gnulib/lib/getopt.c:756
+#: gnulib/lib/getopt.c:783 gnulib/lib/getopt.c:786
 #, c-format
 msgid "%s: unrecognized option '%c%s'\n"
 msgstr "%s: オプション '%c%s' を認識できません\n"
 
-#: gnulib/lib/getopt.c:805 gnulib/lib/getopt.c:808
+#: gnulib/lib/getopt.c:835 gnulib/lib/getopt.c:838
 #, c-format
 msgid "%s: invalid option -- '%c'\n"
 msgstr "%s: 無効なオプション -- '%c'\n"
 
-#: gnulib/lib/getopt.c:861 gnulib/lib/getopt.c:878 gnulib/lib/getopt.c:1088
-#: gnulib/lib/getopt.c:1106
+#: gnulib/lib/getopt.c:891 gnulib/lib/getopt.c:908 gnulib/lib/getopt.c:1118
+#: gnulib/lib/getopt.c:1136
 #, c-format
 msgid "%s: option requires an argument -- '%c'\n"
 msgstr "%s: オプションには引数が必要です -- '%c'\n"
 
-#: gnulib/lib/getopt.c:934 gnulib/lib/getopt.c:950
+#: gnulib/lib/getopt.c:964 gnulib/lib/getopt.c:980
 #, c-format
 msgid "%s: option '-W %s' is ambiguous\n"
 msgstr "%s: オプション '-W %s' は曖昧です\n"
 
-#: gnulib/lib/getopt.c:974 gnulib/lib/getopt.c:992
+#: gnulib/lib/getopt.c:1004 gnulib/lib/getopt.c:1022
 #, c-format
 msgid "%s: option '-W %s' doesn't allow an argument\n"
 msgstr "%s: オプション '-W %s' は引数を取ることができません\n"
 
-#: gnulib/lib/getopt.c:1013 gnulib/lib/getopt.c:1031
+#: gnulib/lib/getopt.c:1043 gnulib/lib/getopt.c:1061
 #, c-format
 msgid "%s: option '-W %s' requires an argument\n"
-msgstr "%s: オプション '-W %s' には引数が必要です\n"
+msgstr "%s: オプション '-W %s' は引数が必要です\n"
 
-#: gnulib/lib/regcomp.c:131
+#: gnulib/lib/regcomp.c:135
 msgid "Success"
 msgstr "成功です"
 
-#: gnulib/lib/regcomp.c:134
+#: gnulib/lib/regcomp.c:138
 msgid "No match"
 msgstr "一致しません"
 
-#: gnulib/lib/regcomp.c:137
+#: gnulib/lib/regcomp.c:141
 msgid "Invalid regular expression"
 msgstr "無効な正規表現です"
 
-#: gnulib/lib/regcomp.c:140
+#: gnulib/lib/regcomp.c:144
 msgid "Invalid collation character"
 msgstr "無効な照合文字です"
 
-#: gnulib/lib/regcomp.c:143
+#: gnulib/lib/regcomp.c:147
 msgid "Invalid character class name"
 msgstr "無効な文字クラス名です"
 
-#: gnulib/lib/regcomp.c:146
+#: gnulib/lib/regcomp.c:150
 msgid "Trailing backslash"
 msgstr "終端のバックスラッシュ"
 
-#: gnulib/lib/regcomp.c:149
+#: gnulib/lib/regcomp.c:153
 msgid "Invalid back reference"
 msgstr "無効な前方参照です"
 
-#: gnulib/lib/regcomp.c:152
-msgid "Unmatched [ or [^"
+#: gnulib/lib/regcomp.c:156
+#, fuzzy
+msgid "Unmatched [, [^, [:, [., or [="
 msgstr "[ または [^ が不一致です"
 
-#: gnulib/lib/regcomp.c:155
+#: gnulib/lib/regcomp.c:159
 msgid "Unmatched ( or \\("
 msgstr "( または \\( が不一致です"
 
-#: gnulib/lib/regcomp.c:158
+#: gnulib/lib/regcomp.c:162
 msgid "Unmatched \\{"
 msgstr "\\{ が不一致です"
 
-#: gnulib/lib/regcomp.c:161
+#: gnulib/lib/regcomp.c:165
 msgid "Invalid content of \\{\\}"
 msgstr "\\{\\} の中身が無効です"
 
-#: gnulib/lib/regcomp.c:164
+#: gnulib/lib/regcomp.c:168
 msgid "Invalid range end"
 msgstr "無効な範囲終了です"
 
-#: gnulib/lib/regcomp.c:167
+#: gnulib/lib/regcomp.c:171
 msgid "Memory exhausted"
 msgstr "メモリを使い果たしました"
 
-#: gnulib/lib/regcomp.c:170
+#: gnulib/lib/regcomp.c:174
 msgid "Invalid preceding regular expression"
 msgstr "無効な前方正規表現です"
 
-#: gnulib/lib/regcomp.c:173
+#: gnulib/lib/regcomp.c:177
 msgid "Premature end of regular expression"
 msgstr "正規表現が途中で終了しました"
 
-#: gnulib/lib/regcomp.c:176
+#: gnulib/lib/regcomp.c:180
 msgid "Regular expression too big"
 msgstr "正規表現が大きすぎます"
 
-#: gnulib/lib/regcomp.c:179
+#: gnulib/lib/regcomp.c:183
 msgid "Unmatched ) or \\)"
 msgstr ") または \\) が不一致です"
 
-#: gnulib/lib/regcomp.c:704
+#: gnulib/lib/regcomp.c:687
 msgid "No previous regular expression"
 msgstr "以前に正規表現がありません"
 
@@ -160,130 +166,142 @@ msgstr "以前に正規表現がありません"
 msgid "memory exhausted"
 msgstr "メモリを使い果たしました"
 
-#: info/echo-area.c:283 info/session.c:985
+#: info/echo-area.c:295 info/session.c:1386
 msgid "Move forward a character"
 msgstr "一文字分進める"
 
-#: info/echo-area.c:295 info/session.c:1012
+#: info/echo-area.c:314 info/session.c:1399
 msgid "Move backward a character"
 msgstr "一文字分戻す"
 
-#: info/echo-area.c:307
+#: info/echo-area.c:340
 msgid "Move to the start of this line"
 msgstr "行頭に移動する"
 
-#: info/echo-area.c:312
+#: info/echo-area.c:345
 msgid "Move to the end of this line"
 msgstr "行末に移動する"
 
-#: info/echo-area.c:320 info/session.c:1044
+#: info/echo-area.c:353 info/session.c:1414
 msgid "Move forward a word"
 msgstr "一単語分進む"
 
-#: info/echo-area.c:360 info/session.c:1068
+#: info/echo-area.c:393 info/session.c:1428
 msgid "Move backward a word"
 msgstr "一単語分戻る"
 
-#: info/echo-area.c:400
+#: info/echo-area.c:433
 msgid "Delete the character under the cursor"
 msgstr "カーソル位置の文字を削除する"
 
-#: info/echo-area.c:430
+#: info/echo-area.c:453
 msgid "Delete the character behind the cursor"
 msgstr "カーソルの後ろの文字を削除する"
 
-#: info/echo-area.c:451
+#: info/echo-area.c:480
 msgid "Cancel or quit operation"
 msgstr "キャンセルする、または操作を取りやめる"
 
-#: info/echo-area.c:466
+#: info/echo-area.c:495
 msgid "Accept (or force completion of) this line"
 msgstr "この行 (またはそれを強制的に補完したもの) を受け入れる"
 
-#: info/echo-area.c:471
+#: info/echo-area.c:500
 msgid "Insert next character verbatim"
 msgstr "次の文字をそのまま挿入する"
 
-#: info/echo-area.c:479
-msgid "Insert this character"
-msgstr "この文字を挿入する"
-
-#: info/echo-area.c:498
+#: info/echo-area.c:532
 msgid "Insert a TAB character"
 msgstr "タブ文字を挿入する"
 
-#: info/echo-area.c:505
+#: info/echo-area.c:584
 msgid "Transpose characters at point"
 msgstr "この場所の文字を交換する"
 
-#: info/echo-area.c:556
+#: info/echo-area.c:653
 msgid "Yank back the contents of the last kill"
 msgstr "キルリングの内容を貼りつける"
 
-#: info/echo-area.c:563
+#: info/echo-area.c:660
 msgid "Kill ring is empty"
 msgstr "キルリングが空です"
 
-#: info/echo-area.c:576
+#: info/echo-area.c:673
 msgid "Yank back a previous kill"
 msgstr "以前のキルリング内容を挿入する"
 
-#: info/echo-area.c:609
+#: info/echo-area.c:706
 msgid "Kill to the end of the line"
 msgstr "行末までを切り取る"
 
-#: info/echo-area.c:622
+#: info/echo-area.c:719
 msgid "Kill to the beginning of the line"
 msgstr "行頭までを切り取る"
 
-#: info/echo-area.c:634
+#: info/echo-area.c:731
 msgid "Kill the word following the cursor"
 msgstr "カーソルより後の単語を切り取る"
 
-#: info/echo-area.c:654
+#: info/echo-area.c:751
 msgid "Kill the word preceding the cursor"
 msgstr "カーソルより前の単語を切り取る"
 
-#: info/echo-area.c:871 info/echo-area.c:929
+#: info/echo-area.c:983 info/echo-area.c:1041
 msgid "No completions"
 msgstr "補完候補がありません"
 
-#: info/echo-area.c:873
+#: info/echo-area.c:985
 msgid "Not complete"
 msgstr "補完できません"
 
-#: info/echo-area.c:914
+#: info/echo-area.c:1034
 msgid "List possible completions"
 msgstr "補完リスト"
 
-#: info/echo-area.c:933
+#: info/echo-area.c:1045
 msgid "Sole completion"
 msgstr "補完を絞り込みました"
 
-#: info/echo-area.c:941
+#: info/echo-area.c:1054
 #, c-format
 msgid "%d completion:\n"
 msgid_plural "%d completions:\n"
 msgstr[0] "%d 個の補完:\n"
 
-#: info/echo-area.c:1089
+#: info/echo-area.c:1171
 msgid "Insert completion"
 msgstr "補完を挿入"
 
-#: info/echo-area.c:1224
+#: info/echo-area.c:1273
 #, c-format
 msgid "Building completions..."
 msgstr "補完リストを作成中..."
 
-#: info/echo-area.c:1343
+#: info/echo-area.c:1392
 msgid "Scroll the completions window"
 msgstr "補完ウィンドウをスクロール"
 
-#: info/footnotes.c:211
+#: info/filesys.c:90
+#, c-format
+msgid "looking for file \"%s\""
+msgstr "ファイル \"%s\" を探しています"
+
+#: info/filesys.c:152
+#, c-format
+msgid "looking for file %s in %s"
+msgstr ""
+
+#: info/filesys.c:238 info/filesys.c:252 info/filesys.c:273
+#, c-format
+msgid "found file %s"
+msgstr "ファイル %s が見つかりました"
+
+#: info/footnotes.c:231
+#, c-format
 msgid "Footnotes could not be displayed"
 msgstr "脚注を表示できません"
 
-#: info/footnotes.c:237
+#: info/footnotes.c:251
 msgid "Show the footnotes associated with this node in another window"
 msgstr "他のウィンドウ内にこのノードと関連した脚注を表示"
 
@@ -291,117 +309,130 @@ msgstr "他のウィンドウ内にこのノードと関連した脚注を表示
 msgid "---------- Footnotes ----------"
 msgstr "------------ 脚注 ------------"
 
-#: info/indices.c:175
-msgid "Look up a string in the index for this file"
-msgstr "このファイルの見出しから文字列を検索する"
-
-#: info/indices.c:203 info/indices.c:893
+#: info/indices.c:123 info/indices.c:822
 #, c-format
 msgid "Finding index entries..."
 msgstr "見出し項目を見つけています"
 
-#: info/indices.c:210
+#: info/indices.c:203
+msgid "Look up a string in the index for this file"
+msgstr "このファイルの見出しから文字列を検索する"
+
+#: info/indices.c:215 info/indices.c:321 info/indices.c:828
 #, c-format
 msgid "No indices found."
 msgstr "項目が見つかりません"
 
-#: info/indices.c:220
+#: info/indices.c:219
 msgid "Index entry: "
 msgstr "見出し項目: "
 
-#: info/indices.c:254 info/indices.c:915 info/session.c:4133
-#, c-format
-msgid "Search string too short"
-msgstr ""
-
-#: info/indices.c:366
-msgid ""
-"Go to the next matching index item from the last `\\[index-search]' command"
-msgstr "直前の `\\[index-search]' コマンドと一致した見出しアイテムを辿る"
-
-#: info/indices.c:377
-#, c-format
-msgid "No previous index search string."
-msgstr "前の見出し検索文字列がありません"
-
-#: info/indices.c:384
-#, c-format
-msgid "No index entries."
-msgstr "見出し項目がありません"
-
-#: info/indices.c:432
+#: info/indices.c:436
 #, fuzzy, c-format
-msgid "No more index entries containing `%s'."
-msgstr "`%2$s' を含む%1$s見出し項目がありません。"
-
-#: info/indices.c:433 info/indices.c:951
-#, fuzzy, c-format
-msgid "No index entries containing `%s'."
-msgstr "`%2$s' を含む%1$s見出し項目がありません。"
-
-#: info/indices.c:445
-msgid "CAN'T SEE THIS"
-msgstr "*これを見られません*"
-
-#: info/indices.c:481
-#, c-format
-msgid "Found `%s' in %s. (`\\[next-index-match]' tries to find next.)"
+msgid "Found '%s' in %s. ('\\[next-index-match]' tries to find next.)"
 msgstr ""
 "%2$s の中で `%1$s' が見つかりました。(`\\[next-index-match]' で次を探します)"
 
-#: info/indices.c:612
+#: info/indices.c:446
+#, fuzzy
+msgid ""
+"Go to the next matching index item from the last '\\[index-search]' command"
+msgstr "直前の `\\[index-search]' コマンドと一致した見出しアイテムを辿る"
+
+#: info/indices.c:457
 #, c-format
-msgid "Scanning indices of `%s'..."
+msgid "No previous index search string."
+msgstr "以前の見出し検索文字列がありません"
+
+#: info/indices.c:475
+#, fuzzy, c-format
+msgid "No more index entries containing '%s'."
+msgstr "%s を含む見出し項目はこれ以上ありません。"
+
+#: info/indices.c:476 info/indices.c:890
+#, fuzzy, c-format
+msgid "No index entries containing '%s'."
+msgstr "%s を含む見出し項目がありません。"
+
+#: info/indices.c:586
+#, fuzzy, c-format
+msgid "Scanning indices of '%s'..."
 msgstr "`%s' の見出しを調べています..."
 
-#: info/indices.c:666
-#, c-format
-msgid "No available info files have `%s' in their indices."
-msgstr "見出しが `%s' の info ファイルが用意されていません。"
-
-#: info/indices.c:692
+#: info/indices.c:646
 msgid "Grovel all known info file's indices for a string and build a menu"
 msgstr "全ての info ファイル文字列から見出しを走査し、メニューを作成する"
 
-#: info/indices.c:696
-msgid "Index apropos: "
+#: info/indices.c:654 info/indices.c:656
+#, fuzzy
+msgid "Index apropos"
 msgstr "語句を含む項目を検索: "
 
-#: info/indices.c:724
-#, c-format
-msgid ""
-"\n"
-"* Menu: Nodes whose indices contain `%s':\n"
-msgstr ""
-"\n"
-"* メニュー: `%s' を含む見出し項目:\n"
+#: info/indices.c:698
+#, fuzzy, c-format
+msgid "Index entries containing '%s':\n"
+msgstr "%s を含む見出し項目がありません。"
 
-#: info/indices.c:876
+#: info/indices.c:807
 msgid "List all matches of a string in the index"
 msgstr ""
 
-#: info/indices.c:899
-#, c-format
-msgid "No index"
-msgstr "見出しがありません"
-
-#: info/indices.c:903
+#: info/indices.c:834 info/indices.c:836
 #, fuzzy
-msgid "Index topic: "
+msgid "Index topic"
 msgstr "終了インデックス"
 
-#: info/indices.c:922
-#, c-format
-msgid "Index for `%s'"
-msgstr "`%s' の見出し"
+#: info/indices.h:40
+#, fuzzy, c-format
+msgid "No available info files have '%s' in their indices."
+msgstr "見出しが `%s' の info ファイルが用意されていません。"
 
-#: info/info.c:280 info/infokey.c:892
+#: info/info-utils.c:879
+#, c-format
+msgid "Error converting file character encoding."
+msgstr ""
+
+#: info/info.c:279 info/session.c:2789
+#, fuzzy, c-format
+msgid "No menu item '%s' in node '%s'."
+msgstr "メニューアイテム `%s' はノード `%s' 中にはありません"
+
+#: info/info.c:416 info/info.c:1148
+#, fuzzy, c-format
+msgid "Cannot find node '%s'."
+msgstr "`%s' ノードが見つかりません。"
+
+#: info/info.c:438
+#, c-format
+msgid "No program name given."
+msgstr ""
+
+#: info/info.c:636
+#, fuzzy, c-format
+msgid "invalid number: %s\n"
+msgstr "無効な数: %s\n"
+
+#: info/info.c:816
+#, c-format
+msgid "malformed variable assignment: %s"
+msgstr "間違った形式の変数代入: %s"
+
+#: info/info.c:823 info/infokey.c:540
+#, c-format
+msgid "%s: no such variable"
+msgstr "%s: そのような変数はありません"
+
+#: info/info.c:829 info/infokey.c:542
+#, c-format
+msgid "value %s is not valid for variable %s"
+msgstr "変数 %s は変数 %s の値としては無効です"
+
+#: info/info.c:841
 #, c-format
 msgid "Try --help for more information.\n"
 msgstr "詳しくは --help オプションを試してみてください。\n"
 
-#: info/info.c:299 info/infokey.c:144 install-info/install-info.c:2163
-#: tp/texi2any.pl:856 util/texindex.c:295
+#: info/info.c:860 install-info/install-info.c:2239 tp/texi2any.pl:873
 #, c-format, perl-format
 msgid ""
 "Copyright (C) %s Free Software Foundation, Inc.\n"
@@ -416,12 +447,12 @@ msgstr ""
 "This is free software: you are free to change and redistribute it.\n"
 "There is NO WARRANTY, to the extent permitted by law.\n"
 
-#: info/info.c:513
-#, c-format
-msgid "no index entries found for `%s'\n"
+#: info/info.c:999
+#, fuzzy, c-format
+msgid "no index entries found for '%s'\n"
 msgstr "`%s' に対する項目が見つかりません\n"
 
-#: info/info.c:626
+#: info/info.c:1049
 #, c-format
 msgid ""
 "Usage: %s [OPTION]... [MENU-ITEM...]\n"
@@ -432,75 +463,82 @@ msgstr ""
 "\n"
 "Info 形式の文書を読みます。\n"
 
-#: info/info.c:632
+#: info/info.c:1055
 msgid ""
 "Options:\n"
+"  -a, --all                    use all matching manuals.\n"
 "  -k, --apropos=STRING         look up STRING in all indices of all "
 "manuals.\n"
 "  -d, --directory=DIR          add DIR to INFOPATH.\n"
-"      --dribble=FILENAME       remember user keystrokes in FILENAME.\n"
-"  -f, --file=FILENAME          specify Info file to visit."
+"      --dribble=FILE           remember user keystrokes in FILENAME.\n"
+"  -f, --file=MANUAL            specify Info manual to visit."
 msgstr ""
 "オプション:\n"
+"  -a, --all                    すべての一致したマニュアルを使用する\n"
 "  -k, --apropos=STRING         すべてのマニュアル索引から STRING を検索す"
 "る。\n"
 "  -d, --directory=DIR          INFOPATH に DIR を加える。\n"
 "      --dribble=FILENAME       FILENAME にユーザー入力を保存する。\n"
 "  -f, --file=FILENAME          参照する Info ファイルを指定する。"
 
-#: info/info.c:639
+#: info/info.c:1063
 msgid ""
 "  -h, --help                   display this help and exit.\n"
 "      --index-search=STRING    go to node pointed by index entry STRING.\n"
 "  -n, --node=NODENAME          specify nodes in first visited Info file.\n"
-"  -o, --output=FILENAME        output selected nodes to FILENAME."
+"  -o, --output=FILE            output selected nodes to FILE."
 msgstr ""
 "  -h, --help                   このヘルプを表示して終了する。\n"
 "      --index-search=STRING    STRING 見出し項目が指すノードに移動する。\n"
-"  -n, --node=NODENAME          最初に表示する Info ファイルのノードを\n"
-"                                 NODENAME として指定する。\n"
-"  -o, --output=FILENAME        選択したノードを FILENAME に出力する。"
+"  -n, --node=NODENAME          Info ファイルで最初に開くノードを指定する。\n"
+"  -o, --output=FILE            選択したノードを FILE に出力する。"
 
-#: info/info.c:645
+#: info/info.c:1069
 msgid ""
 "  -R, --raw-escapes            output \"raw\" ANSI escapes (default).\n"
 "      --no-raw-escapes         output escapes as literal text.\n"
-"      --restore=FILENAME       read initial keystrokes from FILENAME.\n"
+"      --restore=FILE           read initial keystrokes from FILE.\n"
 "  -O, --show-options, --usage  go to command-line options node."
 msgstr ""
 "  -R, --raw-escapes            ANSI エスケープ文字を \"生\" で出力する(デフォ"
 "ルト)。\n"
 "      --no-raw-escapes         エスケープ文字を文字列として表示する。\n"
-"      --restore=FILENAME       FILENAME から初期キー入力を読み込む。\n"
+"      --restore=FILE           FILE から初期キー入力を読み込む。\n"
 "  -O, --show-options, --usage  コマンドラインオプションを表示するノードに移動"
 "する。"
 
-#: info/info.c:652
+#: info/info.c:1076
 msgid "  -b, --speech-friendly        be friendly to speech synthesizers."
 msgstr "  -b, --speech-friendly        音声合成器に対する親和性を高める。"
 
-#: info/info.c:656
+#: info/info.c:1080
 msgid ""
 "      --strict-node-location   (for debugging) use Info file pointers as-"
 "is.\n"
 "      --subnodes               recursively output menu items.\n"
+"  -v, --variable VAR=VALUE     assign VALUE to Info variable VAR.\n"
 "      --vi-keys                use vi-like and less-like key bindings.\n"
 "      --version                display version information and exit.\n"
-"  -w, --where, --location      print physical location of Info file."
+"  -w, --where, --location      print physical location of Info file.\n"
+"  -x, --debug=NUMBER           set debugging level (-1 for all).\n"
 msgstr ""
 "      --strict-node-location   (デバッグ用) Info ファイルのポインタをそのまま"
 "使う。\n"
 "      --subnodes               メニュー項目を再帰的に出力する。\n"
+"  -v, --variable VAR=VALUE     Info 変数 VAR に VALUE を代入する。\n"
 "      --vi-keys                vi, less風のキー設定を使用する。\n"
 "      --version                バージョン情報を表示して終了する。\n"
-"  -w, --where, --location      Infoファイルの物理的位置を表示する。"
+"  -w, --where, --location      Infoファイルの物理的位置を表示する。\n"
+"  -x, --debug=NUMBER           デバッグレベルを設定する (-1 は全て)。\n"
+"\n"
 
-#: info/info.c:663
+#: info/info.c:1089
+#, fuzzy
 msgid ""
 "\n"
 "The first non-option argument, if present, is the menu entry to start from;\n"
-"it is searched for in all `dir' files along INFOPATH.\n"
-"If it is not present, info merges all `dir' files and shows the result.\n"
+"it is searched for in all 'dir' files along INFOPATH.\n"
+"If it is not present, info merges all 'dir' files and shows the result.\n"
 "Any remaining arguments are treated as the names of menu\n"
 "items relative to the initial node visited."
 msgstr ""
@@ -511,15 +549,17 @@ msgstr ""
 "て表示します。残りの引数全ては参照される初期ノードの相対的なメニュー\n"
 "項目の名前として扱われます。"
 
-#: info/info.c:670
+#: info/info.c:1096
+#, fuzzy
 msgid ""
 "\n"
-"For a summary of key bindings, type h within Info."
+"For a summary of key bindings, type H within Info."
 msgstr ""
 "\n"
 "キー設定の要約については Info 内で h を入力してください。"
 
-#: info/info.c:673
+#: info/info.c:1099
+#, fuzzy
 msgid ""
 "\n"
 "Examples:\n"
@@ -527,7 +567,9 @@ msgid ""
 "  info info                  show the general manual for Info readers\n"
 "  info info-stnd             show the manual specific to this Info program\n"
 "  info emacs                 start at emacs node from top-level dir\n"
-"  info emacs buffers         start at buffers node within emacs manual\n"
+"  info emacs buffers         select buffers menu entry in emacs manual\n"
+"  info emacs -n Files        start at Files node within emacs manual\n"
+"  info '(emacs)Files'        alternative way to start at Files node\n"
 "  info --show-options emacs  start at node with emacs' command line options\n"
 "  info --subnodes -o out.txt emacs  dump entire manual to out.txt\n"
 "  info -f ./foo.info         show file ./foo.info, not searching dir"
@@ -546,206 +588,200 @@ msgstr ""
 "  info -f ./foo.info         dir を検索する代わりに ./foo.info ファイルを表示"
 "する"
 
-#: info/info.c:684 info/infokey.c:911 util/texindex.c:259
+#: info/info.c:1114 install-info/install-info.c:616 tp/texi2any.pl:861
 msgid ""
-"\n"
 "Email bug reports to bug-texinfo@gnu.org,\n"
 "general questions and discussion to help-texinfo@gnu.org.\n"
 "Texinfo home page: http://www.gnu.org/software/texinfo/"
 msgstr ""
-"\n"
 "Email によるバグレポートは bug-texinfo@gnu.org に報告してください。\n"
 "翻訳に関するバグは<translation-team-ja@lists.sourceforge.net>に報告してくださ"
 "い。\n"
 "一般的な質問や議論は help-texinfo@gnu.org に連絡してください。\n"
-"Texinfo ホームページ: http://www.gnu.org/software/texinfo/"
+"Texinfoホームページ: http://www.gnu.org/software/texinfo/"
 
-#: info/info.c:718
-#, c-format
-msgid "Cannot find node `%s'."
-msgstr "`%s' ノードが見つかりません。"
-
-#: info/info.c:719
-#, c-format
-msgid "Cannot find node `(%s)%s'."
+#: info/info.c:1149
+#, fuzzy, c-format
+msgid "Cannot find node '(%s)%s'."
 msgstr "`(%s)%s' ノードが見つかりません"
 
-#: info/info.c:720
+#: info/info.c:1150
 msgid "Cannot find a window!"
 msgstr "ウィンドウが見つかりません"
 
-#: info/info.c:721
+#: info/info.c:1151
 msgid "Point doesn't appear within this window's node!"
 msgstr "このウィンドウノード内にポイントが現れません！"
 
-#: info/info.c:722
+#: info/info.c:1152
 msgid "Cannot delete the last window."
 msgstr "最後のウィンドウは削除できません"
 
-#: info/info.c:723
+#: info/info.c:1153
 msgid "No menu in this node."
 msgstr "このノードにメニューはありません。"
 
-#: info/info.c:724
+#: info/info.c:1154
 msgid "No footnotes in this node."
 msgstr "このノードに脚注はありません。"
 
-#: info/info.c:725
+#: info/info.c:1155
 msgid "No cross references in this node."
 msgstr "このノードに相互参照はありません。"
 
-#: info/info.c:726
-#, c-format
-msgid "No `%s' pointer for this node."
+#: info/info.c:1156
+#, fuzzy, c-format
+msgid "No '%s' pointer for this node."
 msgstr "このノードの `%s' ポインタがありません。"
 
-#: info/info.c:727
-#, c-format
-msgid "Unknown Info command `%c'; try `?' for help."
+#: info/info.c:1157
+#, fuzzy, c-format
+msgid "Unknown Info command '%c'; try '?' for help."
 msgstr "不明な Info コマンド `%c' です。`?' でヘルプを参照してください。"
 
-#: info/info.c:728
-#, c-format
-msgid "Terminal type `%s' is not smart enough to run Info."
+#: info/info.c:1158
+#, fuzzy, c-format
+msgid "Terminal type '%s' is not smart enough to run Info."
 msgstr "端末タイプ `%s' は Info が動作するための機能がありません。"
 
-#: info/info.c:729
+#: info/info.c:1159
 msgid "You are already at the last page of this node."
 msgstr "ここはもう、このノードの最終ページです。"
 
-#: info/info.c:730
+#: info/info.c:1160
 msgid "You are already at the first page of this node."
 msgstr "ここはもう、このノードの最初のページです。"
 
-#: info/info.c:731
+#: info/info.c:1161
 msgid "Only one window."
 msgstr "唯一のウィンドウです。"
 
-#: info/info.c:732
+#: info/info.c:1162
 msgid "Resulting window would be too small."
 msgstr "結果のウィンドウが小さすぎます。"
 
-#: info/info.c:733
+#: info/info.c:1163
 msgid "Not enough room for a help window, please delete a window."
 msgstr ""
 "ヘルプウィンドウ用の場所が足りません、ウィンドウを一つ削除してください。"
 
-#: info/infodoc.c:46
+#: info/infodoc.c:40
 msgid "Basic Info command keys\n"
 msgstr "基本的な Info コマンドキー\n"
 
-#: info/infodoc.c:48
+#: info/infodoc.c:42
 msgid "\\%-10[quit-help]  Close this help window.\n"
 msgstr "\\%-10[quit-help]  ヘルプウィンドウを閉じる。\n"
 
-#: info/infodoc.c:49
+#: info/infodoc.c:43
 msgid "\\%-10[quit]  Quit Info altogether.\n"
 msgstr "\\%-10[quit]  Info も一緒に終了する。\n"
 
-#: info/infodoc.c:50
+#: info/infodoc.c:44
 msgid "\\%-10[get-info-help-node]  Invoke the Info tutorial.\n"
 msgstr "\\%-10[get-info-help-node]  Info チュートリアルを起動する。\n"
 
-#: info/infodoc.c:52
+#: info/infodoc.c:46
 msgid "\\%-10[prev-line]  Move up one line.\n"
 msgstr "\\%-10[prev-line]  一行上に移動する。\n"
 
-#: info/infodoc.c:53
+#: info/infodoc.c:47
 msgid "\\%-10[next-line]  Move down one line.\n"
 msgstr "\\%-10[next-line]  一行下に移動する。\n"
 
-#: info/infodoc.c:54
+#: info/infodoc.c:48
 msgid "\\%-10[scroll-backward]  Scroll backward one screenful.\n"
 msgstr "\\%-10[scroll-backward]  1スクリーン分前に戻る。\n"
 
-#: info/infodoc.c:55
+#: info/infodoc.c:49
 msgid "\\%-10[scroll-forward]  Scroll forward one screenful.\n"
 msgstr "\\%-10[scroll-forward]  1スクリーン分先に進める。\n"
 
-#: info/infodoc.c:56
+#: info/infodoc.c:50
 msgid "\\%-10[beginning-of-node]  Go to the beginning of this node.\n"
 msgstr "\\%-10[beginning-of-node]  現在のノードの先頭に移動する。\n"
 
-#: info/infodoc.c:57
+#: info/infodoc.c:51
 msgid "\\%-10[end-of-node]  Go to the end of this node.\n"
 msgstr "\\%-10[end-of-node]  現在のノードの末尾に移動する。\n"
 
-#: info/infodoc.c:59
+#: info/infodoc.c:53
 msgid "\\%-10[move-to-next-xref]  Skip to the next hypertext link.\n"
 msgstr "\\%-10[move-to-next-xref]  次のハイパーリンクまでスキップする。\n"
 
-#: info/infodoc.c:60
+#: info/infodoc.c:54
 msgid ""
 "\\%-10[select-reference-this-line]  Follow the hypertext link under the "
 "cursor.\n"
 msgstr ""
 "\\%-10[select-reference-this-line]  カーソル位置のハイパーリンクをたどる。\n"
 
-#: info/infodoc.c:61
+#: info/infodoc.c:55
 msgid "\\%-10[history-node]  Go back to the last node seen in this window.\n"
 msgstr "\\%-10[history-node]  このウィンドウで最後に見たノードへ移動する。\n"
 
-#: info/infodoc.c:63
+#: info/infodoc.c:57
 msgid "\\%-10[global-prev-node]  Go to the previous node in the document.\n"
 msgstr "\\%-10[global-prev-node]  このノードの `前' のノードへ移動する。\n"
 
-#: info/infodoc.c:64
+#: info/infodoc.c:58
 msgid "\\%-10[global-next-node]  Go to the next node in the document.\n"
 msgstr "\\%-10[global-next-node]  このノードの `次' のノードへ移動する。\n"
 
-#: info/infodoc.c:65
+#: info/infodoc.c:59
 msgid "\\%-10[prev-node]  Go to the previous node on this level.\n"
 msgstr "\\%-10[prev-node]  このノードの `前' のノードへ移動する。\n"
 
-#: info/infodoc.c:66
+#: info/infodoc.c:60
 msgid "\\%-10[next-node]  Go to the next node on this level.\n"
 msgstr "\\%-10[next-node]  このノードの `次' のノードへ移動する。\n"
 
-#: info/infodoc.c:67
+#: info/infodoc.c:61
 msgid "\\%-10[up-node]  Go up one level.\n"
 msgstr "\\%-10[up-node]  1階層上に移動する。\n"
 
-#: info/infodoc.c:68
+#: info/infodoc.c:62
 msgid "\\%-10[top-node]  Go to the top node of this document.\n"
 msgstr "\\%-10[top-node]  このドキュメントの先頭ノードに移動する。\n"
 
-#: info/infodoc.c:69
-msgid "\\%-10[dir-node]  Go to the main `directory' node.\n"
+#: info/infodoc.c:63
+#, fuzzy
+msgid "\\%-10[dir-node]  Go to the main 'directory' node.\n"
 msgstr "\\%-10[dir-node]  メイン `directory' ノードに移動する。\n"
 
-#: info/infodoc.c:71
+#: info/infodoc.c:65
 msgid "1...9       Pick the first...ninth item in this node's menu.\n"
 msgstr "1...9       ノードメニューの1から9番目までのアイテムを選択する。\n"
 
-#: info/infodoc.c:72
+#: info/infodoc.c:66
 msgid "\\%-10[last-menu-item]  Pick the last item in this node's menu.\n"
 msgstr "\\%-10[last-menu-item]  ノードメニューの最後のアイテムを選択する。\n"
 
-#: info/infodoc.c:73
+#: info/infodoc.c:67
 msgid "\\%-10[menu-item]  Pick a menu item specified by name.\n"
 msgstr "\\%-10[menu-item]  名前で指定したメニューアイテムを選択する。\n"
 
-#: info/infodoc.c:74
+#: info/infodoc.c:68
 msgid "\\%-10[xref-item]  Follow a cross reference specified by name.\n"
 msgstr "\\%-10[xref-item]  名前で指定された相互参照をたどる。\n"
 
-#: info/infodoc.c:75
+#: info/infodoc.c:69
 msgid "\\%-10[goto-node]  Go to a node specified by name.\n"
 msgstr "\\%-10[goto-node]  名前で指定されたノードに移動する。\n"
 
-#: info/infodoc.c:77
+#: info/infodoc.c:71
 msgid "\\%-10[search]  Search forward for a specified string.\n"
 msgstr "\\%-10[search]  指定された文字列で前方検索する。\n"
 
-#: info/infodoc.c:78
+#: info/infodoc.c:72
 msgid "\\%-10[search-previous]  Search for previous occurrence.\n"
 msgstr "\\%-10[search-previous]  前に一致する文字列まで検索する。\n"
 
-#: info/infodoc.c:79
+#: info/infodoc.c:73
 msgid "\\%-10[search-next]  Search for next occurrence.\n"
 msgstr "\\%-10[search-next]  次に一致する文字列まで検索する。\n"
 
-#: info/infodoc.c:80
+#: info/infodoc.c:74
 msgid ""
 "\\%-10[index-search]  Search for a specified string in the index, and\n"
 "              select the node referenced by the first entry found.\n"
@@ -753,205 +789,36 @@ msgstr ""
 "\\%-10[index-search]  指定した文字列の項目を検索し、最初に一致した\n"
 "              項目に対するノードを選択する。\n"
 
-#: info/infodoc.c:82
+#: info/infodoc.c:76
 msgid "\\%-10[virtual-index]  Synthesize menu of matching index entries.\n"
 msgstr ""
 
-#: info/infodoc.c:84
+#: info/infodoc.c:78
 msgid "\\%-10[abort-key]  Cancel the current operation.\n"
 msgstr "\\%-10[abort-key]  現在の操作を中止する。\n"
 
-#: info/infodoc.c:92
-msgid ""
-"Basic Commands in Info Windows\n"
-"******************************\n"
+#: info/infodoc.c:197
+#, c-format
+msgid "This is GNU Info version %s.  "
 msgstr ""
-"Info ウィンドウの基本的なコマンド\n"
-"******************************\n"
 
-#: info/infodoc.c:95
-#, c-format
-msgid "  %-10s  Quit this help.\n"
-msgstr "  %-10s  このヘルプを終了する。\n"
-
-#: info/infodoc.c:96
-#, c-format
-msgid "  %-10s  Quit Info altogether.\n"
-msgstr "  %-10s  Info も一緒に終了する。\n"
-
-#: info/infodoc.c:97
-#, c-format
-msgid "  %-10s  Invoke the Info tutorial.\n"
-msgstr "  %-10s  Info チュートリアルを起動する。\n"
-
-#: info/infodoc.c:101
-#, c-format
-msgid "  %-10s  Move to the `next' node of this node.\n"
-msgstr "  %-10s  このノードの `次' のノードへ移動する。\n"
-
-#: info/infodoc.c:102
-#, c-format
-msgid "  %-10s  Move to the `previous' node of this node.\n"
-msgstr "  %-10s  このノードの `前' のノードへ移動する。\n"
-
-#: info/infodoc.c:103
-#, c-format
-msgid "  %-10s  Move `up' from this node.\n"
-msgstr "  %-10s  このノードから `上' へ移動する。\n"
-
-#: info/infodoc.c:104
-#, c-format
-msgid ""
-"  %-10s  Pick menu item specified by name.\n"
-"              Picking a menu item causes another node to be selected.\n"
-msgstr ""
-"  %-10s  指定した名前のメニューアイテムを選択する。\n"
-"              メニューアイテムを選択すると他のノードが選択される。\n"
-
-#: info/infodoc.c:106
-#, c-format
-msgid "  %-10s  Follow a cross reference.  Reads name of reference.\n"
-msgstr "  %-10s  相互参照を辿る。参照名を読み取る。\n"
-
-#: info/infodoc.c:107
-#, c-format
-msgid "  %-10s  Move to the last node seen in this window.\n"
-msgstr "  %-10s  このウィンドウで最後に見たノードへ移動する。\n"
-
-#: info/infodoc.c:108
-#, c-format
-msgid "  %-10s  Skip to next hypertext link within this node.\n"
-msgstr "  %-10s  このノード内の次のハイパーリンクへスキップする。\n"
-
-#: info/infodoc.c:109
-#, c-format
-msgid "  %-10s  Follow the hypertext link under cursor.\n"
-msgstr "  %-10s  カーソル位置のハイパーリンクを辿る。\n"
-
-#: info/infodoc.c:110
-#, c-format
-msgid "  %-10s  Move to the `directory' node.  Equivalent to `g (DIR)'.\n"
-msgstr "  %-10s  `ディレクトリ' ノードへ移動。`g (DIR)' と同じ。\n"
-
-#: info/infodoc.c:111
-#, c-format
-msgid "  %-10s  Move to the Top node.  Equivalent to `g Top'.\n"
-msgstr "  %-10s  Top ノードへ移動。`g Top' と同じ。\n"
-
-#: info/infodoc.c:113
-msgid ""
-"Moving within a node:\n"
-"---------------------\n"
-msgstr ""
-"ノード内での移動:\n"
-"---------------------\n"
-
-#: info/infodoc.c:115
-#, c-format
-msgid "  %-10s  Scroll forward a page.\n"
-msgstr "  %-10s  1 ページ分前方へ進める。\n"
-
-#: info/infodoc.c:116
-#, c-format
-msgid "  %-10s  Scroll backward a page.\n"
-msgstr "  %-10s  1 ページ分後方へ戻す。\n"
-
-#: info/infodoc.c:117
-#, c-format
-msgid "  %-10s  Go to the beginning of this node.\n"
-msgstr "  %-10s  現在のノードの先頭へ移動する。\n"
-
-#: info/infodoc.c:118
-#, c-format
-msgid "  %-10s  Go to the end of this node.\n"
-msgstr "  %-10s  現在のノードの先頭へ移動する。\n"
-
-#: info/infodoc.c:119
-#, c-format
-msgid "  %-10s  Scroll forward 1 line.\n"
-msgstr "  %-10s  1 行分前方へすすめる。\n"
-
-#: info/infodoc.c:120
-#, c-format
-msgid "  %-10s  Scroll backward 1 line.\n"
-msgstr "  %-10s  1 行分後方へ戻す。\n"
-
-#: info/infodoc.c:122
-msgid ""
-"Other commands:\n"
-"---------------\n"
-msgstr ""
-"その他のコマンド:\n"
-"---------------\n"
-
-#: info/infodoc.c:124
-#, c-format
-msgid "  %-10s  Pick first...ninth item in node's menu.\n"
-msgstr "  %-10s  ノードメニューの1から9番目までのアイテムを選択する。\n"
-
-#: info/infodoc.c:125
-#, c-format
-msgid "  %-10s  Pick last item in node's menu.\n"
-msgstr "  %-10s  ノードメニューの最後のアイテムを選択する。\n"
-
-#: info/infodoc.c:128
-#, c-format
-msgid ""
-"  %-10s  Search for a specified string in the index entries of this Info\n"
-"              file, and select the node referenced by the first entry "
-"found.\n"
-msgstr ""
-"  %-10s  この Info ファイルの項目に含まれる指定の文字列を検索し、最初に\n"
-"              一致した項目から参照されているノードに移動する。\n"
-
-#: info/infodoc.c:130
-#, c-format
-msgid ""
-"  %-10s  Move to node specified by name.\n"
-"              You may include a filename as well, as in (FILENAME)NODENAME.\n"
-msgstr ""
-"  %-10s  指定した名前のノードに移動します。\n"
-"              `(ファイル名)ノード名' のようにファイル名も含める\n"
-"              ことができます。\n"
-
-#: info/infodoc.c:132
-#, c-format
-msgid ""
-"  %-10s  Search forward for a specified string,\n"
-"              and select the node in which the next occurrence is found.\n"
-msgstr ""
-"  %-10s  指定した文字列を前方検索する\n"
-"              次に一致した文字列が見つかった場合はノードを選択する。\n"
-
-#: info/infodoc.c:134
-#, c-format
-msgid ""
-"  %-10s  Search backward for a specified string,\n"
-"              and select the node in which the next occurrence is found.\n"
-msgstr ""
-"  %-10s  指定した文字列を後方検索する\n"
-"              次に一致した文字列が見つかった場合はノードを選択する。\n"
-
-#: info/infodoc.c:312
-#, c-format
+#: info/infodoc.c:198
 msgid "The current search path is:\n"
 msgstr "現在の検索パス:\n"
 
-#: info/infodoc.c:315
-#, c-format
+#: info/infodoc.c:203
 msgid ""
 "Commands available in Info windows:\n"
 "\n"
 msgstr "Info ウィンドウで利用可能なコマンド:\n"
 
-#: info/infodoc.c:318
-#, c-format
+#: info/infodoc.c:206
 msgid ""
 "Commands available in the echo area:\n"
 "\n"
 msgstr "エコー領域で利用可能なコマンド:\n"
 
-#: info/infodoc.c:339
+#: info/infodoc.c:226
 #, c-format
 msgid ""
 "The following commands can only be invoked via %s:\n"
@@ -960,8 +827,7 @@ msgstr ""
 "以下のコマンドは、%s を通じてのみ起動できます:\n"
 "\n"
 
-#: info/infodoc.c:343
-#, c-format
+#: info/infodoc.c:231
 msgid ""
 "The following commands cannot be invoked at all:\n"
 "\n"
@@ -969,287 +835,164 @@ msgstr ""
 "以下のコマンドは、全く起動する事ができません:\n"
 "\n"
 
-#: info/infodoc.c:469
+#: info/infodoc.c:335
 msgid "Display help message"
 msgstr "使い方を表示する"
 
-#: info/infodoc.c:487
-msgid "Visit Info node `(info)Help'"
+#: info/infodoc.c:348
+#, fuzzy
+msgid "Visit Info node '(info)Help'"
 msgstr "`(info)Help' ノードに移動する"
 
-#: info/infodoc.c:613
+#: info/infodoc.c:452
 msgid "Print documentation for KEY"
 msgstr "キー操作を表示する"
 
-#: info/infodoc.c:625
+#: info/infodoc.c:463
 #, c-format
 msgid "Describe key: %s"
 msgstr "キーの説明: %s"
 
-#: info/infodoc.c:635
-#, c-format
-msgid "ESC %s is undefined."
-msgstr "ESC %s は定義されていません。"
-
-#: info/infodoc.c:651 info/infodoc.c:679
+#: info/infodoc.c:473 info/infodoc.c:509
 #, c-format
 msgid "%s is undefined."
 msgstr "%s は定義されていません"
 
-#: info/infodoc.c:700
-#, c-format
-msgid "%s is defined to %s."
-msgstr "%s は %s に定義されています。"
-
-#: info/infodoc.c:1124
+#: info/infodoc.c:871
 msgid "Show what to type to execute a given command"
 msgstr "与えられたコマンドを実行するのに、何をタイプするかを表示する"
 
-#: info/infodoc.c:1128
-#, fuzzy
+#: info/infodoc.c:875
 msgid "Where is command: "
-msgstr "%s はディレクトリではありません!"
+msgstr ""
 
-#: info/infodoc.c:1150
-#, c-format
-msgid "`%s' is not on any keys"
+#: info/infodoc.c:897
+#, fuzzy, c-format
+msgid "'%s' is not on any keys"
 msgstr "`%s' はキー割り当てされていません"
 
-#: info/infodoc.c:1156
+#: info/infodoc.c:903
 #, c-format
 msgid "%s can only be invoked via %s."
 msgstr "%s は %s を通じてのみ呼び出せます。"
 
-#: info/infodoc.c:1160
+#: info/infodoc.c:907
 #, c-format
 msgid "%s can be invoked via %s."
 msgstr "%s は %s を通じて呼び出せます"
 
-#: info/infodoc.c:1165
-#, c-format
-msgid "There is no function named `%s'"
+#: info/infodoc.c:912
+#, fuzzy, c-format
+msgid "There is no function named '%s'"
 msgstr "`%s' という機能はありません"
 
-#: info/infodoc.c:99
-msgid ""
-"Selecting other nodes:\n"
-"----------------------\n"
-msgstr ""
-"他のノードを選択する:\n"
-"----------------------\n"
+#: info/infomap.c:603
+#, fuzzy, c-format
+msgid "could not open init file %s"
+msgstr "  @FILE                   オプションを FILE から読み込む\n"
 
-#: info/infokey.c:169
-#, c-format
-msgid "incorrect number of arguments"
-msgstr "引数の数字が間違っています"
-
-#: info/infokey.c:199
-#, c-format
-msgid "cannot open input file `%s'"
-msgstr "入力ファイル `%s' を開けません"
-
-#: info/infokey.c:213
-#, c-format
-msgid "cannot create output file `%s'"
-msgstr "出力ファイル `%s' を作成できません"
-
-#: info/infokey.c:224
-#, c-format
-msgid "error writing to `%s'"
-msgstr "`%s' への書き込み中にエラーが発生しました"
-
-#: info/infokey.c:230
-#, c-format
-msgid "error closing output file `%s'"
-msgstr "出力ファイル `%s' を閉じる際にエラーが発生しました"
-
-#: info/infokey.c:449
+#: info/infokey.c:229
 #, c-format
 msgid "key sequence too long"
 msgstr "キー入力列が長すぎます"
 
-#: info/infokey.c:527
+#: info/infokey.c:306
 #, c-format
 msgid "missing key sequence"
 msgstr "キー入力列を欠いています"
 
-#: info/infokey.c:607
+#: info/infokey.c:386
 #, c-format
 msgid "NUL character (\\000) not permitted"
 msgstr "NUL 文字 (\\000) は使えません"
 
-#: info/infokey.c:637
+#: info/infokey.c:415
 #, c-format
 msgid "NUL character (^%c) not permitted"
 msgstr "NUL 文字 (^%c) は使えません"
 
-#: info/infokey.c:660
+#: info/infokey.c:438
 #, c-format
 msgid "missing action name"
 msgstr "アクション名がありません"
 
-#: info/infokey.c:675 info/infokey.c:745
-#, c-format
-msgid "section too long"
-msgstr "セクションが長すぎます"
+#: info/infokey.c:450
+#, fuzzy, c-format
+msgid "cannot bind key sequence to menu-digit"
+msgstr "キー入力列が長すぎます"
 
-#: info/infokey.c:681
+#: info/infokey.c:458
 #, c-format
 msgid "unknown action `%s'"
 msgstr "不明なアクション `%s' です"
 
-#: info/infokey.c:691
+#: info/infokey.c:485
 #, c-format
 msgid "action name too long"
 msgstr "アクション名が長すぎます"
 
-#: info/infokey.c:704
+#: info/infokey.c:498
 #, c-format
 msgid "extra characters following action `%s'"
 msgstr "アクション `%s' に余分な文字が続いています"
 
-#: info/infokey.c:715
+#: info/infokey.c:509
 #, c-format
 msgid "missing variable name"
 msgstr "変数名がありません"
 
-#: info/infokey.c:724
+#: info/infokey.c:518
 #, c-format
 msgid "missing `=' immediately after variable name"
 msgstr "変数名の直後の `=' がありません"
 
-#: info/infokey.c:731
+#: info/infokey.c:525
 #, c-format
 msgid "variable name too long"
 msgstr "変数名が長すぎます"
 
-#: info/infokey.c:753
+#: info/infokey.c:549
 #, c-format
 msgid "value too long"
 msgstr "値が長すぎます"
 
-#: info/infokey.c:881
+#: info/infokey.c:595
 #, c-format
 msgid "\"%s\", line %u: "
 msgstr "\"%s\", %u 行目: "
 
-#: info/infokey.c:899
-#, c-format
-msgid ""
-"Usage: %s [OPTION]... [INPUT-FILE]\n"
-"\n"
-"Compile infokey source file to infokey file.  Reads INPUT-FILE (default\n"
-"$HOME/.infokey) and writes compiled key file to (by default) $HOME/.info.\n"
-"\n"
-"Options:\n"
-"  --output FILE        output to FILE instead of $HOME/.info\n"
-"  --help               display this help and exit.\n"
-"  --version            display version information and exit.\n"
-msgstr ""
-"使用法: %s [OPTION]... [INPUT-FILE]\n"
-"\n"
-"infokey ソースファイルをコンパイルし、infokey ファイルを作成します。INPUT-"
-"FILE (デフォルトは\n"
-"$HOME/.infokey) を読み込み、コンパイルしたキーファイルを (デフォルトでは) "
-"$HOME/.info に\n"
-"書き込みます。\n"
-"\n"
-"オプション:\n"
-"  --output FILE        $HOME/.info の代わりに FILE へ出力する\n"
-"  --help               このヘルプメッセージを表示して終了する\n"
-"  --version            バージョン情報を表示して終了する\n"
-
-#: info/infomap.c:956
-#, c-format
-msgid "Ignoring invalid infokey file `%s' - too small"
-msgstr "無効な infokey ファイル `%s' を無視します - 小さすぎます"
-
-#: info/infomap.c:959
-#, c-format
-msgid "Ignoring invalid infokey file `%s' - too big"
-msgstr "無効な infokey ファイル `%s' を無視します - 大きすぎます"
-
-#: info/infomap.c:972
-#, c-format
-msgid "Error reading infokey file `%s' - short read"
-msgstr ""
-"infokey ファイル `%s' 読込み中にエラーが発生しました - 読み込みが短すぎます"
-
-#: info/infomap.c:991
-#, c-format
-msgid ""
-"Invalid infokey file `%s' (bad magic numbers) -- run infokey to update it"
-msgstr ""
-"infokey ファイル `%s' が無効 (間違ったマジック番号) です -- infokey を実行し"
-"て更新してください"
-
-#: info/infomap.c:1000
-#, c-format
-msgid "Your infokey file `%s' is out of date -- run infokey to update it"
-msgstr ""
-"あなたの infokey ファイル `%s' は古いです -- infokey を実行して更新してくださ"
-"い"
-
-#: info/infomap.c:1016
-#, c-format
-msgid ""
-"Invalid infokey file `%s' (bad section length) -- run infokey to update it"
-msgstr ""
-"infokey ファイル `%s' が無効 (間違ったセクション長) です -- infokey を実行し"
-"て更新してください"
-
-#: info/infomap.c:1037
-#, c-format
-msgid ""
-"Invalid infokey file `%s' (bad section code) -- run infokey to update it"
-msgstr ""
-"infokey ファイル `%s' が無効 (間違ったセクションコード) です -- infokey を実"
-"行して更新してください"
-
-#: info/infomap.c:1172
-msgid "Bad data in infokey file -- some key bindings ignored"
-msgstr ""
-"infokey ファイルに間違ったデータがあります -- いくつかのキーバインドが無視さ"
-"れました"
-
-#: info/infomap.c:1221
-msgid "Bad data in infokey file -- some var settings ignored"
-msgstr ""
-"infokey ファイルに間違ったデータがあります -- いくつかの変数設定が無視されま"
-"した"
-
-#: info/m-x.c:68
+#: info/m-x.c:66
 msgid "Read the name of an Info command and describe it"
 msgstr "Info コマンド名とその説明を読む"
 
-#: info/m-x.c:72
+#: info/m-x.c:70
 msgid "Describe command: "
 msgstr "説明するコマンド: "
 
-#: info/m-x.c:95
+#: info/m-x.c:93
 msgid "Read a command name in the echo area and execute it"
 msgstr "エコー領域でコマンド名を読み、実行する"
 
-#: info/m-x.c:139
-#, c-format
-msgid "Cannot execute an `echo-area' command here."
+#: info/m-x.c:136
+#, fuzzy, c-format
+msgid "Cannot execute an 'echo-area' command here."
 msgstr "ここでは `echo-area' コマンドを実行できません。"
 
-#: info/m-x.c:152
+#: info/m-x.c:149
 #, c-format
 msgid "Undefined command: %s"
 msgstr "未定義のコマンドです: %s"
 
-#: info/m-x.c:158
+#: info/m-x.c:155
 msgid "Set the height of the displayed window"
 msgstr "表示されるウィンドウの高さを設定する"
 
-#: info/m-x.c:171
+#: info/m-x.c:168
 #, c-format
 msgid "Set screen height to (%d): "
 msgstr "スクリーンの高さを設定する (%d): "
 
-#: info/makedoc.c:166 info/makedoc.c:174
+#: info/makedoc.c:141
 #, c-format
 msgid ""
 "   Source files groveled to make this file include:\n"
@@ -1258,15 +1001,19 @@ msgstr ""
 "   このファイルを作る元になったファイル:\n"
 "\n"
 
-#: info/makedoc.c:556
+#: info/makedoc.c:466
 #, c-format
 msgid "Couldn't manipulate the file %s.\n"
 msgstr "ファイル %s を処理できません。\n"
 
-#: info/nodemenu.c:30
+#. TRANSLATORS: The "\n* Menu:\n\n" part of this should not be translated, as
+#. it is part of the Info syntax.
+#: info/nodemenu.c:35
+#, fuzzy
 msgid ""
 "\n"
 "* Menu:\n"
+"\n"
 "  (File)Node                        Lines   Size   Containing File\n"
 "  ----------                        -----   ----   ---------------"
 msgstr ""
@@ -1275,34 +1022,35 @@ msgstr ""
 "  (ファイル)ノード                  行数   サイズ  含まれるファイル\n"
 "  ----------------                  -----   ----   ----------------"
 
-#: info/nodemenu.c:201
+#: info/nodemenu.c:187
+#, fuzzy
 msgid ""
 "Here is the menu of nodes you have recently visited.\n"
-"Select one from this menu, or use `\\[history-node]' in another window.\n"
+"Select one from this menu, or use '\\[history-node]' in another window.\n"
 msgstr ""
 "ここは、あなたが最近訪れたノードのメニューです。\n"
 "メニューから一つ選ぶか、他のウィンドウで `\\[history-node]' を使ってくださ"
 "い。\n"
 "\n"
 
-#: info/nodemenu.c:221
+#: info/nodemenu.c:208
 msgid "Make a window containing a menu of all of the currently visited nodes"
 msgstr "最近訪れたノード全てのメニューを含んでいるウィンドウを作成する"
 
-#: info/nodemenu.c:301
+#: info/nodemenu.c:253
 msgid "Select a node which has been previously visited in a visible window"
 msgstr "表示されているウィンドウ内の、以前訪れた事のあるノードを選択する"
 
-#: info/nodemenu.c:314
+#: info/nodemenu.c:260
 msgid "Select visited node: "
 msgstr "訪れたノードを選択: "
 
-#: info/nodemenu.c:334 info/session.c:2598
+#: info/nodemenu.c:278 info/session.c:2444
 #, c-format
 msgid "The reference disappeared! (%s)."
 msgstr "その参照は消えました! (%s)。"
 
-#: info/pcterm.c:179
+#: info/pcterm.c:212
 #, c-format
 msgid "Terminal cannot be initialized: %s\n"
 msgstr ""
@@ -1312,88 +1060,98 @@ msgstr ""
 msgid "regexp error: %s"
 msgstr "正規表現エラーです: %s"
 
-#: info/session.c:162
+#: info/session.c:62
+msgid "Show all matching files"
+msgstr ""
+
+#: info/session.c:66
 #, c-format
+msgid "No file index"
+msgstr "ファイル見出しがありません"
+
+#. TRANSLATORS: Try to keep this message (when "expanded") at most 79
+#. characters; anything after the 79th character will not actually be
+#. displayed on an 80-column terminal.
+#: info/session.c:192
+#, fuzzy, c-format
 msgid ""
-"Welcome to Info version %s. Type \\[get-help-window] for help, \\[menu-item] "
-"for menu item."
+"Welcome to Info version %s.  Type \\[get-help-window] for help, \\[get-info-"
+"help-node] for tutorial."
 msgstr ""
 "Info バージョン %s にようこそ。\\[get-help-window] で使い方、\\[menu-item] で"
 "メニュー項目を呼び出せます。"
 
-#: info/session.c:628
+#: info/session.c:776
+#, c-format
+msgid "can't open %s: %s"
+msgstr "%s を開くことができません: %s"
+
+#: info/session.c:782
+#, c-format
+msgid "debugging output diverted to \"%s\""
+msgstr "デバッグ出力は \"%s\" に送られます"
+
+#: info/session.c:1273
 msgid "Move down to the next line"
 msgstr "次の行に移動する"
 
-#: info/session.c:680
+#: info/session.c:1288
 msgid "Move up to the previous line"
 msgstr "前の行に移動する"
 
-#: info/session.c:950
+#: info/session.c:1304
+msgid "Move the cursor to a specific line of the window"
+msgstr "ウィンドウの指定行にカーソルを移動する"
+
+#: info/session.c:1336
 msgid "Move to the end of the line"
 msgstr "行末に移動する"
 
-#: info/session.c:961
+#: info/session.c:1361
 msgid "Move to the start of the line"
 msgstr "行頭に移動する"
 
-#: info/session.c:1161
-msgid "Next"
-msgstr "次"
+#: info/session.c:1443
+msgid "Move to the start of this node"
+msgstr "このノードの最初に移動する"
 
-#: info/session.c:1177 info/session.c:1301
-msgid "No more nodes within this document."
-msgstr "このドキュメントには、これ以上のノードはありません。"
+#: info/session.c:1450
+msgid "Move to the end of this node"
+msgstr "このノードの最後に移動する"
 
-#: info/session.c:1326
-msgid "No `Prev' for this node."
-msgstr "このノードの `前' はありません。"
-
-#: info/session.c:1346
-msgid "No `Prev' or `Up' for this node within this document."
-msgstr "このドキュメントでは、このノードの `前' や `上' はありません。"
-
-#: info/session.c:1407
-msgid "Move forwards or down through node structure"
-msgstr "ノード構造を通じて進めたり下がったりする"
-
-#: info/session.c:1423
-msgid "Move backwards or up through node structure"
-msgstr "ノード構造を通じて戻ったり上がったりする"
-
-#: info/session.c:1524
+#: info/session.c:1541
 msgid "Scroll forward in this window"
 msgstr "このウィンドウを下向きにスクロールする"
 
-#: info/session.c:1532
+#: info/session.c:1555
+msgid "Scroll backward in this window"
+msgstr "このウィンドウを後方にスクロールする"
+
+#: info/session.c:1563
 msgid "Scroll forward in this window and set default window size"
 msgstr "このウィンドウをスクロールし、デフォルトウィンドウサイズを設定する"
 
-#: info/session.c:1540
+#: info/session.c:1578
+msgid "Scroll backward in this window and set default window size"
+msgstr ""
+"このウィンドウを後方にスクロールし、デフォルトウィンドウサイズを設定する"
+
+#: info/session.c:1584
 msgid "Scroll forward in this window staying within node"
 msgstr "このウィンドウをノード範囲内で前方にスクロールする"
 
-#: info/session.c:1548
+#: info/session.c:1599
+msgid "Scroll backward in this window staying within node"
+msgstr "このウィンドウをノード範囲内で後方にスクロールする"
+
+#: info/session.c:1607
 msgid ""
 "Scroll forward in this window staying within node and set default window size"
 msgstr ""
 "このウィンドウをノード範囲内で前方にスクロールし、デフォルトウィンドウサイズ"
 "を設定する"
 
-#: info/session.c:1556
-msgid "Scroll backward in this window"
-msgstr "このウィンドウを後方にスクロールする"
-
-#: info/session.c:1564
-msgid "Scroll backward in this window and set default window size"
-msgstr ""
-"このウィンドウを後方にスクロールし、デフォルトウィンドウサイズを設定する"
-
-#: info/session.c:1573
-msgid "Scroll backward in this window staying within node"
-msgstr "このウィンドウをノード範囲内で後方にスクロールする"
-
-#: info/session.c:1581
+#: info/session.c:1634
 msgid ""
 "Scroll backward in this window staying within node and set default window "
 "size"
@@ -1401,564 +1159,647 @@ msgstr ""
 "このウィンドウをノード範囲内で後方にスクロールし、デフォルトウィンドウサイズ"
 "を設定する"
 
-#: info/session.c:1589
-msgid "Move to the start of this node"
-msgstr "このノードの最初に移動する"
-
-#: info/session.c:1596
-msgid "Move to the end of this node"
-msgstr "このノードの最後に移動する"
-
-#: info/session.c:1603
+#: info/session.c:1640
 msgid "Scroll down by lines"
 msgstr "行数によるスクロール"
 
-#: info/session.c:1620
+#: info/session.c:1646
 msgid "Scroll up by lines"
 msgstr "行数による逆スクロール"
 
-#: info/session.c:1638
+#: info/session.c:1658
 msgid "Scroll down by half screen size"
 msgstr "画面サイズの半分スクロール"
 
-#: info/session.c:1664
+#: info/session.c:1685
 msgid "Scroll up by half screen size"
 msgstr "画面サイズの半分逆スクロール"
 
-#: info/session.c:1693
-msgid "Select the next window"
-msgstr "次のウィンドウを選択"
-
-#: info/session.c:1732
-msgid "Select the previous window"
-msgstr "前のウィンドウを選択"
-
-#: info/session.c:1783
-msgid "Split the current window"
-msgstr "現在のウィンドウを分割"
-
-#: info/session.c:1865
-msgid "Delete the current window"
-msgstr "現在のウィンドウを削除"
-
-#: info/session.c:1873
-msgid "Cannot delete a permanent window"
-msgstr "永久ウィンドウは削除できません"
-
-#: info/session.c:1905
-msgid "Delete all other windows"
-msgstr "他のウィンドウを削除"
-
-#: info/session.c:1951
+#: info/session.c:1691
 msgid "Scroll the other window"
 msgstr "他のウィンドウをスクロール"
 
-#: info/session.c:1972
+#: info/session.c:1712
 msgid "Scroll the other window backward"
 msgstr "他のウィンドウを逆スクロール"
 
-#: info/session.c:1978
+#: info/session.c:1826
+msgid "Select the next window"
+msgstr "次のウィンドウを選択"
+
+#: info/session.c:1863
+msgid "Select the previous window"
+msgstr "前のウィンドウを選択"
+
+#: info/session.c:1907
+msgid "Split the current window"
+msgstr "現在のウィンドウを分割"
+
+#: info/session.c:1952
+msgid "Delete the current window"
+msgstr "現在のウィンドウを削除"
+
+#: info/session.c:1957
+msgid "Cannot delete a permanent window"
+msgstr "永久ウィンドウは削除できません"
+
+#: info/session.c:1988
+msgid "Delete all other windows"
+msgstr "他のウィンドウを削除"
+
+#: info/session.c:2034
 msgid "Grow (or shrink) this window"
 msgstr "このウィンドウを大きくする(または小さくする)"
 
-#: info/session.c:1989
+#: info/session.c:2045
 msgid "Divide the available screen space among the visible windows"
 msgstr "可視ウィンドウの利用可能スクリーン空間を分割する"
 
-#: info/session.c:1996
+#: info/session.c:2052
 msgid "Toggle the state of line wrapping in the current window"
 msgstr "現在のウィンドウに禁則処理を施すかどうかを切り替える"
 
-#: info/session.c:2003
-msgid "Toggle the usage of regular expressions in searches"
-msgstr "検索で正規表現を使用するかどうかを切り替える"
-
-#: info/session.c:2007
-#, c-format
-msgid "Using regular expressions for searches."
-msgstr "検索で正規表現を使用する。"
-
-#: info/session.c:2008
-#, c-format
-msgid "Using literal strings for searches."
-msgstr "検索で文字列リテラルそのものを使用する。"
-
-#: info/session.c:2178
-msgid "Select the Next node"
-msgstr "次 ノードを選択する"
-
-#: info/session.c:2186
-msgid "Select the Prev node"
-msgstr "前 ノードを選択する"
-
-#: info/session.c:2194
-msgid "Select the Up node"
-msgstr "上 ノードを選択する"
-
-#: info/session.c:2201
-msgid "Select the last node in this file"
-msgstr "このファイルの最後のノードを選択する"
-
-#: info/session.c:2229 info/session.c:2263
-msgid "This window has no additional nodes"
-msgstr "このウィンドウにはノードが付いていません"
-
-#: info/session.c:2235
-msgid "Select the first node in this file"
-msgstr "このファイルの最初のノードを選択する"
-
-#: info/session.c:2270
-msgid "Select the last item in this node's menu"
-msgstr "このノードのメニュー内での最後の項目を選択"
-
-#: info/session.c:2276
+#: info/session.c:2206
 msgid "Select this menu item"
 msgstr "このメニュー項目を選択"
 
-#: info/session.c:2309
+#: info/session.c:2236
 #, c-format
 msgid "There isn't %d item in this menu."
 msgid_plural "There aren't %d items in this menu."
 msgstr[0] "このメニューに %d 個の項目がありません。"
 
-#: info/session.c:2505 info/session.c:2506
+#: info/session.c:2245
+msgid "Select the last item in this node's menu"
+msgstr "このノードのメニュー内での最後の項目を選択"
+
+#: info/session.c:2352 info/session.c:2353
 #, c-format
 msgid "Menu item (%s): "
 msgstr "メニュー項目 (%s): "
 
-#: info/session.c:2509
+#: info/session.c:2356
 msgid "Menu item: "
 msgstr "メニュー項目: "
 
-#: info/session.c:2516 info/session.c:2517
+#: info/session.c:2363 info/session.c:2364
 #, c-format
 msgid "Follow xref (%s): "
 msgstr "参照先 (%s): "
 
-#: info/session.c:2520
+#: info/session.c:2367
 msgid "Follow xref: "
 msgstr "参照先: "
 
-#: info/session.c:2647
+#: info/session.c:2456
 msgid "Read a menu item and select its node"
 msgstr "メニューを読んで、そのノードを選択する"
 
-#: info/session.c:2655
+#: info/session.c:2481
 msgid "Read a footnote or cross reference and select its node"
 msgstr "脚注や相互参照を読んで、そのノードを選択する"
 
-#: info/session.c:2661
+#: info/session.c:2487
 msgid "Move to the start of this node's menu"
 msgstr "このノードメニューの先頭に移動する"
 
-#: info/session.c:2683
+#: info/session.c:2509
 msgid "Visit as many menu items at once as possible"
 msgstr "可能な限り多くのメニュー項目へ一度に訪れる"
 
-#: info/session.c:2711
-msgid "Read a node name and select it"
-msgstr "ノード名を読んで、選択する"
+#: info/session.c:2609
+msgid "Move to the previous cross reference"
+msgstr "前の相互参照に移動"
 
-#: info/session.c:2766 info/session.c:2771
-msgid "Goto node: "
-msgstr "ノードへ移動: "
+#: info/session.c:2672
+msgid "Move to the next cross reference"
+msgstr "次の相互参照に移動"
 
-#: info/session.c:2836
-#, c-format
-msgid "No menu in node `%s'."
+#: info/session.c:2733
+msgid "Select reference or menu item appearing on this line"
+msgstr "参照または、この行に現れたメニュー項目を選択"
+
+#: info/session.c:2767
+#, fuzzy, c-format
+msgid "No menu in node '%s'."
 msgstr "ノード `%s' にメニューがありません。"
 
-#: info/session.c:2883
-#, c-format
-msgid "No menu item `%s' in node `%s'."
-msgstr "メニューアイテム `%s' はノード `%s' 中にはありません"
-
-#: info/session.c:2916
-#, c-format
-msgid "Unable to find node referenced by `%s' in `%s'."
+#: info/session.c:2814
+#, fuzzy, c-format
+msgid "Unable to find node referenced by '%s' in '%s'."
 msgstr "`%s' から参照されているノードを見つけられません(`%s' 中)"
 
-#: info/session.c:2966
+#: info/session.c:2870
 msgid "Read a list of menus starting from dir and follow them"
 msgstr "dir からメニュー開始リストを読み、それをたどる"
 
-#: info/session.c:2968
+#: info/session.c:2872
 msgid "Follow menus: "
 msgstr "メニューに続く: "
 
-#: info/session.c:3161
+#: info/session.c:2977
+msgid "Select the Next node"
+msgstr "次 ノードを選択する"
+
+#: info/session.c:2984
+msgid "Select the Prev node"
+msgstr "前 ノードを選択する"
+
+#: info/session.c:2991
+msgid "Select the Up node"
+msgstr "上 ノードを選択する"
+
+#: info/session.c:2997
+msgid "Select the last node in this file"
+msgstr "このファイルの最後のノードを選択する"
+
+#: info/session.c:3024 info/session.c:3057
+msgid "This window has no additional nodes"
+msgstr "このウィンドウにはノードが付いていません"
+
+#: info/session.c:3030
+msgid "Select the first node in this file"
+msgstr "このファイルの最初のノードを選択する"
+
+#: info/session.c:3164
+msgid "No more nodes within this document."
+msgstr "このドキュメントには、これ以上のノードはありません。"
+
+#: info/session.c:3209 info/session.c:3249
+#, fuzzy
+msgid "No 'Prev' or 'Up' for this node within this document."
+msgstr "このドキュメントでは、このノードの `前' や `上' はありません。"
+
+#: info/session.c:3262
+msgid "Move forwards or down through node structure"
+msgstr "ノード構造を通じて進めたり下がったりする"
+
+#: info/session.c:3279
+msgid "Move backwards or up through node structure"
+msgstr "ノード構造を通じて戻ったり上がったりする"
+
+#: info/session.c:3302
+msgid "Read a node name and select it"
+msgstr "ノード名を読んで、選択する"
+
+#: info/session.c:3356 info/session.c:3360
+msgid "Goto node: "
+msgstr "ノードへ移動: "
+
+#: info/session.c:3539
 msgid "Find the node describing program invocation"
 msgstr "プログラム起動に関する説明のノードを見つける"
 
-#: info/session.c:3163
+#: info/session.c:3541
 #, c-format
 msgid "Find Invocation node of [%s]: "
 msgstr "[%s] の起動ノードを見つける: "
 
-#: info/session.c:3201
+#: info/session.c:3586
 msgid "Read a manpage reference and select it"
 msgstr "man ページへの参照を読んで、選択する"
 
-#: info/session.c:3205
+#: info/session.c:3590
 msgid "Get Manpage: "
 msgstr "Man ページを表示: "
 
-#: info/session.c:3235
-msgid "Select the node `Top' in this file"
+#: info/session.c:3611
+#, fuzzy
+msgid "Select the node 'Top' in this file"
 msgstr "このファイルの `先頭' ノードを選択"
 
-#: info/session.c:3241
-msgid "Select the node `(dir)'"
+#: info/session.c:3617
+#, fuzzy
+msgid "Select the node '(dir)'"
 msgstr "`(dir)'ノードを選択する"
 
-#: info/session.c:3258 info/session.c:3260
-#, c-format
-msgid "Kill node (%s): "
-msgstr "ノードの切り取り (%s): "
+#: info/session.c:3623
+msgid "Show full file name of node being displayed"
+msgstr ""
 
-#: info/session.c:3312
-#, c-format
-msgid "Cannot kill node `%s'"
-msgstr "`%s' ノードを切り取れません"
-
-#: info/session.c:3322
-msgid "Cannot kill the last node"
-msgstr "最後のノードは切り取れません"
-
-#: info/session.c:3408
+#: info/session.c:3640
 msgid "Select the most recently selected node"
 msgstr "最後に選択されたノードを選択する"
 
-#: info/session.c:3414
-msgid "Kill this node"
-msgstr "このノードを切り取る"
+#: info/session.c:3645
+#, c-format
+msgid "No earlier node in history"
+msgstr ""
 
-#: info/session.c:3422
+#: info/session.c:3649
 msgid "Read the name of a file and select it"
 msgstr "ファイル名を読み込み、選択する"
 
-#: info/session.c:3426
+#: info/session.c:3653
 msgid "Find file: "
 msgstr "ファイルを探す: "
 
-#: info/session.c:3443
-#, c-format
-msgid "Cannot find `%s'."
+#: info/session.c:3670
+#, fuzzy, c-format
+msgid "Cannot find '%s'."
 msgstr "`%s' が見つかりません。"
 
-#: info/session.c:3486 info/session.c:3603
-#, c-format
-msgid "Could not create output file `%s'."
+#: info/session.c:3719
+#, fuzzy, c-format
+msgid "Could not create output file '%s'."
 msgstr "出力ファイル `%s' を作成できません。"
 
-#: info/session.c:3499 info/session.c:3620 info/session.c:3680
-msgid "Done."
-msgstr "完了。"
-
-#: info/session.c:3554
+#: info/session.c:3733
 #, c-format
-msgid "Writing node %s..."
-msgstr "ノード %s の書き込み..."
+msgid "error writing to %s: %s"
+msgstr "%s への書き込み中にエラーが発生しました: %s"
 
-#: info/session.c:3629
+#: info/session.c:3742
+#, c-format
+msgid "closing %s"
+msgstr "%s を閉じています"
+
+#: info/session.c:3791
+#, c-format
+msgid "writing node %s..."
+msgstr "ノード %s へ書き込み中..."
+
+#: info/session.c:3837
 msgid "Pipe the contents of this node through INFO_PRINT_COMMAND"
 msgstr "INFO_PRINT_COMMAND によってこのノードの内容をパイプする"
 
-#: info/session.c:3664
-#, c-format
-msgid "Cannot open pipe to `%s'."
+#: info/session.c:3865
+#, fuzzy, c-format
+msgid "Cannot open pipe to '%s'."
 msgstr "`%s' へのパイプを開けません。"
 
-#: info/session.c:3670
-#, c-format
-msgid "Printing node %s..."
+#: info/session.c:3870
+#, fuzzy, c-format
+msgid "printing node %s..."
 msgstr "ノード `%s' を印刷中..."
 
-#: info/session.c:3966
+#: info/session.c:3878
+#, fuzzy, c-format
+msgid "finished printing node %s"
+msgstr "ノード `%s' を印刷中..."
+
+#: info/session.c:3910
+msgid "Toggle the usage of regular expressions in searches"
+msgstr "検索で正規表現を使用するかどうかを切り替える"
+
+#: info/session.c:3914
+#, c-format
+msgid "Using regular expressions for searches."
+msgstr "検索で正規表現を使用する。"
+
+#: info/session.c:3915
+#, c-format
+msgid "Using literal strings for searches."
+msgstr "検索で文字列リテラルそのものを使用する。"
+
+#: info/session.c:4175
 msgid "Search continued from the end of the document."
 msgstr "文書の最後から検索を継続する。"
 
-#: info/session.c:3971
+#: info/session.c:4180
 msgid "Search continued from the beginning of the document."
 msgstr "文書の最初から検索を継続する。"
 
-#: info/session.c:3988
+#: info/session.c:4200
 #, c-format
 msgid "Searching subfile %s ..."
 msgstr "副ファイル %s を探しています ..."
 
-#: info/session.c:4048
-msgid "Read a string and search for it case-sensitively"
-msgstr "文字列を読み、大文字小文字の区別をつけて検索する"
+#: info/session.c:4237
+msgid "Search failed."
+msgstr "検索に失敗しました。"
 
-#: info/session.c:4055
-msgid "Read a string and search for it"
-msgstr "文字列を読んで検索する"
-
-#: info/session.c:4063
-msgid "Read a string and search backward for it"
-msgstr "文字列を読んで後方検索する"
-
-#: info/session.c:4099 info/session.c:4105
+#: info/session.c:4254
 #, c-format
 msgid "%s%s%s [%s]: "
 msgstr "%s%s%s [%s]: "
 
-#: info/session.c:4100 info/session.c:4106
+#: info/session.c:4255 info/session.c:4261
 msgid "Regexp search"
 msgstr "正規表現検索"
 
-#: info/session.c:4101 info/session.c:4107
-msgid " case-sensitively"
-msgstr " 大文字小文字の区別をつけて"
-
-#: info/session.c:4102 info/session.c:4108
-msgid " backward"
-msgstr "後方"
-
-#: info/session.c:4106
+#: info/session.c:4255 info/session.c:4261
 msgid "Search"
 msgstr "検索"
 
-#: info/session.c:4154
-msgid "Search failed."
-msgstr "検索に失敗しました。"
+#: info/session.c:4256 info/session.c:4262
+msgid " case-sensitively"
+msgstr " 大文字小文字の区別をつけて"
 
-#: info/session.c:4172
+#: info/session.c:4257 info/session.c:4263
+msgid " backward"
+msgstr "後方"
+
+#: info/session.c:4260
+#, fuzzy, c-format
+msgid "%s%s%s: "
+msgstr "%s%s%s [%s]: "
+
+#: info/session.c:4280
+msgid "Search string too short"
+msgstr ""
+
+#: info/session.c:4473
+#, c-format
+msgid "Going back to last match from %s"
+msgstr ""
+
+#: info/session.c:4497 info/session.c:4607
+#, fuzzy, c-format
+msgid "No more matches."
+msgstr "一致しません"
+
+#: info/session.c:4634
+msgid "Search this node and subnodes for a string."
+msgstr ""
+
+#: info/session.c:4655
+msgid "Go to next match in Info sub-tree"
+msgstr ""
+
+#: info/session.c:4659 info/session.c:4671
+#, c-format
+msgid "No active search"
+msgstr ""
+
+#: info/session.c:4667
+msgid "Go to previous match in Info sub-tree"
+msgstr ""
+
+#: info/session.c:4680
+msgid "Read a string and search for it case-sensitively"
+msgstr "文字列を読み、大文字小文字の区別をつけて検索する"
+
+#: info/session.c:4685
+msgid "Read a string and search for it"
+msgstr "文字列を読んで検索する"
+
+#: info/session.c:4691
+msgid "Read a string and search backward for it"
+msgstr "文字列を読んで後方検索する"
+
+#: info/session.c:4699
 msgid "Repeat last search in the same direction"
 msgstr "同一方向で最後の検索を繰り返す"
 
-#: info/session.c:4175 info/session.c:4185
+#: info/session.c:4707 info/session.c:4752
 msgid "No previous search string"
 msgstr "前の検索文字列がありません"
 
-#: info/session.c:4182
+#: info/session.c:4744
 msgid "Repeat last search in the reverse direction"
 msgstr "逆方向で最後の検索を繰り返す"
 
-#: info/session.c:4201 info/session.c:4207
+#: info/session.c:4791
+msgid "Clear displayed search matches"
+msgstr ""
+
+#: info/session.c:4808 info/session.c:4814
 msgid "Search interactively for a string as you type it"
 msgstr "入力した文字列の対話的な検索"
 
-#: info/session.c:4287
+#: info/session.c:4934
 msgid "Regexp I-search backward: "
 msgstr "正規表現逐次後方検索: "
 
-#: info/session.c:4288
+#: info/session.c:4935
 msgid "I-search backward: "
 msgstr "逐次後方検索: "
 
-#: info/session.c:4290
+#: info/session.c:4937
 msgid "Regexp I-search: "
 msgstr "正規表現逐次検索: "
 
-#: info/session.c:4291
+#: info/session.c:4938
 msgid "I-search: "
 msgstr "逐次検索: "
 
-#: info/session.c:4316 info/session.c:4318
+#: info/session.c:4963 info/session.c:4966
 msgid "Failing "
 msgstr "失敗 "
 
-#: info/session.c:4801
-msgid "Move to the previous cross reference"
-msgstr "前の相互参照に移動"
-
-#: info/session.c:4819
-msgid "Move to the next cross reference"
-msgstr "次の相互参照に移動"
-
-#: info/session.c:4841
-msgid "Select reference or menu item appearing on this line"
-msgstr "参照または、この行に現れたメニュー項目を選択"
-
-#: info/session.c:4864
+#: info/session.c:5332
 msgid "Cancel current operation"
 msgstr "現在の操作を中止する"
 
-#: info/session.c:4871
+#: info/session.c:5339
 msgid "Quit"
 msgstr "終了"
 
-#: info/session.c:4880
-msgid "Move the cursor to a specific line of the window"
-msgstr "ウィンドウの指定行にカーソルを移動する"
+#: info/session.c:5344
+#, fuzzy
+msgid "Display version of Info being run"
+msgstr "バージョン情報を表示して終了する"
 
-#: info/session.c:4912
+#: info/session.c:5346
+#, c-format
+msgid "GNU Info version %s"
+msgstr ""
+
+#: info/session.c:5351
 msgid "Redraw the display"
 msgstr "画面を再描画する"
 
-#: info/session.c:4949
+#: info/session.c:5388
 msgid "Quit using Info"
 msgstr "Info の使用を終了する"
 
-#: info/session.c:4962
+#: info/session.c:5404
 msgid "Run command bound to this key's lowercase variant"
 msgstr "このキーの小文字に割り当てられたコマンドを実行する"
 
-#: info/session.c:4973
+#: info/session.c:5415
 #, c-format
 msgid "Unknown command (%s)."
 msgstr "不明なコマンド (%s) です。"
 
-#: info/session.c:4976
+#: info/session.c:5418
 #, c-format
 msgid "\"%s\" is invalid"
 msgstr "\"%s\" は無効です"
 
-#: info/session.c:4977
-#, c-format
-msgid "`%s' is invalid"
+#: info/session.c:5419
+#, fuzzy, c-format
+msgid "'%s' is invalid"
 msgstr "`%s' は無効です"
 
-#: info/session.c:5192
+#: info/session.c:5737
 msgid "Add this digit to the current numeric argument"
 msgstr "現在の数値引数にこの数値を加える"
 
-#: info/session.c:5201
+#: info/session.c:5744
 msgid "Start (or multiply by 4) the current numeric argument"
 msgstr "現在の数値引数を開始(または 4 倍する)"
-
-#: info/session.c:5216
-msgid "Internally used by \\[universal-argument]"
-msgstr "内部的に \\[universal-argument] によって利用されます"
 
 #: info/tilde.c:361
 #, c-format
 msgid "readline: Out of virtual memory!\n"
 msgstr "readline: 仮想メモリを使い果たしました!\n"
 
-#: info/variables.c:37
+#: info/variables.c:65
 msgid "When \"On\", footnotes appear and disappear automatically"
 msgstr "\"On\" の時、脚注を自動的に表示し、消去する"
 
-#: info/variables.c:41
+#: info/variables.c:69
 msgid "When \"On\", creating or deleting a window resizes other windows"
 msgstr "\"On\" の時、ウィンドウの作成・削除で、他のウィンドウのサイズを変更"
 
-#: info/variables.c:45
+#: info/variables.c:73
 msgid "When \"On\", flash the screen instead of ringing the bell"
 msgstr "\"On\" の時、ベルをならす代わりに、画面をフラッシュさせる"
 
-#: info/variables.c:49
+#: info/variables.c:77
 msgid "When \"On\", errors cause the bell to ring"
 msgstr "\"On\" のとき、エラーが発生したらベルを鳴らす"
 
-#: info/variables.c:53
+#: info/variables.c:81
 msgid "When \"On\", Info garbage collects files which had to be uncompressed"
 msgstr "\"On\" のとき、非圧縮ファイルをガーベジコレクトする"
 
-#: info/variables.c:56
+#: info/variables.c:84
 msgid "When \"On\", the portion of the matched search string is highlighted"
 msgstr "\"On\" の時、検索文字列と一致した場所を反転表示させる"
 
-#: info/variables.c:60
+#: info/variables.c:88
 msgid "Controls what happens when scrolling is requested at the end of a node"
 msgstr "最後のノードにおいて、スクロールを行なったときの動作を調節する"
 
-#: info/variables.c:65
+#: info/variables.c:93
 msgid "Same as scroll-behaviour"
 msgstr "scroll-behaviour と同様"
 
-#: info/variables.c:69
+#: info/variables.c:97
 msgid "The number lines to scroll when the cursor moves out of the window"
 msgstr "カーソルをウィンドウの外に動かそうとした時のスクロール行数を指定する"
 
-#: info/variables.c:73
+#: info/variables.c:101
 msgid "Controls whether scroll-behavior affects cursor movement commands"
 msgstr "スクロール動作がカーソル移動に影響を及ぼすかどうかを制御する"
 
-#: info/variables.c:77
+#: info/variables.c:105
 msgid "When \"On\", Info accepts and displays ISO Latin characters"
 msgstr "\"On\" の時、Info は ISO Latin 文字の表示が可能になる"
 
-#: info/variables.c:81
+#: info/variables.c:109
 msgid ""
 "What to do when a scrolling command is issued at the end of the last node"
 msgstr ""
 "最終ノードの末尾でスクロールコマンドを実行した時にどうのように動作するか"
 
-#: info/variables.c:86
+#: info/variables.c:114
 msgid "Minimal length of a search string"
 msgstr ""
 
-#: info/variables.c:92
+#: info/variables.c:118
+msgid "Skip current window when searching"
+msgstr ""
+
+#: info/variables.c:122
+msgid "Exclude default directories from file search path"
+msgstr ""
+
+#: info/variables.c:126
+msgid "Hide some Info file syntax in the text of nodes"
+msgstr ""
+
+#: info/variables.c:130
+msgid ""
+"Length of time in milliseconds to wait for the next byte in a sequence "
+"indicating that a key has been pressed"
+msgstr ""
+
+#: info/variables.c:134
+msgid "Method to use to track mouse events"
+msgstr ""
+
+#: info/variables.c:138
+#, fuzzy
+msgid "How to follow a cross-reference"
+msgstr "次の相互参照に移動"
+
+#: info/variables.c:142
+msgid "Highlight search matches"
+msgstr ""
+
+#: info/variables.c:146
+msgid "Styles for links"
+msgstr ""
+
+#: info/variables.c:150
+msgid "Styles for active links"
+msgstr ""
+
+#: info/variables.c:154
+msgid "Styles for search matches"
+msgstr ""
+
+#: info/variables.c:158
+msgid "How to print the information line at the start of a node"
+msgstr ""
+
+#: info/variables.c:165
 msgid "Explain the use of a variable"
 msgstr "変数の使い方を解説する"
 
-#: info/variables.c:98
+#: info/variables.c:171
 msgid "Describe variable: "
 msgstr "変数の説明: "
 
-#: info/variables.c:117
+#: info/variables.c:186
 msgid "Set the value of an Info variable"
 msgstr "Info 変数の値を設定"
 
-#: info/variables.c:123
+#: info/variables.c:193
 msgid "Set variable: "
 msgstr "変数を設定: "
 
-#: info/variables.c:141
+#: info/variables.c:209
 #, c-format
 msgid "Set %s to value (%d): "
 msgstr "%s に値を設定 (%d): "
 
-#: info/variables.c:182
+#: info/variables.c:243
 #, c-format
 msgid "Set %s to value (%s): "
 msgstr "%s に値を設定 (%s): "
 
-#: info/window.c:1077
-msgid "--*** Tags out of Date ***"
-msgstr "--*** 旧式のタグ ***"
-
-#: info/window.c:1088
+#: info/window.c:909
 msgid "-----Info: (), lines ----, "
 msgstr "-----Info: (), 行数 ----, "
 
-#: info/window.c:1095
+#: install-info/install-info.c:292
 #, c-format
-msgid "-%s---Info: %s, %d lines --%s--"
-msgstr "-%s---Info: %s, %d 行 --%s--"
+msgid "%s: empty file"
+msgstr "%s: 空のファイル"
 
-#: info/window.c:1099
+#: install-info/install-info.c:294
 #, c-format
-msgid "-%s%s-Info: (%s)%s, %d lines --%s--"
-msgstr "-%s%s-Info: (%s)%s, %d 行 --%s--"
-
-#: info/window.c:1106
-#, c-format
-msgid " Subfile: %s"
-msgstr " 副ファイル: %s"
-
-#: install-info/install-info.c:286
-#, fuzzy, c-format
 msgid "%s for %s"
-msgstr " %s"
+msgstr ""
 
-#: install-info/install-info.c:525
+#: install-info/install-info.c:533
 #, c-format
 msgid "\tTry `%s --help' for a complete list of options.\n"
 msgstr "\t完全な オプションリストを得るには `%s --help' を実行してください。\n"
 
-#: install-info/install-info.c:533
+#: install-info/install-info.c:541
 #, c-format
 msgid "Usage: %s [OPTION]... [INFO-FILE [DIR-FILE]]\n"
 msgstr "使用法: %s [OPTION]... [INFO-FILE [DIR-FILE]]\n"
 
-#: install-info/install-info.c:535
+#: install-info/install-info.c:543
 msgid "Add or remove entries in INFO-FILE from the Info directory DIR-FILE."
 msgstr ""
 "Info ディレクトリー DIR-FILE 対して INFO-FILE 項目の追加または削除を行いま"
 "す。"
 
-#: install-info/install-info.c:536
+#: install-info/install-info.c:544
 msgid ""
 "INFO-FILE and DIR-FILE are required unless the --info-file\n"
 "or --dir-file (or --info-dir) options are given, respectively."
 msgstr ""
 
-#: install-info/install-info.c:540
+#: install-info/install-info.c:548
 msgid ""
 "Options:\n"
 " --add-once          add only to first matching section, not all.\n"
@@ -1967,12 +1808,15 @@ msgid ""
 "                       start at column COL."
 msgstr ""
 
-#: install-info/install-info.c:547
+#: install-info/install-info.c:555
 #, fuzzy
 msgid ""
 " --debug             report what is being done.\n"
 " --delete            delete existing entries for INFO-FILE from DIR-FILE;\n"
 "                      don't insert any new entries.\n"
+" --defsection=TEXT   like --section, but only use TEXT if no sections\n"
+"                      are present in INFO-FILE (replacing \"Miscellaneous"
+"\").\n"
 " --description=TEXT  the description of the entry is TEXT; used with\n"
 "                      the --name option to become synonymous with the\n"
 "                      --entry option.\n"
@@ -1990,7 +1834,7 @@ msgstr ""
 "                      DIR-FILE 引数の使用と同様。\n"
 " --dry-run           --test と同様。"
 
-#: install-info/install-info.c:558
+#: install-info/install-info.c:568
 #, fuzzy
 msgid ""
 " --entry=TEXT        insert TEXT as an Info directory entry,\n"
@@ -2014,7 +1858,7 @@ msgstr ""
 "                      Info ファイルのベース名が見つからない場合に、最後に\n"
 "                      削除されます。"
 
-#: install-info/install-info.c:567
+#: install-info/install-info.c:577
 #, fuzzy
 msgid ""
 " --help              display this help and exit.\n"
@@ -2037,7 +1881,7 @@ msgstr ""
 " --no-indent         DIR ファイルにある新規エントリを整形しない。\n"
 " --quiet             警告を抑止する。"
 
-#: install-info/install-info.c:575
+#: install-info/install-info.c:585
 #, fuzzy
 msgid ""
 " --maxwidth, --max-width=COL  wrap description at column COL.\n"
@@ -2060,7 +1904,8 @@ msgstr ""
 " --no-indent         DIR ファイルにある新規エントリを整形しない。\n"
 " --quiet             警告を抑止する。"
 
-#: install-info/install-info.c:583
+#: install-info/install-info.c:593
+#, fuzzy
 msgid ""
 " --regex=R           put this file's entries in all sections that match the\n"
 "                      regular expression R (ignoring case).\n"
@@ -2072,7 +1917,10 @@ msgid ""
 "                       are added in each of the sections.\n"
 "                      If you don't specify any sections, they are "
 "determined\n"
-"                       from information in the Info file itself.\n"
+"                       from information in the Info file itself;\n"
+"                       if nothing is available there, the --defsection\n"
+"                       value is used; if that is not specified, the\n"
+"                       final default is \"Miscellaneous\".\n"
 " --section R SEC     equivalent to --regex=R --section=SEC --add-once."
 msgstr ""
 " --regex=R           このファイルのエントリを正規表現 R (大文字と小文字を区別"
@@ -2091,7 +1939,7 @@ msgstr ""
 "る。\n"
 " --section R SEC     --regex=R --section=SEC --add-once と同様。"
 
-#: install-info/install-info.c:596
+#: install-info/install-info.c:609
 msgid ""
 " --silent            suppress warnings.\n"
 " --test              suppress updating of DIR-FILE.\n"
@@ -2101,29 +1949,17 @@ msgstr ""
 " --test              DIR-FILE の更新を抑止する。\n"
 " --version           バージョン情報を表示して終了する。"
 
-#: install-info/install-info.c:603 tp/texi2any.pl:844
-msgid ""
-"Email bug reports to bug-texinfo@gnu.org,\n"
-"general questions and discussion to help-texinfo@gnu.org.\n"
-"Texinfo home page: http://www.gnu.org/software/texinfo/"
-msgstr ""
-"Email によるバグレポートは bug-texinfo@gnu.org に報告してください。\n"
-"翻訳に関するバグは<translation-team-ja@lists.sourceforge.net>に報告してくださ"
-"い。\n"
-"一般的な質問や議論は help-texinfo@gnu.org に連絡してください。\n"
-"Texinfoホームページ: http://www.gnu.org/software/texinfo/"
-
-#: install-info/install-info.c:630
-#, c-format
+#: install-info/install-info.c:642
+#, fuzzy, c-format
 msgid ""
 "This is the file .../info/dir, which contains the\n"
 "topmost node of the Info hierarchy, called (dir)Top.\n"
 "The first time you invoke Info you start off looking at this node.\n"
-"\n"
+"%c\n"
 "%s\tThis is the top of the INFO tree\n"
 "\n"
 "  This (the Directory node) gives a menu of major topics.\n"
-"  Typing \"q\" exits, \"?\" lists all Info commands, \"d\" returns here,\n"
+"  Typing \"q\" exits, \"H\" lists all Info commands, \"d\" returns here,\n"
 "  \"h\" gives a primer for first-timers,\n"
 "  \"mEmacs<Return>\" visits the Emacs manual, etc.\n"
 "\n"
@@ -2151,335 +1987,366 @@ msgstr ""
 "\n"
 "%s\n"
 
-#: install-info/install-info.c:654
+#: install-info/install-info.c:666
 #, c-format
 msgid "%s: could not read (%s) and could not create (%s)"
 msgstr "%s: (%s) を読み込むことができず、(%s) を作成できませんでした"
 
-#: install-info/install-info.c:758
-#, c-format
-msgid "%s: empty file"
-msgstr "%s: 空のファイル"
-
-#: install-info/install-info.c:1109 install-info/install-info.c:1149
+#: install-info/install-info.c:1154 install-info/install-info.c:1194
 #, c-format
 msgid "START-INFO-DIR-ENTRY without matching END-INFO-DIR-ENTRY"
 msgstr "START-INFO-DIR-ENTRY に対応する END-INFO-DIR-ENTRY がありません"
 
-#: install-info/install-info.c:1144
+#: install-info/install-info.c:1189
 #, c-format
 msgid "END-INFO-DIR-ENTRY without matching START-INFO-DIR-ENTRY"
 msgstr "END-INFO-DIR-ENTRY に対応する START-INFO-DIR-ENTRY がありません"
 
-#: install-info/install-info.c:2008 install-info/install-info.c:2018
+#: install-info/install-info.c:2064 install-info/install-info.c:2074
 #, c-format
 msgid "%s: already have dir file: %s\n"
 msgstr "%s: 既に dir ファイル %s があります\n"
 
-#: install-info/install-info.c:2098
+#: install-info/install-info.c:2170
 #, c-format
 msgid "%s: Specify the Info file only once.\n"
 msgstr "%s: Info ファイルは一度だけ指定してください。\n"
 
-#: install-info/install-info.c:2131
+#: install-info/install-info.c:2203
 #, c-format
 msgid "Extra regular expression specified, ignoring `%s'"
 msgstr "余分な正規表現が指定されています。`%s' を無視します"
 
-#: install-info/install-info.c:2143
+#: install-info/install-info.c:2215
 #, c-format
 msgid "Error in regular expression `%s': %s"
 msgstr "正規表現 `%s' にエラーがあります: %s"
 
-#: install-info/install-info.c:2201
+#: install-info/install-info.c:2277
 #, c-format
 msgid "excess command line argument `%s'"
 msgstr "コマンドライン引数が多すぎます `%s'"
 
-#: install-info/install-info.c:2205
+#: install-info/install-info.c:2281
 #, c-format
 msgid "No input file specified; try --help for more information."
 msgstr ""
 "入力ファイルが指定されていません -- 詳しくは --help 付で実行してください。"
 
-#: install-info/install-info.c:2207
+#: install-info/install-info.c:2283
 #, c-format
 msgid "No dir file specified; try --help for more information."
 msgstr ""
 "dir ファイルが指定されていません -- 詳しくは --help 付で実行して下さい。"
 
-#: install-info/install-info.c:2349
+#: install-info/install-info.c:2304
+#, fuzzy, c-format
+msgid "Could not read %s."
+msgstr "  @FILE                   オプションを FILE から読み込む\n"
+
+#: install-info/install-info.c:2451
 #, c-format
 msgid "no info dir entry in `%s'"
 msgstr "`%s' に Info dir 用の項目がありません"
 
-#: install-info/install-info.c:2597
+#: install-info/install-info.c:2699
 #, c-format
 msgid "no entries found for `%s'; nothing deleted"
 msgstr "`%s' 項目が見つかりません -- 何も削除しませんでした"
 
-#: tp/DebugTexinfo/DebugTree.pm:63 tp/Texinfo/Convert/Converter.pm:818
-#: tp/Texinfo/Convert/DocBook.pm:311 tp/Texinfo/Convert/HTML.pm:6511
-#: tp/Texinfo/Convert/HTML.pm:6535 tp/Texinfo/Convert/HTML.pm:6912
-#: tp/Texinfo/Convert/HTML.pm:6970 tp/Texinfo/Convert/HTML.pm:7048
-#: tp/Texinfo/Convert/HTML.pm:7125 tp/Texinfo/Convert/IXIN.pm:293
-#: tp/Texinfo/Convert/Info.pm:93 tp/Texinfo/Convert/Info.pm:191
-#: tp/Texinfo/Convert/Info.pm:217 tp/Texinfo/Convert/Plaintext.pm:490
-#: tp/Texinfo/Convert/TexinfoXML.pm:429
+#: tp/DebugTexinfo/DebugTree.pm:63 tp/Texinfo/Convert/Converter.pm:847
+#: tp/Texinfo/Convert/Converter.pm:885 tp/Texinfo/Convert/Converter.pm:1196
+#: tp/Texinfo/Convert/DocBook.pm:327 tp/Texinfo/Convert/HTML.pm:6573
+#: tp/Texinfo/Convert/HTML.pm:6597 tp/Texinfo/Convert/HTML.pm:6978
+#: tp/Texinfo/Convert/HTML.pm:7037 tp/Texinfo/Convert/HTML.pm:7115
+#: tp/Texinfo/Convert/HTML.pm:7192 tp/Texinfo/Convert/IXIN.pm:293
+#: tp/Texinfo/Convert/Info.pm:295 tp/Texinfo/Convert/Plaintext.pm:547
+#: tp/Texinfo/Convert/TexinfoXML.pm:458
 #, fuzzy, perl-format
 msgid "could not open %s for writing: %s"
 msgstr "%s: --css-file %s を開くことができません"
 
-#: tp/Texinfo/Common.pm:850
+#: tp/Texinfo/Common.pm:862
 msgid "recursion is always allowed"
 msgstr ""
 
-#: tp/Texinfo/Common.pm:851
+#: tp/Texinfo/Common.pm:863
 #, fuzzy
 msgid "arguments are quoted by default"
 msgstr "@quote-arg は廃止されました。引数はデフォルトで引用符でくくられます"
 
-#: tp/Texinfo/Common.pm:1050
+#: tp/Texinfo/Common.pm:866
+msgid ""
+"move your @contents command if you want the contents after the title page"
+msgstr ""
+
+#: tp/Texinfo/Common.pm:869
+msgid ""
+"move your @shortcontents and @contents commands if you want the contents "
+"after the title page"
+msgstr ""
+
+#: tp/Texinfo/Common.pm:1093
 #, perl-format
 msgid "%s is not a valid language code"
 msgstr "%s は有効な言語コードではありません"
 
-#: tp/Texinfo/Common.pm:1055
+#: tp/Texinfo/Common.pm:1098
 #, perl-format
 msgid "%s is not a valid region code"
 msgstr "%s は有効な地域コードではありません"
 
-#: tp/Texinfo/Common.pm:1073
+#: tp/Texinfo/Common.pm:1116
 #, fuzzy, perl-format
 msgid "%s is not a valid split possibility"
 msgstr "%u は妥当な通知 ID ではありません"
 
-#: tp/Texinfo/Common.pm:1096
+#: tp/Texinfo/Common.pm:1139
 #, fuzzy, perl-format
 msgid "could not read %s: %s"
 msgstr "  @FILE                   オプションを FILE から読み込む\n"
 
-#: tp/Texinfo/Common.pm:1114
+#: tp/Texinfo/Common.pm:1158
 #, fuzzy, perl-format
 msgid "error on closing @verbatiminclude file %s: %s"
 msgstr "出力ファイル `%s' を閉じる際にエラーが発生しました"
 
-#: tp/Texinfo/Common.pm:1119 tp/Texinfo/Parser.pm:3170
+#: tp/Texinfo/Common.pm:1164 tp/Texinfo/Parser.pm:3193
 #, fuzzy, perl-format
 msgid "@%s: could not find %s"
 msgstr "@%s: `%s' が見つかりません"
 
-#: tp/Texinfo/Common.pm:1417
-#, fuzzy, perl-format
-msgid "could not open html refs config file %s: %s"
-msgstr "ファイル `%s' を削除できません: %s"
-
-#: tp/Texinfo/Common.pm:1445
-#, fuzzy
-msgid "missing type"
-msgstr "設定ファイルの欠落。"
-
-#: tp/Texinfo/Common.pm:1448
-#, fuzzy, perl-format
-msgid "unrecognized type: %s"
-msgstr "認識できない型です: %s"
-
-#: tp/Texinfo/Common.pm:1465
-#, fuzzy, perl-format
-msgid "error on closing html refs config file %s: %s"
-msgstr "ファイル `%s' を削除できません: %s"
-
-#: tp/Texinfo/Common.pm:1500
+#: tp/Texinfo/Common.pm:1637
 msgid "no node to be renamed"
 msgstr ""
 
-#: tp/Texinfo/Common.pm:1511
+#: tp/Texinfo/Common.pm:1648
 msgid "nodes without a new name at the end of file"
 msgstr ""
 
-#: tp/Texinfo/Common.pm:1521 tp/Texinfo/Parser.pm:840
+#: tp/Texinfo/Common.pm:1658 tp/Texinfo/Parser.pm:899
 #, fuzzy, perl-format
 msgid "could not open %s: %s"
 msgstr "%s: --css-file %s を開くことができません"
 
-#: tp/Texinfo/Common.pm:2008
+#: tp/Texinfo/Common.pm:2178
 #, perl-format
 msgid "could not protect hash character in @%s"
 msgstr ""
 
-#: tp/Texinfo/Convert/Converter.pm:391 tp/Texinfo/Convert/Converter.pm:410
+#: tp/Texinfo/Convert/Converter.pm:387 tp/Texinfo/Convert/Converter.pm:406
 #, fuzzy, perl-format
 msgid "Obsolete variable %s\n"
 msgstr "変数を設定: "
 
-#: tp/Texinfo/Convert/Converter.pm:601
-#, fuzzy, perl-format
-msgid "could not create directories `%s' or `%s': %s"
-msgstr "ディレクトリ `%s' または `%s'を作成できません: %s"
+#: tp/Texinfo/Convert/Converter.pm:786
+#, perl-format
+msgid "%s: output incompatible with split"
+msgstr ""
 
-#: tp/Texinfo/Convert/Converter.pm:609
-#, fuzzy, perl-format
-msgid "could not create directory `%s': %s"
-msgstr "%s/linux シンボリックリンクを作成できませんでした!"
-
-#: tp/Texinfo/Convert/DocBook.pm:347 tp/Texinfo/Convert/HTML.pm:6938
-#: tp/Texinfo/Convert/HTML.pm:6996 tp/Texinfo/Convert/IXIN.pm:915
-#: tp/Texinfo/Convert/Info.pm:150 tp/Texinfo/Convert/Info.pm:176
-#: tp/Texinfo/Convert/Info.pm:207 tp/Texinfo/Convert/Info.pm:270
-#: tp/Texinfo/Convert/TexinfoXML.pm:448 tp/Texinfo/Parser.pm:1942
+#: tp/Texinfo/Convert/Converter.pm:868 tp/Texinfo/Convert/Converter.pm:901
+#: tp/Texinfo/Convert/DocBook.pm:363 tp/Texinfo/Convert/HTML.pm:7004
+#: tp/Texinfo/Convert/HTML.pm:7063 tp/Texinfo/Convert/IXIN.pm:915
+#: tp/Texinfo/Convert/Info.pm:161 tp/Texinfo/Convert/Info.pm:187
+#: tp/Texinfo/Convert/Info.pm:215 tp/Texinfo/Convert/Info.pm:275
+#: tp/Texinfo/Convert/TexinfoXML.pm:477 tp/Texinfo/Parser.pm:1996
 #, fuzzy, perl-format
 msgid "error on closing %s: %s"
 msgstr "%(service)s on %(device)s"
 
-#: tp/Texinfo/Convert/DocBook.pm:899
+#: tp/Texinfo/Convert/Converter.pm:979
+#, fuzzy, perl-format
+msgid "could not create directories `%s' or `%s': %s"
+msgstr "ディレクトリ `%s' または `%s'を作成できません: %s"
+
+#: tp/Texinfo/Convert/Converter.pm:987
+#, fuzzy, perl-format
+msgid "could not create directory `%s': %s"
+msgstr "%s/linux シンボリックリンクを作成できませんでした!"
+
+#: tp/Texinfo/Convert/DocBook.pm:970
 #, fuzzy, perl-format
 msgid "@image file `%s' not found, using `%s'"
 msgstr "@image ファイル `%s' が読めません: %s"
 
-#: tp/Texinfo/Convert/HTML.pm:1678
+#: tp/Texinfo/Convert/DocBook.pm:1084 tp/Texinfo/Parser.pm:5225
+msgid "no argument specified for @U"
+msgstr ""
+
+#: tp/Texinfo/Convert/HTML.pm:1715
 #, fuzzy, perl-format
 msgid "@image file `%s' (for HTML) not found, using `%s'"
 msgstr "@image ファイル `%s' (HTML 用) が読めません: %s"
 
-#: tp/Texinfo/Convert/HTML.pm:2347
+#: tp/Texinfo/Convert/HTML.pm:2399
 #, perl-format
 msgid "raw format %s is not converted"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:4816
+#: tp/Texinfo/Convert/HTML.pm:4629
+#, fuzzy, perl-format
+msgid "could not open html refs config file %s: %s"
+msgstr "ファイル `%s' を削除できません: %s"
+
+#: tp/Texinfo/Convert/HTML.pm:4657
+#, fuzzy
+msgid "missing type"
+msgstr "設定ファイルの欠落。"
+
+#: tp/Texinfo/Convert/HTML.pm:4660
+#, fuzzy, perl-format
+msgid "unrecognized type: %s"
+msgstr "認識できない型です: %s"
+
+#: tp/Texinfo/Convert/HTML.pm:4677
+#, fuzzy, perl-format
+msgid "error on closing html refs config file %s: %s"
+msgstr "ファイル `%s' を削除できません: %s"
+
+#: tp/Texinfo/Convert/HTML.pm:4962
 #, fuzzy
 msgid "string not closed in css file"
 msgstr "文字列の比較に失敗しました"
 
-#: tp/Texinfo/Convert/HTML.pm:4818
+#: tp/Texinfo/Convert/HTML.pm:4964
 #, fuzzy
 msgid "--css-include ended in comment"
 msgstr "%s:%d: --css-include がコメント内で終了しています"
 
-#: tp/Texinfo/Convert/HTML.pm:4820
+#: tp/Texinfo/Convert/HTML.pm:4966
 msgid "@import not finished in css file"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:4846
+#: tp/Texinfo/Convert/HTML.pm:4992
 #, fuzzy, perl-format
 msgid "CSS file %s not found"
 msgstr "css ファイル %s が見つかりません"
 
-#: tp/Texinfo/Convert/HTML.pm:4852
+#: tp/Texinfo/Convert/HTML.pm:4998
 #, fuzzy, perl-format
 msgid "could not open --include-file %s: %s"
 msgstr "%s: --css-file %s を開くことができません"
 
-#: tp/Texinfo/Convert/HTML.pm:4862
+#: tp/Texinfo/Convert/HTML.pm:5008
 #, fuzzy, perl-format
 msgid "error on closing CSS file %s: %s"
 msgstr "ファイルクローズエラー"
 
-#: tp/Texinfo/Convert/HTML.pm:5808 tp/Texinfo/Convert/HTML.pm:5812
+#: tp/Texinfo/Convert/HTML.pm:5870 tp/Texinfo/Convert/HTML.pm:5874
 #, fuzzy, perl-format
 msgid "no htmlxref.cnf entry found for `%s'"
 msgstr "`%s' に対する項目が見つかりません\n"
 
-#: tp/Texinfo/Convert/HTML.pm:6506
+#: tp/Texinfo/Convert/HTML.pm:6568
 #, fuzzy, perl-format
 msgid "error on closing frame file %s: %s"
 msgstr "出力ファイル `%s' を閉じる際にエラーが発生しました"
 
-#: tp/Texinfo/Convert/HTML.pm:6530
+#: tp/Texinfo/Convert/HTML.pm:6592
 #, fuzzy, perl-format
 msgid "error on closing TOC frame file %s: %s"
 msgstr "出力ファイル `%s' を閉じる際にエラーが発生しました"
 
-#: tp/Texinfo/Convert/HTML.pm:6645
+#: tp/Texinfo/Convert/HTML.pm:6707
 #, perl-format
 msgid "handler %s of stage %s priority %s failed"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:6846
+#: tp/Texinfo/Convert/HTML.pm:6912
 msgid "must specify a title with a title command or @top"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:7055
+#: tp/Texinfo/Convert/HTML.pm:7122
 #, fuzzy, perl-format
 msgid "error on closing redirection node file %s: %s"
 msgstr "出力ファイル `%s' を閉じる際にエラーが発生しました"
 
-#: tp/Texinfo/Convert/HTML.pm:7080
+#: tp/Texinfo/Convert/HTML.pm:7147
 #, fuzzy, perl-format
 msgid "old name for `%s' is a node of the document"
 msgstr "このドキュメントでは、このノードの `前' や `上' はありません。"
 
-#: tp/Texinfo/Convert/HTML.pm:7086
+#: tp/Texinfo/Convert/HTML.pm:7153
 #, fuzzy, perl-format
 msgid "file empty for renamed node `%s'"
 msgstr "参照されていないノード `%s'"
 
-#: tp/Texinfo/Convert/HTML.pm:7100
+#: tp/Texinfo/Convert/HTML.pm:7167
 #, perl-format
 msgid "target node (new name for `%s') not in document: %s"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:7132
+#: tp/Texinfo/Convert/HTML.pm:7199
 #, fuzzy, perl-format
 msgid "error on closing renamed node redirection file %s: %s"
 msgstr "出力ファイル `%s' を閉じる際にエラーが発生しました"
 
-#: tp/Texinfo/Convert/HTML.pm:7170
+#: tp/Texinfo/Convert/HTML.pm:7237
 #, fuzzy
 msgid "empty node name"
 msgstr "認識できないエミュレーション名 `%s' です"
 
-#: tp/Texinfo/Convert/HTML.pm:7172 tp/Texinfo/Parser.pm:3517
+#: tp/Texinfo/Convert/HTML.pm:7239 tp/Texinfo/Parser.pm:3542
 #, perl-format
 msgid "syntax for an external node used for `%s'"
 msgstr ""
 
-#: tp/Texinfo/Convert/Info.pm:102
+#: tp/Texinfo/Convert/Info.pm:106
 #, fuzzy
 msgid "document without nodes"
 msgstr "このノードにメニューはありません。"
 
-#: tp/Texinfo/Convert/Info.pm:119
+#: tp/Texinfo/Convert/Info.pm:123
 #, fuzzy
 msgid "document without Top node"
 msgstr "このノードにメニューはありません。"
 
-#: tp/Texinfo/Convert/Info.pm:160
+#: tp/Texinfo/Convert/Info.pm:171
 #, fuzzy, perl-format
 msgid "rename %s failed: %s"
 msgstr "%s: `%s' のアンマウントに失敗\n"
 
-#: tp/Texinfo/Convert/Info.pm:242
+#: tp/Texinfo/Convert/Info.pm:247
 #, perl-format
 msgid "@%s output more than once: %s"
 msgstr ""
 
-#: tp/Texinfo/Convert/Info.pm:357
+#: tp/Texinfo/Convert/Info.pm:379
 #, fuzzy, perl-format
 msgid "@%s outside of any node"
 msgstr "(あらゆるノードの外側)"
 
-#: tp/Texinfo/Convert/Plaintext.pm:1265 tp/Texinfo/Parser.pm:2549
+#: tp/Texinfo/Convert/Info.pm:422
+#, perl-format
+msgid "@node name should not contain `,': %s"
+msgstr ""
+
+#: tp/Texinfo/Convert/Plaintext.pm:1335
+#, perl-format
+msgid "Index entry in @%s with : produces invalid Info: %s"
+msgstr ""
+
+#: tp/Texinfo/Convert/Plaintext.pm:1382 tp/Texinfo/Parser.pm:2568
 #, fuzzy, perl-format
 msgid "entry for index `%s' outside of any node"
 msgstr "`%s' 見出し項目があらゆるノードの外側にあります"
 
-#: tp/Texinfo/Convert/Plaintext.pm:1378
+#: tp/Texinfo/Convert/Plaintext.pm:1496
 #, fuzzy, perl-format
 msgid "error on closing image text file %s: %s"
 msgstr "出力ファイル `%s' を閉じる際にエラーが発生しました"
 
-#: tp/Texinfo/Convert/Plaintext.pm:1383
+#: tp/Texinfo/Convert/Plaintext.pm:1501
 #, perl-format
 msgid "@image file `%s' unreadable: %s"
 msgstr "@image ファイル `%s' が読めません: %s"
 
-#: tp/Texinfo/Convert/Plaintext.pm:1406
+#: tp/Texinfo/Convert/Plaintext.pm:1524
 #, perl-format
 msgid "could not find @image file `%s.txt' nor alternate text"
 msgstr ""
 
-#: tp/Texinfo/Convert/Plaintext.pm:1768
+#: tp/Texinfo/Convert/Plaintext.pm:1932
 msgid ""
 "@strong{Note...} produces a spurious cross-reference in Info; reword to "
 "avoid that"
@@ -2487,301 +2354,331 @@ msgstr ""
 "@strong{Note...} は Info 内に疑似的な相互参照を生成します。使用は避けてくださ"
 "い"
 
-#: tp/Texinfo/Convert/Plaintext.pm:2000
+#: tp/Texinfo/Convert/Plaintext.pm:2162
+#, perl-format
+msgid "@%s cross-reference name should not contain `:'"
+msgstr ""
+
+#: tp/Texinfo/Convert/Plaintext.pm:2194
+#, fuzzy, perl-format
+msgid "@%s node name should not contain `%s'"
+msgstr "%s: --css-file %s を開くことができません"
+
+#: tp/Texinfo/Convert/Plaintext.pm:2227
+#, perl-format
+msgid "@%s node name should not contain `:'"
+msgstr ""
+
+#: tp/Texinfo/Convert/Plaintext.pm:2273
 #, fuzzy, perl-format
 msgid "`.' or `,' must follow @xref, not %s"
 msgstr "`.' または `,' には `%2$c' では無く @%1$s が続かなければいけません。"
 
-#: tp/Texinfo/Convert/Plaintext.pm:2003
+#: tp/Texinfo/Convert/Plaintext.pm:2276
 #, fuzzy
 msgid "`.' or `,' must follow @xref"
 msgstr "`.' または `,' には `%2$c' では無く @%1$s が続かなければいけません。"
 
-#: tp/Texinfo/Parser.pm:824
+#: tp/Texinfo/Convert/Plaintext.pm:3086
+#, fuzzy, perl-format
+msgid "menu entry node name should not contain `%s'"
+msgstr "ノード `%s' にメニューがありません。"
+
+#: tp/Texinfo/Convert/Plaintext.pm:3097
+msgid "menu entry node name should not contain `:'"
+msgstr ""
+
+#: tp/Texinfo/Convert/Plaintext.pm:3113
+#, fuzzy
+msgid "menu entry name should not contain `:'"
+msgstr "ノード `%s' にメニューがありません。"
+
+#: tp/Texinfo/Parser.pm:883
 #, perl-format
 msgid "@%s should only appear at beginning or end of document"
 msgstr ""
 
-#: tp/Texinfo/Parser.pm:1074 tp/Texinfo/Structuring.pm:588
+#: tp/Texinfo/Parser.pm:1125 tp/Texinfo/Structuring.pm:595
 #, perl-format
 msgid "multiple @%s"
 msgstr ""
 
-#: tp/Texinfo/Parser.pm:1108
-#, fuzzy, perl-format
-msgid "bad syntax for @%s argument: %s"
-msgstr "引数 `%3$s' に対して %1$s%2$s が無効です"
-
-#: tp/Texinfo/Parser.pm:1124
+#: tp/Texinfo/Parser.pm:1166
 #, fuzzy, perl-format
 msgid "bad or empty @%s formal argument: %s"
 msgstr "引数 `%3$s' に対して %1$s%2$s が無効です"
 
-#: tp/Texinfo/Parser.pm:1133 tp/Texinfo/Parser.pm:4637
-#: tp/Texinfo/Parser.pm:4663 tp/Texinfo/Parser.pm:5337
-#: tp/Texinfo/Parser.pm:5353 tp/Texinfo/Parser.pm:5368
+#: tp/Texinfo/Parser.pm:1176
+#, fuzzy, perl-format
+msgid "bad syntax for @%s argument: %s"
+msgstr "引数 `%3$s' に対して %1$s%2$s が無効です"
+
+#: tp/Texinfo/Parser.pm:1183 tp/Texinfo/Parser.pm:4707
+#: tp/Texinfo/Parser.pm:4733 tp/Texinfo/Parser.pm:5565
+#: tp/Texinfo/Parser.pm:5578 tp/Texinfo/Parser.pm:5592
 #, perl-format
 msgid "%c%s requires a name"
 msgstr "%c%s には名前が必要です"
 
-#: tp/Texinfo/Parser.pm:1137 tp/Texinfo/Parser.pm:4640
-#: tp/Texinfo/Parser.pm:4666 tp/Texinfo/Parser.pm:5340
-#: tp/Texinfo/Parser.pm:5356 tp/Texinfo/Parser.pm:5371
+#: tp/Texinfo/Parser.pm:1187 tp/Texinfo/Parser.pm:4710
+#: tp/Texinfo/Parser.pm:4736 tp/Texinfo/Parser.pm:5568
+#: tp/Texinfo/Parser.pm:5581 tp/Texinfo/Parser.pm:5595
 #, fuzzy, perl-format
 msgid "bad name for @%s"
-msgstr "@%s に対する誤った引数です"
+msgstr "エミュレーションモード名がありません"
 
-#: tp/Texinfo/Parser.pm:1253
+#: tp/Texinfo/Parser.pm:1305
 #, fuzzy, perl-format
 msgid "@end %s seen before @%s closing brace"
 msgstr "コメント内でファイル終端 (EOF) に達しました"
 
-#: tp/Texinfo/Parser.pm:1257
+#: tp/Texinfo/Parser.pm:1309
 #, fuzzy, perl-format
 msgid "@%s seen before @%s closing brace"
 msgstr "コメント内でファイル終端 (EOF) に達しました"
 
-#: tp/Texinfo/Parser.pm:1262
-#, perl-format
-msgid "%c%s missing close brace"
+#: tp/Texinfo/Parser.pm:1314
+#, fuzzy, perl-format
+msgid "%c%s missing closing brace"
 msgstr "閉じる中括弧のない %c%s"
 
-#: tp/Texinfo/Parser.pm:1266
+#: tp/Texinfo/Parser.pm:1318
 #, perl-format
 msgid "@%s missing closing delimiter sequence: %s}"
 msgstr ""
 
-#: tp/Texinfo/Parser.pm:1388
+#: tp/Texinfo/Parser.pm:1440
 #, perl-format
 msgid "@itemx should not begin @%s"
 msgstr ""
 
-#: tp/Texinfo/Parser.pm:1456
+#: tp/Texinfo/Parser.pm:1508
 msgid "@itemx must follow @item"
 msgstr ""
 
-#: tp/Texinfo/Parser.pm:1624
+#: tp/Texinfo/Parser.pm:1676
 #, perl-format
 msgid "@%s has text but no @item"
 msgstr ""
 
-#: tp/Texinfo/Parser.pm:1655
+#: tp/Texinfo/Parser.pm:1707
 #, perl-format
 msgid "`@end' expected `%s', but saw `%s'"
 msgstr "`@end' には `%s' が必要ですが、`%s' が見つかりました"
 
-#: tp/Texinfo/Parser.pm:1658
+#: tp/Texinfo/Parser.pm:1710
 #, fuzzy, perl-format
 msgid "@%s seen before @end %s"
 msgstr "コメント内でファイル終端 (EOF) に達しました"
 
-#: tp/Texinfo/Parser.pm:1662
+#: tp/Texinfo/Parser.pm:1714
 #, fuzzy, perl-format
 msgid "no matching `%cend %s'"
 msgstr "`%cend %s' との対応が見つかりません"
 
-#: tp/Texinfo/Parser.pm:1688 tp/Texinfo/Parser.pm:4982
-#: tp/Texinfo/Parser.pm:5202
+#: tp/Texinfo/Parser.pm:1738 tp/Texinfo/Parser.pm:5070
+#: tp/Texinfo/Parser.pm:5308
 #, fuzzy, perl-format
 msgid "misplaced %c"
 msgstr "間違った位置に %c があります"
 
-#: tp/Texinfo/Parser.pm:1786 tp/Texinfo/Parser.pm:3129
+#: tp/Texinfo/Parser.pm:1835 tp/Texinfo/Parser.pm:3148
 #, fuzzy, perl-format
 msgid "unmatched `%c%s'"
 msgstr "`%c%s' との対応が見つかりません"
 
-#: tp/Texinfo/Parser.pm:2017
+#: tp/Texinfo/Parser.pm:2072
 #, fuzzy, perl-format
 msgid "macro `%s' called with too many args"
 msgstr "マクロ `%s' 呼び出しの引数が多すぎます"
 
-#: tp/Texinfo/Parser.pm:2039
+#: tp/Texinfo/Parser.pm:2094
 #, fuzzy, perl-format
-msgid "@%s missing close brace"
+msgid "@%s missing closing brace"
 msgstr "設定ファイルの欠落。"
 
-#: tp/Texinfo/Parser.pm:2047
+#: tp/Texinfo/Parser.pm:2102
 #, fuzzy, perl-format
 msgid "macro `%s' declared without argument called with an argument"
 msgstr "マクロ `%s' は引数なしで宣言され、引数をつけて呼び出されました"
 
-#: tp/Texinfo/Parser.pm:2082
+#: tp/Texinfo/Parser.pm:2138
 #, fuzzy, perl-format
 msgid "\\ in @%s expansion followed `%s' instead of parameter name or \\"
 msgstr "後ろに `%s' が続くマクロ展開内でパラメータ名ではなく \\ があります"
 
-#: tp/Texinfo/Parser.pm:2477
+#: tp/Texinfo/Parser.pm:2501
 #, perl-format
 msgid "@%s `%s' previously defined"
 msgstr "@%s `%s' は以前に定義されています"
 
-#: tp/Texinfo/Parser.pm:2482
+#: tp/Texinfo/Parser.pm:2506
 #, fuzzy, perl-format
 msgid "here is the previous definition as @%s"
 msgstr "ここは、`%s' の前の定義です"
 
-#: tp/Texinfo/Parser.pm:2843
+#: tp/Texinfo/Parser.pm:2850
 #, fuzzy, perl-format
 msgid "missing name for @%s"
 msgstr "エミュレーションモード名がありません"
 
-#: tp/Texinfo/Parser.pm:2848
+#: tp/Texinfo/Parser.pm:2855
 #, fuzzy, perl-format
 msgid "missing category for @%s"
 msgstr "設定ファイルの欠落。"
 
-#: tp/Texinfo/Parser.pm:2900
+#: tp/Texinfo/Parser.pm:2890
 #, fuzzy, perl-format
 msgid "unexpected argument on @%s line: %s"
 msgstr "@%s に対する誤った引数です: %s"
 
-#: tp/Texinfo/Parser.pm:2916
+#: tp/Texinfo/Parser.pm:2905
 #, fuzzy
 msgid "empty multitable"
 msgstr "%s: 空のファイル"
 
-#: tp/Texinfo/Parser.pm:2972 tp/Texinfo/Parser.pm:5450
+#: tp/Texinfo/Parser.pm:2959 tp/Texinfo/Parser.pm:5673
 #, fuzzy, perl-format
 msgid "superfluous argument to @%s"
 msgstr "%s: --auto/-a オプションに対して不当な引数\n"
 
-#: tp/Texinfo/Parser.pm:2978 tp/Texinfo/Parser.pm:5472
-#: tp/Texinfo/Parser.pm:5484
+#: tp/Texinfo/Parser.pm:2965 tp/Texinfo/Parser.pm:5694
+#: tp/Texinfo/Parser.pm:5705
 #, fuzzy, perl-format
 msgid "bad argument to @%s"
 msgstr "@%s に対する誤った引数です"
 
-#: tp/Texinfo/Parser.pm:2989
+#: tp/Texinfo/Parser.pm:2976
 #, perl-format
 msgid "%s requires an argument: the formatter for %citem"
 msgstr "%s には引数が必要です: %citem を整形するため"
 
-#: tp/Texinfo/Parser.pm:2994
+#: tp/Texinfo/Parser.pm:2981
 #, perl-format
 msgid "command @%s not accepting argument in brace should not be on @%s line"
 msgstr ""
 
-#: tp/Texinfo/Parser.pm:3029
+#: tp/Texinfo/Parser.pm:3016
 #, fuzzy, perl-format
 msgid "accent command `@%s' not allowed as @%s argument"
 msgstr "%s: オプション `--%s' は引数が不要です\n"
 
-#: tp/Texinfo/Parser.pm:3107 tp/Texinfo/Parser.pm:3246
-#: tp/Texinfo/Parser.pm:5443
+#: tp/Texinfo/Parser.pm:3124 tp/Texinfo/Parser.pm:3277
+#: tp/Texinfo/Parser.pm:5666
 #, fuzzy, perl-format
 msgid "@%s missing argument"
 msgstr "設定ファイルの欠落。"
 
-#: tp/Texinfo/Parser.pm:3119
+#: tp/Texinfo/Parser.pm:3138
 #, fuzzy, perl-format
 msgid "unknown @end %s"
 msgstr "終了インデックス"
 
-#: tp/Texinfo/Parser.pm:3141 tp/Texinfo/Parser.pm:3763
+#: tp/Texinfo/Parser.pm:3161 tp/Texinfo/Parser.pm:3788
 #, fuzzy, perl-format
 msgid "superfluous argument to @%s %s: %s"
 msgstr "%s: --auto/-a オプションに対して不当な引数\n"
 
-#: tp/Texinfo/Parser.pm:3146 tp/Texinfo/Parser.pm:5527
-#: tp/Texinfo/Parser.pm:5572 tp/Texinfo/Parser.pm:5601
-#: tp/Texinfo/Parser.pm:5642 tp/Texinfo/Parser.pm:5720
+#: tp/Texinfo/Parser.pm:3167 tp/Texinfo/Parser.pm:3245
+#: tp/Texinfo/Parser.pm:5755 tp/Texinfo/Parser.pm:5798
+#: tp/Texinfo/Parser.pm:5827 tp/Texinfo/Parser.pm:5868
+#: tp/Texinfo/Parser.pm:5946
 #, fuzzy, perl-format
 msgid "bad argument to @%s: %s"
 msgstr "@%s に対する誤った引数です: %s"
 
-#: tp/Texinfo/Parser.pm:3165
+#: tp/Texinfo/Parser.pm:3188
 #, fuzzy, perl-format
 msgid "@%s: could not open %s: %s"
 msgstr "@%s: %s を開くことができません: %s"
 
-#: tp/Texinfo/Parser.pm:3177
+#: tp/Texinfo/Parser.pm:3200
 #, perl-format
 msgid "encoding `%s' is not a canonical texinfo encoding"
 msgstr ""
 
-#: tp/Texinfo/Parser.pm:3186
+#: tp/Texinfo/Parser.pm:3208
 #, perl-format
 msgid "unrecognized encoding name `%s'"
 msgstr "認識できないエンコード名 `%s' です"
 
-#: tp/Texinfo/Parser.pm:3336
+#: tp/Texinfo/Parser.pm:3364
 #, perl-format
 msgid "@%s after the first element"
 msgstr ""
 
-#: tp/Texinfo/Parser.pm:3343
+#: tp/Texinfo/Parser.pm:3371
 #, fuzzy, perl-format
 msgid "@%s only meaningful on a @multitable line"
 msgstr "`@titlepage' 環境の外側では @%s は意味がありません"
 
-#: tp/Texinfo/Parser.pm:3383
+#: tp/Texinfo/Parser.pm:3408
 #, perl-format
 msgid "@%s should not be associated with @top"
 msgstr ""
 
-#: tp/Texinfo/Parser.pm:3395
+#: tp/Texinfo/Parser.pm:3420
 #, perl-format
 msgid "@node precedes @%s, but parts may not be associated with nodes"
 msgstr ""
 
-#: tp/Texinfo/Parser.pm:3497
+#: tp/Texinfo/Parser.pm:3522
 #, fuzzy, perl-format
 msgid "empty argument in @%s"
 msgstr "コメント内でファイル終端 (EOF) に達しました"
 
-#: tp/Texinfo/Parser.pm:3501
+#: tp/Texinfo/Parser.pm:3526
 #, fuzzy, perl-format
 msgid "empty node name after expansion `%s'"
 msgstr "ノード `%s' にメニューがありません。"
 
-#: tp/Texinfo/Parser.pm:3544
+#: tp/Texinfo/Parser.pm:3569
 #, fuzzy, perl-format
 msgid "empty menu entry name in `%s'"
 msgstr "ノード `%s' にメニューがありません。"
 
-#: tp/Texinfo/Parser.pm:3552
+#: tp/Texinfo/Parser.pm:3577
 #, fuzzy
 msgid "empty node name in menu entry"
 msgstr "認識できないエミュレーション名 `%s' です"
 
-#: tp/Texinfo/Parser.pm:3625
+#: tp/Texinfo/Parser.pm:3650
 #, fuzzy, perl-format
 msgid "@%s should not appear in @%s"
 msgstr "%s: --css-file %s を開くことができません"
 
-#: tp/Texinfo/Parser.pm:3757
-#, perl-format
-msgid "@end %s should only appear at a line beginning"
-msgstr ""
+#: tp/Texinfo/Parser.pm:3782
+#, fuzzy, perl-format
+msgid "@end %s should only appear at the beginning of a line"
+msgstr "行頭までを切り取る"
 
-#: tp/Texinfo/Parser.pm:3780
+#: tp/Texinfo/Parser.pm:3804
 #, perl-format
 msgid "macro `%s' previously defined"
 msgstr "マクロ `%s' は以前に定義されています"
 
-#: tp/Texinfo/Parser.pm:3783
+#: tp/Texinfo/Parser.pm:3807
 #, perl-format
 msgid "here is the previous definition of `%s'"
 msgstr "ここは、`%s' の前の定義です"
 
-#: tp/Texinfo/Parser.pm:3788
+#: tp/Texinfo/Parser.pm:3812
 #, perl-format
 msgid "redefining Texinfo language command: @%s"
 msgstr ""
 
-#: tp/Texinfo/Parser.pm:3837
+#: tp/Texinfo/Parser.pm:3879
 #, fuzzy, perl-format
 msgid "@%s without associated character"
 msgstr "エスケープ文字内でファイル終端 (EOF) に達しました"
 
-#: tp/Texinfo/Parser.pm:3899
+#: tp/Texinfo/Parser.pm:3949
 #, perl-format
 msgid ""
 "@%s defined with zero or more than one argument should be invoked with {}"
 msgstr ""
 
-#: tp/Texinfo/Parser.pm:3923
+#: tp/Texinfo/Parser.pm:3974
 #, fuzzy, perl-format
 msgid ""
 "macro call nested too deeply (set MAX_NESTED_MACROS to override; current "
@@ -2790,424 +2687,444 @@ msgstr ""
 "マクロ呼び出しのネストが深すぎます(MAX_NESTED_MACROS を設定して上限を変更でき"
 "ます; 現在は %d)"
 
-#: tp/Texinfo/Parser.pm:3932
+#: tp/Texinfo/Parser.pm:3983
 #, perl-format
 msgid "recursive call of macro %s is not allowed; use @rmacro if needed"
 msgstr ""
 
-#: tp/Texinfo/Parser.pm:3988
+#: tp/Texinfo/Parser.pm:4038
 #, fuzzy, perl-format
 msgid "accent command `@%s' must not be followed by whitespace"
 msgstr "%s: オプション `--%s' は引数が不要です\n"
 
-#: tp/Texinfo/Parser.pm:3994
+#: tp/Texinfo/Parser.pm:4044
 #, fuzzy, perl-format
 msgid "use braces to give a command as an argument to @%s"
 msgstr "@%s への引数としてコマンドを与えるには、ブレースを使いましょう"
 
-#: tp/Texinfo/Parser.pm:4007 tp/Texinfo/Parser.pm:5103
+#: tp/Texinfo/Parser.pm:4057 tp/Texinfo/Parser.pm:5189
 #, perl-format
 msgid "%c%s expects `i' or `j' as argument, not `%s'"
 msgstr "%c%s は `%s' ではなく、`i' か `j' を引数として必要とします"
 
-#: tp/Texinfo/Parser.pm:4019
+#: tp/Texinfo/Parser.pm:4068
 #, fuzzy, perl-format
 msgid "accent command `@%s' must not be followed by new line"
 msgstr "%s: オプション `--%s' は引数が不要です\n"
 
-#: tp/Texinfo/Parser.pm:4030
+#: tp/Texinfo/Parser.pm:4079
 #, fuzzy, perl-format
 msgid "@%s expected braces"
 msgstr "%c%s には中括弧が予期されます"
 
-#: tp/Texinfo/Parser.pm:4189
+#: tp/Texinfo/Parser.pm:4233
 #, perl-format
 msgid "undefined flag: %s"
 msgstr "定義されていないフラグ: %s"
 
-#: tp/Texinfo/Parser.pm:4192
+#: tp/Texinfo/Parser.pm:4236
 #, fuzzy
 msgid "bad syntax for @value"
 msgstr "引数 `%3$s' に対して %1$s%2$s が無効です"
 
-#: tp/Texinfo/Parser.pm:4199
+#: tp/Texinfo/Parser.pm:4243
 #, perl-format
 msgid "%c%s is obsolete."
 msgstr "%c%s は廃止予定 (または廃止済み) です。"
 
-#: tp/Texinfo/Parser.pm:4202
+#: tp/Texinfo/Parser.pm:4246
 #, perl-format
 msgid "%c%s is obsolete; %s"
 msgstr "%c%s は廃止予定 (または廃止済み) です; %s"
 
-#: tp/Texinfo/Parser.pm:4211
-#, perl-format
-msgid "@%s should only appear at a line beginning"
-msgstr ""
+#: tp/Texinfo/Parser.pm:4255
+#, fuzzy, perl-format
+msgid "@%s should only appear at the beginning of a line"
+msgstr "行頭までを切り取る"
 
-#: tp/Texinfo/Parser.pm:4302
+#: tp/Texinfo/Parser.pm:4346
 #, fuzzy, perl-format
 msgid "@%s not allowed inside `@%s' block"
 msgstr "`@%2$s' ブロックの内側では `@%1$s' は意味がありません"
 
-#: tp/Texinfo/Parser.pm:4311
+#: tp/Texinfo/Parser.pm:4355
 #, perl-format
 msgid "@%s should only appear in heading or footing"
 msgstr ""
 
-#: tp/Texinfo/Parser.pm:4437 tp/Texinfo/Parser.pm:4454
-#: tp/Texinfo/Parser.pm:4504
+#: tp/Texinfo/Parser.pm:4479 tp/Texinfo/Parser.pm:4496
+#: tp/Texinfo/Parser.pm:4546
 #, perl-format
 msgid "@%s not meaningful inside `@%s' block"
 msgstr "`@%2$s' ブロックの内側では `@%1$s' は意味がありません"
 
-#: tp/Texinfo/Parser.pm:4464
+#: tp/Texinfo/Parser.pm:4506
 #, fuzzy, perl-format
 msgid "@%s in empty multitable"
 msgstr "コメント内でファイル終端 (EOF) に達しました"
 
-#: tp/Texinfo/Parser.pm:4470
+#: tp/Texinfo/Parser.pm:4512
 #, fuzzy
 msgid "@tab before @item"
 msgstr "チェック・メニュー項目"
 
-#: tp/Texinfo/Parser.pm:4473
+#: tp/Texinfo/Parser.pm:4515
 #, fuzzy, perl-format
 msgid "too many columns in multitable item (max %d)"
 msgstr "マルチテーブル項目内のカラム数が多すぎます(最大 %d)"
 
-#: tp/Texinfo/Parser.pm:4510
+#: tp/Texinfo/Parser.pm:4552
 msgid "ignoring @tab outside of multitable"
 msgstr "マルチテーブルの外側の @tab を無視します"
 
-#: tp/Texinfo/Parser.pm:4514
+#: tp/Texinfo/Parser.pm:4556
 #, perl-format
 msgid "@%s outside of table or list"
 msgstr ""
 
-#: tp/Texinfo/Parser.pm:4549
+#: tp/Texinfo/Parser.pm:4596
 #, fuzzy, perl-format
 msgid "must be after `@%s' to use `@%s'"
 msgstr "`@%2$s' を使用するためには `@%1$s' 環境でなければいけません"
 
-#: tp/Texinfo/Parser.pm:4591
+#: tp/Texinfo/Parser.pm:4638
 #, perl-format
 msgid "@%s not meaningful outside `@titlepage' and `@quotation' environments"
 msgstr "@%s は `@titlepage' および `@quotation' 環境の外側では意味がありません"
 
-#: tp/Texinfo/Parser.pm:4595
+#: tp/Texinfo/Parser.pm:4642
 msgid "@dircategory after first node"
 msgstr ""
 
-#: tp/Texinfo/Parser.pm:4760
+#: tp/Texinfo/Parser.pm:4847
 #, fuzzy, perl-format
 msgid "region %s inside region %s is not allowed"
 msgstr "脚注に脚注を含めることはできません"
 
-#: tp/Texinfo/Parser.pm:4778
+#: tp/Texinfo/Parser.pm:4864
 msgid "@direntry after first node"
 msgstr ""
 
-#: tp/Texinfo/Parser.pm:4786
+#: tp/Texinfo/Parser.pm:4872
 #, fuzzy, perl-format
 msgid "@%s seen before first @node"
 msgstr "@menu が最初の @node 以前に現れました。`Top' ノードをつくります"
 
-#: tp/Texinfo/Parser.pm:4789
+#: tp/Texinfo/Parser.pm:4875
 msgid ""
 "perhaps your @top node should be wrapped in @ifnottex rather than @ifinfo?"
 msgstr "多分 @top ノードは @ifinfo よりは @ifnottex に覆われるべきでは？"
 
-#: tp/Texinfo/Parser.pm:4851
+#: tp/Texinfo/Parser.pm:4937
 #, perl-format
 msgid "@%s should only appear in math context"
 msgstr ""
 
-#: tp/Texinfo/Parser.pm:4859
+#: tp/Texinfo/Parser.pm:4945
 #, fuzzy, perl-format
 msgid "unknown command `%s'"
 msgstr "不明なコマンド `%s'"
 
-#: tp/Texinfo/Parser.pm:4869
+#: tp/Texinfo/Parser.pm:4955
 #, fuzzy
 msgid "unexpected @"
 msgstr "予期されない @ です"
 
-#: tp/Texinfo/Parser.pm:4898
+#: tp/Texinfo/Parser.pm:4983
 #, fuzzy, perl-format
 msgid "@%s is not meaningful outside `@float' environment"
 msgstr "`@float' 環境の外側では @%s は意味がありません"
 
-#: tp/Texinfo/Parser.pm:4903
+#: tp/Texinfo/Parser.pm:4988
 #, perl-format
 msgid "@%s should be right below `@float'"
 msgstr ""
 
-#: tp/Texinfo/Parser.pm:4911
+#: tp/Texinfo/Parser.pm:4996
 #, perl-format
 msgid "ignoring multiple @%s"
 msgstr ""
 
-#: tp/Texinfo/Parser.pm:5027
+#: tp/Texinfo/Parser.pm:5114
 #, fuzzy, perl-format
 msgid "command @%s does not accept arguments"
 msgstr "%s: オプション `--%s' は引数が不要です\n"
 
-#: tp/Texinfo/Parser.pm:5051
+#: tp/Texinfo/Parser.pm:5138
 #, perl-format
 msgid "command @%s missing a node or external manual argument"
 msgstr ""
 
-#: tp/Texinfo/Parser.pm:5070
+#: tp/Texinfo/Parser.pm:5156
 #, perl-format
 msgid "in @%s empty cross reference name after expansion `%s'"
 msgstr ""
 
-#: tp/Texinfo/Parser.pm:5081
+#: tp/Texinfo/Parser.pm:5167
 #, perl-format
 msgid "in @%s empty cross reference title after expansion `%s'"
 msgstr ""
 
-#: tp/Texinfo/Parser.pm:5094
+#: tp/Texinfo/Parser.pm:5180
 msgid "@image missing filename argument"
 msgstr "@image にファイル名が与えられていません"
 
-#: tp/Texinfo/Parser.pm:5124
+#: tp/Texinfo/Parser.pm:5211
 #, fuzzy, perl-format
 msgid "@%s missing first argument"
 msgstr "設定ファイルの欠落。"
 
-#: tp/Texinfo/Parser.pm:5246
+#: tp/Texinfo/Parser.pm:5230
+#, fuzzy, perl-format
+msgid "non-hex digits in argument for @U: %s"
+msgstr "@%s に対する誤った引数です: %s"
+
+#: tp/Texinfo/Parser.pm:5236
+#, perl-format
+msgid "fewer than four hex digits in argument for @U: %s"
+msgstr ""
+
+#: tp/Texinfo/Parser.pm:5253
+#, perl-format
+msgid "argument for @U exceeds Unicode maximum 0x10FFFF: %s"
+msgstr ""
+
+#: tp/Texinfo/Parser.pm:5448
 #, fuzzy
 msgid "superfluous arguments for node"
 msgstr "%2$s に対する引数 %1$s が曖昧です"
 
-#: tp/Texinfo/Parser.pm:5285
+#: tp/Texinfo/Parser.pm:5498
 #, fuzzy, perl-format
 msgid "expected @end %s"
 msgstr "終了インデックス"
 
-#: tp/Texinfo/Parser.pm:5384
+#: tp/Texinfo/Parser.pm:5607
 #, fuzzy, perl-format
 msgid "@%s should only accept a @-command as argument, not `%s'"
 msgstr "@%s への引数としてコマンドを与えるには、ブレースを使いましょう"
 
-#: tp/Texinfo/Parser.pm:5394
+#: tp/Texinfo/Parser.pm:5617
 #, fuzzy, perl-format
 msgid "remaining argument on @%s line: %s"
 msgstr "@%s に対する誤った引数です: %s"
 
-#: tp/Texinfo/Parser.pm:5467
+#: tp/Texinfo/Parser.pm:5689
 #, fuzzy, perl-format
 msgid "environment command %s as argument to @%s"
 msgstr "@%s への引数としてコマンドを与えるには、ブレースを使いましょう"
 
-#: tp/Texinfo/Parser.pm:5489
+#: tp/Texinfo/Parser.pm:5710
 #, perl-format
 msgid "empty @%s"
 msgstr ""
 
-#: tp/Texinfo/Parser.pm:5497
+#: tp/Texinfo/Parser.pm:5718
 #, fuzzy, perl-format
 msgid "column fraction not a number: %s"
 msgstr "iconv 関数が使えません"
 
-#: tp/Texinfo/Parser.pm:5506
+#: tp/Texinfo/Parser.pm:5727
 #, fuzzy, perl-format
 msgid "@sp arg must be numeric, not `%s'"
 msgstr "%s: %s 引数は `%s' ではなくて、数値でなければなりません。\n"
 
-#: tp/Texinfo/Parser.pm:5515
+#: tp/Texinfo/Parser.pm:5736
 #, fuzzy, perl-format
 msgid "reserved index name %s"
 msgstr "認識できないエミュレーション名 `%s' です"
 
-#: tp/Texinfo/Parser.pm:5534
+#: tp/Texinfo/Parser.pm:5762
 #, fuzzy, perl-format
 msgid "unknown source index in @%s: %s"
 msgstr "不明なエスケープ '\\%c' が文字列内にあります。無視されました"
 
-#: tp/Texinfo/Parser.pm:5537
+#: tp/Texinfo/Parser.pm:5765
 #, fuzzy, perl-format
 msgid "unknown destination index in @%s: %s"
 msgstr "不明な索引 `%s' です"
 
-#: tp/Texinfo/Parser.pm:5567
+#: tp/Texinfo/Parser.pm:5793
 #, perl-format
 msgid "@%s leads to a merging of %s in itself, ignoring"
 msgstr ""
 
-#: tp/Texinfo/Parser.pm:5580
+#: tp/Texinfo/Parser.pm:5806
 #, fuzzy, perl-format
 msgid "unknown index `%s' in @printindex"
 msgstr "@printindex に不明な見出し `%s' があります"
 
-#: tp/Texinfo/Parser.pm:5586
+#: tp/Texinfo/Parser.pm:5812
 #, perl-format
 msgid "printing an index `%s' merged in another one `%s'"
 msgstr ""
 
-#: tp/Texinfo/Parser.pm:5594
+#: tp/Texinfo/Parser.pm:5820
 #, perl-format
 msgid "printindex before document beginning: @printindex %s"
 msgstr ""
 
-#: tp/Texinfo/Parser.pm:5610
+#: tp/Texinfo/Parser.pm:5836
 #, fuzzy, perl-format
 msgid "@%s arg must be `top' or `bottom', not `%s'"
 msgstr "%s: %s 引数は `%s' ではなくて、数値でなければなりません。\n"
 
-#: tp/Texinfo/Parser.pm:5618
+#: tp/Texinfo/Parser.pm:5844
 #, perl-format
 msgid "Only @%s 10 or 11 is supported, not `%s'"
 msgstr "@%s 10 または 11 がサポートされています。`%s' はサポートされていません"
 
-#: tp/Texinfo/Parser.pm:5626
+#: tp/Texinfo/Parser.pm:5852
 #, fuzzy, perl-format
 msgid "@%s arg must be `separate' or `end', not `%s'"
 msgstr ""
 "%s: --footnote-style 引数は `%s' ではなく、`separate' 又は `end' でなければ\n"
 "    なりません。\n"
 
-#: tp/Texinfo/Parser.pm:5634
+#: tp/Texinfo/Parser.pm:5860
 #, fuzzy, perl-format
 msgid "@%s arg must be `on', `off' or `odd', not `%s'"
 msgstr "%s: %s 引数は `%s' ではなくて、数値でなければなりません。\n"
 
-#: tp/Texinfo/Parser.pm:5652 tp/Texinfo/Parser.pm:5657
+#: tp/Texinfo/Parser.pm:5878 tp/Texinfo/Parser.pm:5883
 #, fuzzy, perl-format
 msgid "@paragraphindent arg must be numeric/`none'/`asis', not `%s'"
 msgstr ""
 "%s: --paragraph-indent 引数は `%s' ではなく、数値/`none'/`asis' でなければ\n"
 "    なりません。\n"
 
-#: tp/Texinfo/Parser.pm:5665
+#: tp/Texinfo/Parser.pm:5891
 #, fuzzy, perl-format
 msgid "@firstparagraphindent arg must be `none' or `insert', not `%s'"
 msgstr ""
 "%s: --paragraph-indent 引数は `%s' ではなく、数値/`none'/`asis' でなければ\n"
 "    なりません。\n"
 
-#: tp/Texinfo/Parser.pm:5675
+#: tp/Texinfo/Parser.pm:5901
 #, fuzzy, perl-format
 msgid "@exampleindent arg must be numeric/`asis', not `%s'"
 msgstr ""
 "%s: --paragraph-indent 引数は `%s' ではなく、数値/`none'/`asis' でなければ\n"
 "    なりません。\n"
 
-#: tp/Texinfo/Parser.pm:5686
+#: tp/Texinfo/Parser.pm:5913
 #, fuzzy, perl-format
 msgid "expected @%s on or off, not `%s'"
 msgstr "@%s は on または off が予期されます。`%s' ではありません"
 
-#: tp/Texinfo/Parser.pm:5696
+#: tp/Texinfo/Parser.pm:5922
 #, perl-format
 msgid "@kbdinputstyle arg must be `code'/`example'/`distinct', not `%s'"
 msgstr ""
 
-#: tp/Texinfo/Parser.pm:5704
+#: tp/Texinfo/Parser.pm:5930
 #, fuzzy, perl-format
 msgid "@allowcodebreaks arg must be `true' or `false', not `%s'"
 msgstr ""
 "%s: --footnote-style 引数は `%s' ではなく、`separate' 又は `end' でなければ\n"
 "    なりません。\n"
 
-#: tp/Texinfo/Parser.pm:5712
+#: tp/Texinfo/Parser.pm:5938
 #, fuzzy, perl-format
 msgid "@urefbreakstyle arg must be `after'/`before'/`none', not `%s'"
 msgstr ""
 "%s: --footnote-style 引数は `%s' ではなく、`separate' 又は `end' でなければ\n"
 "    なりません。\n"
 
-#: tp/Texinfo/Structuring.pm:231
+#: tp/Texinfo/Structuring.pm:216
 #, perl-format
 msgid "raising the section level of @%s which is too low"
 msgstr ""
 
-#: tp/Texinfo/Structuring.pm:263
+#: tp/Texinfo/Structuring.pm:248
 #, perl-format
 msgid "no chapter-level command before @%s"
 msgstr ""
 
-#: tp/Texinfo/Structuring.pm:268
+#: tp/Texinfo/Structuring.pm:253
 #, perl-format
 msgid "lowering the section level of @%s appearing after a lower element"
 msgstr ""
 
-#: tp/Texinfo/Structuring.pm:347
+#: tp/Texinfo/Structuring.pm:342
 #, fuzzy, perl-format
 msgid "no sectioning command associated with @%s"
 msgstr "ホスト名にアドレスが割り当てられていません"
 
-#: tp/Texinfo/Structuring.pm:538 tp/Texinfo/Structuring.pm:1319
+#: tp/Texinfo/Structuring.pm:491
+#, fuzzy, perl-format
+msgid "@%s not empty"
+msgstr "コメント内でファイル終端 (EOF) に達しました"
+
+#: tp/Texinfo/Structuring.pm:547 tp/Texinfo/Structuring.pm:1325
 #, fuzzy, perl-format
 msgid "@%s reference to nonexistent node `%s'"
 msgstr ""
 "%s は存在しないノード `%s' を参照しています (正しくないセクション付けをしてい"
 "るかもしれません?)"
 
-#: tp/Texinfo/Structuring.pm:551
+#: tp/Texinfo/Structuring.pm:558
 #, fuzzy, perl-format
 msgid "@%s entry node name `%s' different from %s name `%s'"
 msgstr "名前の取得に失敗しました: %s"
 
-#: tp/Texinfo/Structuring.pm:656
+#: tp/Texinfo/Structuring.pm:663
 #, perl-format
 msgid "unreferenced node `%s'"
 msgstr "参照されていないノード `%s'"
 
-#: tp/Texinfo/Structuring.pm:702
+#: tp/Texinfo/Structuring.pm:706
 #, perl-format
 msgid "node `%s' is %s for `%s' in sectioning but not in menu"
 msgstr ""
 
-#: tp/Texinfo/Structuring.pm:709
+#: tp/Texinfo/Structuring.pm:713
 #, perl-format
 msgid "node %s `%s' in menu `%s' and in sectioning `%s' differ"
 msgstr ""
 
-#: tp/Texinfo/Structuring.pm:727
+#: tp/Texinfo/Structuring.pm:731
 #, perl-format
 msgid "node `%s' is %s for `%s' in menu but not in sectioning"
 msgstr ""
 
-#: tp/Texinfo/Structuring.pm:781
+#: tp/Texinfo/Structuring.pm:786
 #, perl-format
 msgid "%s pointer `%s' (for node `%s') different from %s name `%s'"
 msgstr ""
 
-#: tp/Texinfo/Structuring.pm:808
+#: tp/Texinfo/Structuring.pm:810
 #, perl-format
 msgid "%s reference to nonexistent `%s'"
 msgstr "%s は存在しない `%s' を参照しています"
 
-#: tp/Texinfo/Structuring.pm:827
+#: tp/Texinfo/Structuring.pm:829
 #, fuzzy, perl-format
 msgid "node `%s' lacks menu item for `%s' despite being its Up target"
 msgstr ""
 "ノード `%s' には 上位項目があるのに、`%s' へのメニューアイテムを欠いています"
 
-#: tp/Texinfo/Structuring.pm:835
+#: tp/Texinfo/Structuring.pm:837
 #, perl-format
 msgid "for `%s', up in menu `%s' and up `%s' don't match"
 msgstr ""
 
-#: tp/Texinfo/Structuring.pm:1331
+#: tp/Texinfo/Structuring.pm:1338
 #, fuzzy, perl-format
 msgid "@%s to `%s', different from %s name `%s'"
 msgstr "名前の取得に失敗しました: %s"
 
-#: tp/Texinfo/Structuring.pm:1997
+#: tp/Texinfo/Structuring.pm:2067
 #, fuzzy, perl-format
 msgid "empty index key in @%s"
 msgstr "コメント内でファイル終端 (EOF) に達しました"
 
-#: tp/init/chm.pm:220 tp/init/chm.pm:276 tp/init/chm.pm:347
+#: tp/init/chm.pm:221 tp/init/chm.pm:277 tp/init/chm.pm:348
 #, fuzzy, perl-format
 msgid "chm.pm: could not open %s for writing: %s\n"
 msgstr "%s: --css-file %s を開くことができません"
 
-#: tp/init/chm.pm:266 tp/init/chm.pm:337 tp/init/chm.pm:398
+#: tp/init/chm.pm:267 tp/init/chm.pm:338 tp/init/chm.pm:399
 #, fuzzy, perl-format
 msgid "chm.pm: error on closing %s: %s"
 msgstr "%(service)s on %(device)s"
@@ -3282,7 +3199,7 @@ msgstr "%s: --css-file %s を開くことができません"
 #: tp/init/tex4ht.pm:123 tp/init/tex4ht.pm:267
 #, fuzzy, perl-format
 msgid "tex4ht.pm: could not open %s: %s"
-msgstr "@%s: %s を開くことができません: %s"
+msgstr "libnotify の初期化に失敗しました"
 
 #: tp/init/tex4ht.pm:219
 #, fuzzy, perl-format
@@ -3300,9 +3217,9 @@ msgid "tex4ht.pm: output file missing: %s"
 msgstr "設定ファイルの欠落。"
 
 #: tp/init/tex4ht.pm:260
-#, fuzzy, perl-format
+#, perl-format
 msgid "tex4ht.pm: command failed: %s"
-msgstr "%s: `%s' のアンマウントに失敗\n"
+msgstr ""
 
 #: tp/init/tex4ht.pm:294
 #, perl-format
@@ -3317,9 +3234,9 @@ msgid ""
 msgstr ""
 
 #: tp/init/tex4ht.pm:321
-#, fuzzy, perl-format
+#, perl-format
 msgid "tex4ht.pm: output has no HTML item for @%s %s"
-msgstr "設定ファイルの欠落。"
+msgstr ""
 
 #: tp/init/tex4ht.pm:336
 #, perl-format
@@ -3328,58 +3245,59 @@ msgid ""
 "items found in the document for @%s"
 msgstr ""
 
-#: tp/texi2any.pl:379
+#: tp/texi2any.pl:383
 #, perl-format
 msgid "error loading %s: %s\n"
 msgstr "%sの読込み中にエラーが発生しました: %s\n"
 
-#: tp/texi2any.pl:392
+#: tp/texi2any.pl:396
 #, fuzzy, perl-format
 msgid "%s: unknown variable %s"
 msgstr "不明なシグナル %d"
 
-#: tp/texi2any.pl:396
+#: tp/texi2any.pl:400
 #, fuzzy, perl-format
 msgid "%s: obsolete variable %s\n"
 msgstr "変数を設定: "
 
-#: tp/texi2any.pl:411
+#: tp/texi2any.pl:415
 #, fuzzy, perl-format
 msgid "%s: unknown variable %s\n"
 msgstr "不明なシグナル %d"
 
-#: tp/texi2any.pl:415
+#: tp/texi2any.pl:419
 #, fuzzy, perl-format
 msgid "obsolete variable %s\n"
 msgstr "変数を設定: "
 
-#: tp/texi2any.pl:480
+#: tp/texi2any.pl:484
 #, fuzzy, perl-format
 msgid "could not read init file %s"
 msgstr "  @FILE                   オプションを FILE から読み込む\n"
 
-#: tp/texi2any.pl:640
+#: tp/texi2any.pl:647
 #, fuzzy, perl-format
 msgid "ignoring unrecognized TEXINFO_OUTPUT_FORMAT value `%s'\n"
 msgstr "%s: 認識できない TEXINFO_OUTPUT_FORMAT の値 `%s' を無視しています。\n"
 
-#: tp/texi2any.pl:718
-msgid "Usage: makeinfo [OPTION]... TEXINFO-FILE...\n"
-msgstr "使用法: makeinfo [OPTION]... TEXINFO-FILE...\n"
+#: tp/texi2any.pl:730
+#, fuzzy, perl-format
+msgid "Usage: %s [OPTION]... TEXINFO-FILE...\n"
+msgstr "使用法: %s [OPTION]... FILE...\n"
 
-#: tp/texi2any.pl:719
-msgid "  or:  texi2any [OPTION]... TEXINFO-FILE...\n"
-msgstr " または: texi2any [OPTION]... TEXINFO-FILE...\n"
-
-#: tp/texi2any.pl:721
+#: tp/texi2any.pl:733
+#, fuzzy
 msgid ""
 "Translate Texinfo source documentation to various other formats, by default\n"
 "Info files suitable for reading online with Emacs or standalone GNU Info.\n"
+"\n"
+"This program is commonly installed as both `makeinfo' and `texi2any';\n"
+"the behavior is identical, and does not depend on the installed name.\n"
 msgstr ""
 "Texinfo ソース文書を様々な形式で読めるように変換します。デフォルトでは\n"
 "オンラインで Emacs や単独の GNU Info で読むのに適した Info ファイルです。\n"
 
-#: tp/texi2any.pl:724
+#: tp/texi2any.pl:739
 #, fuzzy, perl-format
 msgid ""
 "General options:\n"
@@ -3393,7 +3311,7 @@ msgid ""
 "      --conf-dir=DIR          search also for initialization files in DIR.\n"
 "      --init-file=FILE        load FILE to modify the default behavior.\n"
 "  -c, --set-customization-variable VAR=VAL  set customization variable VAR \n"
-"                                to VAL.\n"
+"                                to value VAL.\n"
 "  -v, --verbose               explain what is being done.\n"
 "      --version               display version information and exit.\n"
 msgstr ""
@@ -3414,14 +3332,16 @@ msgstr ""
 "  -v, --verbose               行なわれる事を説明する。\n"
 "      --version               バージョン情報を表示して終了する。\n"
 
-#: tp/texi2any.pl:739
+#: tp/texi2any.pl:755
+#, fuzzy
 msgid ""
 "Output format selection (default is to produce Info):\n"
 "      --docbook               output Docbook XML rather than Info.\n"
 "      --html                  output HTML rather than Info.\n"
 "      --plaintext             output plain text rather than Info.\n"
 "      --xml                   output Texinfo XML rather than Info.\n"
-"      --dvi, --dvipdf, --ps, --pdf  call texi2dvi to generate given output.\n"
+"      --dvi, --dvipdf, --ps, --pdf  call texi2dvi to generate given output,\n"
+"                                after checking validity of TEXINFO-FILE.\n"
 msgstr ""
 "出力形式の選択 (デフォルトは Info を生成):\n"
 "      --docbook               Info ではなく Docbook XML を出力する。\n"
@@ -3431,7 +3351,7 @@ msgstr ""
 "      --dvi, --dvipdf, --ps, --pdf  texi2dvi を呼び出して指定された出力を生成"
 "する。\n"
 
-#: tp/texi2any.pl:747
+#: tp/texi2any.pl:763
 #, fuzzy
 msgid ""
 "General output options:\n"
@@ -3444,7 +3364,7 @@ msgid ""
 "                                or from HTML (thus producing shorter "
 "output).\n"
 "                                Also, if producing Info, write to\n"
-"                                standard output by default \n"
+"                                standard output by default.\n"
 "      --no-split              suppress any splitting of the output;\n"
 "                                generate only one output file.\n"
 "      --[no-]number-sections  output chapter and sectioning numbers;\n"
@@ -3474,7 +3394,7 @@ msgstr ""
 "  -o, --output=FILE           FILE へ出力する (分割 HTML の場合ディレクト"
 "リ)。\n"
 
-#: tp/texi2any.pl:767
+#: tp/texi2any.pl:783
 #, perl-format
 msgid ""
 "Options for Info and plain text:\n"
@@ -3514,7 +3434,7 @@ msgstr ""
 "      --split-size=NUM        Info ファイルをサイズ NUM で分割する (default "
 "%d)。\n"
 
-#: tp/texi2any.pl:784
+#: tp/texi2any.pl:800
 msgid ""
 "Options for HTML:\n"
 "      --css-include=FILE      include FILE in HTML <style> output;\n"
@@ -3541,23 +3461,25 @@ msgstr ""
 "成する;\n"
 "                                デフォルトでは分割時にのみ設定される。\n"
 
-#: tp/texi2any.pl:795
+#: tp/texi2any.pl:811
 msgid ""
 "Options for XML and Docbook:\n"
 "      --output-indent=VAL     does nothing, retained for compatibility.\n"
 msgstr ""
 
-#: tp/texi2any.pl:798
+#: tp/texi2any.pl:814
 msgid ""
 "Options for DVI/PS/PDF:\n"
 "      --Xopt=OPT              pass OPT to texi2dvi; can be repeated.\n"
 msgstr ""
 
-#: tp/texi2any.pl:801
+#: tp/texi2any.pl:817
+#, fuzzy
 msgid ""
 "Input file options:\n"
 "      --commands-in-node-names  does nothing, retained for compatibility.\n"
 "  -D VAR                        define the variable VAR, as with @set.\n"
+"  -D 'VAR VAL'                  define VAR to VAL (one shell argument).\n"
 "  -I DIR                        append DIR to the @include search path.\n"
 "  -P DIR                        prepend DIR to the @include search path.\n"
 "  -U VAR                        undefine the variable VAR, as with @clear.\n"
@@ -3569,7 +3491,7 @@ msgstr ""
 "  -P DIR                         @include 探索パスの先頭に DIR を挿入する。\n"
 "  -U VAR                         変数 VAR を未定義にする。@clear と同じ。\n"
 
-#: tp/texi2any.pl:808
+#: tp/texi2any.pl:825
 #, fuzzy
 msgid ""
 "Conditional processing in input:\n"
@@ -3611,7 +3533,7 @@ msgstr ""
 "  また、--no-ifFORMAT オプションを指定すると @ifnotFORMAT テキストを処理す"
 "る。\n"
 
-#: tp/texi2any.pl:825
+#: tp/texi2any.pl:842
 msgid ""
 "  The defaults for the @if... conditionals depend on the output format:\n"
 "  if generating Docbook, --ifdocbook is on and the others are off;\n"
@@ -3627,7 +3549,7 @@ msgstr ""
 "  平文テキストを生成する場合、--ifplaintext が有効で、他は無効になります。\n"
 "  XML を生成する場合、--ifxml が有効で、他は無効になります。\n"
 
-#: tp/texi2any.pl:832
+#: tp/texi2any.pl:849
 #, fuzzy
 msgid ""
 "Examples:\n"
@@ -3663,1786 +3585,412 @@ msgstr ""
 "  makeinfo --no-split foo.texi           大きさにかかわらず一つの Info ファイ"
 "ルに書き込む\n"
 
-#: tp/texi2any.pl:879
+#: tp/texi2any.pl:896
 #, perl-format
 msgid "%s: --footnote-style arg must be `separate' or `end', not `%s'.\n"
 msgstr ""
 "%s: --footnote-style 引数は `%s' ではなく、`separate' 又は `end' でなければ\n"
 "    なりません。\n"
 
-#: tp/texi2any.pl:961
+#: tp/texi2any.pl:987
 #, perl-format
 msgid "%s: --paragraph-indent arg must be numeric/`none'/`asis', not `%s'.\n"
 msgstr ""
 "%s: --paragraph-indent 引数は `%s' ではなく、数値/`none'/`asis' でなければ\n"
 "    なりません。\n"
 
-#: tp/texi2any.pl:1038
+#: tp/texi2any.pl:1064
 #, fuzzy, perl-format
 msgid "%s: when generating %s, only one input FILE may be specified with -o\n"
 msgstr "%s を生成するときに、-o には入力ファイルを１つだけ指定します。"
 
-#: tp/texi2any.pl:1042
+#: tp/texi2any.pl:1068
 msgid "--Xopt option without printed output"
 msgstr ""
 
-#: tp/texi2any.pl:1052
+#: tp/texi2any.pl:1083
 #, fuzzy, perl-format
 msgid "unknown tree transformation %s"
 msgstr "不明なエスケープ '\\%c' が文字列内にあります。無視されました"
 
-#: tp/texi2any.pl:1059
+#: tp/texi2any.pl:1090
 #, perl-format
 msgid "ignoring splitting for format %s"
 msgstr ""
 
-#: tp/texi2any.pl:1109
+#: tp/texi2any.pl:1150
 #, perl-format
 msgid "%s: missing file argument.\n"
 msgstr "%s: ファイル引数を忘れていますよ\n"
 
-#: tp/texi2any.pl:1110
+#: tp/texi2any.pl:1151
 #, perl-format
 msgid "Try `%s --help' for more information.\n"
 msgstr "詳しくは `%s --help' を実行してください。\n"
 
-#: tp/texi2any.pl:1181
+#: tp/texi2any.pl:1239
 msgid "fill_gaps_in_sectioning transformation return no result. No section?"
 msgstr ""
 
-#: tp/texi2any.pl:1203
+#: tp/texi2any.pl:1262
 #, fuzzy, perl-format
 msgid "error on closing macro expand file %s: %s\n"
 msgstr "出力ファイル `%s' を閉じる際にエラーが発生しました"
 
-#: tp/texi2any.pl:1209
+#: tp/texi2any.pl:1268
 #, fuzzy, perl-format
 msgid "could not open %s for writing: %s\n"
 msgstr "%s: --css-file %s を開くことができません"
 
-#: tp/texi2any.pl:1234
+#: tp/texi2any.pl:1293
 msgid ""
 "insert_nodes_for_sectioning_commands transformation return no result. No "
 "section?"
 msgstr ""
 
-#: tp/texi2any.pl:1299 tp/texi2any.pl:1375
+#: tp/texi2any.pl:1366 tp/texi2any.pl:1442
 #, fuzzy, perl-format
 msgid "%s: error on closing %s: %s\n"
 msgstr "%(service)s on %(device)s"
 
-#: tp/texi2any.pl:1322 tp/texi2any.pl:1356
+#: tp/texi2any.pl:1389 tp/texi2any.pl:1423
 #, fuzzy, perl-format
 msgid "%s: error on closing internal links file %s: %s\n"
 msgstr "出力ファイル `%s' を閉じる際にエラーが発生しました"
 
-#: tp/texi2any.pl:1328 tp/texi2any.pl:1362
+#: tp/texi2any.pl:1395 tp/texi2any.pl:1429
 #, fuzzy, perl-format
 msgid "%s: could not open %s for writing: %s\n"
 msgstr "%s: --css-file %s を開くことができません"
 
-#: util/texindex.c:223
-msgid "display this help and exit"
-msgstr "このヘルプを表示して終了する"
+#~ msgid "Insert this character"
+#~ msgstr "この文字を挿入する"
 
-#: util/texindex.c:225
-msgid "send output to FILE"
-msgstr "出力を FILE に送る"
+#~ msgid "No index entries."
+#~ msgstr "見出し項目がありません"
 
-#: util/texindex.c:227
-msgid "display version information and exit"
-msgstr "バージョン情報を表示して終了する"
-
-#: util/texindex.c:237
-#, c-format
-msgid "Usage: %s [OPTION]... FILE...\n"
-msgstr "使用法: %s [OPTION]... FILE...\n"
-
-#: util/texindex.c:238
-#, c-format
-msgid "Generate a sorted index for each TeX output FILE.\n"
-msgstr "各 TeX 出力の FILE に対するソート済み索引を生成します。\n"
-
-#: util/texindex.c:241
-#, c-format
-msgid "Usually FILE... is specified as `foo.%c%c' for a document `foo.texi'.\n"
-msgstr "通常 FILE... は `foo.texi' 文書に対して`foo.%c%c' として指定します。\n"
-
-#: util/texindex.c:243
-#, c-format
-msgid ""
-"\n"
-"Options:\n"
-msgstr ""
-"\n"
-"オプション:\n"
-
-#: util/texindex.c:743
-#, c-format
-msgid "failure reopening %s"
-msgstr "%s のを再度開くのに失敗しました"
-
-#: util/texindex.c:758 util/texindex.c:786
-#, c-format
-msgid "%s: not a texinfo index file"
-msgstr "%s: texinfo の索引ファイルではありません"
-
-#: util/texindex.c:993
-#, c-format
-msgid "No page number in %s"
-msgstr "%s にページ番号がありません"
-
-#: util/texindex.c:1066
-#, c-format
-msgid "entry %s follows an entry with a secondary name"
-msgstr "%s 項目に二つ目の項目名が続いています"
-
-#, fuzzy
-#~ msgid "tex4ht.pm: could not open %s"
-#~ msgstr "@%s: %s を開くことができません: %s"
-
-#, fuzzy
-#~ msgid "menu reference to nonexistent node `%s'"
-#~ msgstr "参照されていないノード `%s'"
-
-#, fuzzy
-#~ msgid "Can't read file %s: %s"
-#~ msgstr "  @FILE                   オプションを FILE から読み込む\n"
-
-#~ msgid "%s:%d: warning: %s\n"
-#~ msgstr "%s:%d: 警告: %s\n"
-
-#~ msgid "warning: %s\n"
-#~ msgstr "警告: %s\n"
-
-#, fuzzy
-#~ msgid "chm.pm:%s: Cannot open for writing: %s\n"
-#~ msgstr "書込み用バックアップファイル\"%s\"を開くことができません"
-
-#, fuzzy
-#~ msgid "tex4ht error opening %s: %s"
-#~ msgstr "libnotify の初期化に失敗しました"
-
-#, fuzzy
-#~ msgid "chdir to %s failed"
-#~ msgstr "名前の取得に失敗しました: %s"
-
-#, fuzzy
-#~ msgid "Node `%s' that is to be renamed exists"
-#~ msgstr "見出し `%s' は既に存在します"
-
-#~ msgid "%s: option `%s' is ambiguous\n"
-#~ msgstr "%s: オプション `%s' は曖昧です\n"
-
-#~ msgid "%s: option `%c%s' doesn't allow an argument\n"
-#~ msgstr "%s: オプション `%c%s' は引数が不要です\n"
-
-#~ msgid "%s: option `%s' requires an argument\n"
-#~ msgstr "%s: オプション `%s' には、引数が必要です\n"
-
-#~ msgid "%s: unrecognized option `%c%s'\n"
-#~ msgstr "%s: `%c%s' は認識できないオプションです\n"
-
-#~ msgid "%s: illegal option -- %c\n"
-#~ msgstr "%s: 不正なオプション -- %c\n"
-
-#~ msgid "%s: invalid option -- %c\n"
-#~ msgstr "%s: 無効なオプション -- %c\n"
-
-#~ msgid "%s: option requires an argument -- %c\n"
-#~ msgstr "%s: オプションは引数を要求します -- %c\n"
-
-#~ msgid "%s: option `-W %s' is ambiguous\n"
-#~ msgstr "%s: `-W %s' オプションが曖昧です\n"
-
-#~ msgid "%s: option `-W %s' doesn't allow an argument\n"
-#~ msgstr "%s: `-W %s' オプションには引数が不要です\n"
-
-#~ msgid "One completion:\n"
-#~ msgstr "1 つの補完:\n"
-
-#~ msgid "more "
-#~ msgstr "これ以上の"
-
-#~ msgid "ferror on stdout\n"
-#~ msgstr "標準出力で ferror が発生しました\n"
-
-#~ msgid "fflush error on stdout\n"
-#~ msgstr "標準出力で fflush エラーが発生しました\n"
-
-#~ msgid "arguments to @%s ignored"
-#~ msgstr "@%s に対する引数は無視しました"
-
-#~ msgid "January"
-#~ msgstr "一月"
-
-#~ msgid "February"
-#~ msgstr "二月"
-
-#~ msgid "March"
-#~ msgstr "三月"
-
-#~ msgid "April"
-#~ msgstr "四月"
-
-#~ msgid "May"
-#~ msgstr "五月"
-
-#~ msgid "June"
-#~ msgstr "六月"
-
-#~ msgid "July"
-#~ msgstr "七月"
-
-#~ msgid "August"
-#~ msgstr "八月"
-
-#~ msgid "September"
-#~ msgstr "九月"
-
-#~ msgid "October"
-#~ msgstr "十月"
-
-#~ msgid "November"
-#~ msgstr "十一月"
-
-#~ msgid "December"
-#~ msgstr "十二月"
-
-#~ msgid "unlikely character %c in @var"
-#~ msgstr "@var で使えそうにない文字 %c"
-
-#~ msgid "@sc argument all uppercase, thus no effect"
-#~ msgstr "全て大文字の @sc 引数、従って効果がありません"
-
-#~ msgid "`{' expected, but saw `%c'"
-#~ msgstr "`{' があるはずですが、`%c' でした"
-
-#~ msgid "end of file inside verb block"
-#~ msgstr "verb ブロック内でファイル末尾となりました"
-
-#~ msgid "`}' expected, but saw `%c'"
-#~ msgstr "`}' があるはずですが、`%c' でした"
-
-#~ msgid "@sp requires a positive numeric argument, not `%s'"
-#~ msgstr "@sp には `%s' ではなく、正の数値を与えなければなりません"
-
-#~ msgid "Bad argument to %c%s"
-#~ msgstr "%c%s に対する不正な引数"
-
-#~ msgid "asis"
-#~ msgstr "そのまま"
-
-#~ msgid "none"
-#~ msgstr "なし"
-
-#~ msgid "insert"
-#~ msgstr "挿入"
-
-#~ msgid "Missing `}' in @def arg"
-#~ msgstr "@def 引数に `}' を忘れています"
-
-#~ msgid "%s: getwd: %s, %s\n"
-#~ msgstr "%s: getwd: %s, %s\n"
-
-#~ msgid "`%s' omitted before output filename"
-#~ msgstr "ファイル名の出力前に `%s' が取り除かれました"
-
-#~ msgid "`%s' omitted since writing to stdout"
-#~ msgstr "標準出力に書き込む前に `%s' が取り除かれました"
-
-#~ msgid "Output buffer not empty."
-#~ msgstr "出力バッファが空ではありません。"
-
-#~ msgid "Requested float type `%s' not previously used"
-#~ msgstr "要求された浮動小数型 `%s' はこれまでに使用されていません"
-
-#~ msgid "See "
-#~ msgstr "See "
-
-#~ msgid "`%c%s' needs an argument `{...}', not just `%s'"
-#~ msgstr "`%c%s' には `%s' だけでなく、`{...}' 形式の引数が必要です"
-
-#~ msgid "No closing brace for footnote `%s'"
-#~ msgstr "脚注 `%s' の閉じブレースがありません"
-
-#~ msgid "Footnote defined without parent node"
-#~ msgstr "脚注に親ノードの定義がありません"
-
-#~ msgid "Footnotes"
-#~ msgstr "脚注"
-
-#~ msgid "[unexpected] no html tag to pop"
-#~ msgstr "[unexpected] ポップアップする html タグがありません"
-
-#~ msgid "[unexpected] invalid node name: `%s'"
-#~ msgstr "[unexpected] 無効なノード名: `%s'"
-
-#~ msgid "Info cannot handle `:' in index entry `%s'"
-#~ msgstr "Info では見出し項目に `:' を使用できません `%s'"
-
-#~ msgid "Unknown index `%s' and/or `%s' in @synindex"
-#~ msgstr "@synindex に不明な見出し `%s' や `%s' があります"
-
-#~ msgid "(line )"
-#~ msgstr "(行 )"
-
-#~ msgid "(line %*d)"
-#~ msgstr "(行 %*d)"
-
-#~ msgid "@item not allowed in argument to @itemize"
-#~ msgstr "@itemize の引数として @item は許可されていません"
-
-#~ msgid "Broken-Type in insertion_type_pname"
-#~ msgstr "insertion_type_pname 中に壊れた型があります"
-
-#~ msgid "Enumeration stack overflow"
-#~ msgstr "列挙用スタックがオーバフローしました"
-
-#~ msgid "lettering overflow, restarting at %c"
-#~ msgstr "ラベル文字がオーバーフロー、%c に戻します"
-
-#~ msgid "%cfloat environments cannot be nested"
-#~ msgstr "%c浮動小数環境は入れ子にできません"
-
-#~ msgid "%s requires letter or digit"
-#~ msgstr "%s には英数文字が必要です"
-
-#~ msgid "end of file inside verbatim block"
-#~ msgstr "verbatim ブロック中でファイル終端 (EOF) に達しました"
-
-#~ msgid "@detailmenu seen before first node, creating `Top' node"
-#~ msgstr "@detailmenu が最初のノード以前に現れました。`頂点' ノードを作ります"
-
-#~ msgid "`%c%s' needs something after it"
-#~ msgstr "`%c%s' の後ろには何かが必要です"
-
-#~ msgid "Bad argument `%s' to `@%s', using `%s'"
-#~ msgstr "`@%2$s' に対する不正な引数 `%1$s'。`%3$s' を使います"
-
-#~ msgid "@itemx not meaningful inside `%s' block"
-#~ msgstr "`%s' ブロック内側では @itemx は意味がありません"
-
-#~ msgid "%c%s found outside of an insertion block"
-#~ msgstr "挿入ブロック外で、%c%s が見つかりました"
-
-#~ msgid "no default territory known for language `%s'"
-#~ msgstr ""
-#~ "言語 `%s' 用として知られているデフォルトの国・地域・領域がありません"
-
-#~ msgid "sorry, encoding `%s' not supported"
-#~ msgstr "残念ながら、エンコード `%s' はサポートされていません"
-
-#~ msgid "invalid encoded character `%s'"
-#~ msgstr "エンコード文字 `%s' が無効です"
-
-#~ msgid "%c%s expects a single character `i' or `j' as argument"
-#~ msgstr "%c%s は引数として `i' か `j' のいずれか一文字が必要です"
-
-#~ msgid "@allow-recursion is deprecated; please use @rmacro instead"
-#~ msgstr ""
-#~ "@allow-recursion は廃止されました。@rmacro を代わりに使用してください"
-
-#~ msgid "mismatched @end %s with @%s"
-#~ msgstr "@%2$s と一致しない @end %1$s です"
-
-#~ msgid "Too many errors!  Gave up.\n"
-#~ msgstr "エラーが多すぎます!  諦めました。\n"
-
-#~ msgid ""
-#~ "Options for XML and Docbook:\n"
-#~ "      --output-indent=VAL     indent XML elements by VAL spaces (default "
-#~ "%d).\n"
-#~ "                                If VAL is 0, ignorable whitespace is "
-#~ "dropped.\n"
-#~ msgstr ""
-#~ "XML および Docbook のためのオプション:\n"
-#~ "      --output-indent=VAL     XML 要素を VAL 個のスペースで字下げする (デ"
-#~ "フォルト %d)。\n"
-#~ "                                もし VAL が 0 の場合、無視できる空白は取り"
-#~ "除かれる。\n"
-
-#~ msgid "%s: could not open macro expansion output `%s'"
-#~ msgstr "%s: マクロ展開出力 `%s' を開けませんでした"
-
-#~ msgid "%s: ignoring second macro expansion output `%s'.\n"
-#~ msgstr "%s: 二回目のマクロ展開出力 `%s' を無視しています。\n"
-
-#~ msgid "%s: could not open internal links output `%s'"
-#~ msgstr "%s: 内部リンク出力 `%s' を開くことができませんでした"
-
-#~ msgid "%s: ignoring second internal links output `%s'.\n"
-#~ msgstr "%s: 二回目の内部リンク出力 `%s' を無視しています。\n"
-
-#~ msgid "Multiline command %c%s used improperly"
-#~ msgstr "複数コマンド %c%s が不適切に使用されています"
-
-#~ msgid "No `%s' found in `%s'"
-#~ msgstr "`%2$s' に `%1$s' が見つかりません"
-
-#~ msgid ""
-#~ "%s: Skipping macro expansion to stdout as Info output is going there.\n"
-#~ msgstr "%s: Info の出力を行なうので、マクロ拡張を標準出力に出力しません。\n"
-
-#~ msgid "Making %s file `%s' from `%s'.\n"
-#~ msgstr "`%3$s' から %1$s ファイル `%2$s' を作成します。\n"
-
-#~ msgid ""
-#~ "%s: Removing macro output file `%s' due to errors; use --force to "
-#~ "preserve.\n"
-#~ msgstr ""
-#~ "%s: エラーにより、マクロ出力ファイル `%s' を削除します。\n"
-#~ "       -- 残したい場合には `--force' オプションを使ってください。\n"
-
-#~ msgid ""
-#~ "%s: Removing output file `%s' due to errors; use --force to preserve.\n"
-#~ msgstr ""
-#~ "%s: エラーにより、出力ファイル `%s' を削除します。\n"
-#~ "       -- 残したい場合には `--force' オプションを使ってください。\n"
-
-#~ msgid ""
-#~ "%s: Removing internal links output file `%s' due to errors; use --force "
-#~ "to preserve.\n"
-#~ msgstr ""
-#~ "%s: エラーが発生したため内部リンク出力ファイル `%s' を削除しています。保存"
-#~ "する場合は --force を使用してください。\n"
-
-#~ msgid "Unmatched }"
-#~ msgstr "対応のない }"
-
-#~ msgid "NO_NAME!"
-#~ msgstr "名前が無い！"
-
-#~ msgid "No such file `%s'"
-#~ msgstr "ファイル `%s' がありません"
-
-#~ msgid "@image file `%s' (for text) unreadable: %s"
-#~ msgstr "@image ファイル `%s' (text 用) が読めません: %s"
-
-#~ msgid "{No value for `%s'}"
-#~ msgstr "{`%s' の値がない}"
-
-#~ msgid "Reached eof before matching @end %s"
-#~ msgstr "@end %s の対応の前にファイルの終りに出くわしました"
-
-#~ msgid "`%.40s...' is too long for expansion; not expanded"
-#~ msgstr "`%.40s...' は展開するには長すぎます。展開されませんでした"
-
-#~ msgid "Missing } in @multitable template"
-#~ msgstr "@multitable テンプレートに } がありません"
-
-#~ msgid "ignoring stray text `%s' after @multitable"
-#~ msgstr "@multitable の後ろのテクスト `%s' を無視します"
-
-#~ msgid "[unexpected] cannot select column #%d in multitable"
-#~ msgstr "[予期しない] マルチテーブル内では、第 %d 行を選択できません"
-
-#~ msgid "** Multicolumn output from last row:\n"
-#~ msgstr "** マルチカラムの最後の列から出力\n"
-
-#~ msgid "* column #%d: output = %s\n"
-#~ msgstr "* 第 %d カラム: 出力 = %s\n"
-
-#~ msgid "Node `%s' previously defined at line %d"
-#~ msgstr "ノード `%s' 前(%d 行目)に定義されています"
-
-#~ msgid "Formatting node %s...\n"
-#~ msgstr "ノード %s を整形中...\n"
-
-#~ msgid "Node `%s' requires a sectioning command (e.g., %c%s)"
-#~ msgstr "ノード `%s' にはセクション用コマンドが必要です (例: %c%s)"
-
-#~ msgid "No node name specified for `%c%s' command"
-#~ msgstr "`%c%s' コマンドに指定されたノード名がありません"
-
-#~ msgid "Anchor `%s' and node `%s' map to the same file name"
-#~ msgstr "アンカー `%s' とノード `%s' が同じファイル名をマップしています"
-
-#~ msgid "This @anchor command ignored; references to it will not work"
-#~ msgstr "この @anchor コマンドは無視されます -- そこへの参照は動作しません"
-
-#~ msgid "Rename this anchor or use the `--no-split' option"
-#~ msgstr "このアンカー名を変更するか `--no-split' オプションを使いましょう"
-
-#~ msgid "Unexpected string at end of split-HTML file `%s'"
-#~ msgstr "split-HTML ファイル `%s' の終りに、あるはずのない文字列があります"
-
-#~ msgid "Anchors `%s' and `%s' map to the same file name"
-#~ msgstr "アンカー `%s' と `%s' が同じファイル名にマップしています"
-
-#~ msgid "@anchor command ignored; references to it will not work"
-#~ msgstr "@anchor コマンドは無視されます -- そこへの参照は動作しません"
-
-#~ msgid ""
-#~ "Next field of node `%s' not pointed to (perhaps incorrect sectioning?)"
-#~ msgstr ""
-#~ "ノード `%s' の次のフィールドがノードを指していません (正しくないセクション"
-#~ "付けをしているかもしれません?)"
-
-#~ msgid "This node (%s) has the bad Prev"
-#~ msgstr "このノード (%s) はきちんと 前 を持っていません"
-
-#~ msgid "Prev field of node `%s' not pointed to"
-#~ msgstr "ノード `%s' の前のフィールドがノードを指していません -- "
-
-#~ msgid "This node (%s) has the bad Next"
-#~ msgstr "このノード (%s) はきちんと 次 を持っていません"
-
-#~ msgid "`%s' has no Up field (perhaps incorrect sectioning?)"
-#~ msgstr ""
-#~ "`%s' には 上 のフィールドが存在しません (正しくないセクション付けをしてい"
-#~ "るかもしれません?)"
-
-#~ msgid "Removing %s\n"
-#~ msgstr "%s を削除しています\n"
-
-#~ msgid "Appendix %c"
-#~ msgstr "付録 %c"
-
-#~ msgid "Internal error (search_sectioning) `%s'!"
-#~ msgstr "内部エラー (節を探索中) `%s'!"
-
-#~ msgid "Internal error (search_sectioning) \"%s\"!"
-#~ msgstr "内部エラー (節探索中) \"%s\"!"
-
-#~ msgid "%c%s is obsolete; use %c%s instead"
-#~ msgstr "%c%s は廃止されました。%c%s を代わりに使用してください"
-
-#~ msgid "Node with %ctop as a section already exists"
-#~ msgstr "%ctop のノードは、セクションとして既に存在します"
-
-#~ msgid "Here is the %ctop node"
-#~ msgstr "ここは %ctop ノードです"
-
-#~ msgid "%ctop used before %cnode, defaulting to %s"
-#~ msgstr "%ctop が %cnode の前に使われました、%s に決めうちします"
-
-#~ msgid ""
-#~ "@headitem as the last item of @multitable produces invalid Docbook "
-#~ "documents"
-#~ msgstr ""
-#~ "@multitable の最後の項目が @headitem の場合、無効な  Docbook 文書が生成さ"
-#~ "れます"
-
-#~ msgid "of"
-#~ msgstr "of"
-
-#~ msgid "on"
-#~ msgstr "on"
-
-#~ msgid "First argument to cross-reference may not be empty"
-#~ msgstr "相互参照への第一引数が空であってはいけません"
-
-#~ msgid "Empty file name for HTML cross reference in `%s'"
-#~ msgstr "`%s' 内の HTML 相互参照に空のファイル名があります"
-
-#~ msgid "End of file reached while looking for `.' or `,'"
-#~ msgstr "`.' または `,' を検索中にファイル終端 (EOF) に達しました"
-
-#~ msgid "for cross-references in parentheses, use @pxref"
-#~ msgstr "小括弧内での相互参照では @pxref を使用してください"
-
-#~ msgid "First argument to @inforef may not be empty"
-#~ msgstr "@inforef への第一引数は空であってはなりません"
-
-#~ msgid "invalid argument %s for %s"
-#~ msgstr "%2$s に対する引数 %1$s が間違っています"
-
-#~ msgid "Valid arguments are:"
-#~ msgstr "有効な引数:"
-
-#~ msgid "ARGP_HELP_FMT: %s value is less than or equal to %s"
-#~ msgstr "ARGP_HELP_FMT: %s の値は %s の値以下です"
-
-#~ msgid "%.*s: ARGP_HELP_FMT parameter requires a value"
-#~ msgstr "%.*s: ARGP_HELP_FMT パラメータには値が必要です"
-
-#~ msgid "%.*s: ARGP_HELP_FMT parameter must be positive"
-#~ msgstr "%.*s: ARGP_HELP_FMT パラメータは正の値でなければいけません"
-
-#~ msgid "%.*s: Unknown ARGP_HELP_FMT parameter"
-#~ msgstr "%.*s: 不明な ARGP_HELP_FMT パラメータ"
-
-#~ msgid "Garbage in ARGP_HELP_FMT: %s"
-#~ msgstr "ARGP_HELP_FMT 中にごみがあります: %s"
-
-#~ msgid ""
-#~ "Mandatory or optional arguments to long options are also mandatory or "
-#~ "optional for any corresponding short options."
-#~ msgstr ""
-#~ "長い形式のオプションで必須または任意の引数は、それに対応する短い形式のオプ"
-#~ "ションでも同様に必須または任意です。"
-
-#~ msgid "Usage:"
-#~ msgstr "使用法:"
-
-#~ msgid "  or: "
-#~ msgstr "または: "
-
-#~ msgid " [OPTION...]"
-#~ msgstr " [OPTION...]"
-
-#~ msgid "Try `%s --help' or `%s --usage' for more information.\n"
-#~ msgstr "詳細は `%s --help' または `%s --usage' を実行して下さい。\n"
-
-#~ msgid "Report bugs to %s.\n"
-#~ msgstr "バグを発見したら %s 宛に報告して下さい。\n"
-
-#~ msgid "give this help list"
-#~ msgstr "このヘルプを表示する"
-
-#~ msgid "give a short usage message"
-#~ msgstr "短い使用方法を表示する"
-
-#~ msgid "NAME"
-#~ msgstr "名前"
-
-#~ msgid "set the program name"
-#~ msgstr "プログラム名を設定する"
-
-#~ msgid "SECS"
-#~ msgstr "SECS"
-
-#~ msgid "hang for SECS seconds (default 3600)"
-#~ msgstr "SECS 秒でハング (デフォルト 3600)"
-
-#~ msgid "print program version"
-#~ msgstr "プログラムのバージョンを表示する"
-
-#~ msgid "(PROGRAM ERROR) No version known!?"
-#~ msgstr "(プログラムエラー) 不明なバージョン!?"
-
-#~ msgid "%s: Too many arguments\n"
-#~ msgstr "%s: 引数が多すぎます\n"
-
-#~ msgid "(PROGRAM ERROR) Option should have been recognized!?"
-#~ msgstr "(プログラムエラー) オプションは認識されているべきです!?"
-
-#~ msgid "program error"
-#~ msgstr "プログラムエラー"
-
-#~ msgid "stack overflow"
-#~ msgstr "スタックオーバーフロー"
-
-#~ msgid "cannot find a temporary directory, try setting $TMPDIR"
-#~ msgstr "一時ディレクトリを作成できません。 $TMPDIR を設定してみてください"
-
-#~ msgid "cannot create a temporary directory using template \"%s\""
-#~ msgstr "テンプレート \"%s\" を使用した一時ディレクトリを作成できません"
-
-#~ msgid "cannot remove temporary file %s"
-#~ msgstr "一時ファイル %s を削除できません"
-
-#~ msgid "cannot remove temporary directory %s"
-#~ msgstr "一時ディレクトリ %s を削除できません"
-
-#~ msgid "write error"
-#~ msgstr "書き込みエラー"
-
-#~ msgid "preserving permissions for %s"
-#~ msgstr "%s のパーミッションを保存しています"
-
-#~ msgid "error while opening \"%s\" for reading"
-#~ msgstr "\"%s\"を読込むため開いている際にエラーが発生しました"
-
-#~ msgid "error writing \"%s\""
-#~ msgstr "\"%s\"の書込み中にエラーが発生しました"
-
-#~ msgid "error after reading \"%s\""
-#~ msgstr "\"%s\"の読込み後にエラーが発生しました"
-
-#~ msgid "fdopen() failed"
-#~ msgstr "fdopen()に失敗しました"
-
-#~ msgid "C# compiler not found, try installing pnet"
-#~ msgstr "C# コンパイラが見つりません。pnet をインストールしてみてください"
-
-#~ msgid "C# virtual machine not found, try installing pnet"
-#~ msgstr "C# 仮想マシンが見つかりません。pnet をインストールしてみてください"
-
-#~ msgid "%s subprocess failed"
-#~ msgstr "%s サブプロセスが失敗しました"
-
-#~ msgid "regular empty file"
-#~ msgstr "通常の空ファイル"
-
-#~ msgid "regular file"
-#~ msgstr "通常ファイル"
-
-#~ msgid "directory"
-#~ msgstr "ディレクトリ"
-
-#~ msgid "block special file"
-#~ msgstr "ブロックスペシャルファイル"
-
-#~ msgid "character special file"
-#~ msgstr "キャラクタスペシャルファイル"
-
-#~ msgid "fifo"
-#~ msgstr "fifo"
-
-#~ msgid "symbolic link"
-#~ msgstr "シンボリックリンク"
-
-#~ msgid "socket"
-#~ msgstr "ソケット"
-
-#~ msgid "message queue"
-#~ msgstr "メッセージキュー"
-
-#~ msgid "semaphore"
-#~ msgstr "セマフォ"
-
-#~ msgid "shared memory object"
-#~ msgstr "共有メモリオブジェクト"
-
-#~ msgid "typed memory object"
-#~ msgstr "型付メモリオブジェクト"
-
-#~ msgid "weird file"
-#~ msgstr "不明なファイル"
-
-#~ msgid "Address family for hostname not supported"
-#~ msgstr "ホスト名に対する Address family がサポートされていません"
-
-#~ msgid "Temporary failure in name resolution"
-#~ msgstr "名前解決に一時的に失敗しました"
-
-#~ msgid "Bad value for ai_flags"
-#~ msgstr "ai_flags に対する誤った値です"
-
-#~ msgid "Non-recoverable failure in name resolution"
-#~ msgstr "名前解決でリカバリできない失敗が発生しました"
-
-#~ msgid "ai_family not supported"
-#~ msgstr "ai_family はサポートされていません"
-
-#~ msgid "Memory allocation failure"
-#~ msgstr "メモリ配置に失敗しました"
-
-#~ msgid "Name or service not known"
-#~ msgstr "名前またはサービスが不明です"
-
-#~ msgid "Servname not supported for ai_socktype"
-#~ msgstr "ai_socktype に対して Servname がサポートされていません"
-
-#~ msgid "ai_socktype not supported"
-#~ msgstr "ai_socktype はサポートされていません"
-
-#~ msgid "System error"
-#~ msgstr "システムエラー"
-
-#~ msgid "Argument buffer too small"
-#~ msgstr "引数バッファが小さすぎます"
-
-#~ msgid "Processing request in progress"
-#~ msgstr "要求された処理は実行中です"
-
-#~ msgid "Request canceled"
-#~ msgstr "要求がキャンセルされました"
-
-#~ msgid "Request not canceled"
-#~ msgstr "要求がキャンセルされませんでした"
-
-#~ msgid "All requests done"
-#~ msgstr "すべての要求が完了しました"
-
-#~ msgid "Interrupted by a signal"
-#~ msgstr "シグナル割り込みが発生しました"
-
-#~ msgid "Parameter string not correctly encoded"
-#~ msgstr "パラメーター文字列が正しくエンコードされていません"
-
-#~ msgid "Unknown error"
-#~ msgstr "不明なエラー"
-
-#~ msgid "invalid source_version argument to compile_java_class"
-#~ msgstr "compile_java_class への source_version 引数が無効です"
-
-#~ msgid "invalid target_version argument to compile_java_class"
-#~ msgstr "compile_java_class への target_version 引数が無効です"
-
-#~ msgid "failed to create \"%s\""
-#~ msgstr "\"%s\" の作成に失敗しました"
-
-#~ msgid "error while writing \"%s\" file"
-#~ msgstr "\"%s\" ファイルの書き込み中にエラーが発生しました"
-
-#~ msgid "Java compiler not found, try installing gcj or set $JAVAC"
-#~ msgstr ""
-#~ "Java コンパイラが見つかりません。 gcj をインストールするか、またはt "
-#~ "$JAVAC を設定してみてください"
-
-#~ msgid "Java virtual machine not found, try installing gij or set $JAVA"
-#~ msgstr ""
-#~ "Java 仮想マシンが見つかりません。 gij をインストールするか、または $JAVA "
-#~ "を設定してみてください"
-
-#~ msgid "%s subprocess I/O error"
-#~ msgstr "%s サブプロセス I/O エラー"
-
-#~ msgid "cannot change permissions of %s"
-#~ msgstr "%s のパーミッションを変更できません"
-
-#~ msgid "cannot create directory %s"
-#~ msgstr "ディレクトリ %s を作成できません"
-
-#~ msgid "unable to record current working directory"
-#~ msgstr "現在の作業ディレクトリを記録することができません"
-
-#~ msgid "Failed to open /dev/zero for read"
-#~ msgstr "/dev/zeroを読込み用に開けません"
-
-#~ msgid "creation of reading thread failed"
-#~ msgstr "読み込みスレッドの作成に失敗しました"
-
-#~ msgid "cannot set up nonblocking I/O to %s subprocess"
-#~ msgstr "%s 子プロセスへ非ブロック I/O を設定できません"
-
-#~ msgid "communication with %s subprocess failed"
-#~ msgstr "%s 子プロセスとの通信に失敗しました"
-
-#~ msgid "write to %s subprocess failed"
-#~ msgstr "%s 子プロセスへの書き込みに失敗しました"
-
-#~ msgid "read from %s subprocess failed"
-#~ msgstr "%s 子プロセスからの読み込みに失敗しました"
-
-#~ msgid "subprocess %s terminated with exit code %d"
-#~ msgstr "子プロセス %s が終了コード %d で終了しました"
-
-#~ msgid "creation of threads failed"
-#~ msgstr "スレッドの作成に失敗しました"
-
-#~ msgid "%s subprocess terminated with exit code %d"
-#~ msgstr "%s 子プロセスが終了コード %d で終了しました"
-
-#~ msgid "cannot create pipe"
-#~ msgstr "パイプを作成できません"
-
-#~ msgid "`"
-#~ msgstr "`"
-
-#~ msgid "'"
-#~ msgstr "'"
-
-#~ msgid "^[yY]"
-#~ msgstr "^[yY]"
-
-#~ msgid "^[nN]"
-#~ msgstr "^[nN]"
-
-#~ msgid "setting permissions for %s"
-#~ msgstr "%s のパーミッションを設定します"
-
-#~ msgid "Hangup"
-#~ msgstr "Hangup"
-
-#~ msgid "Interrupt"
-#~ msgstr "割り込み"
-
-#~ msgid "Illegal instruction"
-#~ msgstr "Illegal instruction"
-
-#~ msgid "Trace/breakpoint trap"
-#~ msgstr "Trace/breakpoint trap"
-
-#~ msgid "Aborted"
-#~ msgstr "中止"
-
-#~ msgid "Floating point exception"
-#~ msgstr "浮動小数点例外"
-
-#~ msgid "Killed"
-#~ msgstr "強制終了"
-
-#~ msgid "Bus error"
-#~ msgstr "バスエラー"
-
-#~ msgid "Segmentation fault"
-#~ msgstr "Segmentation fault"
-
-#~ msgid "Broken pipe"
-#~ msgstr "Broken pipe"
-
-#~ msgid "Alarm clock"
-#~ msgstr "Alarm clock"
-
-#~ msgid "Terminated"
-#~ msgstr "Terminated"
-
-#~ msgid "Urgent I/O condition"
-#~ msgstr "緊急 I/O 状態"
-
-#~ msgid "Stopped (signal)"
-#~ msgstr "停止 (シグナル)"
-
-#~ msgid "Stopped"
-#~ msgstr "停止"
-
-#~ msgid "Continued"
-#~ msgstr "継続"
-
-#~ msgid "Child exited"
-#~ msgstr "子プロセス終了"
-
-#~ msgid "Stopped (tty input)"
-#~ msgstr "停止 (tty 入力)"
-
-#~ msgid "Stopped (tty output)"
-#~ msgstr "停止 (tty 出力)"
-
-#~ msgid "I/O possible"
-#~ msgstr "I/O 可能"
-
-#~ msgid "CPU time limit exceeded"
-#~ msgstr "CPU時間制限を超過しました"
-
-#~ msgid "File size limit exceeded"
-#~ msgstr "ファイルサイズ制限を超過しました"
-
-#~ msgid "Virtual timer expired"
-#~ msgstr "仮想タイマーが終了しました"
-
-#~ msgid "Profiling timer expired"
-#~ msgstr "プロファイリングタイマーが終了しました"
-
-#~ msgid "Window changed"
-#~ msgstr "Window が変更されました"
-
-#~ msgid "User defined signal 1"
-#~ msgstr "ユーザー定義シグナル1"
-
-#~ msgid "User defined signal 2"
-#~ msgstr "ユーザー定義シグナル2"
-
-#~ msgid "EMT trap"
-#~ msgstr "EMT トラップ"
-
-#~ msgid "Bad system call"
-#~ msgstr "間違ったシステムコール"
-
-#~ msgid "Stack fault"
-#~ msgstr "スタックエラー"
-
-#~ msgid "Information request"
-#~ msgstr "情報要求"
-
-#~ msgid "Power failure"
-#~ msgstr "電源エラー"
-
-#~ msgid "Resource lost"
-#~ msgstr "リソースが無くなりました"
-
-#~ msgid "error writing to a closed pipe or socket"
-#~ msgstr "閉じたパイプまたはソケットへの書き込みでエラーが発生しました"
-
-#~ msgid "Real-time signal %d"
-#~ msgstr "リアルタイムシグナル %d"
-
-#~ msgid "iconv function not available"
-#~ msgstr "iconv 関数が有効ではありません"
-
-#~ msgid "character out of range"
-#~ msgstr "範囲外の文字"
-
-#~ msgid "cannot convert U+%04X to local character set"
-#~ msgstr "U+%04X をローカル文字セットに変換できません"
-
-#~ msgid "cannot convert U+%04X to local character set: %s"
-#~ msgstr "U+%04X をローカル文字セット %s に変換できません"
-
-#~ msgid "invalid user"
-#~ msgstr "無効なユーザ"
-
-#~ msgid "invalid group"
-#~ msgstr "無効なグループ"
-
-#~ msgid "invalid spec"
-#~ msgstr "無効な指定"
-
-#~ msgid "unable to display error message"
-#~ msgstr "エラーメッセージを表示できません"
-
-#~ msgid "Packaged by %s (%s)\n"
-#~ msgstr "パッケージ作成者: %s (%s)\n"
-
-#~ msgid "Packaged by %s\n"
-#~ msgstr "パッケージ作成者: %s\n"
-
-#~ msgid "(C)"
-#~ msgstr "(C)"
+#~ msgid "CAN'T SEE THIS"
+#~ msgstr "*これを見られません*"
 
 #~ msgid ""
 #~ "\n"
-#~ "License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl."
-#~ "html>.\n"
-#~ "This is free software: you are free to change and redistribute it.\n"
-#~ "There is NO WARRANTY, to the extent permitted by law.\n"
-#~ "\n"
+#~ "* Menu: Nodes whose indices contain `%s':\n"
 #~ msgstr ""
 #~ "\n"
-#~ "ライセンス GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/"
-#~ "gpl.html>.\n"
-#~ "This is free software: you are free to change and redistribute it.\n"
-#~ "There is NO WARRANTY, to the extent permitted by law.\n"
-#~ "\n"
+#~ "* メニュー: `%s' を含む見出し項目:\n"
 
-#~ msgid "Written by %s.\n"
-#~ msgstr "作者 %s。\n"
+#~ msgid "No index"
+#~ msgstr "見出しがありません"
 
-#~ msgid "Written by %s and %s.\n"
-#~ msgstr "作者 %s および %s。\n"
-
-#~ msgid "Written by %s, %s, and %s.\n"
-#~ msgstr "作者 %s、 %s、および %s。\n"
+#~ msgid "Index for `%s'"
+#~ msgstr "`%s' の見出し"
 
 #~ msgid ""
-#~ "Written by %s, %s, %s,\n"
-#~ "and %s.\n"
-#~ msgstr ""
-#~ "作者 %s、 %s、 %s、\n"
-#~ "および %s。\n"
-
-#~ msgid ""
-#~ "Written by %s, %s, %s,\n"
-#~ "%s, and %s.\n"
-#~ msgstr ""
-#~ "作者 %s、 %s、 %s、\n"
-#~ "%s、および %s。\n"
-
-#~ msgid ""
-#~ "Written by %s, %s, %s,\n"
-#~ "%s, %s, and %s.\n"
-#~ msgstr ""
-#~ "作者 %s、 %s、 %s、\n"
-#~ "%s、 %s、および %s。\n"
-
-#~ msgid ""
-#~ "Written by %s, %s, %s,\n"
-#~ "%s, %s, %s, and %s.\n"
-#~ msgstr ""
-#~ "作者 %s、 %s、 %s、\n"
-#~ "%s、 %s、 %s、および %s。\n"
-
-#~ msgid ""
-#~ "Written by %s, %s, %s,\n"
-#~ "%s, %s, %s, %s,\n"
-#~ "and %s.\n"
-#~ msgstr ""
-#~ "作者 %s、 %s、 %s、\n"
-#~ "%s、 %s、 %s、 %s、\n"
-#~ "および %s。\n"
-
-#~ msgid ""
-#~ "Written by %s, %s, %s,\n"
-#~ "%s, %s, %s, %s,\n"
-#~ "%s, and %s.\n"
-#~ msgstr ""
-#~ "作者 %s、 %s、 %s、\n"
-#~ "%s、 %s、 %s、 %s、\n"
-#~ "%s、および %s。\n"
-
-#~ msgid ""
-#~ "Written by %s, %s, %s,\n"
-#~ "%s, %s, %s, %s,\n"
-#~ "%s, %s, and others.\n"
-#~ msgstr ""
-#~ "作者 %s、 %s、 %s、\n"
-#~ "%s、 %s、 %s、 %s、\n"
-#~ "%s、 %s、 および他の方々。\n"
-
-#~ msgid ""
-#~ "\n"
-#~ "Report bugs to: %s\n"
-#~ msgstr ""
-#~ "\n"
-#~ "バグを発見したら <%s> に報告して下さい。\n"
-#~ "翻訳に関するバグは<translation-team-ja@lists.sourceforge.net>に報告してく"
-#~ "ださい。\n"
-
-#~ msgid "Report %s bugs to: %s\n"
-#~ msgstr "%s のバグは <%s> に報告してください。\n"
-
-#~ msgid "%s home page: <%s>\n"
-#~ msgstr "%s のホームページ: <%s>\n"
-
-#~ msgid "%s home page: <http://www.gnu.org/software/%s/>\n"
-#~ msgstr "%s のホームページ: <http://www.gnu.org/software/%s/>\n"
-
-#~ msgid "General help using GNU software: <http://www.gnu.org/gethelp/>\n"
-#~ msgstr ""
-#~ "GNU ソフトウェアを使用する際の一般的なヘルプ: <http://www.gnu.org/gethelp/"
-#~ ">\n"
-
-#~ msgid "_open_osfhandle failed"
-#~ msgstr "_open_osfhandle に失敗しました"
-
-#~ msgid "cannot restore fd %d: dup2 failed"
-#~ msgstr "ファイル記述子 (fd) %d をリストアできません: dup2 に失敗しました"
-
-#~ msgid "%s subprocess"
-#~ msgstr "%s 子プロセス"
-
-#~ msgid "%s subprocess got fatal signal %d"
-#~ msgstr "%s 子プロセスが致命的なシグナル %d を受信しました"
-
-#~ msgid "stdin"
-#~ msgstr "標準入力"
-
-#~ msgid "stdout"
-#~ msgstr "標準出力"
-
-#~ msgid "stderr"
-#~ msgstr "標準エラー出力"
-
-#~ msgid "unknown stream"
-#~ msgstr "不明なストリーム"
-
-#~ msgid "failed to reopen %s with mode %s"
-#~ msgstr "%s をモード %s で再度開くことに失敗しました"
-
-#~ msgid "Set LC_ALL='C' to work around the problem."
-#~ msgstr "問題を回避するために LC_ALL='C' を指定してください."
-
-#~ msgid "The strings compared were %s and %s."
-#~ msgstr "比較した文字列は %s と %s です."
-
-#~ msgid "cannot perform formatted output"
-#~ msgstr "書式設定を行った出力を実行することができません"
-
-#~ msgid "invalid suffix in %s%s argument `%s'"
-#~ msgstr "引数 `%3$s' に対して無効な接尾辞 %1$s%2$s です"
-
-#~ msgid "%s%s argument `%s' too large"
-#~ msgstr "引数 `%3$s' に対する %1$s%2$s が大きすぎます"
-
-#~ msgid ""
-#~ "Copyright (C) %s Free Software Foundation, Inc.\n"
-#~ "There is NO warranty.  You may redistribute this software\n"
-#~ "under the terms of the GNU General Public License.\n"
-#~ "For more information about these matters, see the files named COPYING.\n"
-#~ msgstr ""
-#~ "Copyright (C) %s Free Software Foundation, Inc.\n"
-#~ "There is NO warranty.  You may redistribute this software\n"
-#~ "under the terms of the GNU General Public License.\n"
-#~ "For more information about these matters, see the files named COPYING.\n"
-#~ "\n"
-#~ "訳注: 非常に重要な文章のため、原文を残しています。\n"
-#~ "  -- 参考訳\n"
-#~ "一切の保証はありません。あなたは、GNU General Public Licence の文言の下"
-#~ "で、\n"
-#~ "このソフトウェアを再配布できます。これらについてのより詳しい説明は、"
-#~ "COPYING\n"
-#~ "というファイルを見てください。\n"
-
-#~ msgid ""
-#~ "Usage: %s [OPTION]... [MENU-ITEM...]\n"
-#~ "\n"
-#~ "Read documentation in Info format.\n"
-#~ "\n"
-#~ "Options:\n"
-#~ " --apropos=SUBJECT        look up SUBJECT in all indices of all manuals.\n"
-#~ " --directory=DIR          add DIR to INFOPATH.\n"
-#~ " --dribble=FILENAME       remember user keystrokes in FILENAME.\n"
-#~ " --file=FILENAME          specify Info file to visit.\n"
-#~ " --help                   display this help and exit.\n"
-#~ " --index-search=STRING    go to node pointed by index entry STRING.\n"
-#~ " --node=NODENAME          specify nodes in first visited Info file.\n"
-#~ " --output=FILENAME        output selected nodes to FILENAME.\n"
-#~ " --restore=FILENAME       read initial keystrokes from FILENAME.\n"
-#~ " --show-options, --usage  go to command-line options node.\n"
-#~ "%s --subnodes               recursively output menu items.\n"
-#~ " --vi-keys                use vi-like and less-like key bindings.\n"
-#~ " --version                display version information and exit.\n"
-#~ "\n"
-#~ "The first non-option argument, if present, is the menu entry to start "
-#~ "from;\n"
-#~ "it is searched for in all `dir' files along INFOPATH.\n"
-#~ "If it is not present, info merges all `dir' files and shows the result.\n"
-#~ "Any remaining arguments are treated as the names of menu\n"
-#~ "items relative to the initial node visited.\n"
-#~ "\n"
-#~ "Examples:\n"
-#~ "  info                       show top-level dir menu\n"
-#~ "  info emacs                 start at emacs node from top-level dir\n"
-#~ "  info emacs buffers         start at buffers node within emacs manual\n"
-#~ "  info --show-options emacs  start at node with emacs' command line "
-#~ "options\n"
-#~ "  info -f ./foo.info         show file ./foo.info, not searching dir\n"
 #~ "\n"
 #~ "Email bug reports to bug-texinfo@gnu.org,\n"
 #~ "general questions and discussion to help-texinfo@gnu.org.\n"
+#~ "Texinfo home page: http://www.gnu.org/software/texinfo/"
 #~ msgstr ""
-#~ "使い方: %s [オプション]... [メニュー項目...]\n"
 #~ "\n"
-#~ "Info フォーマットのドキュメントを読む。\n"
-#~ "\n"
-#~ "オプション:\n"
-#~ " --apropos=SUBJECT        全マニュアルの項目から主題を見つける\n"
-#~ " --directory=DIR          DIR を INFOPATH に追加する\n"
-#~ " --dribble=FILENAME       FILENAME にユーザのキーストロークを覚えておく\n"
-#~ " --file=FILENAME          訪問先ファイルを FIENAME と指定する\n"
-#~ " --help                   このヘルプを表示して終了する\n"
-#~ " --index-search=STRING    項目エントリ STRING で指示されたノードに行く\n"
-#~ " --node=NODENAME          最初に訪れる Info ファイルのノード指定する\n"
-#~ " --output=FILENAME        選択されたノードを FILENAME に出力する\n"
-#~ " --restore=FILENAME       最初のキーストロークを FILENAME から読込む\n"
-#~ " --show-options, --usage  コマンドラインオプションノードに行く\n"
-#~ " --subnodes               出力メニューアイテムを再帰的に出力する\n"
-#~ "%s --subnodes             メニュー項目を再帰的に出力する\n"
-#~ " --vi-keys                vi や less のようなキーバインドを使う\n"
-#~ " --version                バージョン情報を表示して終了する\n"
-#~ "\n"
-#~ "最初にオプション以外の引数があった場合、それは起点メニューエントリとなりま"
-#~ "す\n"
-#~ " -- INFOPATH に沿った全ての `dir' ファイルからくまなく探します\n"
-#~ "これが指定されない場合、すべての `dir' ファイルを繋ぎ合わせて表示しま"
-#~ "す。\n"
-#~ "残りの引数は最初に訪問されるノードに関連するメニューアイテムの名前として\n"
-#~ "扱われます。\n"
-#~ "\n"
-#~ "例:\n"
-#~ "  info                       最上位の dir メニューを表示\n"
-#~ "  info emacs                 最上位 dir の emacs ノードから開始\n"
-#~ "  info emacs buffers         emacs マニュアル内の buffers ノードから開始\n"
-#~ "  info --show-options emacs  emacs のコマンドラインオプションノードから開"
-#~ "始\n"
-#~ "  info -f ./foo.info         ./foo.info を表示し、dir は探索しない\n"
-#~ "\n"
-#~ "Email によるバグレポートは bug-texinfo@gnu.org、\n"
-#~ "一般的な質問や議論は help-texinfo@gnu.org まで。\n"
+#~ "Email によるバグレポートは bug-texinfo@gnu.org に報告してください。\n"
+#~ "翻訳に関するバグは<translation-team-ja@lists.sourceforge.net>に報告してく"
+#~ "ださい。\n"
+#~ "一般的な質問や議論は help-texinfo@gnu.org に連絡してください。\n"
+#~ "Texinfo ホームページ: http://www.gnu.org/software/texinfo/"
 
 #~ msgid ""
 #~ "Basic Commands in Info Windows\n"
 #~ "******************************\n"
-#~ "\n"
-#~ "  \\%-10[quit-help]  Quit this help.\n"
-#~ "  \\%-10[quit]  Quit Info altogether.\n"
-#~ "  \\%-10[get-info-help-node]  Invoke the Info tutorial.\n"
-#~ "\n"
-#~ "Selecting other nodes:\n"
-#~ "----------------------\n"
-#~ "  \\%-10[next-node]  Move to the \"next\" node of this node.\n"
-#~ "  \\%-10[prev-node]  Move to the \"previous\" node of this node.\n"
-#~ "  \\%-10[up-node]  Move \"up\" from this node.\n"
-#~ "  \\%-10[menu-item]  Pick menu item specified by name.\n"
+#~ msgstr ""
+#~ "Info ウィンドウの基本的なコマンド\n"
+#~ "******************************\n"
+
+#~ msgid "  %-10s  Quit this help.\n"
+#~ msgstr "  %-10s  このヘルプを終了する。\n"
+
+#~ msgid "  %-10s  Quit Info altogether.\n"
+#~ msgstr "  %-10s  Info も一緒に終了する。\n"
+
+#~ msgid "  %-10s  Invoke the Info tutorial.\n"
+#~ msgstr "  %-10s  Info チュートリアルを起動する。\n"
+
+#~ msgid "  %-10s  Move to the `next' node of this node.\n"
+#~ msgstr "  %-10s  このノードの `次' のノードへ移動する。\n"
+
+#~ msgid "  %-10s  Move to the `previous' node of this node.\n"
+#~ msgstr "  %-10s  このノードの `前' のノードへ移動する。\n"
+
+#~ msgid "  %-10s  Move `up' from this node.\n"
+#~ msgstr "  %-10s  このノードから `上' へ移動する。\n"
+
+#~ msgid ""
+#~ "  %-10s  Pick menu item specified by name.\n"
 #~ "              Picking a menu item causes another node to be selected.\n"
-#~ "  \\%-10[xref-item]  Follow a cross reference.  Reads name of reference.\n"
-#~ "  \\%-10[history-node]  Move to the last node seen in this window.\n"
-#~ "  \\%-10[move-to-next-xref]  Skip to next hypertext link within this "
-#~ "node.\n"
-#~ "  \\%-10[move-to-prev-xref]  Skip to previous hypertext link within this "
-#~ "node.\n"
-#~ "  \\%-10[select-reference-this-line]  Follow the hypertext link under "
-#~ "cursor.\n"
-#~ "  \\%-10[dir-node]  Move to the `directory' node.  Equivalent to `\\[goto-"
-#~ "node] (DIR)'.\n"
-#~ "  \\%-10[top-node]  Move to the Top node.  Equivalent to `\\[goto-node] "
-#~ "Top'.\n"
-#~ "\n"
+#~ msgstr ""
+#~ "  %-10s  指定した名前のメニューアイテムを選択する。\n"
+#~ "              メニューアイテムを選択すると他のノードが選択される。\n"
+
+#~ msgid "  %-10s  Follow a cross reference.  Reads name of reference.\n"
+#~ msgstr "  %-10s  相互参照を辿る。参照名を読み取る。\n"
+
+#~ msgid "  %-10s  Move to the last node seen in this window.\n"
+#~ msgstr "  %-10s  このウィンドウで最後に見たノードへ移動する。\n"
+
+#~ msgid "  %-10s  Skip to next hypertext link within this node.\n"
+#~ msgstr "  %-10s  このノード内の次のハイパーリンクへスキップする。\n"
+
+#~ msgid "  %-10s  Follow the hypertext link under cursor.\n"
+#~ msgstr "  %-10s  カーソル位置のハイパーリンクを辿る。\n"
+
+#~ msgid "  %-10s  Move to the `directory' node.  Equivalent to `g (DIR)'.\n"
+#~ msgstr "  %-10s  `ディレクトリ' ノードへ移動。`g (DIR)' と同じ。\n"
+
+#~ msgid "  %-10s  Move to the Top node.  Equivalent to `g Top'.\n"
+#~ msgstr "  %-10s  Top ノードへ移動。`g Top' と同じ。\n"
+
+#~ msgid ""
 #~ "Moving within a node:\n"
 #~ "---------------------\n"
-#~ "  \\%-10[scroll-forward]  Scroll forward a page.\n"
-#~ "  \\%-10[scroll-backward]  Scroll backward a page.\n"
-#~ "  \\%-10[beginning-of-node]  Go to the beginning of this node.\n"
-#~ "  \\%-10[end-of-node]  Go to the end of this node.\n"
-#~ "  \\%-10[1scroll-forward]  Scroll forward 1 line.\n"
-#~ "  \\%-10[1scroll-backward]  Scroll backward 1 line.\n"
-#~ "\n"
+#~ msgstr ""
+#~ "ノード内での移動:\n"
+#~ "---------------------\n"
+
+#~ msgid "  %-10s  Scroll forward a page.\n"
+#~ msgstr "  %-10s  1 ページ分前方へ進める。\n"
+
+#~ msgid "  %-10s  Scroll backward a page.\n"
+#~ msgstr "  %-10s  1 ページ分後方へ戻す。\n"
+
+#~ msgid "  %-10s  Go to the beginning of this node.\n"
+#~ msgstr "  %-10s  現在のノードの先頭へ移動する。\n"
+
+#~ msgid "  %-10s  Go to the end of this node.\n"
+#~ msgstr "  %-10s  現在のノードの先頭へ移動する。\n"
+
+#~ msgid "  %-10s  Scroll forward 1 line.\n"
+#~ msgstr "  %-10s  1 行分前方へすすめる。\n"
+
+#~ msgid "  %-10s  Scroll backward 1 line.\n"
+#~ msgstr "  %-10s  1 行分後方へ戻す。\n"
+
+#~ msgid ""
 #~ "Other commands:\n"
 #~ "---------------\n"
-#~ "  \\%-10[menu-digit]  Pick first ... ninth item in node's menu.\n"
-#~ "  \\%-10[last-menu-item]  Pick last item in node's menu.\n"
-#~ "  \\%-10[index-search]  Search for a specified string in the index "
-#~ "entries of this Info\n"
-#~ "              file, and select the node referenced by the first entry "
-#~ "found.\n"
-#~ "  \\%-10[goto-node]  Move to node specified by name.\n"
-#~ "              You may include a filename as well, as in "
-#~ "(FILENAME)NODENAME.\n"
-#~ "  \\%-10[search]  Search forward through this Info file for a specified "
-#~ "string,\n"
-#~ "              and select the node in which the next occurrence is found.\n"
-#~ "  \\%-10[search-backward]  Search backward in this Info file for a "
-#~ "specified string,\n"
-#~ "              and select the node in which the next occurrence is found.\n"
 #~ msgstr ""
-#~ "Info ウィンドウ内の基本コマンド\n"
-#~ "*******************************\n"
-#~ "\n"
-#~ "  \\%-10[quit-help]  このヘルプを終了する。\n"
-#~ "  \\%-10[quit]  Info も一緒に終了する。\n"
-#~ "  \\%-10[get-info-help-node]  Info チュートリアルを起動する。\n"
-#~ "\n"
-#~ "他のノードを選択する:\n"
-#~ "---------------------\n"
-#~ "  \\%-10[next-node]  このノードの \"次\" のノードへ移動する。\n"
-#~ "  \\%-10[prev-node]  このノードの \"前\" のノードへ移動する。\n"
-#~ "  \\%-10[up-node]  このノードから \"上\" へ移動する。\n"
-#~ "  \\%-10[menu-item]  名前で指定したメニューアイテムを選択する。\n"
-#~ "              メニューアイテムの選択で他のノードが選択される事になる。\n"
-#~ "  \\%-10[xref-item]  相互参照を辿る。参照名を読み取る。\n"
-#~ "  \\%-10[history-node]  このウィンドウで最後に見たノードへ移動する。\n"
-#~ "  \\%-10[move-to-next-xref]  このノード内の次のリンクへスキップする。\n"
-#~ "  \\%-10[move-to-prev-xref]  このノード内の前のリンクへスキップする。\n"
-#~ "  \\%-10[select-reference-this-line]  カーソル位置のリンクを辿る\n"
-#~ "  \\%-10[dir-node]  `ディレクトリ' ノードへ移動する。`\\[goto-node] "
-#~ "(DIR)' と同じ。\n"
-#~ "  \\%-10[top-node]  Top ノードへ移動する。`\\[goto-node] Top' と同じ。\n"
-#~ "\n"
-#~ "ノード内での移動:\n"
-#~ "-----------------\n"
-#~ "  \\%-10[scroll-forward]  1 ページ分前方へすすめる。\n"
-#~ "  \\%-10[scroll-backward]  1 ページ分後方へ戻す。\n"
-#~ "  \\%-10[beginning-of-node]  現在のノードの先頭へ移動する。\n"
-#~ "  \\%-10[end-of-node]  現在のノードの末尾へ移動する。\n"
-#~ "  \\%-10[1scroll-forward]  1 行分前方へすすめる。\n"
-#~ "  \\%-10[1scroll-backward]  1 行分後方へ戻す。\n"
-#~ "\n"
 #~ "その他のコマンド:\n"
-#~ "-----------------\n"
-#~ "  \\%-10[menu-digit]  ノードメニューの最初から 9 番目迄のアイテムを選択す"
-#~ "る。\n"
-#~ "  \\%-10[last-menu-item]  ノードメニューの最後のアイテムを選択する。\n"
-#~ "  \\%-10[index-search]  現在の Info ファイルのインデックス項目で文字列を指"
-#~ "定して検索し、\n"
-#~ "              最初に見つかった項目が参照しているノードを選択する。\n"
-#~ "  \\%-10[goto-node]  名前で指定されたノードへ移動する。\n"
-#~ "              (ファイル名)ノード名の様に、ファイル名を含めることができ"
-#~ "る。\n"
-#~ "  \\%-10[search]  現在の Info ファイル全体を、指定された文字列で前方検索"
-#~ "し、\n"
-#~ "              見つかったものが含まれているノードを選択する。\n"
-#~ "  \\%-10[search-backward]  現在の Info ファイルを、指定された文字列で後方"
-#~ "検索し、\n"
-#~ "              見つかったものが含まれているノードを選択する。\n"
+#~ "---------------\n"
 
-#~ msgid "******************************\n"
-#~ msgstr "*******************************\n"
+#~ msgid "  %-10s  Pick first...ninth item in node's menu.\n"
+#~ msgstr "  %-10s  ノードメニューの1から9番目までのアイテムを選択する。\n"
 
-#~ msgid "---------------------\n"
-#~ msgstr "-----------------\n"
-
-#~ msgid "----------------------\n"
-#~ msgstr "---------------------\n"
-
-#~ msgid "---------------\n"
-#~ msgstr "-----------------\n"
+#~ msgid "  %-10s  Pick last item in node's menu.\n"
+#~ msgstr "  %-10s  ノードメニューの最後のアイテムを選択する。\n"
 
 #~ msgid ""
 #~ "  %-10s  Search for a specified string in the index entries of this Info\n"
+#~ "              file, and select the node referenced by the first entry "
+#~ "found.\n"
 #~ msgstr ""
-#~ "  %-10s  現在の Info ファイルのインデックス項目で、文字列を指定して検索"
-#~ "し、\n"
+#~ "  %-10s  この Info ファイルの項目に含まれる指定の文字列を検索し、最初に\n"
+#~ "              一致した項目から参照されているノードに移動する。\n"
 
-#~ msgid "  %-10s  Search backward in this Info file for a specified string,\n"
+#~ msgid ""
+#~ "  %-10s  Move to node specified by name.\n"
+#~ "              You may include a filename as well, as in "
+#~ "(FILENAME)NODENAME.\n"
 #~ msgstr ""
-#~ "\\\\  %-10s  現在の Info ファイルを、指定された文字列で後方検索し、\n"
+#~ "  %-10s  指定した名前のノードに移動します。\n"
+#~ "              `(ファイル名)ノード名' のようにファイル名も含める\n"
+#~ "              ことができます。\n"
 
-#~ msgid "--- Use `\\[history-node]' or `\\[kill-node]' to exit ---\n"
+#~ msgid ""
+#~ "  %-10s  Search forward for a specified string,\n"
+#~ "              and select the node in which the next occurrence is found.\n"
 #~ msgstr ""
-#~ "--- 終了するには `\\[history-node]' か `\\[kill-node]' を使ってください "
-#~ "---\n"
+#~ "  %-10s  指定した文字列を前方検索する\n"
+#~ "              次に一致した文字列が見つかった場合はノードを選択する。\n"
+
+#~ msgid ""
+#~ "  %-10s  Search backward for a specified string,\n"
+#~ "              and select the node in which the next occurrence is found.\n"
+#~ msgstr ""
+#~ "  %-10s  指定した文字列を後方検索する\n"
+#~ "              次に一致した文字列が見つかった場合はノードを選択する。\n"
+
+#~ msgid "ESC %s is undefined."
+#~ msgstr "ESC %s は定義されていません。"
+
+#~ msgid "%s is defined to %s."
+#~ msgstr "%s は %s に定義されています。"
+
+#~ msgid ""
+#~ "Selecting other nodes:\n"
+#~ "----------------------\n"
+#~ msgstr ""
+#~ "他のノードを選択する:\n"
+#~ "----------------------\n"
+
+#~ msgid "incorrect number of arguments"
+#~ msgstr "引数の数字が間違っています"
+
+#~ msgid "cannot open input file `%s'"
+#~ msgstr "入力ファイル `%s' を開けません"
+
+#~ msgid "cannot create output file `%s'"
+#~ msgstr "出力ファイル `%s' を作成できません"
+
+#~ msgid "error writing to `%s'"
+#~ msgstr "`%s' への書き込み中にエラーが発生しました"
+
+#~ msgid "error closing output file `%s'"
+#~ msgstr "出力ファイル `%s' を閉じる際にエラーが発生しました"
+
+#~ msgid "section too long"
+#~ msgstr "セクションが長すぎます"
 
 #~ msgid ""
 #~ "Usage: %s [OPTION]... [INPUT-FILE]\n"
 #~ "\n"
-#~ "Options:\n"
-#~ "  --output FILENAME            output to FILENAME instead of $HOME/.info\n"
-#~ "  --help                       display this help and exit.\n"
-#~ "  --version                    display version information and exit.\n"
-#~ "\n"
 #~ "Compile infokey source file to infokey file.  Reads INPUT-FILE (default\n"
-#~ "$HOME/.infokey) and writes compiled key file to $HOME/.info.\n"
-#~ "\n"
-#~ "Email bug reports to bug-texinfo@gnu.org,\n"
-#~ "general questions and discussion to help-texinfo@gnu.org.\n"
-#~ msgstr ""
-#~ "使い方: %s [オプション]... [入力ファイル]\n"
-#~ "\n"
-#~ "オプション:\n"
-#~ "  --output FILENAME            出力先を $HOME/.info の代りに FILENAME とす"
-#~ "る\n"
-#~ "  --help                       このヘルプを表示して終了する\n"
-#~ "  --version                    バージョン情報を表示して終了する\n"
-#~ "\n"
-#~ "infokey ソースファイルをコンパイルして infokey ファイルを出力する。\n"
-#~ "入力ファイル(デフォルト: $HOME/.infokey) を読み取って、\n"
-#~ "コンパイル済キーファイル $HOME/.info に書き込む。\n"
-#~ "\n"
-#~ "バグレポートは bug-texinfo@gnu.org へ、\n"
-#~ "一般的な質問や議論は help-texinfo@gnu.org へ。\n"
-
-#~ msgid "Following Next node..."
-#~ msgstr "次 のノードを辿っています..."
-
-#~ msgid "Selecting first menu item..."
-#~ msgstr "最初のメニュー項目を選択..."
-
-#~ msgid "Selecting Next node..."
-#~ msgstr "次 のノードを選択..."
-
-#~ msgid "Moving Up %d time(s), then Next."
-#~ msgstr "%d 回 上 に移動し、そこで 次 へ。"
-
-#~ msgid "Moving Prev in this window."
-#~ msgstr "このウィンドウの 前 に移動します。"
-
-#~ msgid "Moving Up in this window."
-#~ msgstr "このウィンドウの 上 に移動します。"
-
-#~ msgid "Moving to `Prev's last menu item."
-#~ msgstr "`前' の最後のメニュー項目に移動します。"
-
-#~ msgid " "
-#~ msgstr " "
-
-#~ msgid "\"\" is invalid"
-#~ msgstr "\"\" は無効です"
-
-#~ msgid "Function"
-#~ msgstr "機能"
-
-#~ msgid "Macro"
-#~ msgstr "マクロ"
-
-#~ msgid "Special Form"
-#~ msgstr "特殊型"
-
-#~ msgid "Variable"
-#~ msgstr "変数"
-
-#~ msgid "User Option"
-#~ msgstr "ユーザオプション"
-
-#~ msgid "Instance Variable"
-#~ msgstr "インスタンス変数"
-
-#~ msgid "Method"
-#~ msgstr "メソッド"
-
-#~ msgid "Untitled"
-#~ msgstr "無題"
-
-#~ msgid "%s is an invalid ISO code, using %c"
-#~ msgstr "%s は不適切な ISO コードです。%c を使います"
-
-#~ msgid "@quote-arg only useful for single-argument macros"
-#~ msgstr "@quote-arg は、引数を一つ与えたときのみ有効です"
-
-#~ msgid ""
-#~ "Conditional processing in input:\n"
-#~ "     --ifhtml      process @ifhtml and @html even if not generating "
-#~ "HTML.\n"
-#~ "     --ifinfo      process @ifinfo text even when generating HTML.\n"
-#~ "     --iftex       process @iftex and @tex text; implies --no-split.\n"
-#~ "     --no-ifhtml   do not process @ifhtml and @html text.\n"
-#~ "     --no-ifinfo   do not process @ifinfo text.\n"
-#~ "     --no-iftex    do not process @iftex and @tex text.\n"
-#~ msgstr ""
-#~ "入力の条件的処理:\n"
-#~ "     --ifhtml      HTML 生成でなくても、@ifhtml や @html を処理する。\n"
-#~ "     --ifinfo      HTML 生成するときでも、@ifinfo テクストを処理する。\n"
-#~ "     --iftex       @iftex や @tex テクストを処理する -- 暗黙に --no-"
-#~ "split。\n"
-#~ "     --no-ifhtml   @ifhtml や @html テクストを処理しない。\n"
-#~ "     --no-ifinfo   @ifinfo テクストを処理しない。\n"
-#~ "     --no-iftex    @iftex や @tex テクストを処理しない。\n"
-
-#~ msgid ""
-#~ "Email bug reports to bug-texinfo@gnu.org,\n"
-#~ "general questions and discussion to help-texinfo@gnu.org."
-#~ msgstr ""
-#~ "Email によるバグレポートは bug-texinfo@gnu.org、\n"
-#~ "一般的な質問や議論は help-texinfo@gnu.org まで。"
-
-#~ msgid "Cannot specify more than one macro expansion output"
-#~ msgstr "複数のマクロ拡張出力を指定できません"
-
-#~ msgid "This is %s, produced by makeinfo version %s from %s.\n"
-#~ msgstr ""
-#~ "これは %1$s、%3$s より makeinfo バージョン %2$s によって作成されました。\n"
-
-#~ msgid "see "
-#~ msgstr "see "
-
-#~ msgid "No `%s.png' or `.jpg', and no extension supplied"
-#~ msgstr "`%s.png' や `.jpg' がなく、拡張子がつけられていません"
-
-#~ msgid "Node:"
-#~ msgstr "ノード:"
-
-#~ msgid "Next:"
-#~ msgstr "次:"
-
-#~ msgid "Previous:"
-#~ msgstr "前:"
-
-#~ msgid "Up:"
-#~ msgstr "上:"
-
-#~ msgid "Menu"
-#~ msgstr "メニュー"
-
-#~ msgid "Cross"
-#~ msgstr "相互"
-
-#~ msgid "Prev"
-#~ msgstr "前"
-
-#~ msgid "`%s' has no Up field"
-#~ msgstr "`%s' に 上 フィールドがありません"
-
-#~ msgid "Up"
-#~ msgstr "上"
-
-#~ msgid "node `%s' has been referenced %d times"
-#~ msgstr "ノード `%s' は既に %d 回参照されています"
-
-#~ msgid "Table of Contents"
-#~ msgstr "目次"
-
-#~ msgid "Short Contents"
-#~ msgstr "簡易目次"
-
-#~ msgid "%s: TOC should be here, but it was not found"
-#~ msgstr "%s: TOC がここにあるはずなのに、見つかりません"
-
-#~ msgid ""
-#~ "Usage: %s [OPTION]... [INFO-FILE [DIR-FILE]]\n"
-#~ "\n"
-#~ "Install or delete dir entries from INFO-FILE in the Info directory file\n"
-#~ "DIR-FILE.\n"
+#~ "$HOME/.infokey) and writes compiled key file to (by default) $HOME/."
+#~ "info.\n"
 #~ "\n"
 #~ "Options:\n"
-#~ " --delete          delete existing entries for INFO-FILE from DIR-FILE;\n"
-#~ "                     don't insert any new entries.\n"
-#~ " --dir-file=NAME   specify file name of Info directory file.\n"
-#~ "                     This is equivalent to using the DIR-FILE argument.\n"
-#~ " --entry=TEXT      insert TEXT as an Info directory entry.\n"
-#~ "                     TEXT should have the form of an Info menu item line\n"
-#~ "                     plus zero or more extra lines starting with "
-#~ "whitespace.\n"
-#~ "                     If you specify more than one entry, they are all "
-#~ "added.\n"
-#~ "                     If you don't specify any entries, they are "
-#~ "determined\n"
-#~ "                     from information in the Info file itself.\n"
-#~ " --help            display this help and exit.\n"
-#~ " --info-file=FILE  specify Info file to install in the directory.\n"
-#~ "                     This is equivalent to using the INFO-FILE argument.\n"
-#~ " --info-dir=DIR    same as --dir-file=DIR/dir.\n"
-#~ " --item=TEXT       same as --entry TEXT.\n"
-#~ "                     An Info directory entry is actually a menu item.\n"
-#~ " --quiet           suppress warnings.\n"
-#~ " --remove          same as --delete.\n"
-#~ " --section=SEC     put this file's entries in section SEC of the "
-#~ "directory.\n"
-#~ "                     If you specify more than one section, all the "
-#~ "entries\n"
-#~ "                     are added in each of the sections.\n"
-#~ "                     If you don't specify any sections, they are "
-#~ "determined\n"
-#~ "                     from information in the Info file itself.\n"
-#~ " --version         display version information and exit.\n"
-#~ "\n"
-#~ "Email bug reports to bug-texinfo@gnu.org,\n"
-#~ "general questions and discussion to help-texinfo@gnu.org.\n"
+#~ "  --output FILE        output to FILE instead of $HOME/.info\n"
+#~ "  --help               display this help and exit.\n"
+#~ "  --version            display version information and exit.\n"
 #~ msgstr ""
-#~ "使い方: %s [オプション]... [INFOファイル [DIRファイル]]\n"
+#~ "使用法: %s [OPTION]... [INPUT-FILE]\n"
 #~ "\n"
-#~ "Info ディレクトリファイル `DIRファイル' 内の `INFOファイル' から\n"
-#~ "dir エントリをインストールまたは削除します。\n"
+#~ "infokey ソースファイルをコンパイルし、infokey ファイルを作成します。INPUT-"
+#~ "FILE (デフォルトは\n"
+#~ "$HOME/.infokey) を読み込み、コンパイルしたキーファイルを (デフォルトでは) "
+#~ "$HOME/.info に\n"
+#~ "書き込みます。\n"
 #~ "\n"
 #~ "オプション:\n"
-#~ " --delete          現存する INFOファイル の項目を DIRファイル から削除す"
-#~ "る\n"
-#~ "                     -- 新たな項目を挿入しない\n"
-#~ " --dir-file=NAME   Info ディレクトリファイルのファイル名を指定する\n"
-#~ "                     DIR-FILE 引数を利用するのと同じ\n"
-#~ " --entry=TEXT      Info ディレクトリ項目として TEXT を挿入する\n"
-#~ "                     TEXT は、Info のメニューアイテムの行の形式でなければ"
-#~ "ならず\n"
-#~ "                     これに、空白で始まるいくつかの行を追加できる\n"
-#~ "                     複数行の項目を指定した場合、全てが加えられる\n"
-#~ "                     項目を指定しなければ、Info ファイル自身の情報によっ"
-#~ "て\n"
-#~ "                     決定する\n"
-#~ " --help            使い方を表示して終了する。\n"
-#~ " --info-file=FILE  ディレクトリにインストールする Info ファイルを指定す"
-#~ "る\n"
-#~ "                     INFO-FILE 引数を利用するのと同じ\n"
-#~ " --info-dir=DIR    --dir-file=DIR/dir オプションと同じ\n"
-#~ " --item=TEXT       --entry TEXT オプションと同じ\n"
-#~ "                     Info ディレクトリ項目は実際にメニュー項目になる\n"
-#~ " --quiet           警告メッセージを抑制する\n"
-#~ " --remove          --delete オプションと同じ\n"
-#~ " --section=SEC     ディレクトリの SEC セクションにこのファイルの項目を置"
-#~ "く\n"
-#~ "                     複数のセクションを指定した場合、セクション毎に全ての"
-#~ "項目\n"
-#~ "                     が追加される\n"
-#~ "                     セクションを指定しなければ、Info ファイル自身の情報"
-#~ "に\n"
-#~ "                     よって決定する\n"
-#~ " --version         バージョン情報を表示して終了する。\n"
-#~ "\n"
-#~ "Email によるバグレポートは bug-texinfo@gnu.org、\n"
-#~ "一般的な質問や議論は help-texinfo@gnu.org まで。\n"
+#~ "  --output FILE        $HOME/.info の代わりに FILE へ出力する\n"
+#~ "  --help               このヘルプメッセージを表示して終了する\n"
+#~ "  --version            バージョン情報を表示して終了する\n"
 
-#~ msgid "%s: Specify the Info directory only once.\n"
-#~ msgstr "%s: Info ディレクトリは一度だけ指定してください。\n"
+#~ msgid "Ignoring invalid infokey file `%s' - too small"
+#~ msgstr "無効な infokey ファイル `%s' を無視します - 小さすぎます"
 
-#~ msgid "menu item `%s' already exists, for file `%s'"
-#~ msgstr "メニュー項目 `%s' は、`%s' に既に存在します"
+#~ msgid "Ignoring invalid infokey file `%s' - too big"
+#~ msgstr "無効な infokey ファイル `%s' を無視します - 大きすぎます"
 
-#~ msgid "keep temporary files around after processing"
-#~ msgstr "処理の後にテンポラリファイルを残しておきます"
-
-#~ msgid "do not keep temporary files around after processing (default)"
-#~ msgstr "処理のあとにテンポラリファイルを削除します (default)"
-
-#~ msgid "%s; for file `%s'.\n"
-#~ msgstr "%s -- ファイル `%s'。\n"
-
-#~ msgid "%s' argument to @image command not found"
-#~ msgstr "@image コマンドへの %s の引数が見つかりません"
+#~ msgid "Error reading infokey file `%s' - short read"
+#~ msgstr ""
+#~ "infokey ファイル `%s' 読込み中にエラーが発生しました - 読み込みが短すぎま"
+#~ "す"
 
 #~ msgid ""
-#~ "Usage: %s [OPTION]... TEXINFO-FILE...\n"
-#~ "\n"
-#~ "Translate Texinfo source documentation to various other formats:\n"
-#~ "Info files suitable for reading online with Emacs or standalone GNU Info\n"
-#~ "(by default); plain text (with --no-headers); or HTML (with --html).\n"
+#~ "Invalid infokey file `%s' (bad magic numbers) -- run infokey to update it"
+#~ msgstr ""
+#~ "infokey ファイル `%s' が無効 (間違ったマジック番号) です -- infokey を実行"
+#~ "して更新してください"
+
+#~ msgid "Your infokey file `%s' is out of date -- run infokey to update it"
+#~ msgstr ""
+#~ "あなたの infokey ファイル `%s' は古いです -- infokey を実行して更新してく"
+#~ "ださい"
+
+#~ msgid ""
+#~ "Invalid infokey file `%s' (bad section length) -- run infokey to update it"
+#~ msgstr ""
+#~ "infokey ファイル `%s' が無効 (間違ったセクション長) です -- infokey を実行"
+#~ "して更新してください"
+
+#~ msgid ""
+#~ "Invalid infokey file `%s' (bad section code) -- run infokey to update it"
+#~ msgstr ""
+#~ "infokey ファイル `%s' が無効 (間違ったセクションコード) です -- infokey を"
+#~ "実行して更新してください"
+
+#~ msgid "Bad data in infokey file -- some key bindings ignored"
+#~ msgstr ""
+#~ "infokey ファイルに間違ったデータがあります -- いくつかのキーバインドが無視"
+#~ "されました"
+
+#~ msgid "Bad data in infokey file -- some var settings ignored"
+#~ msgstr ""
+#~ "infokey ファイルに間違ったデータがあります -- いくつかの変数設定が無視され"
+#~ "ました"
+
+#~ msgid "Next"
+#~ msgstr "次"
+
+#~ msgid "No `Prev' for this node."
+#~ msgstr "このノードの `前' はありません。"
+
+#~ msgid "Kill node (%s): "
+#~ msgstr "ノードの切り取り (%s): "
+
+#~ msgid "Cannot kill node `%s'"
+#~ msgstr "`%s' ノードを切り取れません"
+
+#~ msgid "Cannot kill the last node"
+#~ msgstr "最後のノードは切り取れません"
+
+#~ msgid "Kill this node"
+#~ msgstr "このノードを切り取る"
+
+#~ msgid "writing file %s"
+#~ msgstr "ファイル %s を書き込み中..."
+
+#~ msgid "closing file %s"
+#~ msgstr "ファイル %s を閉じています"
+
+#~ msgid "Internally used by \\[universal-argument]"
+#~ msgstr "内部的に \\[universal-argument] によって利用されます"
+
+#~ msgid "--*** Tags out of Date ***"
+#~ msgstr "--*** 旧式のタグ ***"
+
+#~ msgid "-%s---Info: %s, %d lines --%s--"
+#~ msgstr "-%s---Info: %s, %d 行 --%s--"
+
+#~ msgid "-%s%s-Info: (%s)%s, %d lines --%s--"
+#~ msgstr "-%s%s-Info: (%s)%s, %d 行 --%s--"
+
+#~ msgid " Subfile: %s"
+#~ msgstr " 副ファイル: %s"
+
+#~ msgid "Usage: makeinfo [OPTION]... TEXINFO-FILE...\n"
+#~ msgstr "使用法: makeinfo [OPTION]... TEXINFO-FILE...\n"
+
+#~ msgid "  or:  texi2any [OPTION]... TEXINFO-FILE...\n"
+#~ msgstr " または: texi2any [OPTION]... TEXINFO-FILE...\n"
+
+#~ msgid "display this help and exit"
+#~ msgstr "このヘルプを表示して終了する"
+
+#~ msgid "send output to FILE"
+#~ msgstr "出力を FILE に送る"
+
+#~ msgid "Generate a sorted index for each TeX output FILE.\n"
+#~ msgstr "各 TeX 出力の FILE に対するソート済み索引を生成します。\n"
+
+#~ msgid ""
+#~ "Usually FILE... is specified as `foo.%c%c' for a document `foo.texi'.\n"
+#~ msgstr ""
+#~ "通常 FILE... は `foo.texi' 文書に対して`foo.%c%c' として指定します。\n"
+
+#~ msgid ""
 #~ "\n"
 #~ "Options:\n"
-#~ " --commands-in-node-names  allow @ commands in node names.\n"
-#~ " -D VAR                    define a variable, as with @set.\n"
-#~ " -E, --macro-expand FILE   output macro-expanded source to FILE.\n"
-#~ " --error-limit=NUM         quit after NUM errors (default %d).\n"
-#~ " --fill-column=NUM         break Info lines at NUM characters (default "
-#~ "%d).\n"
-#~ " --footnote-style=STYLE    output footnotes according to STYLE:\n"
-#~ "                            `separate' to place footnotes in their own "
-#~ "node,\n"
-#~ "                            `end' to place the footnotes at the end of "
-#~ "the\n"
-#~ "                             node in which they are defined (the "
-#~ "default).\n"
-#~ " --force                   preserve output even if errors.\n"
-#~ " --help                    display this help and exit.\n"
-#~ " --html                    output HTML rather than Info format;\n"
-#~ " -I DIR                    append DIR to the @include search path.\n"
-#~ " --ifhtml                  process @ifhtml and @html text even when not\n"
-#~ "                             generating HTML.\n"
-#~ " --ifinfo                  process @ifinfo text even when generating "
-#~ "HTML.\n"
-#~ " --iftex                   process @iftex and @tex text.\n"
-#~ "                             implies --no-split.\n"
 #~ msgstr ""
-#~ "使い方: %s [オプション]... TEXINFOファイル...\n"
-#~ "\n"
-#~ "Texinfo 文書のソースをいろいろな形式で読めるように変換する。\n"
-#~ "Info ファイルは Emacs や GNU Info でオンライン上で読むのに適します\n"
-#~ "(デフォルト)。プレインテキストは(--no-headers)、HTML は(--html)。\n"
 #~ "\n"
 #~ "オプション:\n"
-#~ " --commands-in-node-names ノード名に @ コマンドを置けるようにする\n"
-#~ " -D VAR                   変数を設定する。@set と同じ\n"
-#~ " -E, --macro-expand FILE  マクロ拡張されたソースを FILE に出力\n"
-#~ " --error-limit=NUM        エラーが NUM 個発生したら処理を中止する "
-#~ "(default %d)\n"
-#~ " --fill-column=NUM        NUM この文字数で改行を入れる (default %d)\n"
-#~ " --footnote-style STYLE   脚注を 以下のような STYLE で出力する:\n"
-#~ "                            `separate' そのノードに脚注を置く\n"
-#~ "                            `end' 脚注が定義されたノードの最後に置く"
-#~ "(default)\n"
-#~ " --force                  エラーがいくつ発生しても、出力を保存する。\n"
-#~ " --help                   使い方を表示する。\n"
-#~ " --ifhtml                 HTML を生成しないときにも、@ifhtml と @html の\n"
-#~ "                            テキストを処理する\n"
-#~ " --ifinfo                 HTML を生成するときにも @ifinfo のテキストを処理"
-#~ "する\n"
-#~ " --iftex                  @iftex と @tex のテキストを処理する\n"
-#~ "                            --no-split を指定したことになる\n"
 
-#~ msgid ""
-#~ " --no-headers              suppress Info node separators and Node: lines "
-#~ "and\n"
-#~ "                             write to standard output without --output.\n"
-#~ " --no-ifhtml               do not process @ifhtml and @html text.\n"
-#~ " --no-ifinfo               do not process @ifinfo text.\n"
-#~ " --no-iftex                do not process @iftex and @tex text.\n"
-#~ " --no-split                suppress splitting of large Info output files "
-#~ "or\n"
-#~ "                           generation of one HTML file per node.\n"
-#~ " --no-validate             suppress node cross-reference validation.\n"
-#~ " --no-warn                 suppress warnings (but not errors).\n"
-#~ " --number-sections         include chapter, section, etc. numbers in "
-#~ "output.\n"
-#~ " -o, --output=FILE         output to FILE, ignoring any @setfilename.\n"
-#~ " -P DIR                    prepend DIR to the @include search path.\n"
-#~ " --paragraph-indent=VAL    indent Info paragraphs by VAL spaces (default "
-#~ "%d).\n"
-#~ "                             if VAL is `none', do not indent;\n"
-#~ "                             if VAL is `asis', preserve existing "
-#~ "indentation.\n"
-#~ " --reference-limit=NUM     warn about at most NUM references (default "
-#~ "%d).\n"
-#~ " -U VAR                    undefine a variable, as with @clear.\n"
-#~ " -v, --verbose             explain what is being done.\n"
-#~ " --version                 display version information and exit.\n"
-#~ msgstr ""
-#~ " --no-headers              ノード分割記号と Node: 行を抑制して、\n"
-#~ "                             --output なしでも標準出力に書込む\n"
-#~ " --no-ifhtml               @ifhtml や @html のテキストを処理しない\n"
-#~ " --no-ifinfo               @ifinfo のテキストを処理しない\n"
-#~ " --no-iftex                @iftex や @tex のテキストを処理しない\n"
-#~ " --no-split                大きな Info 出力ファイルの分割やノード毎の "
-#~ "HTML\n"
-#~ "                             ファイル生成を抑制する\n"
-#~ " --no-validate             ノード相互参照の確認を抑制する\n"
-#~ " --no-warn                 警告を抑制する (エラーは表示される)\n"
-#~ " --number-sections         章や節に通し番号を付けて出力する\n"
-#~ " -o, --output=FILE         @setfilename を無視して、FILE へ出力する\n"
-#~ " -P DIR                    @include 検索パスに DIR を追加する\n"
-#~ " --paragraph-indent=VAL    段落を VAL 個の空白でインデントする (default "
-#~ "%d)\n"
-#~ "                             VAL が `none' ならインデントしない\n"
-#~ "                             VAL が `asis' ならインデント量をあるままに保"
-#~ "つ\n"
-#~ " --reference-limit=NUM     最大 NUM 個の参照について警告する (default "
-#~ "%d)\n"
-#~ " -U VAR                    @clear の様に変数 VAR を未定義にする\n"
-#~ " -v, --verbose             何が行なわれているかを報告する\n"
-#~ " --version                 バージョン情報を表示して終了する\n"
+#~ msgid "failure reopening %s"
+#~ msgstr "%s のを再度開くのに失敗しました"
 
-#~ msgid "block size"
-#~ msgstr "ブロックサイズ"
+#~ msgid "%s: not a texinfo index file"
+#~ msgstr "%s: texinfo の索引ファイルではありません"
 
-#~ msgid "%s exists but is not a directory"
-#~ msgstr "%s は存在しますがディレクトリではありません"
+#~ msgid "No page number in %s"
+#~ msgstr "%s にページ番号がありません"
 
-#~ msgid "cannot change owner and/or group of %s"
-#~ msgstr "%s のオーナーとグループを変更できません"
-
-#~ msgid "cannot chdir to directory %s"
-#~ msgstr "ディレクトリ %s に移動できません"
-
-#~ msgid "cannot get the login group of a numeric UID"
-#~ msgstr "数字のUIDのログイングループを取得できません"
-
-#~ msgid ""
-#~ "\n"
-#~ "This is free software.  You may redistribute copies of it under the terms "
-#~ "of\n"
-#~ "the GNU General Public License <http://www.gnu.org/licenses/gpl.html>.\n"
-#~ "There is NO WARRANTY, to the extent permitted by law.\n"
-#~ "\n"
-#~ msgstr ""
-#~ "\n"
-#~ "本プログラムはフリーソフトウェアです. GNU一般公有使用許諾\n"
-#~ "<http://www.gnu.org/licenses/gpl.html> で定められた条項の下で本プログラ\n"
-#~ "ムのコピーを再配布できます. 適切な法が認る限りにおいて全くの無保証です.\n"
-#~ "\n"
+#~ msgid "entry %s follows an entry with a secondary name"
+#~ msgstr "%s 項目に二つ目の項目名が続いています"

@@ -39,11 +39,7 @@ $result_trees{'titlefont_in_example'} = {
               [
                 {}
               ]
-            ],
-            'spaces_before_argument' => {
-              'text' => '',
-              'type' => 'empty_spaces_before_argument'
-            }
+            ]
           },
           'line_nr' => {
             'file_name' => '',
@@ -161,7 +157,7 @@ $result_errors{'titlefont_in_example'} = [];
 
 
 $result_converted{'plaintext'}->{'titlefont_in_example'} = '     Title
-**********
+     *****
 
      Text.
 ';
@@ -169,6 +165,7 @@ $result_converted{'plaintext'}->{'titlefont_in_example'} = '     Title
 
 $result_converted{'html_text'}->{'titlefont_in_example'} = '<div class="example">
 <h1 class="titlefont">Title</h1><pre class="example">
+
 Text.
 </pre></div>
 ';

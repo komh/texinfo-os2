@@ -137,11 +137,7 @@ $result_trees{'anchor_in_footnote'} = {
                             'node_content' => [
                               {}
                             ],
-                            'normalized' => 'Anchor-in-footnote',
-                            'spaces_before_argument' => {
-                              'text' => '',
-                              'type' => 'empty_spaces_before_argument'
-                            }
+                            'normalized' => 'Anchor-in-footnote'
                           },
                           'line_nr' => {
                             'file_name' => '',
@@ -166,13 +162,6 @@ $result_trees{'anchor_in_footnote'} = {
               ],
               'cmdname' => 'footnote',
               'contents' => [],
-              'extra' => {
-                'spaces_before_argument' => {
-                  'parent' => {},
-                  'text' => '',
-                  'type' => 'empty_spaces_before_argument'
-                }
-              },
               'line_nr' => {
                 'file_name' => '',
                 'line_nr' => 4,
@@ -451,10 +440,6 @@ $result_trees{'anchor_in_footnote'} = {
                     {}
                   ],
                   'normalized' => 'Anchor-in-footnote'
-                },
-                'spaces_before_argument' => {
-                  'text' => '',
-                  'type' => 'empty_spaces_before_argument'
                 }
               },
               'line_nr' => {
@@ -518,7 +503,6 @@ $result_trees{'anchor_in_footnote'}{'contents'}[2]{'contents'}[1]{'contents'}[1]
 $result_trees{'anchor_in_footnote'}{'contents'}[2]{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'anchor_in_footnote'}{'contents'}[2]{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'anchor_in_footnote'}{'contents'}[2]{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'anchor_in_footnote'}{'contents'}[2]{'contents'}[1]{'contents'}[1]{'args'}[0];
 $result_trees{'anchor_in_footnote'}{'contents'}[2]{'contents'}[1]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'anchor_in_footnote'}{'contents'}[2]{'contents'}[1]{'contents'}[1];
-$result_trees{'anchor_in_footnote'}{'contents'}[2]{'contents'}[1]{'contents'}[1]{'extra'}{'spaces_before_argument'}{'parent'} = $result_trees{'anchor_in_footnote'}{'contents'}[2]{'contents'}[1]{'contents'}[1]{'args'}[0];
 $result_trees{'anchor_in_footnote'}{'contents'}[2]{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'anchor_in_footnote'}{'contents'}[2]{'contents'}[1];
 $result_trees{'anchor_in_footnote'}{'contents'}[2]{'contents'}[1]{'contents'}[2]{'parent'} = $result_trees{'anchor_in_footnote'}{'contents'}[2]{'contents'}[1];
 $result_trees{'anchor_in_footnote'}{'contents'}[2]{'contents'}[1]{'parent'} = $result_trees{'anchor_in_footnote'}{'contents'}[2];
@@ -781,16 +765,16 @@ $result_converted{'html'}->{'anchor_in_footnote'} = '<!DOCTYPE html PUBLIC "-//W
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
 blockquote.smallquotation {font-size: smaller}
 div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
-div.indentedblock {margin-left: 3.2em}
 div.lisp {margin-left: 3.2em}
 div.smalldisplay {margin-left: 3.2em}
 div.smallexample {margin-left: 3.2em}
-div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
 div.smalllisp {margin-left: 3.2em}
-kbd {font-style:oblique}
+kbd {font-style: oblique}
 pre.display {font-family: inherit}
 pre.format {font-family: inherit}
 pre.menu-comment {font-family: serif}
@@ -799,10 +783,9 @@ pre.smalldisplay {font-family: inherit; font-size: smaller}
 pre.smallexample {font-size: smaller}
 pre.smallformat {font-family: inherit; font-size: smaller}
 pre.smalllisp {font-size: smaller}
-span.nocodebreak {white-space:nowrap}
-span.nolinebreak {white-space:nowrap}
-span.roman {font-family:serif; font-weight:normal}
-span.sansserif {font-family:sans-serif; font-weight:normal}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
@@ -810,7 +793,7 @@ ul.no-bullet {list-style: none}
 
 </head>
 
-<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<body lang="en">
 <a name="Top"></a>
 <div class="header">
 <p>
@@ -830,7 +813,7 @@ Next: <a href="#chapter" accesskey="n" rel="next">chapter</a>, Up: <a href="dir.
 <a name="chapter"></a>
 <div class="header">
 <p>
-Previous: <a href="#Top" accesskey="p" rel="previous">Top</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; </p>
+Previous: <a href="#Top" accesskey="p" rel="prev">Top</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; </p>
 </div>
 <a name="Chap"></a>
 <h2 class="chapter">1 Chap</h2>

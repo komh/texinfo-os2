@@ -36,11 +36,7 @@ $result_trees{'no_paragraph_commands'} = {
           [
             {}
           ]
-        ],
-        'spaces_before_argument' => {
-          'text' => '',
-          'type' => 'empty_spaces_before_argument'
-        }
+        ]
       },
       'line_nr' => {
         'file_name' => '',
@@ -126,11 +122,7 @@ $result_trees{'no_paragraph_commands'} = {
           [
             {}
           ]
-        ],
-        'spaces_before_argument' => {
-          'text' => '',
-          'type' => 'empty_spaces_before_argument'
-        }
+        ]
       },
       'line_nr' => {
         'file_name' => '',
@@ -201,13 +193,13 @@ $result_converted{'html_text'}->{'no_paragraph_commands'} = '<br>
 
 $result_converted_errors{'html_text'}->{'no_paragraph_commands'} = [
   {
-    'file_name' => '',
     'error_line' => ':3: warning: @image file `aa\' (for HTML) not found, using `aa.ee\'
 ',
-    'text' => '@image file `aa\' (for HTML) not found, using `aa.ee\'',
-    'type' => 'warning',
+    'file_name' => '',
+    'line_nr' => 3,
     'macro' => '',
-    'line_nr' => 3
+    'text' => '@image file `aa\' (for HTML) not found, using `aa.ee\'',
+    'type' => 'warning'
   }
 ];
 

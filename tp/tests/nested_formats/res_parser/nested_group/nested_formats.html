@@ -13,16 +13,16 @@
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
 blockquote.smallquotation {font-size: smaller}
 div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
-div.indentedblock {margin-left: 3.2em}
 div.lisp {margin-left: 3.2em}
 div.smalldisplay {margin-left: 3.2em}
 div.smallexample {margin-left: 3.2em}
-div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
 div.smalllisp {margin-left: 3.2em}
-kbd {font-style:oblique}
+kbd {font-style: oblique}
 pre.display {font-family: inherit}
 pre.format {font-family: inherit}
 pre.menu-comment {font-family: serif}
@@ -31,10 +31,9 @@ pre.smalldisplay {font-family: inherit; font-size: smaller}
 pre.smallexample {font-size: smaller}
 pre.smallformat {font-family: inherit; font-size: smaller}
 pre.smalllisp {font-size: smaller}
-span.nocodebreak {white-space:nowrap}
-span.nolinebreak {white-space:nowrap}
-span.roman {font-family:serif; font-weight:normal}
-span.sansserif {font-family:sans-serif; font-weight:normal}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
@@ -42,7 +41,7 @@ ul.no-bullet {list-style: none}
 
 </head>
 
-<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<body lang="en">
 
 
 
@@ -96,6 +95,7 @@ in macro
 </pre>
 
 html
+
 
 <ul>
 <li> i&ndash;tem 1
@@ -225,6 +225,7 @@ html
 </pre>
 
 html
+
 
 <ul>
 <li> i&ndash;tem 1
@@ -356,6 +357,7 @@ html
 
 html
 
+
 <ul>
 <li> i&ndash;tem 1
 </li><li> i&ndash;tem 2
@@ -485,6 +487,7 @@ in macro
 
 html
 
+
 <ul>
 <li> i&ndash;tem 1
 </li><li> i&ndash;tem 2
@@ -613,6 +616,7 @@ Call macro in itemize in format_command
 </pre>
 
 html
+
 
 <ul>
 <li> i&ndash;tem 1
@@ -745,6 +749,7 @@ html
 
 html
 
+
 <ul>
 <li> i&ndash;tem 1
 </li><li> i&ndash;tem 2
@@ -874,6 +879,7 @@ in macro
 
 html
 
+
 <ul>
 <li> i&ndash;tem 1
 </li><li> i&ndash;tem 2
@@ -1002,6 +1008,7 @@ Call macro in enumerate in format_command
 </pre>
 
 html
+
 
 <ul>
 <li> i&ndash;tem 1
@@ -1136,6 +1143,7 @@ after item</td></tr>
 
 html
 
+
 <ul>
 <li> i&ndash;tem 1
 </li><li> i&ndash;tem 2
@@ -1264,6 +1272,7 @@ in macro
 </pre>
 
 html
+
 
 <ul>
 <li> i&ndash;tem 1
@@ -1394,6 +1403,7 @@ Call macro in mutitable in format_command
 
 html
 
+
 <ul>
 <li> i&ndash;tem 1
 </li><li> i&ndash;tem 2
@@ -1494,13 +1504,17 @@ html
 <pre class="example">in macro
 
 </pre><pre class="example">
+
 </pre><pre class="example">in format_command
 </pre><pre class="example">
+
 Something
 </pre><pre class="example">
+
 Something
 </pre><pre class="example">in group
 </pre><pre class="example">
+
 Something2
 </pre><pre class="example">After
 
@@ -1513,27 +1527,34 @@ Something2
 
 </pre><pre class="example">in group
 </pre><pre class="example">
+
 </pre><blockquote>
 <pre class="example">A quot---ation
 </pre></blockquote>
 <pre class="example">
+
 </pre><a name="subheading-11"></a>
 <strong>subheading</strong>
 <pre class="example">
+
 </pre><pre class="verbatim">in verbatim
 </pre><pre class="example">
 
+
 html
+
 
 </pre><ul>
 <li> <pre class="example">i--tem 1
 </pre></li><li> <pre class="example">i--tem 2
 </pre></li></ul>
 <pre class="example">
+
 </pre><ol>
 <li> <pre class="example">e--numerate
 </pre></li></ol>
 <pre class="example">
+
 </pre><table>
 <thead><tr><th width="60%"><pre class="example">mu--ltitable headitem</pre></th><th width="70%"><pre class="example">another tab</pre></th></tr></thead>
 <tr><td width="60%"><pre class="example">mu--ltitable item</pre></td><td width="70%"><pre class="example">multitable tab</pre></td></tr>
@@ -1541,46 +1562,57 @@ html
 <tr><td width="60%"><pre class="example">lone mu--ltitable item</pre></td></tr>
 </table>
 <pre class="example">
+
 </pre><div class="example">
 <pre class="example">e--xample  some
    text
 </pre></div>
 <pre class="example">
+
 </pre><div class="smallexample">
 <pre class="smallexample">s--mallexample
 </pre></div>
 <pre class="example">
+
 </pre><dl>
 <dt><a name="index-d_002d_002deffn_005fname-22"></a>c--ategory: <strong>d--effn_name</strong> <em>a--rguments...</em></dt>
 <dd><pre class="example">d--effn
 </pre></dd></dl>
 <pre class="example">
+
 </pre><dl compact="compact">
 <dt><tt>a</tt></dt>
 <dd><pre class="example">l--ine
 </pre></dd>
 </dl>
 <pre class="example">
+
 </pre><table class="cartouche" border="1"><tr><td>
 <pre class="example">c--artouche
 </pre></td></tr></table>
 <pre class="example">
+
 </pre><pre class="example">f--lushleft
 </pre><pre class="example">
+
 </pre><pre class="example">f--lushright
 </pre><pre class="example">
+
 </pre><div align="center">ce--ntered line
 </div><pre class="example">
+
 </pre><pre class="example">in macro, a format_command containing some other commands.
 </pre><ul>
 <li> <pre class="example">i--tem 1
 </pre></li><li> <pre class="example">i--tem 2
 </pre></li></ul>
 <pre class="example">
+
 </pre><ol>
 <li> <pre class="example">e--numerate
 </pre></li></ol>
 <pre class="example">
+
 </pre><table>
 <thead><tr><th width="60%"><pre class="example">mu--ltitable headitem</pre></th><th width="70%"><pre class="example">another tab</pre></th></tr></thead>
 <tr><td width="60%"><pre class="example">mu--ltitable item</pre></td><td width="70%"><pre class="example">multitable tab</pre></td></tr>
@@ -1588,49 +1620,62 @@ html
 <tr><td width="60%"><pre class="example">lone mu--ltitable item</pre></td></tr>
 </table>
 <pre class="example">
+
 </pre><div class="example">
 <pre class="example">e--xample  some
    text
 </pre></div>
 <pre class="example">
+
 </pre><div class="smallexample">
 <pre class="smallexample">s--mallexample
 </pre></div>
 <pre class="example">
+
 </pre><dl>
 <dt><a name="index-d_002d_002deffn_005fname-23"></a>c--ategory: <strong>d--effn_name</strong> <em>a--rguments...</em></dt>
 <dd><pre class="example">d--effn
 </pre></dd></dl>
 <pre class="example">
+
 </pre><dl compact="compact">
 <dt><tt>a</tt></dt>
 <dd><pre class="example">l--ine
 </pre></dd>
 </dl>
 <pre class="example">
+
 </pre><table class="cartouche" border="1"><tr><td>
 <pre class="example">c--artouche
 </pre></td></tr></table>
 <pre class="example">
+
 </pre><pre class="example">f--lushleft
 </pre><pre class="example">
+
 </pre><pre class="example">f--lushright
 </pre><pre class="example">
+
 </pre><div align="center">ce--ntered line
 </div><pre class="example">
+
 example  some
    text
 call macro in example
 in macro
 
 </pre><pre class="example">
+
 </pre><pre class="example">in format_command
 </pre><pre class="example">
+
 Something
 </pre><pre class="example">
+
 Something
 </pre><pre class="example">in group
 </pre><pre class="example">
+
 Something2
 </pre><pre class="example">After
 
@@ -1643,27 +1688,34 @@ Something2
 
 </pre><pre class="example">in group
 </pre><pre class="example">
+
 </pre><blockquote>
 <pre class="example">A quot---ation
 </pre></blockquote>
 <pre class="example">
+
 </pre><a name="subheading-12"></a>
 <strong>subheading</strong>
 <pre class="example">
+
 </pre><pre class="verbatim">in verbatim
 </pre><pre class="example">
 
+
 html
+
 
 </pre><ul>
 <li> <pre class="example">i--tem 1
 </pre></li><li> <pre class="example">i--tem 2
 </pre></li></ul>
 <pre class="example">
+
 </pre><ol>
 <li> <pre class="example">e--numerate
 </pre></li></ol>
 <pre class="example">
+
 </pre><table>
 <thead><tr><th width="60%"><pre class="example">mu--ltitable headitem</pre></th><th width="70%"><pre class="example">another tab</pre></th></tr></thead>
 <tr><td width="60%"><pre class="example">mu--ltitable item</pre></td><td width="70%"><pre class="example">multitable tab</pre></td></tr>
@@ -1671,46 +1723,57 @@ html
 <tr><td width="60%"><pre class="example">lone mu--ltitable item</pre></td></tr>
 </table>
 <pre class="example">
+
 </pre><div class="example">
 <pre class="example">e--xample  some
    text
 </pre></div>
 <pre class="example">
+
 </pre><div class="smallexample">
 <pre class="smallexample">s--mallexample
 </pre></div>
 <pre class="example">
+
 </pre><dl>
 <dt><a name="index-d_002d_002deffn_005fname-24"></a>c--ategory: <strong>d--effn_name</strong> <em>a--rguments...</em></dt>
 <dd><pre class="example">d--effn
 </pre></dd></dl>
 <pre class="example">
+
 </pre><dl compact="compact">
 <dt><tt>a</tt></dt>
 <dd><pre class="example">l--ine
 </pre></dd>
 </dl>
 <pre class="example">
+
 </pre><table class="cartouche" border="1"><tr><td>
 <pre class="example">c--artouche
 </pre></td></tr></table>
 <pre class="example">
+
 </pre><pre class="example">f--lushleft
 </pre><pre class="example">
+
 </pre><pre class="example">f--lushright
 </pre><pre class="example">
+
 </pre><div align="center">ce--ntered line
 </div><pre class="example">
+
 </pre><pre class="example">in macro, a format_command containing some other commands.
 </pre><ul>
 <li> <pre class="example">i--tem 1
 </pre></li><li> <pre class="example">i--tem 2
 </pre></li></ul>
 <pre class="example">
+
 </pre><ol>
 <li> <pre class="example">e--numerate
 </pre></li></ol>
 <pre class="example">
+
 </pre><table>
 <thead><tr><th width="60%"><pre class="example">mu--ltitable headitem</pre></th><th width="70%"><pre class="example">another tab</pre></th></tr></thead>
 <tr><td width="60%"><pre class="example">mu--ltitable item</pre></td><td width="70%"><pre class="example">multitable tab</pre></td></tr>
@@ -1718,49 +1781,62 @@ html
 <tr><td width="60%"><pre class="example">lone mu--ltitable item</pre></td></tr>
 </table>
 <pre class="example">
+
 </pre><div class="example">
 <pre class="example">e--xample  some
    text
 </pre></div>
 <pre class="example">
+
 </pre><div class="smallexample">
 <pre class="smallexample">s--mallexample
 </pre></div>
 <pre class="example">
+
 </pre><dl>
 <dt><a name="index-d_002d_002deffn_005fname-25"></a>c--ategory: <strong>d--effn_name</strong> <em>a--rguments...</em></dt>
 <dd><pre class="example">d--effn
 </pre></dd></dl>
 <pre class="example">
+
 </pre><dl compact="compact">
 <dt><tt>a</tt></dt>
 <dd><pre class="example">l--ine
 </pre></dd>
 </dl>
 <pre class="example">
+
 </pre><table class="cartouche" border="1"><tr><td>
 <pre class="example">c--artouche
 </pre></td></tr></table>
 <pre class="example">
+
 </pre><pre class="example">f--lushleft
 </pre><pre class="example">
+
 </pre><pre class="example">f--lushright
 </pre><pre class="example">
+
 </pre><div align="center">ce--ntered line
 </div><pre class="example">
+
 
 more example text
 call macro in example in format_command
 </pre><pre class="example">in macro
 
 </pre><pre class="example">
+
 </pre><pre class="example">in format_command
 </pre><pre class="example">
+
 Something
 </pre><pre class="example">
+
 Something
 </pre><pre class="example">in group
 </pre><pre class="example">
+
 Something2
 </pre><pre class="example">After
 
@@ -1773,27 +1849,34 @@ Something2
 
 </pre><pre class="example">in group
 </pre><pre class="example">
+
 </pre><blockquote>
 <pre class="example">A quot---ation
 </pre></blockquote>
 <pre class="example">
+
 </pre><a name="subheading-13"></a>
 <strong>subheading</strong>
 <pre class="example">
+
 </pre><pre class="verbatim">in verbatim
 </pre><pre class="example">
 
+
 html
+
 
 </pre><ul>
 <li> <pre class="example">i--tem 1
 </pre></li><li> <pre class="example">i--tem 2
 </pre></li></ul>
 <pre class="example">
+
 </pre><ol>
 <li> <pre class="example">e--numerate
 </pre></li></ol>
 <pre class="example">
+
 </pre><table>
 <thead><tr><th width="60%"><pre class="example">mu--ltitable headitem</pre></th><th width="70%"><pre class="example">another tab</pre></th></tr></thead>
 <tr><td width="60%"><pre class="example">mu--ltitable item</pre></td><td width="70%"><pre class="example">multitable tab</pre></td></tr>
@@ -1801,46 +1884,57 @@ html
 <tr><td width="60%"><pre class="example">lone mu--ltitable item</pre></td></tr>
 </table>
 <pre class="example">
+
 </pre><div class="example">
 <pre class="example">e--xample  some
    text
 </pre></div>
 <pre class="example">
+
 </pre><div class="smallexample">
 <pre class="smallexample">s--mallexample
 </pre></div>
 <pre class="example">
+
 </pre><dl>
 <dt><a name="index-d_002d_002deffn_005fname-26"></a>c--ategory: <strong>d--effn_name</strong> <em>a--rguments...</em></dt>
 <dd><pre class="example">d--effn
 </pre></dd></dl>
 <pre class="example">
+
 </pre><dl compact="compact">
 <dt><tt>a</tt></dt>
 <dd><pre class="example">l--ine
 </pre></dd>
 </dl>
 <pre class="example">
+
 </pre><table class="cartouche" border="1"><tr><td>
 <pre class="example">c--artouche
 </pre></td></tr></table>
 <pre class="example">
+
 </pre><pre class="example">f--lushleft
 </pre><pre class="example">
+
 </pre><pre class="example">f--lushright
 </pre><pre class="example">
+
 </pre><div align="center">ce--ntered line
 </div><pre class="example">
+
 </pre><pre class="example">in macro, a format_command containing some other commands.
 </pre><ul>
 <li> <pre class="example">i--tem 1
 </pre></li><li> <pre class="example">i--tem 2
 </pre></li></ul>
 <pre class="example">
+
 </pre><ol>
 <li> <pre class="example">e--numerate
 </pre></li></ol>
 <pre class="example">
+
 </pre><table>
 <thead><tr><th width="60%"><pre class="example">mu--ltitable headitem</pre></th><th width="70%"><pre class="example">another tab</pre></th></tr></thead>
 <tr><td width="60%"><pre class="example">mu--ltitable item</pre></td><td width="70%"><pre class="example">multitable tab</pre></td></tr>
@@ -1848,36 +1942,45 @@ html
 <tr><td width="60%"><pre class="example">lone mu--ltitable item</pre></td></tr>
 </table>
 <pre class="example">
+
 </pre><div class="example">
 <pre class="example">e--xample  some
    text
 </pre></div>
 <pre class="example">
+
 </pre><div class="smallexample">
 <pre class="smallexample">s--mallexample
 </pre></div>
 <pre class="example">
+
 </pre><dl>
 <dt><a name="index-d_002d_002deffn_005fname-27"></a>c--ategory: <strong>d--effn_name</strong> <em>a--rguments...</em></dt>
 <dd><pre class="example">d--effn
 </pre></dd></dl>
 <pre class="example">
+
 </pre><dl compact="compact">
 <dt><tt>a</tt></dt>
 <dd><pre class="example">l--ine
 </pre></dd>
 </dl>
 <pre class="example">
+
 </pre><table class="cartouche" border="1"><tr><td>
 <pre class="example">c--artouche
 </pre></td></tr></table>
 <pre class="example">
+
 </pre><pre class="example">f--lushleft
 </pre><pre class="example">
+
 </pre><pre class="example">f--lushright
 </pre><pre class="example">
+
 </pre><div align="center">ce--ntered line
 </div><pre class="example">
+
 </pre></div>
 
 <div class="smallexample">
@@ -1921,6 +2024,7 @@ in macro
 </pre>
 
 html
+
 
 <ul>
 <li> i&ndash;tem 1
@@ -2050,6 +2154,7 @@ call macro in deffn in format_command
 </pre>
 
 html
+
 
 <ul>
 <li> i&ndash;tem 1
@@ -2183,6 +2288,7 @@ html
 
 html
 
+
 <ul>
 <li> i&ndash;tem 1
 </li><li> i&ndash;tem 2
@@ -2315,6 +2421,7 @@ in macro
 
 html
 
+
 <ul>
 <li> i&ndash;tem 1
 </li><li> i&ndash;tem 2
@@ -2445,6 +2552,7 @@ html
 
 html
 
+
 <ul>
 <li> i&ndash;tem 1
 </li><li> i&ndash;tem 2
@@ -2574,6 +2682,7 @@ html
 </pre>
 
 html
+
 
 <ul>
 <li> i&ndash;tem 1
@@ -2707,6 +2816,7 @@ html
 
 html
 
+
 <ul>
 <li> i&ndash;tem 1
 </li><li> i&ndash;tem 2
@@ -2836,6 +2946,7 @@ in macro
 
 html
 
+
 <ul>
 <li> i&ndash;tem 1
 </li><li> i&ndash;tem 2
@@ -2963,6 +3074,7 @@ html
 </pre>
 
 html
+
 
 <ul>
 <li> i&ndash;tem 1
@@ -3094,6 +3206,7 @@ in macro
 
 html
 
+
 <ul>
 <li> i&ndash;tem 1
 </li><li> i&ndash;tem 2
@@ -3223,6 +3336,7 @@ call macro in flushleft in format_command
 
 html
 
+
 <ul>
 <li> i&ndash;tem 1
 </li><li> i&ndash;tem 2
@@ -3351,6 +3465,7 @@ html
 
 html
 
+
 <ul>
 <li> i&ndash;tem 1
 </li><li> i&ndash;tem 2
@@ -3478,6 +3593,7 @@ html
 </pre>
 
 html
+
 
 <ul>
 <li> i&ndash;tem 1
